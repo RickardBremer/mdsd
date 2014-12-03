@@ -42,4 +42,93 @@
     <element xmi:type="uml:Interaction" href="model.uml#_KawroHrGEeS-VfFzCqLINA"/>
   </notation:Diagram>
   <css:ModelStyleSheets xmi:id="_NgwWwHrHEeS-VfFzCqLINA"/>
+  <notation:Diagram xmi:id="_uDqHoHrPEeS-VfFzCqLINA" type="PapyrusUMLComponentDiagram" name="BankingComponent" measurementUnit="Pixel">
+    <children xmi:type="notation:Shape" xmi:id="_uDqHoXrPEeS-VfFzCqLINA" type="2002">
+      <children xmi:type="notation:DecorationNode" xmi:id="_uDqHonrPEeS-VfFzCqLINA" type="5004"/>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_uDqHo3rPEeS-VfFzCqLINA" type="7001">
+        <styles xmi:type="notation:TitleStyle" xmi:id="_uDqHpHrPEeS-VfFzCqLINA"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_uDqHpXrPEeS-VfFzCqLINA"/>
+      </children>
+      <element xmi:type="uml:Component" href="m/BankingModel.uml#_FzXYMHO_EeSgC_3iHN4p8A"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_uDqHpnrPEeS-VfFzCqLINA" x="450" y="188"/>
+    </children>
+    <children xmi:type="notation:Shape" xmi:id="_uDqHp3rPEeS-VfFzCqLINA" type="3205">
+      <children xmi:type="notation:DecorationNode" xmi:id="_uDqHqHrPEeS-VfFzCqLINA" type="5266"/>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_uDqHqXrPEeS-VfFzCqLINA" type="7008">
+        <styles xmi:type="notation:TitleStyle" xmi:id="_uDqHqnrPEeS-VfFzCqLINA"/>
+        <styles xmi:type="notation:SortingStyle" xmi:id="_uDqHq3rPEeS-VfFzCqLINA"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_uDqHrHrPEeS-VfFzCqLINA"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_uDqHrXrPEeS-VfFzCqLINA"/>
+      </children>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_uDqHrnrPEeS-VfFzCqLINA" type="7009">
+        <children xmi:type="notation:Shape" xmi:id="_uDqHr3rPEeS-VfFzCqLINA" type="5">
+          <element xmi:type="uml:Operation" href="m/BankingModel.uml#_FzYmUnO_EeSgC_3iHN4p8A"/>
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_uDqHsHrPEeS-VfFzCqLINA" x="75" y="7"/>
+        </children>
+        <children xmi:type="notation:Shape" xmi:id="_uDqHsXrPEeS-VfFzCqLINA" type="5">
+          <element xmi:type="uml:Operation" href="m/BankingModel.uml#_FzYmW3O_EeSgC_3iHN4p8A"/>
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_uDqHsnrPEeS-VfFzCqLINA" x="75" y="7"/>
+        </children>
+        <children xmi:type="notation:Shape" xmi:id="_uDqHs3rPEeS-VfFzCqLINA" type="5">
+          <element xmi:type="uml:Operation" href="m/BankingModel.uml#_FzYmY3O_EeSgC_3iHN4p8A"/>
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_uDqHtHrPEeS-VfFzCqLINA" x="75" y="7"/>
+        </children>
+        <children xmi:type="notation:Shape" xmi:id="_uDqHtXrPEeS-VfFzCqLINA" type="5">
+          <element xmi:type="uml:Operation" href="m/BankingModel.uml#_FzYma3O_EeSgC_3iHN4p8A"/>
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_uDqHtnrPEeS-VfFzCqLINA" x="75" y="7"/>
+        </children>
+        <styles xmi:type="notation:TitleStyle" xmi:id="_uDqHt3rPEeS-VfFzCqLINA"/>
+        <styles xmi:type="notation:SortingStyle" xmi:id="_uDqHuHrPEeS-VfFzCqLINA"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_uDqHuXrPEeS-VfFzCqLINA"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_uDqHunrPEeS-VfFzCqLINA"/>
+      </children>
+      <element xmi:type="uml:Interface" href="m/BankingModel.uml#_FzYmUXO_EeSgC_3iHN4p8A"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_uDqHu3rPEeS-VfFzCqLINA" x="159" y="1"/>
+    </children>
+    <children xmi:type="notation:Shape" xmi:id="_uDqHvHrPEeS-VfFzCqLINA" type="3205">
+      <children xmi:type="notation:DecorationNode" xmi:id="_uDqHvXrPEeS-VfFzCqLINA" type="5266"/>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_uDqHvnrPEeS-VfFzCqLINA" type="7008">
+        <styles xmi:type="notation:TitleStyle" xmi:id="_uDqHv3rPEeS-VfFzCqLINA"/>
+        <styles xmi:type="notation:SortingStyle" xmi:id="_uDqHwHrPEeS-VfFzCqLINA"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_uDqHwXrPEeS-VfFzCqLINA"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_uDqHwnrPEeS-VfFzCqLINA"/>
+      </children>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_uDqHw3rPEeS-VfFzCqLINA" type="7009">
+        <children xmi:type="notation:Shape" xmi:id="_uDqHxHrPEeS-VfFzCqLINA" type="5">
+          <element xmi:type="uml:Operation" href="m/BankingModel.uml#_FzZ0cXO_EeSgC_3iHN4p8A"/>
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_uDqHxXrPEeS-VfFzCqLINA" x="54" y="11"/>
+        </children>
+        <children xmi:type="notation:Shape" xmi:id="_uDqHxnrPEeS-VfFzCqLINA" type="5">
+          <element xmi:type="uml:Operation" href="m/BankingModel.uml#_FzZ0enO_EeSgC_3iHN4p8A"/>
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_uDqHx3rPEeS-VfFzCqLINA" x="54" y="11"/>
+        </children>
+        <styles xmi:type="notation:TitleStyle" xmi:id="_uDqHyHrPEeS-VfFzCqLINA"/>
+        <styles xmi:type="notation:SortingStyle" xmi:id="_uDqHyXrPEeS-VfFzCqLINA"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_uDqHynrPEeS-VfFzCqLINA"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_uDqHy3rPEeS-VfFzCqLINA"/>
+      </children>
+      <element xmi:type="uml:Interface" href="m/BankingModel.uml#_FzZ0cHO_EeSgC_3iHN4p8A"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_uDqHzHrPEeS-VfFzCqLINA" x="164" y="328"/>
+    </children>
+    <styles xmi:type="notation:StringValueStyle" xmi:id="_uDqHzXrPEeS-VfFzCqLINA" name="diagram_compatibility_version" stringValue="1.0.0"/>
+    <styles xmi:type="notation:DiagramStyle" xmi:id="_uDqHznrPEeS-VfFzCqLINA"/>
+    <styles xmi:type="style:PapyrusViewStyle" xmi:id="_uDqHz3rPEeS-VfFzCqLINA">
+      <owner xmi:type="uml:Model" href="model.uml#_KVVZEHrGEeS-VfFzCqLINA"/>
+    </styles>
+    <element xmi:type="uml:Model" href="m/BankingModel.uml#_Di38QHO_EeSgC_3iHN4p8A"/>
+    <edges xmi:type="notation:Connector" xmi:id="_uDqH0HrPEeS-VfFzCqLINA" type="4006" source="_uDqHoXrPEeS-VfFzCqLINA" target="_uDqHvHrPEeS-VfFzCqLINA">
+      <styles xmi:type="notation:FontStyle" xmi:id="_uDqH0XrPEeS-VfFzCqLINA"/>
+      <element xmi:type="uml:InterfaceRealization" href="m/BankingModel.uml#_FzYmUHO_EeSgC_3iHN4p8A"/>
+      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_uDqH0nrPEeS-VfFzCqLINA" points="[38, 35, -91, -83]$[79, 72, -50, -46]"/>
+      <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_uDqH03rPEeS-VfFzCqLINA" id="(0.24,0.8857142857142857)"/>
+      <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_uDqH1HrPEeS-VfFzCqLINA" id="(0.4234828496042216,0.0)"/>
+    </edges>
+    <edges xmi:type="notation:Connector" xmi:id="_uDqH1XrPEeS-VfFzCqLINA" type="4006" source="_uDqHoXrPEeS-VfFzCqLINA" target="_uDqHp3rPEeS-VfFzCqLINA">
+      <styles xmi:type="notation:FontStyle" xmi:id="_uDqH1nrPEeS-VfFzCqLINA"/>
+      <element xmi:type="uml:InterfaceRealization" href="m/BankingModel.uml#_FzX_QHO_EeSgC_3iHN4p8A"/>
+      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_uDqH13rPEeS-VfFzCqLINA" points="[21, -35, -33, 54]$[23, -39, -31, 50]"/>
+      <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_uDqH2HrPEeS-VfFzCqLINA" id="(0.5733333333333334,0.05714285714285714)"/>
+      <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_uDqH2XrPEeS-VfFzCqLINA" id="(0.4993324432576769,0.8648648648648649)"/>
+    </edges>
+  </notation:Diagram>
 </xmi:XMI>
