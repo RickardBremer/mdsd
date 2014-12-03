@@ -8,11 +8,15 @@
   <packagedElement xmi:type="uml:Class" xmi:id="_p_95oHrYEeSnRayuFEIHwA" name="Booking"/>
   <packagedElement xmi:type="uml:Class" xmi:id="_sjrzkHrYEeSnRayuFEIHwA" name="Customer"/>
   <packagedElement xmi:type="uml:Class" xmi:id="_xFac4HrZEeSnRayuFEIHwA" name="Resident"/>
-  <packagedElement xmi:type="uml:Class" xmi:id="_yYkG0HrZEeSnRayuFEIHwA" name="Room"/>
+  <packagedElement xmi:type="uml:Class" xmi:id="_yYkG0HrZEeSnRayuFEIHwA" name="Room">
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_FzdDIHrjEeSy1tyopbmrzw" name="roomNumber"/>
+  </packagedElement>
   <packagedElement xmi:type="uml:ComponentRealization" xmi:id="_z_QiYHraEeSnRayuFEIHwA" client="_SIgVQHrYEeSnRayuFEIHwA" supplier="_WQHq4HrYEeSnRayuFEIHwA"/>
   <packagedElement xmi:type="uml:Model" xmi:id="_3-pwIHraEeSnRayuFEIHwA" name="Payment Authorisation Service">
     <packagedElement xmi:type="uml:Component" xmi:id="_SIgVQHrYEeSnRayuFEIHwA" name="Bank"/>
   </packagedElement>
-  <packagedElement xmi:type="uml:Class" xmi:id="_Dos8cHrbEeSnRayuFEIHwA" name="room_type"/>
+  <packagedElement xmi:type="uml:Class" xmi:id="_Dos8cHrbEeSnRayuFEIHwA" name="room_type">
+    <generalization xmi:type="uml:Generalization" xmi:id="_3jwDMHriEeSy1tyopbmrzw" general="_yYkG0HrZEeSnRayuFEIHwA"/>
+  </packagedElement>
   <packagedElement xmi:type="uml:Class" xmi:id="_H65xcHrbEeSnRayuFEIHwA" name="Receipt"/>
 </uml:Model>
