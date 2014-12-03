@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <uml:Model xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xmi:id="_KVVZEHrGEeS-VfFzCqLINA" name="model">
 <<<<<<< HEAD
+<<<<<<< HEAD
   <packagedElement xmi:type="uml:Interaction" xmi:id="_KawroHrGEeS-VfFzCqLINA" name="Booking">
     <ownedAttribute xmi:type="uml:Property" xmi:id="_FUqqAHsSEeSmB96hXdSUMw" name="" type="_QT_IAHr2EeSy1tyopbmrzw"/>
     <ownedAttribute xmi:type="uml:Property" xmi:id="_FoNREHsSEeSmB96hXdSUMw" name="" type="_JWGu4HsBEeSy1tyopbmrzw"/>
@@ -87,6 +88,8 @@
     <message xmi:type="uml:Message" xmi:id="_6RprsHsVEeSmB96hXdSUMw" name="SuccessfullBooking()" messageSort="asynchCall" receiveEvent="_6Rrg4HsVEeSmB96hXdSUMw" sendEvent="_6Rq50HsVEeSmB96hXdSUMw"/>
   </packagedElement>
 =======
+=======
+>>>>>>> FETCH_HEAD
   <packagedElement xmi:type="uml:Interaction" xmi:id="_KawroHrGEeS-VfFzCqLINA" name="Interaction1"/>
 >>>>>>> FETCH_HEAD
   <packagedElement xmi:type="uml:Component" xmi:id="_WQHq4HrYEeSnRayuFEIHwA" name="Hotel"/>
@@ -307,9 +310,12 @@
     <ownedOperation xmi:type="uml:Operation" xmi:id="_QiwsYHsNEeSy1tyopbmrzw" name="enterAmount"/>
     <ownedOperation xmi:type="uml:Operation" xmi:id="_JOeUgHsPEeSy1tyopbmrzw" name="sendCreditcardNumber"/>
 <<<<<<< HEAD
+<<<<<<< HEAD
     <ownedOperation xmi:type="uml:Operation" xmi:id="_duCkcHsZEeSmB96hXdSUMw" name="getReceipt" concurrency="concurrent">
       <ownedParameter xmi:type="uml:Parameter" xmi:id="_jys1kHsZEeSmB96hXdSUMw" type="_H65xcHrbEeSnRayuFEIHwA" direction="return"/>
     </ownedOperation>
+=======
+>>>>>>> FETCH_HEAD
 =======
 >>>>>>> FETCH_HEAD
   </packagedElement>
@@ -318,10 +324,17 @@
     <ownedOperation xmi:type="uml:Operation" xmi:id="_h19ooHsEEeSy1tyopbmrzw" name="presentConfirmation"/>
     <ownedOperation xmi:type="uml:Operation" xmi:id="_NzDS8HsPEeSy1tyopbmrzw" name="printReceipt"/>
 <<<<<<< HEAD
+<<<<<<< HEAD
   </packagedElement>
   <packagedElement xmi:type="uml:Class" xmi:id="_NJhWIHsBEeSy1tyopbmrzw" name="Email">
     <ownedOperation xmi:type="uml:Operation" xmi:id="_H1ZX0HsGEeSy1tyopbmrzw" name="sendConfirmationEmail"/>
   </packagedElement>
+=======
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_NJhWIHsBEeSy1tyopbmrzw" name="Email">
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_H1ZX0HsGEeSy1tyopbmrzw" name="sendConfirmationEmail"/>
+  </packagedElement>
+>>>>>>> FETCH_HEAD
   <packagedElement xmi:type="uml:Association" xmi:id="_9QayoHsEEeSy1tyopbmrzw" memberEnd="_9QayoXsEEeSy1tyopbmrzw _9QRBoHsEEeSy1tyopbmrzw">
     <ownedEnd xmi:type="uml:Property" xmi:id="_9QayoXsEEeSy1tyopbmrzw" name="uI" type="_JWGu4HsBEeSy1tyopbmrzw" association="_9QayoHsEEeSy1tyopbmrzw">
       <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_9QayonsEEeSy1tyopbmrzw" value="1"/>
@@ -342,6 +355,7 @@
       <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_IHc7snsHEeSy1tyopbmrzw" value="1"/>
     </ownedEnd>
   </packagedElement>
+<<<<<<< HEAD
 =======
   </packagedElement>
   <packagedElement xmi:type="uml:Class" xmi:id="_NJhWIHsBEeSy1tyopbmrzw" name="Email">
@@ -367,6 +381,8 @@
       <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_IHc7snsHEeSy1tyopbmrzw" value="1"/>
     </ownedEnd>
   </packagedElement>
+>>>>>>> FETCH_HEAD
+=======
 >>>>>>> FETCH_HEAD
   <packagedElement xmi:type="uml:Association" xmi:id="_uML3E3sHEeSy1tyopbmrzw" memberEnd="_uML3FHsHEeSy1tyopbmrzw _uML3EHsHEeSy1tyopbmrzw">
     <ownedEnd xmi:type="uml:Property" xmi:id="_uML3FHsHEeSy1tyopbmrzw" name="controller" type="_QT_IAHr2EeSy1tyopbmrzw" association="_uML3E3sHEeSy1tyopbmrzw">
@@ -388,6 +404,7 @@
       <lowerValue xmi:type="uml:LiteralInteger" xmi:id="__HvKgXsNEeSy1tyopbmrzw" value="1"/>
       <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="__HvKgnsNEeSy1tyopbmrzw" value="1"/>
     </ownedEnd>
+<<<<<<< HEAD
 <<<<<<< HEAD
   </packagedElement>
   <packagedElement xmi:type="uml:Interaction" xmi:id="_JzjTUHsWEeSmB96hXdSUMw" name="AddUser">
@@ -506,6 +523,8 @@ Skip this step
     <message xmi:type="uml:Message" xmi:id="_M4xq8HsuEeSmB96hXdSUMw" name="getResidentDetails_Message" messageSort="asynchCall" receiveEvent="_M4y5EHsuEeSmB96hXdSUMw" sendEvent="_M4ySAHsuEeSmB96hXdSUMw" signature="_jokccHsJEeSy1tyopbmrzw"/>
     <message xmi:type="uml:Message" xmi:id="_T2xX0HsuEeSmB96hXdSUMw" name="MarkCheckedIn()" messageSort="asynchCall" receiveEvent="_T2yl8XsuEeSmB96hXdSUMw" sendEvent="_T2yl8HsuEeSmB96hXdSUMw"/>
     <message xmi:type="uml:Message" xmi:id="_byAwEHsuEeSmB96hXdSUMw" name="CheckInComplete()" messageSort="asynchCall" receiveEvent="_byClQHsuEeSmB96hXdSUMw" sendEvent="_byB-MHsuEeSmB96hXdSUMw"/>
+=======
+>>>>>>> FETCH_HEAD
 =======
 >>>>>>> FETCH_HEAD
   </packagedElement>
