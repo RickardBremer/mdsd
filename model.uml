@@ -1,5 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <uml:Model xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xmi:id="_KVVZEHrGEeS-VfFzCqLINA" name="model">
   <packagedElement xmi:type="uml:Interaction" xmi:id="_KawroHrGEeS-VfFzCqLINA" name="Interaction1"/>
-  <packagedElement xmi:type="uml:Component" xmi:id="_ovgnEHrHEeS-VfFzCqLINA" name="Component0"/>
+  <packagedElement xmi:type="uml:Component" xmi:id="_WQHq4HrYEeSnRayuFEIHwA" name="Hotel"/>
+  <packagedElement xmi:type="uml:Component" xmi:id="_jBgSsHrYEeSnRayuFEIHwA" name="Admin"/>
+  <packagedElement xmi:type="uml:Component" xmi:id="_kw5MsHrYEeSnRayuFEIHwA" name="Receptionist"/>
+  <packagedElement xmi:type="uml:Component" xmi:id="_n99loHrYEeSnRayuFEIHwA" name="Customer"/>
+  <packagedElement xmi:type="uml:Class" xmi:id="_p_95oHrYEeSnRayuFEIHwA" name="Booking"/>
+  <packagedElement xmi:type="uml:Class" xmi:id="_sjrzkHrYEeSnRayuFEIHwA" name="Customer"/>
+  <packagedElement xmi:type="uml:Class" xmi:id="_xFac4HrZEeSnRayuFEIHwA" name="Resident"/>
+  <packagedElement xmi:type="uml:Class" xmi:id="_yYkG0HrZEeSnRayuFEIHwA" name="Room"/>
+  <packagedElement xmi:type="uml:ComponentRealization" xmi:id="_z_QiYHraEeSnRayuFEIHwA" client="_SIgVQHrYEeSnRayuFEIHwA" supplier="_WQHq4HrYEeSnRayuFEIHwA"/>
+  <packagedElement xmi:type="uml:Model" xmi:id="_3-pwIHraEeSnRayuFEIHwA" name="Payment Authorisation Service">
+    <packagedElement xmi:type="uml:Component" xmi:id="_SIgVQHrYEeSnRayuFEIHwA" name="Bank"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_Dos8cHrbEeSnRayuFEIHwA" name="room_type"/>
+  <packagedElement xmi:type="uml:Class" xmi:id="_H65xcHrbEeSnRayuFEIHwA" name="Receipt"/>
 </uml:Model>
