@@ -1,10 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <uml:Model xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xmi:id="_KVVZEHrGEeS-VfFzCqLINA" name="model">
   <packagedElement xmi:type="uml:Interaction" xmi:id="_KawroHrGEeS-VfFzCqLINA" name="Interaction1"/>
-  <packagedElement xmi:type="uml:Component" xmi:id="_WQHq4HrYEeSnRayuFEIHwA" name="Hotel"/>
-  <packagedElement xmi:type="uml:Component" xmi:id="_jBgSsHrYEeSnRayuFEIHwA" name="Admin"/>
-  <packagedElement xmi:type="uml:Component" xmi:id="_kw5MsHrYEeSnRayuFEIHwA" name="Receptionist"/>
-  <packagedElement xmi:type="uml:Component" xmi:id="_n99loHrYEeSnRayuFEIHwA" name="Customer"/>
   <packagedElement xmi:type="uml:Class" xmi:id="_p_95oHrYEeSnRayuFEIHwA" name="Booking"/>
   <packagedElement xmi:type="uml:Class" xmi:id="_sjrzkHrYEeSnRayuFEIHwA" name="Customer"/>
   <packagedElement xmi:type="uml:Class" xmi:id="_xFac4HrZEeSnRayuFEIHwA" name="Resident"/>
@@ -19,4 +15,16 @@
     <generalization xmi:type="uml:Generalization" xmi:id="_3jwDMHriEeSy1tyopbmrzw" general="_yYkG0HrZEeSnRayuFEIHwA"/>
   </packagedElement>
   <packagedElement xmi:type="uml:Class" xmi:id="_H65xcHrbEeSnRayuFEIHwA" name="Receipt"/>
+  <packagedElement xmi:type="uml:Model" xmi:id="_As1csHrlEeSnRayuFEIHwA" name="Hotell Buisiness Logic">
+    <packagedElement xmi:type="uml:Package" xmi:id="_Kq6Z8HrmEeSnRayuFEIHwA" name="Payment">
+      <packagedElement xmi:type="uml:Component" xmi:id="_WQHq4HrYEeSnRayuFEIHwA" name="Pay"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Model" xmi:id="_XAOw0HrmEeSnRayuFEIHwA" name="System Administration"/>
+    <packagedElement xmi:type="uml:Model" xmi:id="_y6JeAHrmEeSnRayuFEIHwA" name="Customer Administration"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Component" xmi:id="_n99loHrYEeSnRayuFEIHwA" name="Customer"/>
+  <packagedElement xmi:type="uml:Component" xmi:id="_kw5MsHrYEeSnRayuFEIHwA" name="Receptionist"/>
+  <packagedElement xmi:type="uml:Component" xmi:id="_jBgSsHrYEeSnRayuFEIHwA" name="Admin"/>
+  <packagedElement xmi:type="uml:Model" xmi:id="_Bm5mUHrnEeSnRayuFEIHwA" name="Customer UI"/>
+  <packagedElement xmi:type="uml:Package" xmi:id="_Q5MrsHrnEeSnRayuFEIHwA" name="Hotel Staff UI"/>
 </uml:Model>
