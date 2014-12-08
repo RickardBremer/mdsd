@@ -447,15 +447,14 @@
   <packagedElement xmi:type="uml:Component" xmi:id="_TNJ0oHuSEeSho8oY140b4w" name="Admin"/>
   <packagedElement xmi:type="uml:Interface" xmi:id="_Nd4egH4gEeSissZ6Et6fRA" name="Interface1"/>
   <packagedElement xmi:type="uml:InterfaceRealization" xmi:id="_n7JngH4gEeSissZ6Et6fRA" name="Realization0" client="_xZTZcH4fEeSissZ6Et6fRA" supplier="_Nd4egH4gEeSissZ6Et6fRA" contract="_Nd4egH4gEeSissZ6Et6fRA"/>
-  <packagedElement xmi:type="uml:ComponentRealization" xmi:id="_uB48QH4gEeSissZ6Et6fRA" client="_Nd4egH4gEeSissZ6Et6fRA" supplier="_DDcRAHuQEeSho8oY140b4w"/>
   <packagedElement xmi:type="uml:Interface" xmi:id="_x4FxwH4gEeSissZ6Et6fRA" name="CustomerInterface"/>
   <packagedElement xmi:type="uml:Interface" xmi:id="_0Pr7QH4gEeSissZ6Et6fRA" name="ReceptionistInterface"/>
   <packagedElement xmi:type="uml:Interface" xmi:id="_3vNWIH4gEeSissZ6Et6fRA" name="AdminInterface"/>
   <packagedElement xmi:type="uml:InterfaceRealization" xmi:id="_HBcxIH4hEeSissZ6Et6fRA" name="Realization1" client="_X1ZyIHuSEeSho8oY140b4w" supplier="_x4FxwH4gEeSissZ6Et6fRA" contract="_x4FxwH4gEeSissZ6Et6fRA"/>
   <packagedElement xmi:type="uml:InterfaceRealization" xmi:id="_H_QdMH4hEeSissZ6Et6fRA" name="Realization2" client="_VR-MEHuSEeSho8oY140b4w" supplier="_0Pr7QH4gEeSissZ6Et6fRA" contract="_0Pr7QH4gEeSissZ6Et6fRA"/>
   <packagedElement xmi:type="uml:InterfaceRealization" xmi:id="_I3tvMH4hEeSissZ6Et6fRA" name="Realization3" client="_TNJ0oHuSEeSho8oY140b4w" supplier="_3vNWIH4gEeSissZ6Et6fRA" contract="_3vNWIH4gEeSissZ6Et6fRA"/>
-  <packagedElement xmi:type="uml:ComponentRealization" xmi:id="_LnyqIH4hEeSissZ6Et6fRA" client="_3vNWIH4gEeSissZ6Et6fRA" supplier="_xZTZcH4fEeSissZ6Et6fRA"/>
-  <packagedElement xmi:type="uml:ComponentRealization" xmi:id="_MsNUgH4hEeSissZ6Et6fRA" client="_0Pr7QH4gEeSissZ6Et6fRA" supplier="_p_95oHrYEeSnRayuFEIHwA"/>
-  <packagedElement xmi:type="uml:ComponentRealization" xmi:id="_XqaugH4hEeSissZ6Et6fRA" client="_x4FxwH4gEeSissZ6Et6fRA" supplier="_xZTZcH4fEeSissZ6Et6fRA"/>
-  <packagedElement xmi:type="uml:Interface" xmi:id="_QHve4H4vEeSissZ6Et6fRA" name="Interface2"/>
+  <packagedElement xmi:type="uml:ComponentRealization" xmi:id="_r3_BgH7FEeSissZ6Et6fRA" client="_p_95oHrYEeSnRayuFEIHwA" supplier="_0Pr7QH4gEeSissZ6Et6fRA"/>
+  <packagedElement xmi:type="uml:ComponentRealization" xmi:id="_zE3e8H7FEeSissZ6Et6fRA" client="_DDcRAHuQEeSho8oY140b4w" supplier="_Nd4egH4gEeSissZ6Et6fRA"/>
+  <packagedElement xmi:type="uml:ComponentRealization" xmi:id="_7l-kYH7FEeSissZ6Et6fRA" client="_xZTZcH4fEeSissZ6Et6fRA" supplier="_x4FxwH4gEeSissZ6Et6fRA"/>
+  <packagedElement xmi:type="uml:ComponentRealization" xmi:id="_8aw3UH7FEeSissZ6Et6fRA" client="_xZTZcH4fEeSissZ6Et6fRA" supplier="_3vNWIH4gEeSissZ6Et6fRA"/>
 </uml:Model>
