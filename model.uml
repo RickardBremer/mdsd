@@ -457,4 +457,10 @@
   <packagedElement xmi:type="uml:ComponentRealization" xmi:id="_zE3e8H7FEeSissZ6Et6fRA" client="_DDcRAHuQEeSho8oY140b4w" supplier="_Nd4egH4gEeSissZ6Et6fRA"/>
   <packagedElement xmi:type="uml:ComponentRealization" xmi:id="_7l-kYH7FEeSissZ6Et6fRA" client="_xZTZcH4fEeSissZ6Et6fRA" supplier="_x4FxwH4gEeSissZ6Et6fRA"/>
   <packagedElement xmi:type="uml:ComponentRealization" xmi:id="_8aw3UH7FEeSissZ6Et6fRA" client="_xZTZcH4fEeSissZ6Et6fRA" supplier="_3vNWIH4gEeSissZ6Et6fRA"/>
+  <packagedElement xmi:type="uml:Interface" xmi:id="_5pSK4IBJEeSIi9xXvYIBqQ" name="DatabaseInterface">
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_-xA5sIBJEeSIi9xXvYIBqQ" name="query(string): row[]/ArrayLst"/>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_E-4KIIBKEeSIi9xXvYIBqQ" name="update(string):boolean"/>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_I_v-kIBKEeSIi9xXvYIBqQ" name="create(string):boolean"/>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_Qhre8IBKEeSIi9xXvYIBqQ" name="remove(string):boolean"/>
+  </packagedElement>
 </uml:Model>

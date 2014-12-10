@@ -462,9 +462,9 @@
       </children>
       <styles xmi:type="notation:FontStyle" xmi:id="_3kpbEXriEeSy1tyopbmrzw"/>
       <element xmi:type="uml:Generalization" href="model.uml#_3jwDMHriEeSy1tyopbmrzw"/>
-      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_3kpbEnriEeSy1tyopbmrzw" points="[0, 0, -99, -56]$[51, 35, -48, -21]$[99, 56, 0, 0]"/>
-      <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_3lPQ8HriEeSy1tyopbmrzw" id="(1.0,0.7592592592592593)"/>
-      <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_3lPQ8XriEeSy1tyopbmrzw" id="(0.0,0.7788018433179723)"/>
+      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_3kpbEnriEeSy1tyopbmrzw" points="[0, 0, -52, -39]$[21, 21, -31, -18]$[47, 36, -5, -3]"/>
+      <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_3lPQ8HriEeSy1tyopbmrzw" id="(0.9471698113207547,0.7685185185185185)"/>
+      <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_3lPQ8XriEeSy1tyopbmrzw" id="(0.0199203187250996,0.783410138248848)"/>
     </edges>
     <edges xmi:type="notation:Connector" xmi:id="_IHc7t3sHEeSy1tyopbmrzw" type="4001" source="_QT_IAXr2EeSy1tyopbmrzw" target="_NJhWIXsBEeSy1tyopbmrzw">
       <children xmi:type="notation:DecorationNode" xmi:id="_IHc7unsHEeSy1tyopbmrzw" type="6001">
@@ -690,6 +690,39 @@
       </children>
       <element xmi:type="uml:Interface" href="model.uml#_3vNWIH4gEeSissZ6Et6fRA"/>
       <layoutConstraint xmi:type="notation:Bounds" xmi:id="_3vPLUX4gEeSissZ6Et6fRA" x="114" y="487" width="148"/>
+    </children>
+    <children xmi:type="notation:Shape" xmi:id="_5rlQ8IBJEeSIi9xXvYIBqQ" type="3205">
+      <children xmi:type="notation:DecorationNode" xmi:id="_5rmfEIBJEeSIi9xXvYIBqQ" type="5266"/>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_5rmfEYBJEeSIi9xXvYIBqQ" type="7008">
+        <styles xmi:type="notation:TitleStyle" xmi:id="_5rmfEoBJEeSIi9xXvYIBqQ"/>
+        <styles xmi:type="notation:SortingStyle" xmi:id="_5rmfE4BJEeSIi9xXvYIBqQ"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_5rmfFIBJEeSIi9xXvYIBqQ"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_5rmfFYBJEeSIi9xXvYIBqQ"/>
+      </children>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_5rnGIIBJEeSIi9xXvYIBqQ" type="7009">
+        <children xmi:type="notation:Shape" xmi:id="_-xDV8IBJEeSIi9xXvYIBqQ" type="5">
+          <element xmi:type="uml:Operation" href="model.uml#_-xA5sIBJEeSIi9xXvYIBqQ"/>
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_-xD9AIBJEeSIi9xXvYIBqQ"/>
+        </children>
+        <children xmi:type="notation:Shape" xmi:id="_E-5_UIBKEeSIi9xXvYIBqQ" type="5">
+          <element xmi:type="uml:Operation" href="model.uml#_E-4KIIBKEeSIi9xXvYIBqQ"/>
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_E-5_UYBKEeSIi9xXvYIBqQ"/>
+        </children>
+        <children xmi:type="notation:Shape" xmi:id="_I_zo8IBKEeSIi9xXvYIBqQ" type="5">
+          <element xmi:type="uml:Operation" href="model.uml#_I_v-kIBKEeSIi9xXvYIBqQ"/>
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_I_zo8YBKEeSIi9xXvYIBqQ"/>
+        </children>
+        <children xmi:type="notation:Shape" xmi:id="_Qht7MIBKEeSIi9xXvYIBqQ" type="5">
+          <element xmi:type="uml:Operation" href="model.uml#_Qhre8IBKEeSIi9xXvYIBqQ"/>
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_Qht7MYBKEeSIi9xXvYIBqQ"/>
+        </children>
+        <styles xmi:type="notation:TitleStyle" xmi:id="_5rnGIYBJEeSIi9xXvYIBqQ"/>
+        <styles xmi:type="notation:SortingStyle" xmi:id="_5rnGIoBJEeSIi9xXvYIBqQ"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_5rnGI4BJEeSIi9xXvYIBqQ"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_5rnGJIBJEeSIi9xXvYIBqQ"/>
+      </children>
+      <element xmi:type="uml:Interface" href="model.uml#_5pSK4IBJEeSIi9xXvYIBqQ"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_5rlQ8YBJEeSIi9xXvYIBqQ" x="82" y="142" width="160" height="149"/>
     </children>
     <styles xmi:type="notation:StringValueStyle" xmi:id="_KXnRAXrGEeS-VfFzCqLINA" name="diagram_compatibility_version" stringValue="1.0.0"/>
     <styles xmi:type="notation:DiagramStyle" xmi:id="_KXnRAnrGEeS-VfFzCqLINA"/>
