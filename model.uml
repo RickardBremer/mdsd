@@ -395,30 +395,67 @@
         <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_B02dUYB6EeSIi9xXvYIBqQ" value="1"/>
         <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_B02dUoB6EeSIi9xXvYIBqQ" value="1"/>
       </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_YsO2wIX2EeSSWPBCkg2FMw" name="database" type="_5pSK4IBJEeSIi9xXvYIBqQ"/>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_iiSIIIXxEeSSGO62vt7qUQ" name="getRoom(id): Room"/>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_okPqkIXxEeSSGO62vt7qUQ" name="getAllRooms"/>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_51kBYIXxEeSSGO62vt7qUQ" name="getAvailableRooms"/>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_U1CfkIXyEeSSGO62vt7qUQ" name="getUnoccupiedRooms"/>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_c-prAIXyEeSSGO62vt7qUQ" name="addRoom"/>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_fXOr8IXyEeSSGO62vt7qUQ" name="removeRoom"/>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_jeSn8IXyEeSSGO62vt7qUQ" name="updateRoom"/>
     </packagedElement>
     <packagedElement xmi:type="uml:Class" xmi:id="_JKAicIB5EeSIi9xXvYIBqQ" name="BookingExpert">
       <ownedAttribute xmi:type="uml:Property" xmi:id="_DUdO4IB6EeSIi9xXvYIBqQ" name="booking" type="_3KJDkIB4EeSIi9xXvYIBqQ" association="_DUd18IB6EeSIi9xXvYIBqQ">
         <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_DUdO4YB6EeSIi9xXvYIBqQ" value="1"/>
         <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_DUdO4oB6EeSIi9xXvYIBqQ" value="1"/>
       </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_vKB8sIX6EeSSWPBCkg2FMw" name="database" type="_5pSK4IBJEeSIi9xXvYIBqQ"/>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_Lp858IX7EeSSWPBCkg2FMw" name="getBooking(id):Booking"/>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_PZRrYIX7EeSSWPBCkg2FMw" name="getBooking(bookingID):Booking"/>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_S-6VUIX7EeSSWPBCkg2FMw" name="getAllBooking(dateFrom, dateTo): List &lt;Booking>"/>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_bZ16QIX7EeSSWPBCkg2FMw" name="getAllBookings():List&lt;Bookings>"/>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_j_04oIX7EeSSWPBCkg2FMw" name="addBooking(Booking):Bool"/>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_ohDBEIX7EeSSWPBCkg2FMw" name="removeBooking(id):bool"/>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_tNzEEIX7EeSSWPBCkg2FMw" name="updateBooking(Booking):bool"/>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_w5AKgIX7EeSSWPBCkg2FMw" name="getAllBookings(surname:String):List&lt;Booking>"/>
     </packagedElement>
     <packagedElement xmi:type="uml:Class" xmi:id="_LKi20IB5EeSIi9xXvYIBqQ" name="ReceiptExpert">
       <ownedAttribute xmi:type="uml:Property" xmi:id="_Rd4nsIB6EeSIi9xXvYIBqQ" name="receipt" type="_6dx-kIB4EeSIi9xXvYIBqQ" association="_Rd5OwIB6EeSIi9xXvYIBqQ">
         <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Rd4nsYB6EeSIi9xXvYIBqQ" value="1"/>
         <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_Rd4nsoB6EeSIi9xXvYIBqQ" value="1"/>
       </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_mau8MIX4EeSSWPBCkg2FMw" name="database" type="_5pSK4IBJEeSIi9xXvYIBqQ"/>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_0SsxkIX4EeSSWPBCkg2FMw" name="getReceipt(id):Receipt"/>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_4e8IgIX4EeSSWPBCkg2FMw" name="getReceipt(Bookin):?"/>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_L_JYwIX5EeSSWPBCkg2FMw" name="getAllReceipt():List&lt;Receipt>"/>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_Vd5yMIX5EeSSWPBCkg2FMw" name="combine(List&lt;Receipts>):Receipt"/>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_dDRoIIX5EeSSWPBCkg2FMw" name="addReceipt(Receipt):Bool"/>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_lB5rkIX5EeSSWPBCkg2FMw" name="removeReceipt(id):bool"/>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_s5zb8IX5EeSSWPBCkg2FMw" name="updateReceipt(Receipt):Bool"/>
     </packagedElement>
     <packagedElement xmi:type="uml:Class" xmi:id="_RVmD0IB5EeSIi9xXvYIBqQ" name="ExpenseExpert">
       <ownedAttribute xmi:type="uml:Property" xmi:id="_QP6YsIB6EeSIi9xXvYIBqQ" name="expense" type="_8x26AIB4EeSIi9xXvYIBqQ" association="_QP6_wIB6EeSIi9xXvYIBqQ">
         <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_QP6YsYB6EeSIi9xXvYIBqQ" value="1"/>
         <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_QP6YsoB6EeSIi9xXvYIBqQ" value="1"/>
       </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_Bf750IX3EeSSWPBCkg2FMw" name="database" type="_5pSK4IBJEeSIi9xXvYIBqQ"/>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_44uMYIX2EeSSWPBCkg2FMw" name="getExpense(id):Expense"/>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_OMz1EIX3EeSSWPBCkg2FMw" name="getAllExpense(id):List&lt;Expense>"/>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_WOa7EIX3EeSSWPBCkg2FMw" name="addExpense(Expense):bool"/>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_dGoJAIX3EeSSWPBCkg2FMw" name="removeExpense(id):bool"/>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_dEEu0IX4EeSSWPBCkg2FMw" name="updateExpense(Expense):Bool"/>
     </packagedElement>
-    <packagedElement xmi:type="uml:Class" xmi:id="_Um74wIB5EeSIi9xXvYIBqQ" name="PromoExpert">
+    <packagedElement xmi:type="uml:Class" xmi:id="_Um74wIB5EeSIi9xXvYIBqQ" name="PromotionExpert">
       <ownedAttribute xmi:type="uml:Property" xmi:id="_3XTgYIB5EeSIi9xXvYIBqQ" name="promotion" type="_DfTCYIB5EeSIi9xXvYIBqQ" association="_3XUHcIB5EeSIi9xXvYIBqQ">
         <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_3XTgYYB5EeSIi9xXvYIBqQ" value="1"/>
         <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_3XTgYoB5EeSIi9xXvYIBqQ" value="1"/>
       </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_9s6h4IX7EeSSWPBCkg2FMw" name="database" type="_5pSK4IBJEeSIi9xXvYIBqQ"/>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_BgqgUIX8EeSSWPBCkg2FMw" name="getPremium(id): Promotion"/>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_R_UrIIX8EeSSWPBCkg2FMw" name="getPromotion(Code):Promotion"/>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_ZmEaEIX8EeSSWPBCkg2FMw" name="getAllPromotion(Promotion)"/>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_ePJeAIX8EeSSWPBCkg2FMw" name="removePromotion(id):Bool"/>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_hWu6AIX8EeSSWPBCkg2FMw" name="updatePromotion(Promotion):Bool"/>
     </packagedElement>
     <packagedElement xmi:type="uml:Class" xmi:id="_YKXjQIB5EeSIi9xXvYIBqQ" name="Customer">
       <ownedAttribute xmi:type="uml:Property" xmi:id="_TLMsYIXQEeSxuZxjqNUXpQ" name="firstName">
@@ -477,6 +514,13 @@
         <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_PI9XsYB6EeSIi9xXvYIBqQ" value="1"/>
         <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_PI9XsoB6EeSIi9xXvYIBqQ" value="1"/>
       </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_0IhFYIX5EeSSWPBCkg2FMw" name="database" type="_5pSK4IBJEeSIi9xXvYIBqQ"/>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="__jJ8sIX5EeSSWPBCkg2FMw" name="getUser(id):User"/>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_ExK5sIX6EeSSWPBCkg2FMw" name="getAllUsers():List&lt;User>"/>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_KeTboIX6EeSSWPBCkg2FMw" name="addUser(User):Bool"/>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_Ql1akIX6EeSSWPBCkg2FMw" name="removeUser(id):bool"/>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_X9UlgIX6EeSSWPBCkg2FMw" name="updateUser(User):bool"/>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_jikxYIX6EeSSWPBCkg2FMw" name="login(id, password:string):user"/>
     </packagedElement>
     <packagedElement xmi:type="uml:Class" xmi:id="_wKbqAIB5EeSIi9xXvYIBqQ" name="Payment">
       <ownedOperation xmi:type="uml:Operation" xmi:id="_uF8DcIXvEeSSGO62vt7qUQ" name="makePayment(customer, amount : Bool)"/>
@@ -568,6 +612,10 @@
       <ownedAttribute xmi:type="uml:Property" xmi:id="_oZZZ0IB9EeSIi9xXvYIBqQ" name="bookingExpert" type="_JKAicIB5EeSIi9xXvYIBqQ" association="_oZaA4IB9EeSIi9xXvYIBqQ">
         <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_oZZZ0YB9EeSIi9xXvYIBqQ" value="1"/>
         <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_oZZZ0oB9EeSIi9xXvYIBqQ" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_wVY1MIX9EeSSWPBCkg2FMw" name="promotionExpert" type="_Um74wIB5EeSIi9xXvYIBqQ" association="_wVaDUIX9EeSSWPBCkg2FMw">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_wVY1MYX9EeSSWPBCkg2FMw" value="1"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_wVY1MoX9EeSSWPBCkg2FMw" value="1"/>
       </ownedAttribute>
     </packagedElement>
     <packagedElement xmi:type="uml:Class" xmi:id="_IGSwwIB7EeSIi9xXvYIBqQ" name="ReceptionistController">
@@ -749,6 +797,16 @@
       <ownedEnd xmi:type="uml:Property" xmi:id="_FfsOkYXkEeSa4Ps4qtz0aQ" name="receipt" type="_6dx-kIB4EeSIi9xXvYIBqQ" association="_FfsOkIXkEeSa4Ps4qtz0aQ">
         <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_FfsOkoXkEeSa4Ps4qtz0aQ" value="1"/>
         <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_FfsOk4XkEeSa4Ps4qtz0aQ" value="1"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Realization" xmi:id="_T_nI4IXxEeSSGO62vt7qUQ" client="_GbowUIB8EeSIi9xXvYIBqQ" supplier="_3vNWIH4gEeSissZ6Et6fRA"/>
+    <packagedElement xmi:type="uml:Realization" xmi:id="_Up9GYIXxEeSSGO62vt7qUQ" client="_LkFQ0IB8EeSIi9xXvYIBqQ" supplier="_0Pr7QH4gEeSissZ6Et6fRA"/>
+    <packagedElement xmi:type="uml:Realization" xmi:id="_V1240IXxEeSSGO62vt7qUQ" client="_OH9i0IB8EeSIi9xXvYIBqQ" supplier="_x4FxwH4gEeSissZ6Et6fRA"/>
+    <packagedElement xmi:type="uml:Association" xmi:id="_wVaDUIX9EeSSWPBCkg2FMw" memberEnd="_wVaDUYX9EeSSWPBCkg2FMw _wVY1MIX9EeSSWPBCkg2FMw">
+      <name xsi:nil="true"/>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_wVaDUYX9EeSSWPBCkg2FMw" name="bookingController" type="__5260IB6EeSIi9xXvYIBqQ" association="_wVaDUIX9EeSSWPBCkg2FMw">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_wVaDUoX9EeSSWPBCkg2FMw" value="1"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_wVaDU4X9EeSSWPBCkg2FMw" value="1"/>
       </ownedEnd>
     </packagedElement>
     <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_KZiQMIXVEeSa4Ps4qtz0aQ">
