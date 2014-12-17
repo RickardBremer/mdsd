@@ -332,10 +332,56 @@
           <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
         </ownedParameter>
       </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_SYK1gIXnEeSa4Ps4qtz0aQ" name="getAllRooms"/>
     </packagedElement>
-    <packagedElement xmi:type="uml:Class" xmi:id="_6dx-kIB4EeSIi9xXvYIBqQ" name="Receipt"/>
-    <packagedElement xmi:type="uml:Class" xmi:id="_8x26AIB4EeSIi9xXvYIBqQ" name="Expense"/>
-    <packagedElement xmi:type="uml:Class" xmi:id="_DfTCYIB5EeSIi9xXvYIBqQ" name="Promotion"/>
+    <packagedElement xmi:type="uml:Class" xmi:id="_6dx-kIB4EeSIi9xXvYIBqQ" name="Receipt">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_FfrAcIXkEeSa4Ps4qtz0aQ" name="expense" type="_8x26AIB4EeSIi9xXvYIBqQ" association="_FfsOkIXkEeSa4Ps4qtz0aQ">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_FfrAcYXkEeSa4Ps4qtz0aQ"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_FfrAcoXkEeSa4Ps4qtz0aQ" value="*"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_6W0nQIXkEeSa4Ps4qtz0aQ" name="totalCost">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_FdojoIXlEeSa4Ps4qtz0aQ" name="Date"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_IZoasIXlEeSa4Ps4qtz0aQ" name="expenses"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_NSJBwIXlEeSa4Ps4qtz0aQ" name="ID"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_ceblwIXlEeSa4Ps4qtz0aQ" name="cashier" type="_l81NkIB5EeSIi9xXvYIBqQ"/>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_MTMQwIXmEeSa4Ps4qtz0aQ" name="Receipt"/>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_QFpOsIXmEeSa4Ps4qtz0aQ" name="addExpense"/>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_Sf1ZMIXmEeSa4Ps4qtz0aQ" name="removeExpense"/>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_6zfDMIXmEeSa4Ps4qtz0aQ" name="getAllExpenses"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_8x26AIB4EeSIi9xXvYIBqQ" name="Expense">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_Fqfl0IXjEeSa4Ps4qtz0aQ" name="price">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_mi0GsIXjEeSa4Ps4qtz0aQ" name="name">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_tKwrEIXjEeSa4Ps4qtz0aQ" name="description">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_zTuNYIXjEeSa4Ps4qtz0aQ" name="date"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_hElG8IXkEeSa4Ps4qtz0aQ" name="ID">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_DfTCYIB5EeSIi9xXvYIBqQ" name="Promotion">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_qYj28IXoEeSa4Ps4qtz0aQ" name="code">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_tHuy8IXoEeSa4Ps4qtz0aQ" name="description">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_wI-9cIXoEeSa4Ps4qtz0aQ" name="percentage">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_0toNUIXoEeSa4Ps4qtz0aQ" name="ID">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_UjCqQIXqEeSa4Ps4qtz0aQ" name="validFrom"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_YYQBQIXqEeSa4Ps4qtz0aQ" name="validTo"/>
+    </packagedElement>
     <packagedElement xmi:type="uml:Class" xmi:id="_FOiycIB5EeSIi9xXvYIBqQ" name="RoomExpert">
       <ownedAttribute xmi:type="uml:Property" xmi:id="_B02dUIB6EeSIi9xXvYIBqQ" name="room" type="_2JcbkIB4EeSIi9xXvYIBqQ" association="_B03rcIB6EeSIi9xXvYIBqQ">
         <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_B02dUYB6EeSIi9xXvYIBqQ" value="1"/>
@@ -393,7 +439,26 @@
       </ownedAttribute>
     </packagedElement>
     <packagedElement xmi:type="uml:Class" xmi:id="_csqCsIB5EeSIi9xXvYIBqQ" name="email"/>
-    <packagedElement xmi:type="uml:Class" xmi:id="_l81NkIB5EeSIi9xXvYIBqQ" name="User"/>
+    <packagedElement xmi:type="uml:Class" xmi:id="_l81NkIB5EeSIi9xXvYIBqQ" name="User">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_eZpDUIXnEeSa4Ps4qtz0aQ" name="firstName">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_mCN-QIXnEeSa4Ps4qtz0aQ" name="surname">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_3vw-EIXnEeSa4Ps4qtz0aQ" name="password">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_-ANocIXnEeSa4Ps4qtz0aQ" name="ID">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_cKjgIIXoEeSa4Ps4qtz0aQ" name="receptionist">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Boolean"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_goQagIXoEeSa4Ps4qtz0aQ" name="administrator">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Boolean"/>
+      </ownedAttribute>
+    </packagedElement>
     <packagedElement xmi:type="uml:Class" xmi:id="_nKQqAIB5EeSIi9xXvYIBqQ" name="UserExpert">
       <ownedAttribute xmi:type="uml:Property" xmi:id="_PI9XsIB6EeSIi9xXvYIBqQ" name="user" type="_l81NkIB5EeSIi9xXvYIBqQ" association="_PI-l0IB6EeSIi9xXvYIBqQ">
         <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_PI9XsYB6EeSIi9xXvYIBqQ" value="1"/>
@@ -664,6 +729,12 @@
       </ownedEnd>
     </packagedElement>
     <packagedElement xmi:type="uml:InterfaceRealization" xmi:id="_6aYkoIHeEeSvj9UCIohxDw" name="Realization4" client="_xZTZcH4fEeSissZ6Et6fRA" supplier="_x4FxwH4gEeSissZ6Et6fRA" contract="_x4FxwH4gEeSissZ6Et6fRA"/>
+    <packagedElement xmi:type="uml:Association" xmi:id="_FfsOkIXkEeSa4Ps4qtz0aQ" memberEnd="_FfsOkYXkEeSa4Ps4qtz0aQ _FfrAcIXkEeSa4Ps4qtz0aQ">
+      <ownedEnd xmi:type="uml:Property" xmi:id="_FfsOkYXkEeSa4Ps4qtz0aQ" name="receipt" type="_6dx-kIB4EeSIi9xXvYIBqQ" association="_FfsOkIXkEeSa4Ps4qtz0aQ">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_FfsOkoXkEeSa4Ps4qtz0aQ" value="1"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_FfsOk4XkEeSa4Ps4qtz0aQ" value="1"/>
+      </ownedEnd>
+    </packagedElement>
     <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_KZiQMIXVEeSa4Ps4qtz0aQ">
       <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_KdDeQIXVEeSa4Ps4qtz0aQ" source="http://www.eclipse.org/uml2/2.0.0/UML">
         <references xmi:type="ecore:EPackage" href="pathmap://PAPYRUS_ACTIONLANGUAGE_PROFILE/ActionLanguage-Profile.profile.uml#_sYse0YZLEeKyw49uR6nx3g"/>
