@@ -701,8 +701,13 @@
         <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
       </ownedAttribute>
       <ownedAttribute xmi:type="uml:Property" xmi:id="_FdojoIXlEeSa4Ps4qtz0aQ" name="Date"/>
-      <ownedAttribute xmi:type="uml:Property" xmi:id="_IZoasIXlEeSa4Ps4qtz0aQ" name="expenses"/>
-      <ownedAttribute xmi:type="uml:Property" xmi:id="_NSJBwIXlEeSa4Ps4qtz0aQ" name="ID"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_IZoasIXlEeSa4Ps4qtz0aQ" name="expenses" type="_8x26AIB4EeSIi9xXvYIBqQ">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_VR21wInUEeSH0aSvdd46GA"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_VR3c0InUEeSH0aSvdd46GA" value="*"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_NSJBwIXlEeSa4Ps4qtz0aQ" name="ID">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+      </ownedAttribute>
       <ownedAttribute xmi:type="uml:Property" xmi:id="_ceblwIXlEeSa4Ps4qtz0aQ" name="cashier" type="_l81NkIB5EeSIi9xXvYIBqQ"/>
       <ownedOperation xmi:type="uml:Operation" xmi:id="_MTMQwIXmEeSa4Ps4qtz0aQ" name="Receipt"/>
       <ownedOperation xmi:type="uml:Operation" xmi:id="_QFpOsIXmEeSa4Ps4qtz0aQ" name="addExpense">
@@ -1071,7 +1076,6 @@
           <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#boolean"/>
         </ownedParameter>
       </ownedOperation>
-      <nestedClassifier xmi:type="uml:DataType" xmi:id="_Iq3bsIm2EeSH0aSvdd46GA" name="DataType1"/>
     </packagedElement>
     <packagedElement xmi:type="uml:Class" xmi:id="_nKQqAIB5EeSIi9xXvYIBqQ" name="UserExpert">
       <ownedAttribute xmi:type="uml:Property" xmi:id="_PI9XsIB6EeSIi9xXvYIBqQ" name="user" type="_l81NkIB5EeSIi9xXvYIBqQ" association="_PI-l0IB6EeSIi9xXvYIBqQ">
