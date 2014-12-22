@@ -366,13 +366,13 @@
         <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
       </ownedAttribute>
       <ownedOperation xmi:type="uml:Operation" xmi:id="_9jQr4IXVEeSa4Ps4qtz0aQ" name="Resident">
-        <ownedParameter xmi:type="uml:Parameter" xmi:id="_K4xUcIXWEeSa4Ps4qtz0aQ">
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_K4xUcIXWEeSa4Ps4qtz0aQ" name="firstName">
           <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
         </ownedParameter>
-        <ownedParameter xmi:type="uml:Parameter" xmi:id="_Nh1ocIXWEeSa4Ps4qtz0aQ">
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_Nh1ocIXWEeSa4Ps4qtz0aQ" name="surname">
           <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
         </ownedParameter>
-        <ownedParameter xmi:type="uml:Parameter" xmi:id="_QoTDEIXWEeSa4Ps4qtz0aQ">
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_QoTDEIXWEeSa4Ps4qtz0aQ" name="passportNumber">
           <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
         </ownedParameter>
       </ownedOperation>
