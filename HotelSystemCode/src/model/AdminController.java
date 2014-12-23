@@ -2,7 +2,6 @@
  */
 package model;
 
-import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
@@ -23,7 +22,7 @@ import org.eclipse.emf.ecore.EObject;
  * @model
  * @generated
  */
-public interface AdminController extends EObject {
+public interface AdminController extends AdminInterface {
 	/**
 	 * Returns the value of the '<em><b>User Expert</b></em>' reference.
 	 * <!-- begin-user-doc -->

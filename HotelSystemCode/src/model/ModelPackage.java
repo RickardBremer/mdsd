@@ -2188,7 +2188,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BOOKING_CONTROLLER__ROOM = 0;
+	int BOOKING_CONTROLLER__ROOM = CUSTOMER_INTERFACE_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Booking Expert</b></em>' reference.
@@ -2197,7 +2197,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BOOKING_CONTROLLER__BOOKING_EXPERT = 1;
+	int BOOKING_CONTROLLER__BOOKING_EXPERT = CUSTOMER_INTERFACE_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Promotion Expert</b></em>' reference.
@@ -2206,7 +2206,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BOOKING_CONTROLLER__PROMOTION_EXPERT = 2;
+	int BOOKING_CONTROLLER__PROMOTION_EXPERT = CUSTOMER_INTERFACE_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Database Interface</b></em>' reference.
@@ -2215,7 +2215,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BOOKING_CONTROLLER__DATABASE_INTERFACE = 3;
+	int BOOKING_CONTROLLER__DATABASE_INTERFACE = CUSTOMER_INTERFACE_FEATURE_COUNT + 3;
 
 	/**
 	 * The number of structural features of the '<em>Booking Controller</em>' class.
@@ -2224,7 +2224,52 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BOOKING_CONTROLLER_FEATURE_COUNT = 4;
+	int BOOKING_CONTROLLER_FEATURE_COUNT = CUSTOMER_INTERFACE_FEATURE_COUNT + 4;
+
+	/**
+	 * The operation id for the '<em>Search Rooms</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOOKING_CONTROLLER___SEARCH_ROOMS__DATE_DATE_INT_INT = CUSTOMER_INTERFACE___SEARCH_ROOMS__DATE_DATE_INT_INT;
+
+	/**
+	 * The operation id for the '<em>Create Customer</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOOKING_CONTROLLER___CREATE_CUSTOMER__STRING_STRING_STRING_STRING_STRING_STRING_INT_INT = CUSTOMER_INTERFACE___CREATE_CUSTOMER__STRING_STRING_STRING_STRING_STRING_STRING_INT_INT;
+
+	/**
+	 * The operation id for the '<em>Pay</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOOKING_CONTROLLER___PAY__CUSTOMER_RECEIPT = CUSTOMER_INTERFACE___PAY__CUSTOMER_RECEIPT;
+
+	/**
+	 * The operation id for the '<em>Validate Card</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOOKING_CONTROLLER___VALIDATE_CARD__STRING_STRING_INT_INT = CUSTOMER_INTERFACE___VALIDATE_CARD__STRING_STRING_INT_INT;
+
+	/**
+	 * The operation id for the '<em>Create Booking</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOOKING_CONTROLLER___CREATE_BOOKING__DATE_DATE_STRING_CUSTOMER_STRING_RECEIPT_STRING = CUSTOMER_INTERFACE___CREATE_BOOKING__DATE_DATE_STRING_CUSTOMER_STRING_RECEIPT_STRING;
 
 	/**
 	 * The operation id for the '<em>Booking Controller</em>' operation.
@@ -2233,7 +2278,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BOOKING_CONTROLLER___BOOKING_CONTROLLER__ROOMEXPERT_BOOKINGEXPERT_PROMOTIONEXPERT = 0;
+	int BOOKING_CONTROLLER___BOOKING_CONTROLLER__ROOMEXPERT_BOOKINGEXPERT_PROMOTIONEXPERT = CUSTOMER_INTERFACE_OPERATION_COUNT + 0;
 
 	/**
 	 * The number of operations of the '<em>Booking Controller</em>' class.
@@ -2242,7 +2287,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BOOKING_CONTROLLER_OPERATION_COUNT = 1;
+	int BOOKING_CONTROLLER_OPERATION_COUNT = CUSTOMER_INTERFACE_OPERATION_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link model.impl.AdminControllerImpl <em>Admin Controller</em>}' class.
@@ -2261,7 +2306,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ADMIN_CONTROLLER__USER_EXPERT = 0;
+	int ADMIN_CONTROLLER__USER_EXPERT = ADMIN_INTERFACE_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Expense Expert</b></em>' reference.
@@ -2270,7 +2315,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ADMIN_CONTROLLER__EXPENSE_EXPERT = 1;
+	int ADMIN_CONTROLLER__EXPENSE_EXPERT = ADMIN_INTERFACE_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Promo Expert</b></em>' reference.
@@ -2279,7 +2324,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ADMIN_CONTROLLER__PROMO_EXPERT = 2;
+	int ADMIN_CONTROLLER__PROMO_EXPERT = ADMIN_INTERFACE_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Database Interface</b></em>' reference.
@@ -2288,7 +2333,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ADMIN_CONTROLLER__DATABASE_INTERFACE = 3;
+	int ADMIN_CONTROLLER__DATABASE_INTERFACE = ADMIN_INTERFACE_FEATURE_COUNT + 3;
 
 	/**
 	 * The number of structural features of the '<em>Admin Controller</em>' class.
@@ -2297,7 +2342,160 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ADMIN_CONTROLLER_FEATURE_COUNT = 4;
+	int ADMIN_CONTROLLER_FEATURE_COUNT = ADMIN_INTERFACE_FEATURE_COUNT + 4;
+
+	/**
+	 * The operation id for the '<em>Login</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ADMIN_CONTROLLER___LOGIN__STRING_STRING = ADMIN_INTERFACE___LOGIN__STRING_STRING;
+
+	/**
+	 * The operation id for the '<em>Create Room</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ADMIN_CONTROLLER___CREATE_ROOM__INT_STRING_STRING_INT_INT = ADMIN_INTERFACE___CREATE_ROOM__INT_STRING_STRING_INT_INT;
+
+	/**
+	 * The operation id for the '<em>Remove Room</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ADMIN_CONTROLLER___REMOVE_ROOM__ROOM = ADMIN_INTERFACE___REMOVE_ROOM__ROOM;
+
+	/**
+	 * The operation id for the '<em>Update Room</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ADMIN_CONTROLLER___UPDATE_ROOM__ROOM = ADMIN_INTERFACE___UPDATE_ROOM__ROOM;
+
+	/**
+	 * The operation id for the '<em>Create User</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ADMIN_CONTROLLER___CREATE_USER__STRING_STRING_STRING_BOOLEAN_BOOLEAN = ADMIN_INTERFACE___CREATE_USER__STRING_STRING_STRING_BOOLEAN_BOOLEAN;
+
+	/**
+	 * The operation id for the '<em>Remove User</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ADMIN_CONTROLLER___REMOVE_USER__USER = ADMIN_INTERFACE___REMOVE_USER__USER;
+
+	/**
+	 * The operation id for the '<em>Update User</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ADMIN_CONTROLLER___UPDATE_USER__USER = ADMIN_INTERFACE___UPDATE_USER__USER;
+
+	/**
+	 * The operation id for the '<em>Create Promotion</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ADMIN_CONTROLLER___CREATE_PROMOTION__STRING_STRING_INT_DATE = ADMIN_INTERFACE___CREATE_PROMOTION__STRING_STRING_INT_DATE;
+
+	/**
+	 * The operation id for the '<em>Remove Promotion</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ADMIN_CONTROLLER___REMOVE_PROMOTION__PROMOTION = ADMIN_INTERFACE___REMOVE_PROMOTION__PROMOTION;
+
+	/**
+	 * The operation id for the '<em>Update Promotion</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ADMIN_CONTROLLER___UPDATE_PROMOTION__PROMOTION = ADMIN_INTERFACE___UPDATE_PROMOTION__PROMOTION;
+
+	/**
+	 * The operation id for the '<em>Create Expense</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ADMIN_CONTROLLER___CREATE_EXPENSE__INT_STRING_STRING_DATE = ADMIN_INTERFACE___CREATE_EXPENSE__INT_STRING_STRING_DATE;
+
+	/**
+	 * The operation id for the '<em>Remove Expense</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ADMIN_CONTROLLER___REMOVE_EXPENSE__EXPENSE = ADMIN_INTERFACE___REMOVE_EXPENSE__EXPENSE;
+
+	/**
+	 * The operation id for the '<em>Update Expense</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ADMIN_CONTROLLER___UPDATE_EXPENSE__EXPENSE = ADMIN_INTERFACE___UPDATE_EXPENSE__EXPENSE;
+
+	/**
+	 * The operation id for the '<em>View Rooms</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ADMIN_CONTROLLER___VIEW_ROOMS = ADMIN_INTERFACE___VIEW_ROOMS;
+
+	/**
+	 * The operation id for the '<em>View Promotions</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ADMIN_CONTROLLER___VIEW_PROMOTIONS = ADMIN_INTERFACE___VIEW_PROMOTIONS;
+
+	/**
+	 * The operation id for the '<em>View Users</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ADMIN_CONTROLLER___VIEW_USERS = ADMIN_INTERFACE___VIEW_USERS;
+
+	/**
+	 * The operation id for the '<em>View Expenses</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ADMIN_CONTROLLER___VIEW_EXPENSES = ADMIN_INTERFACE___VIEW_EXPENSES;
 
 	/**
 	 * The operation id for the '<em>Admin Controller</em>' operation.
@@ -2306,7 +2504,16 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ADMIN_CONTROLLER___ADMIN_CONTROLLER__EXPENSEEXPERT_PROMOTIONEXPERT_USEREXPERT_ROOMEXPERT = 0;
+	int ADMIN_CONTROLLER___ADMIN_CONTROLLER__ROOMEXPERT_EXPENSEEXPERT_USEREXPERT_PROMOTIONEXPERT = ADMIN_INTERFACE___ADMIN_CONTROLLER__ROOMEXPERT_EXPENSEEXPERT_USEREXPERT_PROMOTIONEXPERT;
+
+	/**
+	 * The operation id for the '<em>Admin Controller</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ADMIN_CONTROLLER___ADMIN_CONTROLLER__EXPENSEEXPERT_PROMOTIONEXPERT_USEREXPERT_ROOMEXPERT = ADMIN_INTERFACE_OPERATION_COUNT + 0;
 
 	/**
 	 * The number of operations of the '<em>Admin Controller</em>' class.
@@ -2315,7 +2522,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ADMIN_CONTROLLER_OPERATION_COUNT = 1;
+	int ADMIN_CONTROLLER_OPERATION_COUNT = ADMIN_INTERFACE_OPERATION_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link model.impl.ReceptionistControllerImpl <em>Receptionist Controller</em>}' class.
@@ -2391,6 +2598,51 @@ public interface ModelPackage extends EPackage {
 	int RECEPTIONIST_CONTROLLER_FEATURE_COUNT = BOOKING_CONTROLLER_FEATURE_COUNT + 2;
 
 	/**
+	 * The operation id for the '<em>Search Rooms</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RECEPTIONIST_CONTROLLER___SEARCH_ROOMS__DATE_DATE_INT_INT = BOOKING_CONTROLLER___SEARCH_ROOMS__DATE_DATE_INT_INT;
+
+	/**
+	 * The operation id for the '<em>Create Customer</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RECEPTIONIST_CONTROLLER___CREATE_CUSTOMER__STRING_STRING_STRING_STRING_STRING_STRING_INT_INT = BOOKING_CONTROLLER___CREATE_CUSTOMER__STRING_STRING_STRING_STRING_STRING_STRING_INT_INT;
+
+	/**
+	 * The operation id for the '<em>Pay</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RECEPTIONIST_CONTROLLER___PAY__CUSTOMER_RECEIPT = BOOKING_CONTROLLER___PAY__CUSTOMER_RECEIPT;
+
+	/**
+	 * The operation id for the '<em>Validate Card</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RECEPTIONIST_CONTROLLER___VALIDATE_CARD__STRING_STRING_INT_INT = BOOKING_CONTROLLER___VALIDATE_CARD__STRING_STRING_INT_INT;
+
+	/**
+	 * The operation id for the '<em>Create Booking</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RECEPTIONIST_CONTROLLER___CREATE_BOOKING__DATE_DATE_STRING_CUSTOMER_STRING_RECEIPT_STRING = BOOKING_CONTROLLER___CREATE_BOOKING__DATE_DATE_STRING_CUSTOMER_STRING_RECEIPT_STRING;
+
+	/**
 	 * The operation id for the '<em>Booking Controller</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2400,13 +2652,85 @@ public interface ModelPackage extends EPackage {
 	int RECEPTIONIST_CONTROLLER___BOOKING_CONTROLLER__ROOMEXPERT_BOOKINGEXPERT_PROMOTIONEXPERT = BOOKING_CONTROLLER___BOOKING_CONTROLLER__ROOMEXPERT_BOOKINGEXPERT_PROMOTIONEXPERT;
 
 	/**
+	 * The operation id for the '<em>Create Resident</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RECEPTIONIST_CONTROLLER___CREATE_RESIDENT__STRING_STRING_STRING = BOOKING_CONTROLLER_OPERATION_COUNT + 0;
+
+	/**
+	 * The operation id for the '<em>View All Bookings</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RECEPTIONIST_CONTROLLER___VIEW_ALL_BOOKINGS__DATE_DATE = BOOKING_CONTROLLER_OPERATION_COUNT + 1;
+
+	/**
+	 * The operation id for the '<em>Get Booking</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RECEPTIONIST_CONTROLLER___GET_BOOKING__STRING = BOOKING_CONTROLLER_OPERATION_COUNT + 2;
+
+	/**
+	 * The operation id for the '<em>View Un Occupied Rooms</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RECEPTIONIST_CONTROLLER___VIEW_UN_OCCUPIED_ROOMS = BOOKING_CONTROLLER_OPERATION_COUNT + 3;
+
+	/**
+	 * The operation id for the '<em>Get Booking</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RECEPTIONIST_CONTROLLER___GET_BOOKING__STRING_DATE_DATE = BOOKING_CONTROLLER_OPERATION_COUNT + 4;
+
+	/**
+	 * The operation id for the '<em>View Un Occupied Rooms</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RECEPTIONIST_CONTROLLER___VIEW_UN_OCCUPIED_ROOMS__STRING = BOOKING_CONTROLLER_OPERATION_COUNT + 5;
+
+	/**
+	 * The operation id for the '<em>Check In</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RECEPTIONIST_CONTROLLER___CHECK_IN__BOOKING = BOOKING_CONTROLLER_OPERATION_COUNT + 6;
+
+	/**
+	 * The operation id for the '<em>Check Out</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RECEPTIONIST_CONTROLLER___CHECK_OUT__BOOKING = BOOKING_CONTROLLER_OPERATION_COUNT + 7;
+
+	/**
 	 * The operation id for the '<em>Receptionist Controller</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int RECEPTIONIST_CONTROLLER___RECEPTIONIST_CONTROLLER__RECEIPTEXPERT_EXPENSEEXPERT_ROOMEXPERT_BOOKINGEXPERT_PROMOTIONEXPERT_USEREXPERT = BOOKING_CONTROLLER_OPERATION_COUNT + 0;
+	int RECEPTIONIST_CONTROLLER___RECEPTIONIST_CONTROLLER__RECEIPTEXPERT_EXPENSEEXPERT_ROOMEXPERT_BOOKINGEXPERT_PROMOTIONEXPERT_USEREXPERT = BOOKING_CONTROLLER_OPERATION_COUNT + 8;
 
 	/**
 	 * The number of operations of the '<em>Receptionist Controller</em>' class.
@@ -2415,7 +2739,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RECEPTIONIST_CONTROLLER_OPERATION_COUNT = BOOKING_CONTROLLER_OPERATION_COUNT + 1;
+	int RECEPTIONIST_CONTROLLER_OPERATION_COUNT = BOOKING_CONTROLLER_OPERATION_COUNT + 9;
 
 	/**
 	 * The meta object id for the '{@link model.impl.MSAccessDBImpl <em>MS Access DB</em>}' class.

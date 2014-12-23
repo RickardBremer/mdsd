@@ -3,12 +3,17 @@
 package model.impl;
 
 import java.lang.reflect.InvocationTargetException;
+import java.util.Date;
 import model.AdminController;
 import model.DatabaseInterface;
+import model.Expense;
 import model.ExpenseExpert;
 import model.ModelPackage;
+import model.Promotion;
 import model.PromotionExpert;
+import model.Room;
 import model.RoomExpert;
+import model.User;
 import model.UserExpert;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -253,6 +258,204 @@ public class AdminControllerImpl extends MinimalEObjectImpl.Container implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public boolean login(String name, String password) {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean createRoom(int roomNo, String description, String type, int price, int beds) {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean removeRoom(Room room) {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean updateRoom(Room room) {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean createUser(String firstName, String surname, String password, boolean receptionist, boolean admin) {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean removeUser(User user) {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean updateUser(User user) {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean createPromotion(String code, String description, int percentage, Date validFrom) {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean removePromotion(Promotion promotion) {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean updatePromotion(Promotion promotion) {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean createExpense(int price, String name, String description, Date date) {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean removeExpense(Expense expense) {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean updateExpense(Expense expense) {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<Room> viewRooms() {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<Promotion> viewPromotions() {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<User> viewUsers() {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<Expense> viewExpenses() {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void AdminController(RoomExpert roomExpert, ExpenseExpert expenseExpert, UserExpert userExpert, PromotionExpert promotionExpert) {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public void AdminController(ExpenseExpert expenseExpert, PromotionExpert promotionExpert, UserExpert userExpert, RoomExpert roomExpert) {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
@@ -359,6 +562,43 @@ public class AdminControllerImpl extends MinimalEObjectImpl.Container implements
 	@Override
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
+			case ModelPackage.ADMIN_CONTROLLER___LOGIN__STRING_STRING:
+				return login((String)arguments.get(0), (String)arguments.get(1));
+			case ModelPackage.ADMIN_CONTROLLER___CREATE_ROOM__INT_STRING_STRING_INT_INT:
+				return createRoom((Integer)arguments.get(0), (String)arguments.get(1), (String)arguments.get(2), (Integer)arguments.get(3), (Integer)arguments.get(4));
+			case ModelPackage.ADMIN_CONTROLLER___REMOVE_ROOM__ROOM:
+				return removeRoom((Room)arguments.get(0));
+			case ModelPackage.ADMIN_CONTROLLER___UPDATE_ROOM__ROOM:
+				return updateRoom((Room)arguments.get(0));
+			case ModelPackage.ADMIN_CONTROLLER___CREATE_USER__STRING_STRING_STRING_BOOLEAN_BOOLEAN:
+				return createUser((String)arguments.get(0), (String)arguments.get(1), (String)arguments.get(2), (Boolean)arguments.get(3), (Boolean)arguments.get(4));
+			case ModelPackage.ADMIN_CONTROLLER___REMOVE_USER__USER:
+				return removeUser((User)arguments.get(0));
+			case ModelPackage.ADMIN_CONTROLLER___UPDATE_USER__USER:
+				return updateUser((User)arguments.get(0));
+			case ModelPackage.ADMIN_CONTROLLER___CREATE_PROMOTION__STRING_STRING_INT_DATE:
+				return createPromotion((String)arguments.get(0), (String)arguments.get(1), (Integer)arguments.get(2), (Date)arguments.get(3));
+			case ModelPackage.ADMIN_CONTROLLER___REMOVE_PROMOTION__PROMOTION:
+				return removePromotion((Promotion)arguments.get(0));
+			case ModelPackage.ADMIN_CONTROLLER___UPDATE_PROMOTION__PROMOTION:
+				return updatePromotion((Promotion)arguments.get(0));
+			case ModelPackage.ADMIN_CONTROLLER___CREATE_EXPENSE__INT_STRING_STRING_DATE:
+				return createExpense((Integer)arguments.get(0), (String)arguments.get(1), (String)arguments.get(2), (Date)arguments.get(3));
+			case ModelPackage.ADMIN_CONTROLLER___REMOVE_EXPENSE__EXPENSE:
+				return removeExpense((Expense)arguments.get(0));
+			case ModelPackage.ADMIN_CONTROLLER___UPDATE_EXPENSE__EXPENSE:
+				return updateExpense((Expense)arguments.get(0));
+			case ModelPackage.ADMIN_CONTROLLER___VIEW_ROOMS:
+				return viewRooms();
+			case ModelPackage.ADMIN_CONTROLLER___VIEW_PROMOTIONS:
+				return viewPromotions();
+			case ModelPackage.ADMIN_CONTROLLER___VIEW_USERS:
+				return viewUsers();
+			case ModelPackage.ADMIN_CONTROLLER___VIEW_EXPENSES:
+				return viewExpenses();
+			case ModelPackage.ADMIN_CONTROLLER___ADMIN_CONTROLLER__ROOMEXPERT_EXPENSEEXPERT_USEREXPERT_PROMOTIONEXPERT:
+				AdminController((RoomExpert)arguments.get(0), (ExpenseExpert)arguments.get(1), (UserExpert)arguments.get(2), (PromotionExpert)arguments.get(3));
+				return null;
 			case ModelPackage.ADMIN_CONTROLLER___ADMIN_CONTROLLER__EXPENSEEXPERT_PROMOTIONEXPERT_USEREXPERT_ROOMEXPERT:
 				AdminController((ExpenseExpert)arguments.get(0), (PromotionExpert)arguments.get(1), (UserExpert)arguments.get(2), (RoomExpert)arguments.get(3));
 				return null;

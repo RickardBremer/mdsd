@@ -29,7 +29,7 @@
     <details key="INVOCATION_DELEGATES" value="IGNORE"/>
     <details key="VALIDATION_DELEGATES" value="IGNORE"/>
   </genAnnotations>
-  <foreignModel>../../model.uml</foreignModel>
+  <foreignModel>../../mdsd-project/model.uml</foreignModel>
   <genPackages xsi:type="genmodel:GenPackage" prefix="Model" disposableProviderFactory="true"
       ecorePackage="model.ecore#/">
     <genClasses xsi:type="genmodel:GenClass" ecoreClass="model.ecore#//BankComponent"/>

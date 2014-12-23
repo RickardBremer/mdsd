@@ -2,7 +2,6 @@
  */
 package model;
 
-import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
@@ -23,7 +22,7 @@ import org.eclipse.emf.ecore.EObject;
  * @model
  * @generated
  */
-public interface BookingController extends EObject {
+public interface BookingController extends CustomerInterface {
 	/**
 	 * Returns the value of the '<em><b>Room</b></em>' reference.
 	 * <!-- begin-user-doc -->

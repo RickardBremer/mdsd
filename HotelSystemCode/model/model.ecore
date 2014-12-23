@@ -515,7 +515,7 @@
       </eAnnotations>
     </eOperations>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="BookingController">
+  <eClassifiers xsi:type="ecore:EClass" name="BookingController" eSuperTypes="#//CustomerInterface">
     <eOperations name="BookingController" ordered="false" lowerBound="1">
       <eParameters name="roomExpert" ordered="false" lowerBound="1" eType="#//RoomExpert"/>
       <eParameters name="bookingExpert" ordered="false" lowerBound="1" eType="#//BookingExpert"/>
@@ -530,7 +530,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="databaseInterface" ordered="false"
         lowerBound="1" eType="#//DatabaseInterface"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="AdminController">
+  <eClassifiers xsi:type="ecore:EClass" name="AdminController" eSuperTypes="#//AdminInterface">
     <eOperations name="AdminController" ordered="false" lowerBound="1">
       <eParameters name="expenseExpert" ordered="false" lowerBound="1" eType="#//ExpenseExpert"/>
       <eParameters name="promotionExpert" ordered="false" lowerBound="1" eType="#//PromotionExpert"/>
@@ -546,7 +546,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="databaseInterface" ordered="false"
         lowerBound="1" eType="#//DatabaseInterface"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ReceptionistController" eSuperTypes="#//BookingController">
+  <eClassifiers xsi:type="ecore:EClass" name="ReceptionistController" eSuperTypes="#//BookingController #//ReceptionistInterface">
     <eOperations name="ReceptionistController" ordered="false" lowerBound="1">
       <eParameters name="receiptExpert" ordered="false" lowerBound="1" eType="#//ReceiptExpert"/>
       <eParameters name="expenseExpert" ordered="false" lowerBound="1" eType="#//ExpenseExpert"/>

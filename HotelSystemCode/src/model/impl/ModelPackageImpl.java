@@ -2390,7 +2390,10 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		// Set bounds for type parameters
 
 		// Add supertypes to classes
+		bookingControllerEClass.getESuperTypes().add(this.getCustomerInterface());
+		adminControllerEClass.getESuperTypes().add(this.getAdminInterface());
 		receptionistControllerEClass.getESuperTypes().add(this.getBookingController());
+		receptionistControllerEClass.getESuperTypes().add(this.getReceptionistInterface());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(bankComponentEClass, BankComponent.class, "BankComponent", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);

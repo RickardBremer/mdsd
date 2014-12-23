@@ -1043,6 +1043,7 @@
         <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_wVY1MoX9EeSSWPBCkg2FMw" value="1"/>
       </ownedAttribute>
       <ownedAttribute xmi:type="uml:Property" xmi:id="_QgzU0InEEeSH0aSvdd46GA" name="databaseInterface" visibility="private" type="_5pSK4IBJEeSIi9xXvYIBqQ"/>
+      <interfaceRealization xmi:type="uml:InterfaceRealization" xmi:id="_SJ8YoIqPEeSCo51zhpbIKg" client="__5260IB6EeSIi9xXvYIBqQ" supplier="_x4FxwH4gEeSissZ6Et6fRA" contract="_x4FxwH4gEeSissZ6Et6fRA"/>
       <ownedOperation xmi:type="uml:Operation" xmi:id="_UuEpoIqMEeSCo51zhpbIKg" name="BookingController">
         <ownedParameter xmi:type="uml:Parameter" xmi:id="_Y1724IqMEeSCo51zhpbIKg" name="roomExpert" type="_FOiycIB5EeSIi9xXvYIBqQ"/>
         <ownedParameter xmi:type="uml:Parameter" xmi:id="_bagFYIqMEeSCo51zhpbIKg" name="bookingExpert" type="_JKAicIB5EeSIi9xXvYIBqQ"/>
@@ -1063,6 +1064,7 @@
         <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_G5-HUoEaEeSIi9xXvYIBqQ" value="1"/>
       </ownedAttribute>
       <ownedAttribute xmi:type="uml:Property" xmi:id="_0d4skIdmEeSzUtUd_ZlEnQ" name="databaseInterface" visibility="private" type="_5pSK4IBJEeSIi9xXvYIBqQ"/>
+      <interfaceRealization xmi:type="uml:InterfaceRealization" xmi:id="_P9UwEIqPEeSCo51zhpbIKg" client="_MM4ysIB7EeSIi9xXvYIBqQ" supplier="_3vNWIH4gEeSissZ6Et6fRA" contract="_3vNWIH4gEeSissZ6Et6fRA"/>
       <ownedOperation xmi:type="uml:Operation" xmi:id="_kMqekIqMEeSCo51zhpbIKg" name="AdminController">
         <ownedParameter xmi:type="uml:Parameter" xmi:id="_pLYbUIqMEeSCo51zhpbIKg" name="expenseExpert" type="_RVmD0IB5EeSIi9xXvYIBqQ"/>
         <ownedParameter xmi:type="uml:Parameter" xmi:id="_suzewIqMEeSCo51zhpbIKg" name="promotionExpert" type="_Um74wIB5EeSIi9xXvYIBqQ"/>
@@ -1165,6 +1167,7 @@
         <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_B1oukYqNEeSCo51zhpbIKg" value="1"/>
         <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_B1oukoqNEeSCo51zhpbIKg" value="1"/>
       </ownedAttribute>
+      <interfaceRealization xmi:type="uml:InterfaceRealization" xmi:id="_UCgcwIqPEeSCo51zhpbIKg" client="_IGSwwIB7EeSIi9xXvYIBqQ" supplier="_0Pr7QH4gEeSissZ6Et6fRA" contract="_0Pr7QH4gEeSissZ6Et6fRA"/>
       <ownedOperation xmi:type="uml:Operation" xmi:id="_qeW7kIqLEeSCo51zhpbIKg" name="ReceptionistController">
         <ownedParameter xmi:type="uml:Parameter" xmi:id="_wPlTUIqLEeSCo51zhpbIKg" name="receiptExpert" type="_LKi20IB5EeSIi9xXvYIBqQ"/>
         <ownedParameter xmi:type="uml:Parameter" xmi:id="_0Q3-gIqLEeSCo51zhpbIKg" name="expenseExpert" type="_RVmD0IB5EeSIi9xXvYIBqQ"/>
@@ -1174,9 +1177,6 @@
         <ownedParameter xmi:type="uml:Parameter" xmi:id="_FaGT0IqNEeSCo51zhpbIKg" name="userExpert" type="_nKQqAIB5EeSIi9xXvYIBqQ"/>
       </ownedOperation>
     </packagedElement>
-    <packagedElement xmi:type="uml:Realization" xmi:id="_bZwvgInREeSH0aSvdd46GA" client="_MM4ysIB7EeSIi9xXvYIBqQ" supplier="_3vNWIH4gEeSissZ6Et6fRA"/>
-    <packagedElement xmi:type="uml:Realization" xmi:id="_fH84gInREeSH0aSvdd46GA" client="__5260IB6EeSIi9xXvYIBqQ" supplier="_x4FxwH4gEeSissZ6Et6fRA"/>
-    <packagedElement xmi:type="uml:Realization" xmi:id="_nOJjkInREeSH0aSvdd46GA" client="_IGSwwIB7EeSIi9xXvYIBqQ" supplier="_0Pr7QH4gEeSissZ6Et6fRA"/>
     <packagedElement xmi:type="uml:Association" xmi:id="_1e5BIInYEeSH0aSvdd46GA" memberEnd="_1e5BIYnYEeSH0aSvdd46GA _1e3L8InYEeSH0aSvdd46GA">
       <ownedEnd xmi:type="uml:Property" xmi:id="_1e5BIYnYEeSH0aSvdd46GA" name="room" type="_2JcbkIB4EeSIi9xXvYIBqQ" association="_1e5BIInYEeSH0aSvdd46GA">
         <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_1e5BIonYEeSH0aSvdd46GA" value="1"/>

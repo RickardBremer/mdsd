@@ -20,7 +20,7 @@ package model;
  * @model
  * @generated
  */
-public interface ReceptionistController extends BookingController {
+public interface ReceptionistController extends BookingController, ReceptionistInterface {
 	/**
 	 * Returns the value of the '<em><b>Expense Expert</b></em>' reference.
 	 * <!-- begin-user-doc -->

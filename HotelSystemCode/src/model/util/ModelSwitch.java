@@ -225,12 +225,14 @@ public class ModelSwitch<T> extends Switch<T> {
 			case ModelPackage.BOOKING_CONTROLLER: {
 				BookingController bookingController = (BookingController)theEObject;
 				T result = caseBookingController(bookingController);
+				if (result == null) result = caseCustomerInterface(bookingController);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case ModelPackage.ADMIN_CONTROLLER: {
 				AdminController adminController = (AdminController)theEObject;
 				T result = caseAdminController(adminController);
+				if (result == null) result = caseAdminInterface(adminController);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -238,6 +240,8 @@ public class ModelSwitch<T> extends Switch<T> {
 				ReceptionistController receptionistController = (ReceptionistController)theEObject;
 				T result = caseReceptionistController(receptionistController);
 				if (result == null) result = caseBookingController(receptionistController);
+				if (result == null) result = caseReceptionistInterface(receptionistController);
+				if (result == null) result = caseCustomerInterface(receptionistController);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
