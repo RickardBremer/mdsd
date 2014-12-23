@@ -195,6 +195,17 @@ public class BookingExpertImpl extends MinimalEObjectImpl.Container implements B
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public void BookingExpert(DatabaseInterface database) {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
@@ -273,6 +284,9 @@ public class BookingExpertImpl extends MinimalEObjectImpl.Container implements B
 				return updateBooking((Booking)arguments.get(0));
 			case ModelPackage.BOOKING_EXPERT___GET_ALL_BOOKINGS__STRING:
 				return getAllBookings((String)arguments.get(0));
+			case ModelPackage.BOOKING_EXPERT___BOOKING_EXPERT__DATABASEINTERFACE:
+				BookingExpert((DatabaseInterface)arguments.get(0));
+				return null;
 		}
 		return super.eInvoke(operationID, arguments);
 	}

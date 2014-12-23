@@ -128,4 +128,12 @@ public interface BookingController extends EObject {
 	 */
 	void setDatabaseInterface(DatabaseInterface value);
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model roomExpertRequired="true" roomExpertOrdered="false" bookingExpertRequired="true" bookingExpertOrdered="false" promotionExpertRequired="true" promotionExpertOrdered="false"
+	 * @generated
+	 */
+	void BookingController(RoomExpert roomExpert, BookingExpert bookingExpert, PromotionExpert promotionExpert);
+
 } // BookingController

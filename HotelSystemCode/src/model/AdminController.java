@@ -128,4 +128,12 @@ public interface AdminController extends EObject {
 	 */
 	void setDatabaseInterface(DatabaseInterface value);
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model expenseExpertRequired="true" expenseExpertOrdered="false" promotionExpertRequired="true" promotionExpertOrdered="false" userExpertRequired="true" userExpertOrdered="false" roomExpertRequired="true" roomExpertOrdered="false"
+	 * @generated
+	 */
+	void AdminController(ExpenseExpert expenseExpert, PromotionExpert promotionExpert, UserExpert userExpert, RoomExpert roomExpert);
+
 } // AdminController

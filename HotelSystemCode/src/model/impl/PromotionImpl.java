@@ -319,6 +319,17 @@ public class PromotionImpl extends MinimalEObjectImpl.Container implements Promo
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public void Promotion(String code, String description, int percentage, Date vaildFrom, Date vaildTo) {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
@@ -432,6 +443,9 @@ public class PromotionImpl extends MinimalEObjectImpl.Container implements Promo
 		switch (operationID) {
 			case ModelPackage.PROMOTION___CALCULATE_DISCOUNT__ROOM:
 				calculateDiscount((Room)arguments.get(0));
+				return null;
+			case ModelPackage.PROMOTION___PROMOTION__STRING_STRING_INT_DATE_DATE:
+				Promotion((String)arguments.get(0), (String)arguments.get(1), (Integer)arguments.get(2), (Date)arguments.get(3), (Date)arguments.get(4));
 				return null;
 		}
 		return super.eInvoke(operationID, arguments);

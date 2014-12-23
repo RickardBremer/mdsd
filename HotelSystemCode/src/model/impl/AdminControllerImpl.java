@@ -2,15 +2,18 @@
  */
 package model.impl;
 
+import java.lang.reflect.InvocationTargetException;
 import model.AdminController;
 import model.DatabaseInterface;
 import model.ExpenseExpert;
 import model.ModelPackage;
 import model.PromotionExpert;
+import model.RoomExpert;
 import model.UserExpert;
 
 import org.eclipse.emf.common.notify.Notification;
 
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
@@ -250,6 +253,17 @@ public class AdminControllerImpl extends MinimalEObjectImpl.Container implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public void AdminController(ExpenseExpert expenseExpert, PromotionExpert promotionExpert, UserExpert userExpert, RoomExpert roomExpert) {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
@@ -335,6 +349,21 @@ public class AdminControllerImpl extends MinimalEObjectImpl.Container implements
 				return databaseInterface != null;
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
+		switch (operationID) {
+			case ModelPackage.ADMIN_CONTROLLER___ADMIN_CONTROLLER__EXPENSEEXPERT_PROMOTIONEXPERT_USEREXPERT_ROOMEXPERT:
+				AdminController((ExpenseExpert)arguments.get(0), (PromotionExpert)arguments.get(1), (UserExpert)arguments.get(2), (RoomExpert)arguments.get(3));
+				return null;
+		}
+		return super.eInvoke(operationID, arguments);
 	}
 
 } //AdminControllerImpl

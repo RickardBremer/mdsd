@@ -258,9 +258,9 @@ public interface Room extends EObject {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model _DataType="org.eclipse.uml2.types.Integer" _Required="true" _Ordered="false" descriptionDataType="org.eclipse.uml2.types.String" descriptionRequired="true" descriptionOrdered="false" typeDataType="org.eclipse.uml2.types.String" typeRequired="true" typeOrdered="false" priceDataType="org.eclipse.uml2.types.Integer" priceRequired="true" priceOrdered="false" bedsDataType="org.eclipse.uml2.types.Integer" bedsRequired="true" bedsOrdered="false"
+	 * @model numberDataType="org.eclipse.uml2.types.Integer" numberRequired="true" numberOrdered="false" descriptionDataType="org.eclipse.uml2.types.String" descriptionRequired="true" descriptionOrdered="false" typeDataType="org.eclipse.uml2.types.String" typeRequired="true" typeOrdered="false" priceRequired="true" priceOrdered="false" bedsDataType="org.eclipse.uml2.types.Integer" bedsRequired="true" bedsOrdered="false"
 	 * @generated
 	 */
-	void Room(int _, String description, String type, int price, int beds);
+	void Room(int number, String description, String type, Expense price, int beds);
 
 } // Room

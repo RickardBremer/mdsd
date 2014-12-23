@@ -105,4 +105,12 @@ public interface ReceiptExpert extends EObject {
 	 */
 	boolean updateReceipt(Receipt receipt);
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model databaseRequired="true" databaseOrdered="false"
+	 * @generated
+	 */
+	void ReceiptExpert(DatabaseInterface database);
+
 } // ReceiptExpert

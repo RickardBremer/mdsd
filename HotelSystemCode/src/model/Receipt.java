@@ -21,7 +21,6 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link model.Receipt#getDate <em>Date</em>}</li>
  *   <li>{@link model.Receipt#getExpenses <em>Expenses</em>}</li>
  *   <li>{@link model.Receipt#getID <em>ID</em>}</li>
- *   <li>{@link model.Receipt#getCashier <em>Cashier</em>}</li>
  * </ul>
  * </p>
  *
@@ -141,32 +140,6 @@ public interface Receipt extends EObject {
 	void setID(int value);
 
 	/**
-	 * Returns the value of the '<em><b>Cashier</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Cashier</em>' reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Cashier</em>' reference.
-	 * @see #setCashier(User)
-	 * @see model.ModelPackage#getReceipt_Cashier()
-	 * @model required="true" ordered="false"
-	 * @generated
-	 */
-	User getCashier();
-
-	/**
-	 * Sets the value of the '{@link model.Receipt#getCashier <em>Cashier</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Cashier</em>' reference.
-	 * @see #getCashier()
-	 * @generated
-	 */
-	void setCashier(User value);
-
-	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @model required="true" ordered="false" expenseRequired="true" expenseOrdered="false"
@@ -189,5 +162,13 @@ public interface Receipt extends EObject {
 	 * @generated
 	 */
 	EList<Expense> getAllExpenses();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	void Receipt();
 
 } // Receipt

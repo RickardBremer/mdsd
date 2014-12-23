@@ -2,13 +2,19 @@
  */
 package model.impl;
 
+import java.lang.reflect.InvocationTargetException;
+import model.BookingExpert;
 import model.ExpenseExpert;
 import model.ModelPackage;
+import model.PromotionExpert;
+import model.ReceiptExpert;
 import model.ReceptionistController;
 import model.RoomExpert;
 
+import model.UserExpert;
 import org.eclipse.emf.common.notify.Notification;
 
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
@@ -22,7 +28,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * The following features are implemented:
  * <ul>
  *   <li>{@link model.impl.ReceptionistControllerImpl#getExpenseExpert <em>Expense Expert</em>}</li>
- *   <li>{@link model.impl.ReceptionistControllerImpl#getRoomExpert <em>Room Expert</em>}</li>
+ *   <li>{@link model.impl.ReceptionistControllerImpl#getUserExpert <em>User Expert</em>}</li>
  * </ul>
  * </p>
  *
@@ -40,14 +46,14 @@ public class ReceptionistControllerImpl extends BookingControllerImpl implements
 	protected ExpenseExpert expenseExpert;
 
 	/**
-	 * The cached value of the '{@link #getRoomExpert() <em>Room Expert</em>}' reference.
+	 * The cached value of the '{@link #getUserExpert() <em>User Expert</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getRoomExpert()
+	 * @see #getUserExpert()
 	 * @generated
 	 * @ordered
 	 */
-	protected RoomExpert roomExpert;
+	protected UserExpert userExpert;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -111,16 +117,16 @@ public class ReceptionistControllerImpl extends BookingControllerImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public RoomExpert getRoomExpert() {
-		if (roomExpert != null && roomExpert.eIsProxy()) {
-			InternalEObject oldRoomExpert = (InternalEObject)roomExpert;
-			roomExpert = (RoomExpert)eResolveProxy(oldRoomExpert);
-			if (roomExpert != oldRoomExpert) {
+	public UserExpert getUserExpert() {
+		if (userExpert != null && userExpert.eIsProxy()) {
+			InternalEObject oldUserExpert = (InternalEObject)userExpert;
+			userExpert = (UserExpert)eResolveProxy(oldUserExpert);
+			if (userExpert != oldUserExpert) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, ModelPackage.RECEPTIONIST_CONTROLLER__ROOM_EXPERT, oldRoomExpert, roomExpert));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, ModelPackage.RECEPTIONIST_CONTROLLER__USER_EXPERT, oldUserExpert, userExpert));
 			}
 		}
-		return roomExpert;
+		return userExpert;
 	}
 
 	/**
@@ -128,8 +134,8 @@ public class ReceptionistControllerImpl extends BookingControllerImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public RoomExpert basicGetRoomExpert() {
-		return roomExpert;
+	public UserExpert basicGetUserExpert() {
+		return userExpert;
 	}
 
 	/**
@@ -137,11 +143,22 @@ public class ReceptionistControllerImpl extends BookingControllerImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setRoomExpert(RoomExpert newRoomExpert) {
-		RoomExpert oldRoomExpert = roomExpert;
-		roomExpert = newRoomExpert;
+	public void setUserExpert(UserExpert newUserExpert) {
+		UserExpert oldUserExpert = userExpert;
+		userExpert = newUserExpert;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.RECEPTIONIST_CONTROLLER__ROOM_EXPERT, oldRoomExpert, roomExpert));
+			eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.RECEPTIONIST_CONTROLLER__USER_EXPERT, oldUserExpert, userExpert));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void ReceptionistController(ReceiptExpert receiptExpert, ExpenseExpert expenseExpert, RoomExpert roomExpert, BookingExpert bookingExpert, PromotionExpert promotionExpert, UserExpert userExpert) {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
 	}
 
 	/**
@@ -155,9 +172,9 @@ public class ReceptionistControllerImpl extends BookingControllerImpl implements
 			case ModelPackage.RECEPTIONIST_CONTROLLER__EXPENSE_EXPERT:
 				if (resolve) return getExpenseExpert();
 				return basicGetExpenseExpert();
-			case ModelPackage.RECEPTIONIST_CONTROLLER__ROOM_EXPERT:
-				if (resolve) return getRoomExpert();
-				return basicGetRoomExpert();
+			case ModelPackage.RECEPTIONIST_CONTROLLER__USER_EXPERT:
+				if (resolve) return getUserExpert();
+				return basicGetUserExpert();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -173,8 +190,8 @@ public class ReceptionistControllerImpl extends BookingControllerImpl implements
 			case ModelPackage.RECEPTIONIST_CONTROLLER__EXPENSE_EXPERT:
 				setExpenseExpert((ExpenseExpert)newValue);
 				return;
-			case ModelPackage.RECEPTIONIST_CONTROLLER__ROOM_EXPERT:
-				setRoomExpert((RoomExpert)newValue);
+			case ModelPackage.RECEPTIONIST_CONTROLLER__USER_EXPERT:
+				setUserExpert((UserExpert)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -191,8 +208,8 @@ public class ReceptionistControllerImpl extends BookingControllerImpl implements
 			case ModelPackage.RECEPTIONIST_CONTROLLER__EXPENSE_EXPERT:
 				setExpenseExpert((ExpenseExpert)null);
 				return;
-			case ModelPackage.RECEPTIONIST_CONTROLLER__ROOM_EXPERT:
-				setRoomExpert((RoomExpert)null);
+			case ModelPackage.RECEPTIONIST_CONTROLLER__USER_EXPERT:
+				setUserExpert((UserExpert)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -208,10 +225,25 @@ public class ReceptionistControllerImpl extends BookingControllerImpl implements
 		switch (featureID) {
 			case ModelPackage.RECEPTIONIST_CONTROLLER__EXPENSE_EXPERT:
 				return expenseExpert != null;
-			case ModelPackage.RECEPTIONIST_CONTROLLER__ROOM_EXPERT:
-				return roomExpert != null;
+			case ModelPackage.RECEPTIONIST_CONTROLLER__USER_EXPERT:
+				return userExpert != null;
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
+		switch (operationID) {
+			case ModelPackage.RECEPTIONIST_CONTROLLER___RECEPTIONIST_CONTROLLER__RECEIPTEXPERT_EXPENSEEXPERT_ROOMEXPERT_BOOKINGEXPERT_PROMOTIONEXPERT_USEREXPERT:
+				ReceptionistController((ReceiptExpert)arguments.get(0), (ExpenseExpert)arguments.get(1), (RoomExpert)arguments.get(2), (BookingExpert)arguments.get(3), (PromotionExpert)arguments.get(4), (UserExpert)arguments.get(5));
+				return null;
+		}
+		return super.eInvoke(operationID, arguments);
 	}
 
 } //ReceptionistControllerImpl

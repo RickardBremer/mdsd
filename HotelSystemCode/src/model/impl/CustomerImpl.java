@@ -2,11 +2,13 @@
  */
 package model.impl;
 
+import java.lang.reflect.InvocationTargetException;
 import model.Customer;
 import model.ModelPackage;
 
 import org.eclipse.emf.common.notify.Notification;
 
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
@@ -385,6 +387,17 @@ public class CustomerImpl extends MinimalEObjectImpl.Container implements Custom
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public void Customer(String firstName, String surname, String email, String address, String ccNumber, String ccv, int ccExpiringMonth, int ccExpiringYear) {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
@@ -506,6 +519,21 @@ public class CustomerImpl extends MinimalEObjectImpl.Container implements Custom
 				return expiringYear != EXPIRING_YEAR_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
+		switch (operationID) {
+			case ModelPackage.CUSTOMER___CUSTOMER__STRING_STRING_STRING_STRING_STRING_STRING_INT_INT:
+				Customer((String)arguments.get(0), (String)arguments.get(1), (String)arguments.get(2), (String)arguments.get(3), (String)arguments.get(4), (String)arguments.get(5), (Integer)arguments.get(6), (Integer)arguments.get(7));
+				return null;
+		}
+		return super.eInvoke(operationID, arguments);
 	}
 
 	/**

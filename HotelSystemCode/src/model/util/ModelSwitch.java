@@ -126,12 +126,6 @@ public class ModelSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case ModelPackage.USER: {
-				User user = (User)theEObject;
-				T result = caseUser(user);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
 			case ModelPackage.RESIDENT: {
 				Resident resident = (Resident)theEObject;
 				T result = caseResident(resident);
@@ -159,6 +153,12 @@ public class ModelSwitch<T> extends Switch<T> {
 			case ModelPackage.ADMIN_INTERFACE: {
 				AdminInterface adminInterface = (AdminInterface)theEObject;
 				T result = caseAdminInterface(adminInterface);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case ModelPackage.USER: {
+				User user = (User)theEObject;
+				T result = caseUser(user);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}

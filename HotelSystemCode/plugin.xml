@@ -10,16 +10,14 @@
       <!-- @generated model -->
       <package
             uri="http:///model.ecore"
-            class="model.ModelPackage"
-            genModel="model/model.genmodel"/>
+            class="model.ModelPackage"/>
    </extension>
 
    <extension point="org.eclipse.emf.ecore.generated_package">
       <!-- @generated model -->
       <package
             uri="http://www.eclipse.org/uml2/5.0.0/Types"
-            class="org.eclipse.uml2.types.TypesPackage"
-            genModel="model/model.genmodel"/>
+            class="org.eclipse.uml2.types.TypesPackage"/>
    </extension>
 
 </plugin>

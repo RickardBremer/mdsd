@@ -184,6 +184,17 @@ public class RoomExpertImpl extends MinimalEObjectImpl.Container implements Room
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public void RoomExpert(DatabaseInterface database) {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
@@ -260,6 +271,9 @@ public class RoomExpertImpl extends MinimalEObjectImpl.Container implements Room
 				return updateRoom((Room)arguments.get(0));
 			case ModelPackage.ROOM_EXPERT___GET_ROOM__INT:
 				return getRoom((Integer)arguments.get(0));
+			case ModelPackage.ROOM_EXPERT___ROOM_EXPERT__DATABASEINTERFACE:
+				RoomExpert((DatabaseInterface)arguments.get(0));
+				return null;
 		}
 		return super.eInvoke(operationID, arguments);
 	}

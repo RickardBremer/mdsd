@@ -4,6 +4,7 @@ package model;
 
 import java.util.Date;
 
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -44,10 +45,10 @@ public interface AdminInterface extends EObject {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model roomRequired="true" roomOrdered="false"
+	 * @model required="true" ordered="false" roomRequired="true" roomOrdered="false"
 	 * @generated
 	 */
-	void updateRoom(Room room);
+	boolean updateRoom(Room room);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -76,10 +77,10 @@ public interface AdminInterface extends EObject {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model codeDataType="org.eclipse.uml2.types.String" codeRequired="true" codeOrdered="false" descriptionDataType="org.eclipse.uml2.types.String" descriptionRequired="true" descriptionOrdered="false" percentageDataType="org.eclipse.uml2.types.Integer" percentageRequired="true" percentageOrdered="false" validFromRequired="true" validFromOrdered="false"
+	 * @model required="true" ordered="false" codeDataType="org.eclipse.uml2.types.String" codeRequired="true" codeOrdered="false" descriptionDataType="org.eclipse.uml2.types.String" descriptionRequired="true" descriptionOrdered="false" percentageDataType="org.eclipse.uml2.types.Integer" percentageRequired="true" percentageOrdered="false" validFromRequired="true" validFromOrdered="false"
 	 * @generated
 	 */
-	void createPromotion(String code, String description, int percentage, Date validFrom);
+	boolean createPromotion(String code, String description, int percentage, Date validFrom);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -100,10 +101,10 @@ public interface AdminInterface extends EObject {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model priceDataType="org.eclipse.uml2.types.Integer" priceRequired="true" priceOrdered="false" nameDataType="org.eclipse.uml2.types.String" nameRequired="true" nameOrdered="false" descriptionDataType="org.eclipse.uml2.types.String" descriptionRequired="true" descriptionOrdered="false" dateRequired="true" dateOrdered="false" _DataType="org.eclipse.uml2.types.Boolean" _Required="true" _Ordered="false"
+	 * @model dataType="org.eclipse.uml2.types.Boolean" required="true" ordered="false" priceDataType="org.eclipse.uml2.types.Integer" priceRequired="true" priceOrdered="false" nameDataType="org.eclipse.uml2.types.String" nameRequired="true" nameOrdered="false" descriptionDataType="org.eclipse.uml2.types.String" descriptionRequired="true" descriptionOrdered="false" dateRequired="true" dateOrdered="false"
 	 * @generated
 	 */
-	void createExpense(int price, String name, String description, Date date, boolean _);
+	boolean createExpense(int price, String name, String description, Date date);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -124,34 +125,34 @@ public interface AdminInterface extends EObject {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model required="true" ordered="false"
+	 * @model ordered="false"
 	 * @generated
 	 */
-	Room viewRooms();
+	EList<Room> viewRooms();
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model required="true" ordered="false"
+	 * @model ordered="false"
 	 * @generated
 	 */
-	Promotion viewPromotions();
+	EList<Promotion> viewPromotions();
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model required="true" ordered="false"
+	 * @model ordered="false"
 	 * @generated
 	 */
-	User viewUsers();
+	EList<User> viewUsers();
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model required="true" ordered="false"
+	 * @model ordered="false"
 	 * @generated
 	 */
-	Expense viewExpenses();
+	EList<Expense> viewExpenses();
 
 	/**
 	 * <!-- begin-user-doc -->

@@ -89,4 +89,12 @@ public interface PromotionExpert extends EObject {
 	 */
 	boolean updatePromotion(Promotion promotion);
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model databaseRequired="true" databaseOrdered="false"
+	 * @generated
+	 */
+	void PromotionExpert(DatabaseInterface database);
+
 } // PromotionExpert

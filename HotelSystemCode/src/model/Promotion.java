@@ -192,4 +192,12 @@ public interface Promotion extends EObject {
 	 */
 	void calculateDiscount(Room room);
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model codeRequired="true" codeOrdered="false" descriptionRequired="true" descriptionOrdered="false" percentageRequired="true" percentageOrdered="false" vaildFromRequired="true" vaildFromOrdered="false" vaildToRequired="true" vaildToOrdered="false"
+	 * @generated
+	 */
+	void Promotion(String code, String description, int percentage, Date vaildFrom, Date vaildTo);
+
 } // Promotion

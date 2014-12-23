@@ -160,6 +160,17 @@ public class ExpenseExpertImpl extends MinimalEObjectImpl.Container implements E
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public void ExpenseExpert(DatabaseInterface database) {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
@@ -232,6 +243,9 @@ public class ExpenseExpertImpl extends MinimalEObjectImpl.Container implements E
 				return removeExpense((Integer)arguments.get(0));
 			case ModelPackage.EXPENSE_EXPERT___UPDATE_EXPENSE__EXPENSE:
 				return updateExpense((Expense)arguments.get(0));
+			case ModelPackage.EXPENSE_EXPERT___EXPENSE_EXPERT__DATABASEINTERFACE:
+				ExpenseExpert((DatabaseInterface)arguments.get(0));
+				return null;
 		}
 		return super.eInvoke(operationID, arguments);
 	}

@@ -441,7 +441,7 @@ public class RoomImpl extends MinimalEObjectImpl.Container implements Room {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void Room(int _, String description, String type, int price, int beds) {
+	public void Room(int number, String description, String type, Expense price, int beds) {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();
@@ -598,8 +598,8 @@ public class RoomImpl extends MinimalEObjectImpl.Container implements Room {
 	@Override
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
-			case ModelPackage.ROOM___ROOM__INT_STRING_STRING_INT_INT:
-				Room((Integer)arguments.get(0), (String)arguments.get(1), (String)arguments.get(2), (Integer)arguments.get(3), (Integer)arguments.get(4));
+			case ModelPackage.ROOM___ROOM__INT_STRING_STRING_EXPENSE_INT:
+				Room((Integer)arguments.get(0), (String)arguments.get(1), (String)arguments.get(2), (Expense)arguments.get(3), (Integer)arguments.get(4));
 				return null;
 		}
 		return super.eInvoke(operationID, arguments);

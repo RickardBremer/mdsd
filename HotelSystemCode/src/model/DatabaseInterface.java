@@ -50,33 +50,33 @@ public interface DatabaseInterface extends EObject {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model dataType="org.eclipse.uml2.types.String" required="true" ordered="false" _DataType="org.eclipse.uml2.types.String" _Required="true" _Ordered="false"
+	 * @model dataType="org.eclipse.uml2.types.String" required="true" ordered="false" queryDataType="org.eclipse.uml2.types.String" queryRequired="true" queryOrdered="false"
 	 * @generated
 	 */
-	String query(String _);
+	String query(String query);
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model required="true" ordered="false" _DataType="org.eclipse.uml2.types.String" _Required="true" _Ordered="false"
+	 * @model required="true" ordered="false" queryDataType="org.eclipse.uml2.types.String" queryRequired="true" queryOrdered="false"
 	 * @generated
 	 */
-	boolean update(String _);
+	boolean update(String query);
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model required="true" ordered="false" _DataType="org.eclipse.uml2.types.String" _Required="true" _Ordered="false"
+	 * @model required="true" ordered="false" queryDataType="org.eclipse.uml2.types.String" queryRequired="true" queryOrdered="false"
 	 * @generated
 	 */
-	boolean create(String _);
+	boolean create(String query);
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model required="true" ordered="false" _DataType="org.eclipse.uml2.types.String" _Required="true" _Ordered="false"
+	 * @model required="true" ordered="false" queryDataType="org.eclipse.uml2.types.String" queryRequired="true" queryOrdered="false"
 	 * @generated
 	 */
-	boolean remove(String _);
+	boolean remove(String query);
 
 } // DatabaseInterface

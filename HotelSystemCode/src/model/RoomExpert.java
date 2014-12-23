@@ -107,4 +107,12 @@ public interface RoomExpert extends EObject {
 	 */
 	Room getRoom(int roomNumber);
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model databaseRequired="true" databaseOrdered="false"
+	 * @generated
+	 */
+	void RoomExpert(DatabaseInterface database);
+
 } // RoomExpert

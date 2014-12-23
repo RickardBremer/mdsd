@@ -160,6 +160,17 @@ public class PromotionExpertImpl extends MinimalEObjectImpl.Container implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public void PromotionExpert(DatabaseInterface database) {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
@@ -232,6 +243,9 @@ public class PromotionExpertImpl extends MinimalEObjectImpl.Container implements
 				return removePromotion((Integer)arguments.get(0));
 			case ModelPackage.PROMOTION_EXPERT___UPDATE_PROMOTION__PROMOTION:
 				return updatePromotion((Promotion)arguments.get(0));
+			case ModelPackage.PROMOTION_EXPERT___PROMOTION_EXPERT__DATABASEINTERFACE:
+				PromotionExpert((DatabaseInterface)arguments.get(0));
+				return null;
 		}
 		return super.eInvoke(operationID, arguments);
 	}

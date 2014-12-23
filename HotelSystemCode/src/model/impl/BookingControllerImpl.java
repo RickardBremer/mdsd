@@ -2,6 +2,7 @@
  */
 package model.impl;
 
+import java.lang.reflect.InvocationTargetException;
 import model.BookingController;
 import model.BookingExpert;
 import model.DatabaseInterface;
@@ -11,6 +12,7 @@ import model.RoomExpert;
 
 import org.eclipse.emf.common.notify.Notification;
 
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
@@ -250,6 +252,17 @@ public class BookingControllerImpl extends MinimalEObjectImpl.Container implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public void BookingController(RoomExpert roomExpert, BookingExpert bookingExpert, PromotionExpert promotionExpert) {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
@@ -335,6 +348,21 @@ public class BookingControllerImpl extends MinimalEObjectImpl.Container implemen
 				return databaseInterface != null;
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
+		switch (operationID) {
+			case ModelPackage.BOOKING_CONTROLLER___BOOKING_CONTROLLER__ROOMEXPERT_BOOKINGEXPERT_PROMOTIONEXPERT:
+				BookingController((RoomExpert)arguments.get(0), (BookingExpert)arguments.get(1), (PromotionExpert)arguments.get(2));
+				return null;
+		}
+		return super.eInvoke(operationID, arguments);
 	}
 
 } //BookingControllerImpl

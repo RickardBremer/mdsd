@@ -29,7 +29,7 @@
     <details key="INVOCATION_DELEGATES" value="IGNORE"/>
     <details key="VALIDATION_DELEGATES" value="IGNORE"/>
   </genAnnotations>
-  <foreignModel>../../mdsd-project/model.uml</foreignModel>
+  <foreignModel>../../model.uml</foreignModel>
   <genPackages xsi:type="genmodel:GenPackage" prefix="Model" disposableProviderFactory="true"
       ecorePackage="model.ecore#/">
     <genClasses xsi:type="genmodel:GenClass" ecoreClass="model.ecore#//BankComponent"/>
@@ -44,10 +44,6 @@
         <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="model.ecore#//CustomerInterface/searchRooms/dateTo"/>
         <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="model.ecore#//CustomerInterface/searchRooms/numberOfGuests"/>
         <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="model.ecore#//CustomerInterface/searchRooms/numberOfRooms"/>
-      </genOperations>
-      <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="model.ecore#//CustomerInterface/searchRooms.1">
-        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="model.ecore#//CustomerInterface/searchRooms.1/dateFrom"/>
-        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="model.ecore#//CustomerInterface/searchRooms.1/dateTo"/>
       </genOperations>
       <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="model.ecore#//CustomerInterface/createCustomer">
         <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="model.ecore#//CustomerInterface/createCustomer/firstName"/>
@@ -94,7 +90,7 @@
       <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
           propertySortChoices="true" ecoreFeature="ecore:EReference model.ecore#//Room/resident"/>
       <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="model.ecore#//Room/Room">
-        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="model.ecore#//Room/Room/_"/>
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="model.ecore#//Room/Room/number"/>
         <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="model.ecore#//Room/Room/description"/>
         <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="model.ecore#//Room/Room/type"/>
         <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="model.ecore#//Room/Room/price"/>
@@ -122,8 +118,6 @@
       <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
           propertySortChoices="true" ecoreFeature="ecore:EReference model.ecore#//Receipt/expenses"/>
       <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//Receipt/ID"/>
-      <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
-          propertySortChoices="true" ecoreFeature="ecore:EReference model.ecore#//Receipt/cashier"/>
       <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="model.ecore#//Receipt/addExpense">
         <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="model.ecore#//Receipt/addExpense/expense"/>
       </genOperations>
@@ -131,21 +125,7 @@
         <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="model.ecore#//Receipt/removeExpense/expense"/>
       </genOperations>
       <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="model.ecore#//Receipt/getAllExpenses"/>
-    </genClasses>
-    <genClasses xsi:type="genmodel:GenClass" ecoreClass="model.ecore#//User">
-      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//User/firstName"/>
-      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//User/surname"/>
-      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//User/password"/>
-      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//User/ID"/>
-      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//User/receptionist"/>
-      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//User/administrator"/>
-      <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="model.ecore#//User/User">
-        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="model.ecore#//User/User/firstName"/>
-        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="model.ecore#//User/User/surname"/>
-        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="model.ecore#//User/User/password"/>
-        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="model.ecore#//User/User/receptionist"/>
-        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="model.ecore#//User/User/administrator"/>
-      </genOperations>
+      <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="model.ecore#//Receipt/Receipt"/>
     </genClasses>
     <genClasses xsi:type="genmodel:GenClass" ecoreClass="model.ecore#//Resident">
       <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//Resident/firstName"/>
@@ -166,6 +146,16 @@
       <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//Customer/ccv"/>
       <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//Customer/expiringMonth"/>
       <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//Customer/expiringYear"/>
+      <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="model.ecore#//Customer/Customer">
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="model.ecore#//Customer/Customer/firstName"/>
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="model.ecore#//Customer/Customer/surname"/>
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="model.ecore#//Customer/Customer/email"/>
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="model.ecore#//Customer/Customer/address"/>
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="model.ecore#//Customer/Customer/ccNumber"/>
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="model.ecore#//Customer/Customer/ccv"/>
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="model.ecore#//Customer/Customer/ccExpiringMonth"/>
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="model.ecore#//Customer/Customer/ccExpiringYear"/>
+      </genOperations>
     </genClasses>
     <genClasses xsi:type="genmodel:GenClass" image="false" ecoreClass="model.ecore#//ReceptionistInterface">
       <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="model.ecore#//ReceptionistInterface/createResident">
@@ -264,7 +254,6 @@
         <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="model.ecore#//AdminInterface/createExpense/name"/>
         <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="model.ecore#//AdminInterface/createExpense/description"/>
         <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="model.ecore#//AdminInterface/createExpense/date"/>
-        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="model.ecore#//AdminInterface/createExpense/_"/>
       </genOperations>
       <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="model.ecore#//AdminInterface/removeExpense">
         <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="model.ecore#//AdminInterface/removeExpense/expense"/>
@@ -283,6 +272,21 @@
         <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="model.ecore#//AdminInterface/AdminController/promotionExpert"/>
       </genOperations>
     </genClasses>
+    <genClasses xsi:type="genmodel:GenClass" ecoreClass="model.ecore#//User">
+      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//User/firstName"/>
+      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//User/surname"/>
+      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//User/password"/>
+      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//User/ID"/>
+      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//User/receptionist"/>
+      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//User/administrator"/>
+      <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="model.ecore#//User/User">
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="model.ecore#//User/User/firstName"/>
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="model.ecore#//User/User/surname"/>
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="model.ecore#//User/User/password"/>
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="model.ecore#//User/User/receptionist"/>
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="model.ecore#//User/User/administrator"/>
+      </genOperations>
+    </genClasses>
     <genClasses xsi:type="genmodel:GenClass" ecoreClass="model.ecore#//Promotion">
       <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//Promotion/code"/>
       <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//Promotion/description"/>
@@ -292,6 +296,13 @@
       <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//Promotion/validTo"/>
       <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="model.ecore#//Promotion/calculateDiscount">
         <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="model.ecore#//Promotion/calculateDiscount/room"/>
+      </genOperations>
+      <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="model.ecore#//Promotion/Promotion">
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="model.ecore#//Promotion/Promotion/code"/>
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="model.ecore#//Promotion/Promotion/description"/>
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="model.ecore#//Promotion/Promotion/percentage"/>
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="model.ecore#//Promotion/Promotion/vaildFrom"/>
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="model.ecore#//Promotion/Promotion/vaildTo"/>
       </genOperations>
     </genClasses>
     <genClasses xsi:type="genmodel:GenClass" ecoreClass="model.ecore#//RoomExpert">
@@ -317,6 +328,9 @@
       <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="model.ecore#//RoomExpert/getRoom">
         <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="model.ecore#//RoomExpert/getRoom/roomNumber"/>
       </genOperations>
+      <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="model.ecore#//RoomExpert/RoomExpert">
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="model.ecore#//RoomExpert/RoomExpert/database"/>
+      </genOperations>
     </genClasses>
     <genClasses xsi:type="genmodel:GenClass" image="false" ecoreClass="model.ecore#//DatabaseInterface">
       <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="model.ecore#//DatabaseInterface/querystringrowArrayLst"/>
@@ -324,16 +338,16 @@
       <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="model.ecore#//DatabaseInterface/createstringboolean"/>
       <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="model.ecore#//DatabaseInterface/removestringboolean"/>
       <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="model.ecore#//DatabaseInterface/query">
-        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="model.ecore#//DatabaseInterface/query/_"/>
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="model.ecore#//DatabaseInterface/query/query"/>
       </genOperations>
       <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="model.ecore#//DatabaseInterface/update">
-        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="model.ecore#//DatabaseInterface/update/_"/>
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="model.ecore#//DatabaseInterface/update/query"/>
       </genOperations>
       <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="model.ecore#//DatabaseInterface/create">
-        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="model.ecore#//DatabaseInterface/create/_"/>
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="model.ecore#//DatabaseInterface/create/query"/>
       </genOperations>
       <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="model.ecore#//DatabaseInterface/remove">
-        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="model.ecore#//DatabaseInterface/remove/_"/>
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="model.ecore#//DatabaseInterface/remove/query"/>
       </genOperations>
     </genClasses>
     <genClasses xsi:type="genmodel:GenClass" ecoreClass="model.ecore#//ExpenseExpert">
@@ -351,6 +365,9 @@
       </genOperations>
       <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="model.ecore#//ExpenseExpert/updateExpense">
         <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="model.ecore#//ExpenseExpert/updateExpense/expense"/>
+      </genOperations>
+      <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="model.ecore#//ExpenseExpert/ExpenseExpert">
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="model.ecore#//ExpenseExpert/ExpenseExpert/database"/>
       </genOperations>
     </genClasses>
     <genClasses xsi:type="genmodel:GenClass" ecoreClass="model.ecore#//UserExpert">
@@ -373,6 +390,9 @@
         <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="model.ecore#//UserExpert/login/name"/>
         <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="model.ecore#//UserExpert/login/password"/>
       </genOperations>
+      <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="model.ecore#//UserExpert/UserExpert">
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="model.ecore#//UserExpert/UserExpert/database"/>
+      </genOperations>
     </genClasses>
     <genClasses xsi:type="genmodel:GenClass" ecoreClass="model.ecore#//PromotionExpert">
       <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
@@ -389,6 +409,9 @@
       </genOperations>
       <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="model.ecore#//PromotionExpert/updatePromotion">
         <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="model.ecore#//PromotionExpert/updatePromotion/promotion"/>
+      </genOperations>
+      <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="model.ecore#//PromotionExpert/PromotionExpert">
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="model.ecore#//PromotionExpert/PromotionExpert/database"/>
       </genOperations>
     </genClasses>
     <genClasses xsi:type="genmodel:GenClass" ecoreClass="model.ecore#//BookingExpert">
@@ -417,6 +440,9 @@
       <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="model.ecore#//BookingExpert/getAllBookings.1">
         <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="model.ecore#//BookingExpert/getAllBookings.1/surname"/>
       </genOperations>
+      <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="model.ecore#//BookingExpert/BookingExpert">
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="model.ecore#//BookingExpert/BookingExpert/database"/>
+      </genOperations>
     </genClasses>
     <genClasses xsi:type="genmodel:GenClass" ecoreClass="model.ecore#//ReceiptExpert">
       <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
@@ -440,6 +466,9 @@
       <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="model.ecore#//ReceiptExpert/updateReceipt">
         <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="model.ecore#//ReceiptExpert/updateReceipt/receipt"/>
       </genOperations>
+      <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="model.ecore#//ReceiptExpert/ReceiptExpert">
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="model.ecore#//ReceiptExpert/ReceiptExpert/database"/>
+      </genOperations>
     </genClasses>
     <genClasses xsi:type="genmodel:GenClass" ecoreClass="model.ecore#//email">
       <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="model.ecore#//email/send">
@@ -462,6 +491,11 @@
           propertySortChoices="true" ecoreFeature="ecore:EReference model.ecore#//BookingController/promotionExpert"/>
       <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
           propertySortChoices="true" ecoreFeature="ecore:EReference model.ecore#//BookingController/databaseInterface"/>
+      <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="model.ecore#//BookingController/BookingController">
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="model.ecore#//BookingController/BookingController/roomExpert"/>
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="model.ecore#//BookingController/BookingController/bookingExpert"/>
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="model.ecore#//BookingController/BookingController/promotionExpert"/>
+      </genOperations>
     </genClasses>
     <genClasses xsi:type="genmodel:GenClass" ecoreClass="model.ecore#//AdminController">
       <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
@@ -472,12 +506,26 @@
           propertySortChoices="true" ecoreFeature="ecore:EReference model.ecore#//AdminController/promoExpert"/>
       <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
           propertySortChoices="true" ecoreFeature="ecore:EReference model.ecore#//AdminController/databaseInterface"/>
+      <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="model.ecore#//AdminController/AdminController">
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="model.ecore#//AdminController/AdminController/expenseExpert"/>
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="model.ecore#//AdminController/AdminController/promotionExpert"/>
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="model.ecore#//AdminController/AdminController/userExpert"/>
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="model.ecore#//AdminController/AdminController/roomExpert"/>
+      </genOperations>
     </genClasses>
     <genClasses xsi:type="genmodel:GenClass" ecoreClass="model.ecore#//ReceptionistController">
       <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
           propertySortChoices="true" ecoreFeature="ecore:EReference model.ecore#//ReceptionistController/expenseExpert"/>
       <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
-          propertySortChoices="true" ecoreFeature="ecore:EReference model.ecore#//ReceptionistController/roomExpert"/>
+          propertySortChoices="true" ecoreFeature="ecore:EReference model.ecore#//ReceptionistController/userExpert"/>
+      <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="model.ecore#//ReceptionistController/ReceptionistController">
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="model.ecore#//ReceptionistController/ReceptionistController/receiptExpert"/>
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="model.ecore#//ReceptionistController/ReceptionistController/expenseExpert"/>
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="model.ecore#//ReceptionistController/ReceptionistController/roomExpert"/>
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="model.ecore#//ReceptionistController/ReceptionistController/bookingExpert"/>
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="model.ecore#//ReceptionistController/ReceptionistController/promotionExpert"/>
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="model.ecore#//ReceptionistController/ReceptionistController/userExpert"/>
+      </genOperations>
     </genClasses>
     <genClasses xsi:type="genmodel:GenClass" ecoreClass="model.ecore#//MSAccessDB"/>
   </genPackages>

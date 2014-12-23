@@ -108,10 +108,6 @@ public class ModelAdapterFactory extends AdapterFactoryImpl {
 				return createReceiptAdapter();
 			}
 			@Override
-			public Adapter caseUser(User object) {
-				return createUserAdapter();
-			}
-			@Override
 			public Adapter caseResident(Resident object) {
 				return createResidentAdapter();
 			}
@@ -130,6 +126,10 @@ public class ModelAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseAdminInterface(AdminInterface object) {
 				return createAdminInterfaceAdapter();
+			}
+			@Override
+			public Adapter caseUser(User object) {
+				return createUserAdapter();
 			}
 			@Override
 			public Adapter casePromotion(Promotion object) {

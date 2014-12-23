@@ -97,4 +97,12 @@ public interface UserExpert extends EObject {
 	 */
 	boolean login(String name, String password);
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model databaseRequired="true" databaseOrdered="false"
+	 * @generated
+	 */
+	void UserExpert(DatabaseInterface database);
+
 } // UserExpert

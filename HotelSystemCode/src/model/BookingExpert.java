@@ -115,4 +115,12 @@ public interface BookingExpert extends EObject {
 	 */
 	Booking getAllBookings(String surname);
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model databaseRequired="true" databaseOrdered="false"
+	 * @generated
+	 */
+	void BookingExpert(DatabaseInterface database);
+
 } // BookingExpert

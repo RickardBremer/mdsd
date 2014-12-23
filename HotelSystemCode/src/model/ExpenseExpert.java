@@ -89,4 +89,12 @@ public interface ExpenseExpert extends EObject {
 	 */
 	boolean updateExpense(Expense expense);
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model databaseRequired="true" databaseOrdered="false"
+	 * @generated
+	 */
+	void ExpenseExpert(DatabaseInterface database);
+
 } // ExpenseExpert

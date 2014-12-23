@@ -4,6 +4,7 @@ package model;
 
 import java.util.Date;
 
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -20,18 +21,18 @@ public interface ReceptionistInterface extends EObject {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model firstNameDataType="org.eclipse.uml2.types.String" firstNameRequired="true" firstNameOrdered="false" surnameDataType="org.eclipse.uml2.types.String" surnameRequired="true" surnameOrdered="false" passportNumberDataType="org.eclipse.uml2.types.String" passportNumberRequired="true" passportNumberOrdered="false"
+	 * @model required="true" ordered="false" firstNameDataType="org.eclipse.uml2.types.String" firstNameRequired="true" firstNameOrdered="false" surnameDataType="org.eclipse.uml2.types.String" surnameRequired="true" surnameOrdered="false" passportNumberDataType="org.eclipse.uml2.types.String" passportNumberRequired="true" passportNumberOrdered="false"
 	 * @generated
 	 */
-	void createResident(String firstName, String surname, String passportNumber);
+	Resident createResident(String firstName, String surname, String passportNumber);
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model required="true" ordered="false" fromDateRequired="true" fromDateOrdered="false" toDateRequired="true" toDateOrdered="false"
+	 * @model ordered="false" fromDateRequired="true" fromDateOrdered="false" toDateRequired="true" toDateOrdered="false"
 	 * @generated
 	 */
-	Room viewAllBookings(Date fromDate, Date toDate);
+	EList<Booking> viewAllBookings(Date fromDate, Date toDate);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -44,10 +45,10 @@ public interface ReceptionistInterface extends EObject {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model required="true" ordered="false"
+	 * @model ordered="false"
 	 * @generated
 	 */
-	Room viewUnOccupiedRooms();
+	EList<Room> viewUnOccupiedRooms();
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -60,10 +61,10 @@ public interface ReceptionistInterface extends EObject {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model required="true" ordered="false" roomTypeDataType="org.eclipse.uml2.types.String" roomTypeRequired="true" roomTypeOrdered="false"
+	 * @model ordered="false" roomTypeDataType="org.eclipse.uml2.types.String" roomTypeRequired="true" roomTypeOrdered="false"
 	 * @generated
 	 */
-	Room viewUnOccupiedRooms(String roomType);
+	EList<Room> viewUnOccupiedRooms(String roomType);
 
 	/**
 	 * <!-- begin-user-doc -->

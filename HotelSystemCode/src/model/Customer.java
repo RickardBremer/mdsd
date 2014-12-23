@@ -236,4 +236,12 @@ public interface Customer extends EObject {
 	 */
 	void setExpiringYear(int value);
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model firstNameRequired="true" firstNameOrdered="false" surnameRequired="true" surnameOrdered="false" emailRequired="true" emailOrdered="false" addressRequired="true" addressOrdered="false" ccNumberRequired="true" ccNumberOrdered="false" ccvRequired="true" ccvOrdered="false" ccExpiringMonthRequired="true" ccExpiringMonthOrdered="false" ccExpiringYearRequired="true" ccExpiringYearOrdered="false"
+	 * @generated
+	 */
+	void Customer(String firstName, String surname, String email, String address, String ccNumber, String ccv, int ccExpiringMonth, int ccExpiringYear);
+
 } // Customer

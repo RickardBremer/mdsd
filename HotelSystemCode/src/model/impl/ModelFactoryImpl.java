@@ -64,10 +64,10 @@ public class ModelFactoryImpl extends EFactoryImpl implements ModelFactory {
 			case ModelPackage.ROOM: return createRoom();
 			case ModelPackage.EXPENSE: return createExpense();
 			case ModelPackage.RECEIPT: return createReceipt();
-			case ModelPackage.USER: return createUser();
 			case ModelPackage.RESIDENT: return createResident();
 			case ModelPackage.CUSTOMER: return createCustomer();
 			case ModelPackage.BOOKING: return createBooking();
+			case ModelPackage.USER: return createUser();
 			case ModelPackage.PROMOTION: return createPromotion();
 			case ModelPackage.ROOM_EXPERT: return createRoomExpert();
 			case ModelPackage.EXPENSE_EXPERT: return createExpenseExpert();

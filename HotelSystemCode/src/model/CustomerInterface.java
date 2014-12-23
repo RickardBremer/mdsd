@@ -4,6 +4,7 @@ package model;
 
 import java.util.Date;
 
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -20,18 +21,10 @@ public interface CustomerInterface extends EObject {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model required="true" ordered="false" dateFromRequired="true" dateFromOrdered="false" dateToRequired="true" dateToOrdered="false" numberOfGuestsRequired="true" numberOfGuestsOrdered="false" numberOfRoomsRequired="true" numberOfRoomsOrdered="false"
+	 * @model ordered="false" dateFromRequired="true" dateFromOrdered="false" dateToRequired="true" dateToOrdered="false" numberOfGuestsRequired="true" numberOfGuestsOrdered="false" numberOfRoomsRequired="true" numberOfRoomsOrdered="false"
 	 * @generated
 	 */
-	Room searchRooms(Date dateFrom, Date dateTo, int numberOfGuests, int numberOfRooms);
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model required="true" ordered="false" dateFromRequired="true" dateFromOrdered="false" dateToRequired="true" dateToOrdered="false"
-	 * @generated
-	 */
-	Room searchRooms(Date dateFrom, Date dateTo);
+	EList<Room> searchRooms(Date dateFrom, Date dateTo, int numberOfGuests, int numberOfRooms);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -60,9 +53,9 @@ public interface CustomerInterface extends EObject {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model fromDateRequired="true" fromDateOrdered="false" toDateRequired="true" toDateOrdered="false" wishesDataType="org.eclipse.uml2.types.String" wishesRequired="true" wishesOrdered="false" customerRequired="true" customerOrdered="false" promotionDataType="org.eclipse.uml2.types.String" promotionRequired="true" promotionOrdered="false" receiptRequired="true" receiptOrdered="false" roomTypeDataType="org.eclipse.uml2.types.String" roomTypeRequired="true" roomTypeOrdered="false"
+	 * @model required="true" ordered="false" fromDateRequired="true" fromDateOrdered="false" toDateRequired="true" toDateOrdered="false" wishesDataType="org.eclipse.uml2.types.String" wishesRequired="true" wishesOrdered="false" customerRequired="true" customerOrdered="false" promotionDataType="org.eclipse.uml2.types.String" promotionRequired="true" promotionOrdered="false" receiptRequired="true" receiptOrdered="false" roomTypeDataType="org.eclipse.uml2.types.String" roomTypeRequired="true" roomTypeOrdered="false"
 	 * @generated
 	 */
-	void createBooking(Date fromDate, Date toDate, String wishes, Customer customer, String promotion, Receipt receipt, String roomType);
+	boolean createBooking(Date fromDate, Date toDate, String wishes, Customer customer, String promotion, Receipt receipt, String roomType);
 
 } // CustomerInterface

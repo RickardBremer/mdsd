@@ -171,6 +171,17 @@ public class UserExpertImpl extends MinimalEObjectImpl.Container implements User
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public void UserExpert(DatabaseInterface database) {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
@@ -245,6 +256,9 @@ public class UserExpertImpl extends MinimalEObjectImpl.Container implements User
 				return updateUser((User)arguments.get(0));
 			case ModelPackage.USER_EXPERT___LOGIN__STRING_STRING:
 				return login((String)arguments.get(0), (String)arguments.get(1));
+			case ModelPackage.USER_EXPERT___USER_EXPERT__DATABASEINTERFACE:
+				UserExpert((DatabaseInterface)arguments.get(0));
+				return null;
 		}
 		return super.eInvoke(operationID, arguments);
 	}

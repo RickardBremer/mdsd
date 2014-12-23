@@ -183,6 +183,17 @@ public class ReceiptExpertImpl extends MinimalEObjectImpl.Container implements R
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public void ReceiptExpert(DatabaseInterface database) {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
@@ -259,6 +270,9 @@ public class ReceiptExpertImpl extends MinimalEObjectImpl.Container implements R
 				return removeReceipt((Receipt)arguments.get(0));
 			case ModelPackage.RECEIPT_EXPERT___UPDATE_RECEIPT__RECEIPT:
 				return updateReceipt((Receipt)arguments.get(0));
+			case ModelPackage.RECEIPT_EXPERT___RECEIPT_EXPERT__DATABASEINTERFACE:
+				ReceiptExpert((DatabaseInterface)arguments.get(0));
+				return null;
 		}
 		return super.eInvoke(operationID, arguments);
 	}

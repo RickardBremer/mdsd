@@ -3,25 +3,16 @@
 package model.impl;
 
 import java.lang.reflect.InvocationTargetException;
-
 import java.util.Collection;
 import java.util.Date;
-
 import model.Expense;
 import model.ModelPackage;
 import model.Receipt;
-import model.User;
-
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
 import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 
 /**
@@ -36,7 +27,6 @@ import org.eclipse.emf.ecore.util.EObjectResolvingEList;
  *   <li>{@link model.impl.ReceiptImpl#getDate <em>Date</em>}</li>
  *   <li>{@link model.impl.ReceiptImpl#getExpenses <em>Expenses</em>}</li>
  *   <li>{@link model.impl.ReceiptImpl#getID <em>ID</em>}</li>
- *   <li>{@link model.impl.ReceiptImpl#getCashier <em>Cashier</em>}</li>
  * </ul>
  * </p>
  *
@@ -122,16 +112,6 @@ public class ReceiptImpl extends MinimalEObjectImpl.Container implements Receipt
 	 * @ordered
 	 */
 	protected int id = ID_EDEFAULT;
-
-	/**
-	 * The cached value of the '{@link #getCashier() <em>Cashier</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getCashier()
-	 * @generated
-	 * @ordered
-	 */
-	protected User cashier;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -244,44 +224,6 @@ public class ReceiptImpl extends MinimalEObjectImpl.Container implements Receipt
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public User getCashier() {
-		if (cashier != null && cashier.eIsProxy()) {
-			InternalEObject oldCashier = (InternalEObject)cashier;
-			cashier = (User)eResolveProxy(oldCashier);
-			if (cashier != oldCashier) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, ModelPackage.RECEIPT__CASHIER, oldCashier, cashier));
-			}
-		}
-		return cashier;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public User basicGetCashier() {
-		return cashier;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setCashier(User newCashier) {
-		User oldCashier = cashier;
-		cashier = newCashier;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.RECEIPT__CASHIER, oldCashier, cashier));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public boolean addExpense(Expense expense) {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
@@ -315,6 +257,17 @@ public class ReceiptImpl extends MinimalEObjectImpl.Container implements Receipt
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public void Receipt() {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
@@ -328,9 +281,6 @@ public class ReceiptImpl extends MinimalEObjectImpl.Container implements Receipt
 				return getExpenses();
 			case ModelPackage.RECEIPT__ID:
 				return getID();
-			case ModelPackage.RECEIPT__CASHIER:
-				if (resolve) return getCashier();
-				return basicGetCashier();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -361,9 +311,6 @@ public class ReceiptImpl extends MinimalEObjectImpl.Container implements Receipt
 			case ModelPackage.RECEIPT__ID:
 				setID((Integer)newValue);
 				return;
-			case ModelPackage.RECEIPT__CASHIER:
-				setCashier((User)newValue);
-				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -391,9 +338,6 @@ public class ReceiptImpl extends MinimalEObjectImpl.Container implements Receipt
 			case ModelPackage.RECEIPT__ID:
 				setID(ID_EDEFAULT);
 				return;
-			case ModelPackage.RECEIPT__CASHIER:
-				setCashier((User)null);
-				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -416,8 +360,6 @@ public class ReceiptImpl extends MinimalEObjectImpl.Container implements Receipt
 				return expenses != null && !expenses.isEmpty();
 			case ModelPackage.RECEIPT__ID:
 				return id != ID_EDEFAULT;
-			case ModelPackage.RECEIPT__CASHIER:
-				return cashier != null;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -436,6 +378,9 @@ public class ReceiptImpl extends MinimalEObjectImpl.Container implements Receipt
 				return removeExpense((Expense)arguments.get(0));
 			case ModelPackage.RECEIPT___GET_ALL_EXPENSES:
 				return getAllExpenses();
+			case ModelPackage.RECEIPT___RECEIPT:
+				Receipt();
+				return null;
 		}
 		return super.eInvoke(operationID, arguments);
 	}
