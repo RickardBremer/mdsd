@@ -109,12 +109,13 @@ public class ExpenseExpertImpl extends MinimalEObjectImpl.Container implements E
 	 */
 	public Expense getExpense(int ID) {
 		// TODO: implement this method 
-		/**String[] response = database.query("SELECT * FROM tblExpense WHERE ID =" + ID + ";").get(0); 
+		/**String[] response = database.query("SELECT * FROM tblExpense WHERE ExpenseID =" + ID + ";").get(0); 
 		if(response != null){
 			ExpenseImpl e = new ExpenseImpl();
 			e.Expense(Integer.valueOf(response[0]), response[1], response[2], response[3]);
+			return e; 
 		}
-		return e;**/ 
+		return null;**/ 
 		throw new UnsupportedOperationException();
 
 	}
@@ -147,7 +148,7 @@ public class ExpenseExpertImpl extends MinimalEObjectImpl.Container implements E
 	 */
 	public boolean addExpense(Expense expense) {
 		// TODO: Date inom ''? 
-		return database.create("INSERT INTO tblExpense (price, name, description, date) VALUES(" + 
+		return database.create("INSERT INTO tblExpense (Price, ExpenseName, ExpenseDescription, ExpenseDate) VALUES(" + 
 		expense.getPrice() + ", '" + expense.getName() + "', '" + expense.getDescription() + 
 		"', " + expense.getDate() + ");" ); 
 	}
@@ -158,7 +159,7 @@ public class ExpenseExpertImpl extends MinimalEObjectImpl.Container implements E
 	 * @generated NOT
 	 */
 	public boolean removeExpense(int ID) {
-		return database.remove("DELETTE FROM tblExpense Where ID="+ID + ";"); 
+		return database.remove("DELETTE FROM tblExpense Where ExpenseID="+ID + ";"); 
 	}
 
 	/**
@@ -167,11 +168,11 @@ public class ExpenseExpertImpl extends MinimalEObjectImpl.Container implements E
 	 * @generated NOT
 	 */
 	public boolean updateExpense(Expense expense) {
-		// TODO: implement this method
-		return database.update("UPDATE tblExpense SET price=" + expense.getPrice() + "name='" + 
-		expense.getName() + "', description='" + expense.getDescription() + "', date='" + expense.getDate() + 
-		"' WHERE ID =" + expense.getID()+ ";"); 
+		return database.update("UPDATE tblExpense SET Price=" + expense.getPrice() + ", ExpenseName='" + 
+		expense.getName() + "', ExpenseDescription='" + expense.getDescription() + "', ExpenseDate='" + expense.getDate() + 
+		"' WHERE ID =" + expense.getID()+ ";");  
 	}
+	
 
 	/**
 	 * <!-- begin-user-doc -->
