@@ -164,9 +164,6 @@ public class ReceptionistControllerImpl extends BookingControllerImpl implements
 		// Ensure that you remove @generated or mark it @generated NOT
 		Resident r = new ResidentImpl();
 		r.Resident(firstName, surname, passportNumber);
-		databaseInterface.create("INSERT INTO tblResidents(FirstName,LastName,PassportNumber) VALUES ('"+r.getFirstName()+"','"+r.getSurname()+"','"+r.getPassportNumber()+"');");
-		
-		
 		return r;
 	}
 
@@ -250,20 +247,19 @@ public class ReceptionistControllerImpl extends BookingControllerImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean checkIn(Booking booking) {
+	public boolean checkIn(Booking booking, Room[] room) {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
 		EList<String> bookedTypes =  booking.getRoomTypes();
 		EList<Room> availableTypes = viewUnOccupiedRooms();
-		for(String bt : bookedTypes) {
-			for(Room r : availableTypes) {
-				if (bt.matches(r.getType())) {
-					room.updateRoom(r); 
-				}
+		for (Room r : room) {
+			databaseInterface.send("INSERT INTO tblStays(BookingID,RoomID) VALUES (" +booking.getBookingID() + "," +r.getNumber() +");" );
+			for (Resident res : r.getResident()){
+				databaseInterface.send("INSERT INTO tblResidents VALUES ('"+res.getPassportNumber()+"','"+res.getFirstName() +"','" +res.getSurname() +"');" );
+				databaseInterface.query("SELECT StayID FROM tblStays WHERE BookingID='"+booking.getBookingID()+"' AND WHERE RoomID='"+r.getNumber()+"'");
 			}
 		}
-		
-		databaseInterface.update("UPDATE tblBookings SET CheckedIn=true WHERE BookingID=" + booking.getBookingID() + ";");
+		databaseInterface.send("UPDATE tblBookings SET CheckedIn=true WHERE BookingID='" + booking.getBookingID() + "';");
 		throw new UnsupportedOperationException();
 	}
 	
