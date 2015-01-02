@@ -3,21 +3,22 @@
 package model.impl;
 
 import java.lang.reflect.InvocationTargetException;
-
 import java.util.Date;
+import java.util.HashMap;
+import java.util.List;
 
 import model.DatabaseInterface;
+import model.Expense;
+import model.ExpenseExpert;
 import model.ModelPackage;
 import model.Room;
 import model.RoomExpert;
 
 import org.eclipse.emf.common.notify.Notification;
-
+import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
@@ -105,78 +106,150 @@ public class RoomExpertImpl extends MinimalEObjectImpl.Container implements Room
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public EList<Room> getAllRooms() {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		EList<Room> result = new BasicEList<Room>();
+		
+		EList<String[]> queryResult = database.query("SELECT * FROM tblRooms");
+		if (queryResult != null) {
+			for (String[] row : queryResult) {
+				Room room = new RoomImpl();
+				room.Room(number, description, type, price, beds); // TODO: lägg till id
+				result.add(room);
+			}
+		}
+		
+		return result;
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public EList<Room> getAvailableRoomTypes(Date from, Date to, int numberOfRooms, int numberOfGuests) {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		EList<String> availableTypes = new BasicEList<String>();
+		HashMap<String, Integer> bookedTypes = new HashMap<String, Integer>();
+		HashMap<String, Integer> totalTypes = new HashMap<String, Integer>();
+		
+		// Connect to database and get all calendar bookings regarding the desired dates
+		// TODO: change for the dates to make sense
+		EList<String[]> queryResult = database.query("SELECT RoomType, COUNT(RoomType) FROM tblCalendar WHERE "
+				+ "(FromDate < " + from + " AND ToDate < " + from + ") OR "
+				+ "(FromDate > " + from + " AND ToDate > " + to + ") OR "
+				+ "(FromDate < " + to + " AND ToDate > " + to + ") "
+				+ "GROUP BY RoomType");
+		if (queryResult != null) {
+			for (String[] row : queryResult) {
+				bookedTypes.put(row[0], Integer.parseInt(row[1]));
+			}
+		}
+		// Get the room types and the amount of them
+		queryResult = database.query("SELECT RoomType, COUNT(RoomType) FROM tblRooms WHERE Beds >= " + numberOfGuests + " GROUP BY RoomType");
+		if (queryResult != null) {
+			for (String[] row : queryResult) {
+				totalTypes.put(row[0], Integer.parseInt(row[1]));
+			}
+		}
+		
+		for (String type : totalTypes.keySet()) {
+			int numBooked = (bookedTypes.get(type) != null) ? bookedTypes.get(type) : 0;
+			int numAvailable = totalTypes.get(type) - numBooked;
+			if (numAvailable >= numberOfRooms) {
+				availableTypes.add(type);
+			}
+		}
+		return availableTypes;
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public EList<Room> getUnoccupiedRooms() {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		EList<Room> result = new BasicEList<Room>();
+		
+		EList<String[]> queryResult = database.query("SELECT * FROM tblRooms WHERE Status='unoccupied'");
+		if (queryResult != null) {
+			for (String[] roomSpec : queryResult) {
+				Room room = new RoomImpl();
+				ExpenseExpert ee = new ExpenseExpertImpl();
+				ee.ExpenseExpert(database);
+				Expense price = ee.getExpense(Integer.parseInt(roomSpec[7]));
+				room.Room(Integer.parseInt(roomSpec[0]), roomSpec[1], roomSpec[4], price, Integer.parseInt(roomSpec[6])); //TODO: add status
+				result.add(room);
+			}
+		}
+		
+		return result;
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public boolean addRoom(Room room) {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		boolean result = false;
+		
+		// TODO: what are the value types? will this work with expense??
+		result = database.create("INSERT into tblRooms('RoomNumber', 'RoomDescription', 'Maintenance', 'RoomIsClean', 'RoomType', 'Status', 'Beds', 'ExpenseID') "
+				+ "VALUES(" + room.getNumber() + ", " + room.getDescription() + ", " + false +", " + false + ", " + room.getType() + ", "
+						+ room.getStatus() + ", " + room.getBeds() + ", " + room.getPrice().getID() + ")");
+		
+		return result;
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public boolean removeRoom(Room room) {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		boolean result = false;
+		
+		result = database.remove("DELETE FROM tblRooms WHERE RoomNumber=" + room.getNumber());
+		
+		return result;
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public boolean updateRoom(Room room) {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		boolean result = false;
+		
+		// TODO
+		result = database.remove("UPDATE tblRooms SET ExpenseID=" + room.getPrice().getID() + ","
+				+ "RoomDescription='" + room.getDescription() + "',"
+				+ "RoomIsClean=" + room.isClean() +","
+				+ "RoomType='" + room.getType() +"',"
+				+ "Status='" + room.getStatus() +"',"
+				+ "Beds=" + room.getBeds() + " WHERE RoomNumber=" + room.getNumber());
+		
+		return result;
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public Room getRoom(int roomNumber) {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		 Room result = new RoomImpl();
+		 
+		 EList<String[]> queryResult = database.query("SELECT * FROM tblRooms WHERE RoomNumber=" + roomNumber);
+		 if (queryResult != null) {
+			 String[] roomSpec = queryResult.get(0);
+			 ExpenseExpert ee = new ExpenseExpertImpl();
+			 ee.ExpenseExpert(database);
+			 Expense price = ee.getExpense(Integer.parseInt(roomSpec[7]));
+			 result.Room(Integer.parseInt(roomSpec[0]), roomSpec[1], roomSpec[4], price, Integer.parseInt(roomSpec[6])); //TODO: add status
+		 }
 	}
 
 	/**
@@ -185,9 +258,7 @@ public class RoomExpertImpl extends MinimalEObjectImpl.Container implements Room
 	 * @generated
 	 */
 	public void RoomExpert(DatabaseInterface database) {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		database = this.database;
 	}
 
 	/**
