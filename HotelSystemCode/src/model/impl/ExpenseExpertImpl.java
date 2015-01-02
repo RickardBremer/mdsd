@@ -1,8 +1,12 @@
 /**
+ * Author: Alexander Ask
  */
 package model.impl;
 
 import java.lang.reflect.InvocationTargetException;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 import model.DatabaseInterface;
 import model.Expense;
@@ -10,12 +14,10 @@ import model.ExpenseExpert;
 import model.ModelPackage;
 
 import org.eclipse.emf.common.notify.Notification;
-
+import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
@@ -42,14 +44,14 @@ public class ExpenseExpertImpl extends MinimalEObjectImpl.Container implements E
 	 * @ordered
 	 */
 	protected DatabaseInterface database;
-
+	
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated 
 	 */
 	protected ExpenseExpertImpl() {
-		super();
+		super(); 
 	}
 
 	/**
@@ -103,67 +105,72 @@ public class ExpenseExpertImpl extends MinimalEObjectImpl.Container implements E
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public Expense getExpense(int ID) {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
+		// TODO: implement this method 
+		/**String[] response = database.query("SELECT * FROM tblExpense WHERE ID =" + ID + ";").get(0); 
+		if(response != null){
+			ExpenseImpl e = new ExpenseImpl();
+			e.Expense(Integer.valueOf(response[0]), response[1], response[2], response[3]);
+		}
+		return e;**/ 
 		throw new UnsupportedOperationException();
+
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public EList<Expense> getAllExpense() {
 		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
+		/**EList<String[]> strExpenses = database.query("SELECT * FROM tblExpense;");
+		EList<Expense> expenses = new BasicEList<Expense>(); 
+		if(strExpenses != null){
+			for(String[] str : strExpenses){
+				Expense e = new ExpenseImpl(); 
+				e.Expense(Integer.valueOf(str[0]), str[1], str[2], str[3]);
+				expenses.add(e); 
+			}
+		}
+		Boolean.parseBoolean(s)
+		return expenses; **/
 		throw new UnsupportedOperationException();
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT 
 	 */
 	public boolean addExpense(Expense expense) {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		// TODO: Date inom ''? 
+		return database.create("INSERT INTO tblExpense (price, name, description, date) VALUES(" + 
+		expense.getPrice() + ", '" + expense.getName() + "', '" + expense.getDescription() + 
+		"', " + expense.getDate() + ");" ); 
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc --> 
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public boolean removeExpense(int ID) {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		return database.remove("DELETTE FROM tblExpense Where ID="+ID + ";"); 
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public boolean updateExpense(Expense expense) {
 		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void ExpenseExpert(DatabaseInterface database) {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		return database.update("UPDATE tblExpense SET price=" + expense.getPrice() + "name='" + 
+		expense.getName() + "', description='" + expense.getDescription() + "', date='" + expense.getDate() + 
+		"' WHERE ID =" + expense.getID()+ ";"); 
 	}
 
 	/**
@@ -248,6 +255,11 @@ public class ExpenseExpertImpl extends MinimalEObjectImpl.Container implements E
 				return null;
 		}
 		return super.eInvoke(operationID, arguments);
+	}
+
+
+	public void ExpenseExpert(DatabaseInterface database) {
+		this.database = database; 		
 	}
 
 } //ExpenseExpertImpl

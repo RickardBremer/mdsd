@@ -3,18 +3,14 @@
 package model.impl;
 
 import java.lang.reflect.InvocationTargetException;
-
 import java.util.Date;
 
 import model.Expense;
 import model.ModelPackage;
 
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EClass;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
@@ -260,16 +256,6 @@ public class ExpenseImpl extends MinimalEObjectImpl.Container implements Expense
 			eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.EXPENSE__ID, oldID, id));
 	}
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void Expense(int price, String name, String description, Date date) {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
-	}
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -406,6 +392,19 @@ public class ExpenseImpl extends MinimalEObjectImpl.Container implements Expense
 		result.append(id);
 		result.append(')');
 		return result.toString();
+	}
+	
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	@Override 
+	public void Expense(int price, String name, String description, Date date) {
+		this.price = price;
+		this.name = name;
+		this.description = description;
+		this.date = date; 		
 	}
 
 } //ExpenseImpl
