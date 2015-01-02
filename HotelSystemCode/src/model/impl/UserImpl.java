@@ -303,12 +303,15 @@ public class UserImpl extends MinimalEObjectImpl.Container implements User {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public void User(String firstName, String surname, String password, boolean receptionist, boolean administrator) {
 		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+				this.firstName = firstName;
+				this.surname = surname;
+				this.password = password;
+				this.receptionist = receptionist;
+				this.administrator = administrator;
 	}
 
 	/**

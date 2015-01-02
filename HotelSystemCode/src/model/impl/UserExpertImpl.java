@@ -8,14 +8,13 @@ import model.DatabaseInterface;
 import model.ModelPackage;
 import model.User;
 import model.UserExpert;
+import model.impl.UserImpl;
 
 import org.eclipse.emf.common.notify.Notification;
-
+import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
@@ -103,78 +102,103 @@ public class UserExpertImpl extends MinimalEObjectImpl.Container implements User
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public User getUser(int ID) {
 		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+				// Ensure that you remove @generated or mark it @generated NO
+				//EList<String[]> result = database.Query("SELECT FROM user WHERE ID = "+ ID).get(0);
+				
+				String[] myResult = database.query("SELECT FROM user WHERE ID = "+ ID).get(0);
+			
+				if(myResult != null){
+						User u = new UserImpl();
+						u.User(myResult[0], myResult[1], myResult[2], Boolean.parseBoolean(myResult[3]), Boolean.parseBoolean(myResult[4]));
+				return  u;
+				}
+				return null;
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public EList<User> getAllUsers() {
 		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+				// Ensure that you remove @generated or mark it @generated NOT
+				EList<String[]> userResult = database.query("SELECT * FROM tblUser;");// selects all users from the user table
+				EList<User> myUser = new BasicEList<User>(); // create a basic list(since we cannot use ArrayList)
+				if(userResult != null){
+					for(String[] st : userResult){
+						User u = new UserImpl();
+						u.User(st[0],st[1],st[2],Boolean.parseBoolean(st[3]), Boolean.parseBoolean(st[4]));
+					myUser.add(u);
+					}
+				}
+				return  myUser;
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public boolean addUser(User user) {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		return database.send("INSERT INTO tblUsers SET FirstName = " + user.getFirstName() + ", LastName = " + user.getSurname() + ", Password = " + 
+				user.getPassword() +", Receptionist = "+ user.isReceptionist() + ", Adiministrator = "+ user.isAdministrator());
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public boolean removeUser(int ID) {
 		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+				// Ensure that you remove @generated or mark it @generated NOT
+				return database.remove("DELETE FROM tblUsers WHERE ID = " + ID);
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public boolean updateUser(User user) {
 		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+				// Ensure that you remove @generated or mark it @generated NOT
+				return database.update("Update tblUsers SET FirstName = " + user.getFirstName() + ", LastName = " + user.getSurname() + ", Password = " + 
+						user.getPassword() +", Receptionist = "+ user.isReceptionist() + ", Adiministrator = "+ user.isAdministrator());
+							
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public boolean login(String name, String password) {
 		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
-	}
+				// Ensure that you remove @generated or mark it @generated NOT
+				/**
+				 * Strings n and p for testing purposes only. name and password attributes must be fetched from storage
+				 */
+
+				/** Query database to get name and password
+				 * login = true
+				 */
+				return database.query("SELECT FROM tblUsers WHERE name =" + name + " && password =" + password) != null;	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public void UserExpert(DatabaseInterface database) {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		this.database =  database;
 	}
 
 	/**
