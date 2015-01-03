@@ -1,4 +1,5 @@
 /**
+ * Authors: Michael Thompson, Alexander Ask
  */
 package model.impl;
 
@@ -54,7 +55,7 @@ public class emailImpl extends MinimalEObjectImpl.Container implements email {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public void send(Booking booking) {
 		String toAddress = booking.getCustomer().getEmail(); 
