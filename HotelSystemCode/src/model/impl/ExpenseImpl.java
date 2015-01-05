@@ -302,6 +302,17 @@ public class ExpenseImpl extends MinimalEObjectImpl.Container implements Expense
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void Expense(int id, String name, Date date, String description, double price, boolean isFixed) {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
 	public void Expense(int id, String name, Date date, String description, int price, boolean isFixed) {
@@ -430,7 +441,7 @@ public class ExpenseImpl extends MinimalEObjectImpl.Container implements Expense
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
 			case ModelPackage.EXPENSE___EXPENSE__INT_STRING_DATE_STRING_INT_BOOLEAN:
-				Expense((Integer)arguments.get(0), (String)arguments.get(1), (Date)arguments.get(2), (String)arguments.get(3), (Integer)arguments.get(4), (Boolean)arguments.get(5));
+				Expense((Integer)arguments.get(0), (String)arguments.get(1), (Date)arguments.get(2), (String)arguments.get(3), (Double)arguments.get(4), (Boolean)arguments.get(5));
 				return null;
 		}
 		return super.eInvoke(operationID, arguments);
