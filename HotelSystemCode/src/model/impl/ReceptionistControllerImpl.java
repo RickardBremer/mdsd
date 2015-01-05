@@ -220,7 +220,7 @@ public class ReceptionistControllerImpl extends BookingControllerImpl implements
 	public Booking getBooking(String surname, Date dateFrom, Date dateTo) {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
-		Booking b  = bookingExpert.getAllBookings(surname,dateFrom,dateTo);
+		Booking b  = bookingExpert.getAllBookings(dateFrom,dateTo,surname);
 		return b;
 		}
 
