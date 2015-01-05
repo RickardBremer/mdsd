@@ -1060,6 +1060,15 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getBooking_Receipt() {
+		return (EReference)bookingEClass.getEStructuralFeatures().get(8);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EOperation getBooking__Booking__Date_Date_String_Customer_EList_String_int() {
 		return bookingEClass.getEOperations().get(0);
 	}
@@ -2186,6 +2195,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		createEAttribute(bookingEClass, BOOKING__ROOM_TYPES);
 		createEAttribute(bookingEClass, BOOKING__CHECKED_IN);
 		createEAttribute(bookingEClass, BOOKING__ID);
+		createEReference(bookingEClass, BOOKING__RECEIPT);
 		createEOperation(bookingEClass, BOOKING___BOOKING__DATE_DATE_STRING_CUSTOMER_ELIST_STRING_INT);
 
 		adminInterfaceEClass = createEClass(ADMIN_INTERFACE);
@@ -2533,6 +2543,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		initEAttribute(getBooking_RoomTypes(), theTypesPackage.getString(), "roomTypes", null, 0, -1, Booking.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEAttribute(getBooking_CheckedIn(), theTypesPackage.getBoolean(), "checkedIn", null, 1, 1, Booking.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEAttribute(getBooking_Id(), ecorePackage.getEInt(), "id", null, 1, 1, Booking.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getBooking_Receipt(), this.getReceipt(), null, "receipt", null, 1, 1, Booking.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		op = initEOperation(getBooking__Booking__Date_Date_String_Customer_EList_String_int(), null, "Booking", 1, 1, IS_UNIQUE, !IS_ORDERED);
 		addEParameter(op, ecorePackage.getEDate(), "fromDate", 1, 1, IS_UNIQUE, !IS_ORDERED);

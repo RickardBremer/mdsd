@@ -199,6 +199,8 @@
       <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//Booking/roomTypes"/>
       <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//Booking/checkedIn"/>
       <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//Booking/id"/>
+      <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+          propertySortChoices="true" ecoreFeature="ecore:EReference model.ecore#//Booking/receipt"/>
       <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="model.ecore#//Booking/Booking">
         <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="model.ecore#//Booking/Booking/fromDate"/>
         <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="model.ecore#//Booking/Booking/toDate"/>

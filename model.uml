@@ -462,6 +462,10 @@
       <ownedAttribute xmi:type="uml:Property" xmi:id="_CmMM4JTBEeSK-7NQpyjlhQ" name="id" visibility="private">
         <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
       </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_KFSCkJTrEeSK-7NQpyjlhQ" name="receipt" visibility="private" type="_6dx-kIB4EeSIi9xXvYIBqQ" association="_KFSpoJTrEeSK-7NQpyjlhQ">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_KFSCkZTrEeSK-7NQpyjlhQ" value="1"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_KFSCkpTrEeSK-7NQpyjlhQ" value="1"/>
+      </ownedAttribute>
       <ownedOperation xmi:type="uml:Operation" xmi:id="_jtnxUIXaEeSa4Ps4qtz0aQ" name="Booking">
         <ownedParameter xmi:type="uml:Parameter" xmi:id="_rTFt4IXaEeSa4Ps4qtz0aQ" name="fromDate">
           <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EDate"/>
@@ -1234,16 +1238,6 @@
     </packagedElement>
     <packagedElement xmi:type="uml:Dependency" xmi:id="_OdDAMIp7EeSCo51zhpbIKg" name="RoomExpert uses Room" client="_FOiycIB5EeSIi9xXvYIBqQ" supplier="_2JcbkIB4EeSIi9xXvYIBqQ"/>
     <packagedElement xmi:type="uml:Dependency" xmi:id="_R8Oc0Ip7EeSCo51zhpbIKg" name="BookingExpert uses Booking" client="_JKAicIB5EeSIi9xXvYIBqQ" supplier="_3KJDkIB4EeSIi9xXvYIBqQ"/>
-    <packagedElement xmi:type="uml:Association" xmi:id="_-mOKEIp9EeSCo51zhpbIKg" memberEnd="_-mOKEYp9EeSCo51zhpbIKg _-mM78Ip9EeSCo51zhpbIKg" navigableOwnedEnd="_-mM78Ip9EeSCo51zhpbIKg">
-      <ownedEnd xmi:type="uml:Property" xmi:id="_-mOKEYp9EeSCo51zhpbIKg" name="booking" type="_3KJDkIB4EeSIi9xXvYIBqQ" association="_-mOKEIp9EeSCo51zhpbIKg">
-        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_-mOKEop9EeSCo51zhpbIKg" value="1"/>
-        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_-mOKE4p9EeSCo51zhpbIKg" value="1"/>
-      </ownedEnd>
-      <ownedEnd xmi:type="uml:Property" xmi:id="_-mM78Ip9EeSCo51zhpbIKg" name="receipt" type="_6dx-kIB4EeSIi9xXvYIBqQ" association="_-mOKEIp9EeSCo51zhpbIKg">
-        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_-mM78Yp9EeSCo51zhpbIKg" value="1"/>
-        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_-mM78op9EeSCo51zhpbIKg" value="1"/>
-      </ownedEnd>
-    </packagedElement>
     <packagedElement xmi:type="uml:Dependency" xmi:id="_IXeBsIp-EeSCo51zhpbIKg" name="BookingController uses Payment" client="__5260IB6EeSIi9xXvYIBqQ" supplier="_wKbqAIB5EeSIi9xXvYIBqQ"/>
     <packagedElement xmi:type="uml:Dependency" xmi:id="_s1wjsIp-EeSCo51zhpbIKg" name="PromotionExpert uses Promotion" client="_Um74wIB5EeSIi9xXvYIBqQ" supplier="_DfTCYIB5EeSIi9xXvYIBqQ"/>
     <packagedElement xmi:type="uml:Dependency" xmi:id="_6ZdZQIp-EeSCo51zhpbIKg" name="UserExpert uses User" client="_nKQqAIB5EeSIi9xXvYIBqQ" supplier="_l81NkIB5EeSIi9xXvYIBqQ"/>
@@ -1268,6 +1262,13 @@
     </packagedElement>
     <packagedElement xmi:type="uml:Dependency" xmi:id="_C1MpgJTSEeSK-7NQpyjlhQ" name="Receipt uses ExpenseExpert" client="_6dx-kIB4EeSIi9xXvYIBqQ" supplier="_RVmD0IB5EeSIi9xXvYIBqQ"/>
     <packagedElement xmi:type="uml:Dependency" xmi:id="_cc_jEJTSEeSK-7NQpyjlhQ" name="RoomExpert uses ExpenseExpert" client="_FOiycIB5EeSIi9xXvYIBqQ" supplier="_RVmD0IB5EeSIi9xXvYIBqQ"/>
+    <packagedElement xmi:type="uml:Association" xmi:id="_KFSpoJTrEeSK-7NQpyjlhQ" memberEnd="_KFTQsJTrEeSK-7NQpyjlhQ _KFSCkJTrEeSK-7NQpyjlhQ">
+      <name xsi:nil="true"/>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_KFTQsJTrEeSK-7NQpyjlhQ" name="booking" type="_3KJDkIB4EeSIi9xXvYIBqQ" association="_KFSpoJTrEeSK-7NQpyjlhQ">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_KFTQsZTrEeSK-7NQpyjlhQ" value="1"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_KFTQspTrEeSK-7NQpyjlhQ" value="1"/>
+      </ownedEnd>
+    </packagedElement>
     <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_KZiQMIXVEeSa4Ps4qtz0aQ">
       <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_KdDeQIXVEeSa4Ps4qtz0aQ" source="http://www.eclipse.org/uml2/2.0.0/UML">
         <references xmi:type="ecore:EPackage" href="pathmap://PAPYRUS_ACTIONLANGUAGE_PROFILE/ActionLanguage-Profile.profile.uml#_sYse0YZLEeKyw49uR6nx3g"/>

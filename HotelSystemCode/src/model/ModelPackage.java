@@ -973,13 +973,22 @@ public interface ModelPackage extends EPackage {
 	int BOOKING__ID = 7;
 
 	/**
+	 * The feature id for the '<em><b>Receipt</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOOKING__RECEIPT = 8;
+
+	/**
 	 * The number of structural features of the '<em>Booking</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int BOOKING_FEATURE_COUNT = 8;
+	int BOOKING_FEATURE_COUNT = 9;
 
 	/**
 	 * The operation id for the '<em>Booking</em>' operation.
@@ -3616,6 +3625,17 @@ public interface ModelPackage extends EPackage {
 	EAttribute getBooking_Id();
 
 	/**
+	 * Returns the meta object for the reference '{@link model.Booking#getReceipt <em>Receipt</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Receipt</em>'.
+	 * @see model.Booking#getReceipt()
+	 * @see #getBooking()
+	 * @generated
+	 */
+	EReference getBooking_Receipt();
+
+	/**
 	 * Returns the meta object for the '{@link model.Booking#Booking(java.util.Date, java.util.Date, java.lang.String, model.Customer, org.eclipse.emf.common.util.EList, java.lang.String, int) <em>Booking</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5468,6 +5488,14 @@ public interface ModelPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute BOOKING__ID = eINSTANCE.getBooking_Id();
+
+		/**
+		 * The meta object literal for the '<em><b>Receipt</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference BOOKING__RECEIPT = eINSTANCE.getBooking_Receipt();
 
 		/**
 		 * The meta object literal for the '<em><b>Booking</b></em>' operation.
