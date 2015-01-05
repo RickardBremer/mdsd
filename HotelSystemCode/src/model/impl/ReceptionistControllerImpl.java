@@ -4,6 +4,7 @@ package model.impl;
 
 import java.lang.reflect.InvocationTargetException;
 import java.util.Date;
+
 import model.Booking;
 import model.BookingExpert;
 import model.ExpenseExpert;
@@ -15,14 +16,12 @@ import model.ReceptionistInterface;
 import model.Resident;
 import model.Room;
 import model.RoomExpert;
-
 import model.UserExpert;
-import org.eclipse.emf.common.notify.Notification;
 
+import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 /**
@@ -163,7 +162,9 @@ public class ReceptionistControllerImpl extends BookingControllerImpl implements
 	public Resident createResident(String firstName, String surname, String passportNumber) {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		Resident r = new ResidentImpl();
+		r.Resident(firstName, surname, passportNumber);
+		return r;
 	}
 
 	/**
@@ -174,7 +175,16 @@ public class ReceptionistControllerImpl extends BookingControllerImpl implements
 	public EList<Booking> viewAllBookings(Date fromDate, Date toDate) {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		EList<Booking> blist = bookingExpert.getAllBooking(fromDate, toDate);
+		return blist;
+		
+	}
+	public EList<Booking> viewAllBookings() {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		EList<Booking> blist = bookingExpert.getAllBookings();
+		return blist;
+		
 	}
 
 	/**
@@ -185,9 +195,11 @@ public class ReceptionistControllerImpl extends BookingControllerImpl implements
 	public Booking getBooking(String bookingNumber) {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		Booking b = bookingExpert.getBooking(bookingNumber);
+		return b;
 	}
 
+	
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -196,7 +208,8 @@ public class ReceptionistControllerImpl extends BookingControllerImpl implements
 	public EList<Room> viewUnOccupiedRooms() {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		EList<Room> rlist = room.getUnoccupiedRooms();
+		return rlist;
 	}
 
 	/**
@@ -207,8 +220,9 @@ public class ReceptionistControllerImpl extends BookingControllerImpl implements
 	public Booking getBooking(String surname, Date dateFrom, Date dateTo) {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
-	}
+		Booking b  = bookingExpert.getAllBookings(surname,dateFrom,dateTo);
+		return b;
+		}
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -218,7 +232,14 @@ public class ReceptionistControllerImpl extends BookingControllerImpl implements
 	public EList<Room> viewUnOccupiedRooms(String roomType) {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		EList<Room> roomlist = room.getUnoccupiedRooms();
+		EList<Room> resultlist = null;
+		for (Room r : roomlist) {
+			if (r.getType().matches(roomType)) {
+				resultlist.add(r);
+			}
+		}
+		return resultlist;
 	}
 
 	/**
@@ -226,11 +247,38 @@ public class ReceptionistControllerImpl extends BookingControllerImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean checkIn(Booking booking) {
+	public boolean checkIn(Booking booking, Room[] room) {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
+		EList<String> bookedTypes =  booking.getRoomTypes();
+		EList<Room> availableTypes = viewUnOccupiedRooms();
+		for (Room r : room) {
+			databaseInterface.send("INSERT INTO tblStays(BookingID,RoomID) VALUES (" +booking.getBookingID() + "," +r.getNumber() +");" );
+			for (Resident res : r.getResident()){
+				databaseInterface.send("INSERT INTO tblResidents VALUES ('"+res.getPassportNumber()+"','"+res.getFirstName() +"','" +res.getSurname() +"');" );
+				databaseInterface.query("SELECT StayID FROM tblStays WHERE BookingID='"+booking.getBookingID()+"' AND WHERE RoomID='"+r.getNumber()+"'");
+			}
+		}
+		databaseInterface.send("UPDATE tblBookings SET CheckedIn=true WHERE BookingID='" + booking.getBookingID() + "';");
 		throw new UnsupportedOperationException();
 	}
+	
+//	public boolean checkIn(Room[] room) {
+//		// TODO: implement this method
+//		// Ensure that you remove @generated or mark it @generated NOT
+//		EList<String> bookedTypes =  booking.getRoomTypes();
+//		EList<Room> availableTypes = viewUnOccupiedRooms();
+//		for(String bt : bookedTypes) {
+//			for(Room r : availableTypes) {
+//				if (bt.matches(r.getType())) {
+//					room.updateRoom(r); 
+//				}
+//			}
+//		}
+//		
+//		databaseInterface.update("UPDATE tblBookings SET CheckedIn=true WHERE BookingID=" + booking.getBookingID() +";");
+//		throw new UnsupportedOperationException();
+//	}
 
 	/**
 	 * <!-- begin-user-doc -->

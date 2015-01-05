@@ -4,22 +4,25 @@ package model.impl;
 
 import java.lang.reflect.InvocationTargetException;
 import java.util.Date;
+
+import model.Booking;
 import model.BookingController;
 import model.BookingExpert;
 import model.Customer;
 import model.DatabaseInterface;
+import model.Expense;
+import model.ExpenseExpert;
 import model.ModelPackage;
+import model.Payment;
 import model.PromotionExpert;
 import model.Receipt;
 import model.Room;
 import model.RoomExpert;
 
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
@@ -257,9 +260,7 @@ public class BookingControllerImpl extends MinimalEObjectImpl.Container implemen
 	 * @generated
 	 */
 	public EList<Room> searchRooms(Date dateFrom, Date dateTo, int numberOfGuests, int numberOfRooms) {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		return room.getAvailableRoomTypes(dateFrom, dateTo, numberOfRooms, numberOfGuests);
 	}
 
 	/**
@@ -268,9 +269,9 @@ public class BookingControllerImpl extends MinimalEObjectImpl.Container implemen
 	 * @generated
 	 */
 	public Customer createCustomer(String firstName, String surname, String email, String address, String ccNumber, String ccv, int expiringMonth, int expriningYear) {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		Customer customer = new CustomerImpl();
+		customer.Customer(firstName, surname, email, address, ccNumber, ccv, expiringMonth, expriningYear);
+		return customer;
 	}
 
 	/**
@@ -279,20 +280,18 @@ public class BookingControllerImpl extends MinimalEObjectImpl.Container implemen
 	 * @generated
 	 */
 	public boolean pay(Customer customer, Receipt receipt) {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		Payment pay = new PaymentImpl();
+		return pay.makePayment(customer, receipt.getTotalCost());
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generate
 	 */
 	public boolean validateCard(String ccNumber, String ccv, int expiringMonth, int expiringYear) {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		Payment pay = new PaymentImpl();
+		return pay.isCreditCardVaild(customer);
 	}
 
 	/**
@@ -301,20 +300,42 @@ public class BookingControllerImpl extends MinimalEObjectImpl.Container implemen
 	 * @generated
 	 */
 	public boolean createBooking(Date fromDate, Date toDate, String wishes, Customer customer, String promotion, Receipt receipt, String roomType) {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		Payment pay = new PaymentImpl();
+		if (!pay.isCreditCardValid(customer)) {
+			return false;
+		}
+		Booking booking = new BookingImpl();
+		booking.Booking(-1, fromDate, toDate, wishes, customer, roomTypes, promotion);
+		bookingExpert.addBooking(booking);
+		Receipt rec = booking.getReceipt();
+		double total = rec.getTotalCost();
+		double fee = total * -0.1;
+		Expense ex = expenseExpert.get("Booking-fee " + fee);
+		if (ex == null) {
+			ex.Expense(fee, "Booking-fee " + fee, "", new Date());
+			expenseExpert.add(ex);
+			ex = expenseExpert.get("Booking-fee " + fee);
+		}
+		rec.addExpense(ex);
+		receiptExpert.updateReceipt(rec);
+		
+		if (!pay.makePayment(customer, -fee)) {
+			bookingExpert.removeBooking(booking);
+			return false;
+		};
+		//TODO: send email här
+		return true;
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public void BookingController(RoomExpert roomExpert, BookingExpert bookingExpert, PromotionExpert promotionExpert) {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		this.room = roomExpert;
+		this.bookingExpert = bookingExpert;
+		this.promotionExpert = promotionExpert;
 	}
 
 	/**

@@ -3,6 +3,7 @@
 package model.impl;
 
 import java.lang.reflect.InvocationTargetException;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
@@ -11,6 +12,7 @@ import model.DatabaseInterface;
 import model.Expense;
 import model.ExpenseExpert;
 import model.ModelPackage;
+import model.Resident;
 import model.Room;
 import model.RoomExpert;
 
@@ -110,12 +112,28 @@ public class RoomExpertImpl extends MinimalEObjectImpl.Container implements Room
 	 */
 	public EList<Room> getAllRooms() {
 		EList<Room> result = new BasicEList<Room>();
-		
+		//TODO hämta expenses och residents
 		EList<String[]> queryResult = database.query("SELECT * FROM tblRooms");
 		if (queryResult != null) {
 			for (String[] row : queryResult) {
 				Room room = new RoomImpl();
-				room.Room(number, description, type, price, beds); // TODO: lägg till id
+				ExpenseExpert ee = new ExpenseExpertImpl();
+				ee.ExpenseExpert(database);
+				Expense price = ee.getExpense(Integer.parseInt(row[7]));
+				room.Room(number, description, type, price, beds); // TODO: lägg till rätt grejor
+				//Get the residents if there is someone occupying the room at the moment
+				if (room.getStatus().equals("occupied")) {
+					EList<String[]> queryResult = database.query("SELECT tblResidents.IDNumber, tblResidents.FirstName, tblResidents.LastName FROM tblStays "
+						    + "LEFT JOIN tblStayResidents ON tblStays.StayID=tblStayResidents.StayID "
+						    + "LEFT JOIN tblResidents ON tblStayResidents.ResidentID=tblResidents.IDNumber "
+						    + "WHERE tblStays.RoomID=" + room.getNumber() + " and tblStays.StayID=("
+						    + "SELECT MAX(StayID) FROM tblStays WHERE tblStays.RoomID=" + room.getNumber() + ") "
+						    + "GROUP BY tblResidents.IDNumber");
+					for (String resident[] : queryResult) {
+						Resident res = new ResidentImpl();
+						res.Resident(resident[1], resident[2], resident[0]);
+					}
+				}
 				result.add(room);
 			}
 		}
@@ -132,13 +150,19 @@ public class RoomExpertImpl extends MinimalEObjectImpl.Container implements Room
 		EList<String> availableTypes = new BasicEList<String>();
 		HashMap<String, Integer> bookedTypes = new HashMap<String, Integer>();
 		HashMap<String, Integer> totalTypes = new HashMap<String, Integer>();
+		// Convert date object to milliseconds from the "epoch"
+		Calendar cal = Calendar.getInstance();
+		cal.setTime(from);
+		long fromMillis = cal.getTimeInMillis();
+		cal.setTime(to);
+		long toMillis = cal.getTimeInMillis();
 		
 		// Connect to database and get all calendar bookings regarding the desired dates
 		// TODO: change for the dates to make sense
 		EList<String[]> queryResult = database.query("SELECT RoomType, COUNT(RoomType) FROM tblCalendar WHERE "
-				+ "(FromDate < " + from + " AND ToDate < " + from + ") OR "
-				+ "(FromDate > " + from + " AND ToDate > " + to + ") OR "
-				+ "(FromDate < " + to + " AND ToDate > " + to + ") "
+				+ "(FromDate < " + fromMillis + " AND ToDate < " + fromMillis + ") OR "
+				+ "(FromDate > " + fromMillis + " AND ToDate > " + toMillis + ") OR "
+				+ "(FromDate < " + toMillis + " AND ToDate > " + to + ") "
 				+ "GROUP BY RoomType");
 		if (queryResult != null) {
 			for (String[] row : queryResult) {
@@ -183,6 +207,7 @@ public class RoomExpertImpl extends MinimalEObjectImpl.Container implements Room
 			}
 		}
 		
+		//TODO: Hämta och lägg till residents för rummet
 		return result;
 	}
 
@@ -195,7 +220,7 @@ public class RoomExpertImpl extends MinimalEObjectImpl.Container implements Room
 		boolean result = false;
 		
 		// TODO: what are the value types? will this work with expense??
-		result = database.create("INSERT into tblRooms('RoomNumber', 'RoomDescription', 'Maintenance', 'RoomIsClean', 'RoomType', 'Status', 'Beds', 'ExpenseID') "
+		result = database.send("INSERT into tblRooms('RoomNumber', 'RoomDescription', 'Maintenance', 'RoomIsClean', 'RoomType', 'Status', 'Beds', 'ExpenseID') "
 				+ "VALUES(" + room.getNumber() + ", " + room.getDescription() + ", " + false +", " + false + ", " + room.getType() + ", "
 						+ room.getStatus() + ", " + room.getBeds() + ", " + room.getPrice().getID() + ")");
 		
@@ -210,7 +235,7 @@ public class RoomExpertImpl extends MinimalEObjectImpl.Container implements Room
 	public boolean removeRoom(Room room) {
 		boolean result = false;
 		
-		result = database.remove("DELETE FROM tblRooms WHERE RoomNumber=" + room.getNumber());
+		result = database.send("DELETE FROM tblRooms WHERE RoomNumber=" + room.getNumber());
 		
 		return result;
 	}
@@ -224,7 +249,7 @@ public class RoomExpertImpl extends MinimalEObjectImpl.Container implements Room
 		boolean result = false;
 		
 		// TODO
-		result = database.remove("UPDATE tblRooms SET ExpenseID=" + room.getPrice().getID() + ","
+		result = database.send("UPDATE tblRooms SET ExpenseID=" + room.getPrice().getID() + ","
 				+ "RoomDescription='" + room.getDescription() + "',"
 				+ "RoomIsClean=" + room.isClean() +","
 				+ "RoomType='" + room.getType() +"',"
@@ -240,25 +265,27 @@ public class RoomExpertImpl extends MinimalEObjectImpl.Container implements Room
 	 * @generated NOT
 	 */
 	public Room getRoom(int roomNumber) {
-		 Room result = new RoomImpl();
+		 Room result = null;
 		 
 		 EList<String[]> queryResult = database.query("SELECT * FROM tblRooms WHERE RoomNumber=" + roomNumber);
 		 if (queryResult != null) {
+			 result = new RoomImpl();
 			 String[] roomSpec = queryResult.get(0);
 			 ExpenseExpert ee = new ExpenseExpertImpl();
 			 ee.ExpenseExpert(database);
 			 Expense price = ee.getExpense(Integer.parseInt(roomSpec[7]));
 			 result.Room(Integer.parseInt(roomSpec[0]), roomSpec[1], roomSpec[4], price, Integer.parseInt(roomSpec[6])); //TODO: add status
 		 }
+		 return result;
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public void RoomExpert(DatabaseInterface database) {
-		database = this.database;
+		this.database = database;
 	}
 
 	/**
