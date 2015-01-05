@@ -463,9 +463,6 @@
         <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
       </ownedAttribute>
       <ownedOperation xmi:type="uml:Operation" xmi:id="_jtnxUIXaEeSa4Ps4qtz0aQ" name="Booking">
-        <ownedParameter xmi:type="uml:Parameter" xmi:id="_o5KCEIXaEeSa4Ps4qtz0aQ" name="bookingID">
-          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
-        </ownedParameter>
         <ownedParameter xmi:type="uml:Parameter" xmi:id="_rTFt4IXaEeSa4Ps4qtz0aQ" name="fromDate">
           <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EDate"/>
         </ownedParameter>
@@ -487,7 +484,6 @@
         <ownedParameter xmi:type="uml:Parameter" xmi:id="_LpQv4JTBEeSK-7NQpyjlhQ" name="id">
           <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
         </ownedParameter>
-        <ownedParameter xmi:type="uml:Parameter" xmi:id="_2_2poJTFEeSK-7NQpyjlhQ" name="receipt" type="_6dx-kIB4EeSIi9xXvYIBqQ"/>
       </ownedOperation>
     </packagedElement>
     <packagedElement xmi:type="uml:Class" xmi:id="_6dx-kIB4EeSIi9xXvYIBqQ" name="Receipt">

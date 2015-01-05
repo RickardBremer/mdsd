@@ -3,25 +3,17 @@
 package model.impl;
 
 import java.lang.reflect.InvocationTargetException;
-
 import java.util.Collection;
 import java.util.Date;
-
 import model.Booking;
 import model.Customer;
 import model.ModelPackage;
-
-import model.Receipt;
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
 import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
 
 /**
@@ -385,7 +377,7 @@ public class BookingImpl extends MinimalEObjectImpl.Container implements Booking
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void Booking(String bookingID, Date fromDate, Date toDate, String wishes, Customer customer, EList<String> roomTypes, String promotionCode, int id, Receipt receipt) {
+	public void Booking(Date fromDate, Date toDate, String wishes, Customer customer, EList<String> roomTypes, String promotionCode, int id) {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();
@@ -531,8 +523,8 @@ public class BookingImpl extends MinimalEObjectImpl.Container implements Booking
 	@SuppressWarnings("unchecked")
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
-			case ModelPackage.BOOKING___BOOKING__STRING_DATE_DATE_STRING_CUSTOMER_ELIST_STRING_INT_RECEIPT:
-				Booking((String)arguments.get(0), (Date)arguments.get(1), (Date)arguments.get(2), (String)arguments.get(3), (Customer)arguments.get(4), (EList<String>)arguments.get(5), (String)arguments.get(6), (Integer)arguments.get(7), (Receipt)arguments.get(8));
+			case ModelPackage.BOOKING___BOOKING__DATE_DATE_STRING_CUSTOMER_ELIST_STRING_INT:
+				Booking((Date)arguments.get(0), (Date)arguments.get(1), (String)arguments.get(2), (Customer)arguments.get(3), (EList<String>)arguments.get(4), (String)arguments.get(5), (Integer)arguments.get(6));
 				return null;
 		}
 		return super.eInvoke(operationID, arguments);

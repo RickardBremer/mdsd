@@ -988,7 +988,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BOOKING___BOOKING__STRING_DATE_DATE_STRING_CUSTOMER_ELIST_STRING_INT_RECEIPT = 0;
+	int BOOKING___BOOKING__DATE_DATE_STRING_CUSTOMER_ELIST_STRING_INT = 0;
 
 	/**
 	 * The number of operations of the '<em>Booking</em>' class.
@@ -3616,14 +3616,14 @@ public interface ModelPackage extends EPackage {
 	EAttribute getBooking_Id();
 
 	/**
-	 * Returns the meta object for the '{@link model.Booking#Booking(java.lang.String, java.util.Date, java.util.Date, java.lang.String, model.Customer, org.eclipse.emf.common.util.EList, java.lang.String, int, model.Receipt) <em>Booking</em>}' operation.
+	 * Returns the meta object for the '{@link model.Booking#Booking(java.util.Date, java.util.Date, java.lang.String, model.Customer, org.eclipse.emf.common.util.EList, java.lang.String, int) <em>Booking</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Booking</em>' operation.
-	 * @see model.Booking#Booking(java.lang.String, java.util.Date, java.util.Date, java.lang.String, model.Customer, org.eclipse.emf.common.util.EList, java.lang.String, int, model.Receipt)
+	 * @see model.Booking#Booking(java.util.Date, java.util.Date, java.lang.String, model.Customer, org.eclipse.emf.common.util.EList, java.lang.String, int)
 	 * @generated
 	 */
-	EOperation getBooking__Booking__String_Date_Date_String_Customer_EList_String_int_Receipt();
+	EOperation getBooking__Booking__Date_Date_String_Customer_EList_String_int();
 
 	/**
 	 * Returns the meta object for class '{@link model.AdminInterface <em>Admin Interface</em>}'.
@@ -5475,7 +5475,7 @@ public interface ModelPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation BOOKING___BOOKING__STRING_DATE_DATE_STRING_CUSTOMER_ELIST_STRING_INT_RECEIPT = eINSTANCE.getBooking__Booking__String_Date_Date_String_Customer_EList_String_int_Receipt();
+		EOperation BOOKING___BOOKING__DATE_DATE_STRING_CUSTOMER_ELIST_STRING_INT = eINSTANCE.getBooking__Booking__Date_Date_String_Customer_EList_String_int();
 
 		/**
 		 * The meta object literal for the '{@link model.AdminInterface <em>Admin Interface</em>}' class.

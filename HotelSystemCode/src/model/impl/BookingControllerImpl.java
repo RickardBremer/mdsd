@@ -265,44 +265,33 @@ public class BookingControllerImpl extends MinimalEObjectImpl.Container implemen
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public Customer createCustomer(String firstName, String surname, String email, String address, String ccNumber, String ccv, int expiringMonth, int expriningYear) {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		Customer customer = new CustomerImpl();
+		customer.Customer(firstName, surname, email, address, ccNumber, ccv, expiringMonth, expriningYear);
+		return customer;
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public boolean pay(Customer customer, Receipt receipt) {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		Payment pay = new PaymentImpl();
+		int amount = (int) Math.rint(receipt.getTotalCost());
+		return pay.makePayment(customer, amount);
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public boolean validateCard(Customer customer) {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generate
-	 */
-	public boolean validateCard(String ccNumber, String ccv, int expiringMonth, int expiringYear) {
 		Payment pay = new PaymentImpl();
-		return pay.isCreditCardVaild(customer);
+		return pay.isCreditCardValid(customer);
 	}
 
 	/**
@@ -316,7 +305,7 @@ public class BookingControllerImpl extends MinimalEObjectImpl.Container implemen
 			return false;
 		}
 		Booking booking = new BookingImpl();
-		booking.Booking(-1, fromDate, toDate, wishes, customer, roomTypes, promotion);
+		booking.Booking(fromDate, toDate, wishes, customer, roomTypes, promotion, -1);
 		bookingExpert.addBooking(booking);
 		Receipt rec = booking.getReceipt();
 		double total = rec.getTotalCost();
