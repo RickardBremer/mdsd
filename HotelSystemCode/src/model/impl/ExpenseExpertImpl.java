@@ -5,7 +5,6 @@ package model.impl;
 
 import java.lang.reflect.InvocationTargetException;
 import java.util.Calendar;
-import java.util.Date;
 
 import model.DatabaseInterface;
 import model.Expense;
@@ -107,7 +106,7 @@ public class ExpenseExpertImpl extends MinimalEObjectImpl.Container implements
 		if(response != null){
 			ExpenseImpl e = new ExpenseImpl();
 			cal.setTimeInMillis(Long.valueOf(response[2]));
-			e.Expense(Integer.valueOf(response[0]), response[1], cal.getTime(), response[3], Integer.valueOf(response[4]), Boolean.parseBoolean(response[5]));
+			e.Expense(Integer.valueOf(response[0]), response[1], cal.getTime(), response[3], Double.valueOf(response[4]), Boolean.parseBoolean(response[5]));
 			return e; 
 		}
 		return null;
@@ -128,7 +127,7 @@ public class ExpenseExpertImpl extends MinimalEObjectImpl.Container implements
 				String[] splitResponse = response.split(";");
 				Expense e = new ExpenseImpl();
 				cal.setTimeInMillis(Long.valueOf(splitResponse[2]));
-				e.Expense(Integer.valueOf(splitResponse[0]), splitResponse[1], cal.getTime(), splitResponse[3],Integer.valueOf(splitResponse[4]), Boolean.parseBoolean(splitResponse[5]));
+				e.Expense(Integer.valueOf(splitResponse[0]), splitResponse[1], cal.getTime(), splitResponse[3], Double.valueOf(splitResponse[4]), Boolean.parseBoolean(splitResponse[5]));
 				expenses.add(e);
 			}
 		}
@@ -169,7 +168,7 @@ public class ExpenseExpertImpl extends MinimalEObjectImpl.Container implements
 			if(response != null){
 				ExpenseImpl e = new ExpenseImpl();
 				cal.setTimeInMillis(Long.valueOf(response[2]));
-				e.Expense(Integer.valueOf(response[0]), response[1], cal.getTime(), response[3], Integer.valueOf(response[4]), Boolean.parseBoolean(response[5]));
+				e.Expense(Integer.valueOf(response[0]), response[1], cal.getTime(), response[3], Double.valueOf(response[4]), Boolean.parseBoolean(response[5]));
 				return e; 
 			}			
 		}
@@ -192,10 +191,10 @@ public class ExpenseExpertImpl extends MinimalEObjectImpl.Container implements
 	 * @generated NOT
 	 */
 	public boolean updateExpense(Expense expense) {
-		return database.send("UPDATE tblExpense SET Price="
-				+ expense.getPrice() + ", ExpenseName='" + expense.getName()
-				+ "', ExpenseDescription='" + expense.getDescription()
-				+ "', ExpenseDate='" + expense.getDate().getTime()
+		return database.send("UPDATE tblExpense SET Price=" + expense.getPrice() + ","
+				+ " ExpenseName='" + expense.getName() + "',"
+				+ " ExpenseDescription='" + expense.getDescription() + "',"
+				+ " ExpenseDate='" + expense.getDate().getTime()
 				+ "' WHERE ID =" + expense.getId() + ";");
 	}
 

@@ -299,23 +299,13 @@ public class ExpenseImpl extends MinimalEObjectImpl.Container implements Expense
 			eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.EXPENSE__FIXED, oldFixed, fixed));
 	}
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void Expense(int id, String name, Date date, String description, double price, boolean isFixed) {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
-	}
-
+	
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
-	public void Expense(int id, String name, Date date, String description, int price, boolean isFixed) {
+	public void Expense(int id, String name, Date date, String description, double price, boolean isFixed) {
 		this.id = id;
 		this.name = name; 
 		this.date = date;
