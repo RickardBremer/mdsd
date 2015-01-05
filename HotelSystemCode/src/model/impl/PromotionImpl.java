@@ -309,6 +309,10 @@ public class PromotionImpl extends MinimalEObjectImpl.Container implements Promo
 	 * @generated
 	 */
 	public void calculateDiscount(Room room) {
+		int total = 0;
+		int rp = room.getPrice();
+		total = rp * percentage;
+				
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();
@@ -320,6 +324,12 @@ public class PromotionImpl extends MinimalEObjectImpl.Container implements Promo
 	 * @generated
 	 */
 	public void Promotion(String code, String description, int percentage, Date vaildFrom, Date vaildTo) {
+		this.code ＝ code;
+		this.description = description;
+		this.percentage = percentage;
+		this.validFrom = validFrom;
+		this.validTo = validTo;
+		
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();
