@@ -381,8 +381,7 @@ public class BookingControllerImpl extends MinimalEObjectImpl.Container implemen
 	 */
 	public boolean pay(Customer customer, Receipt receipt) {
 		Payment pay = new PaymentImpl();
-		int amount = (int) Math.rint(receipt.getTotalCost());
-		return pay.makePayment(customer, amount);
+		return pay.makePayment(customer, receipt.getTotalCost());
 	}
 
 	/**
@@ -417,8 +416,7 @@ public class BookingControllerImpl extends MinimalEObjectImpl.Container implemen
 		rec.addExpense(ex);
 		receiptExpert.updateReceipt(rec);
 		
-		int amount = (int) Math.rint(-fee);
-		if (!pay.makePayment(customer, amount)) {
+		if (!pay.makePayment(customer, -fee)) {
 			bookingExpert.removeBooking(booking);
 			return false;
 		};
