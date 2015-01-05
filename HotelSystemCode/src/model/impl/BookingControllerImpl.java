@@ -20,7 +20,6 @@ import model.Receipt;
 import model.ReceiptExpert;
 import model.Room;
 import model.RoomExpert;
-import model.email;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.EList;
