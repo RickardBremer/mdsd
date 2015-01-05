@@ -179,13 +179,13 @@ public class ReceptionistControllerImpl extends BookingControllerImpl implements
 		return blist;
 		
 	}
-	public EList<Booking> viewAllBookings() {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		EList<Booking> blist = bookingExpert.getAllBookings();
-		return blist;
-		
-	}
+//	public EList<Booking> viewAllBookings() {
+//		// TODO: implement this method
+//		// Ensure that you remove @generated or mark it @generated NOT
+//		EList<Booking> blist = bookingExpert.getAllBookings();
+//		return blist;
+//		
+//	}
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -196,6 +196,18 @@ public class ReceptionistControllerImpl extends BookingControllerImpl implements
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
 		Booking b = bookingExpert.getBooking(bookingNumber);
+		return b;
+	}
+	
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	public Booking getBooking(String surname, Date dateFrom, Date dateTo) {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		EList<Booking> b  = bookingExpert.getAllBookings(dateFrom,dateTo,surname);
 		return b;
 	}
 
@@ -212,17 +224,7 @@ public class ReceptionistControllerImpl extends BookingControllerImpl implements
 		return rlist;
 	}
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Booking getBooking(String surname, Date dateFrom, Date dateTo) {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		Booking b  = bookingExpert.getAllBookings(dateFrom,dateTo,surname);
-		return b;
-		}
+
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -260,7 +262,7 @@ public class ReceptionistControllerImpl extends BookingControllerImpl implements
 			}
 		}
 		databaseInterface.send("UPDATE tblBookings SET CheckedIn=true WHERE BookingID='" + booking.getBookingID() + "';");
-		throw new UnsupportedOperationException();
+		return true;
 	}
 	
 //	public boolean checkIn(Room[] room) {
@@ -299,6 +301,7 @@ public class ReceptionistControllerImpl extends BookingControllerImpl implements
 	public void ReceptionistController(ReceiptExpert receiptExpert, ExpenseExpert expenseExpert, RoomExpert roomExpert, BookingExpert bookingExpert, PromotionExpert promotionExpert, UserExpert userExpert) {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
+		receiptExpert = receiptExpert;
 		throw new UnsupportedOperationException();
 	}
 
