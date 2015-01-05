@@ -3,12 +3,17 @@
 package model.impl;
 
 import java.lang.reflect.InvocationTargetException;
+import java.util.Calendar;
 import java.util.Collection;
 import java.util.Date;
+
 import model.Expense;
 import model.ModelPackage;
 import model.Receipt;
+import model.DatabaseInterface;
+
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
@@ -42,6 +47,7 @@ public class ReceiptImpl extends MinimalEObjectImpl.Container implements Receipt
 	 * @ordered
 	 */
 	protected EList<Expense> expense;
+	protected DatabaseInterface database;
 
 	/**
 	 * The default value of the '{@link #getTotalCost() <em>Total Cost</em>}' attribute.
@@ -222,45 +228,76 @@ public class ReceiptImpl extends MinimalEObjectImpl.Container implements Receipt
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public boolean addExpense(Expense expense) {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		//throw new UnsupportedOperationException();
+		
+		this.expenses.add(expense);
+		ExpenseExpert e = new ExpenseExpertImpl();
+		
+		 e.addExpense(expense);
+		
+		
+		return true;
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public boolean removeExpense(Expense expense) {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		//throw new UnsupportedOperationException();
+		for (int i = 0; i < expenses.size(); i++){
+			if(expense.getID() == expenses.get(i).getID()){
+				expenses.remove(expense);
+			}
+		}
+		return database.send("DELETE * FROM tlbExpenses WHERE ExpenseID = " + expense.getID());
 	}
+	
+	
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public EList<Expense> getAllExpenses() {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		//throw new UnsupportedOperationException();
+		EList<String[]> expenses = database.query("SELECT * FROM tblExpenses WHERE ReceiptID = " + this.id);
+		EList<Expense> mylist = new BasicEList<Expense>();
+		Calendar date = Calendar.getInstance();
+		if( expenses != null){
+			for (String[] ex: expenses){
+				Expense rp = new ExpenseImpl();
+				date.setTimeInMillis(Long.valueOf(ex[3]));
+				rp.Expense(Integer.parseInt(ex[0]), ex[1], ex[2], date.getTime());
+				mylist.add(rp);
+			}
+		}
+		//throw new UnsupportedOperationException();
+		return mylist;
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public void Receipt() {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		
+	
+		//throw new UnsupportedOperationException();
 	}
 
 	/**

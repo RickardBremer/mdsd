@@ -3,6 +3,7 @@
 package model.impl;
 
 import java.lang.reflect.InvocationTargetException;
+import java.util.Calendar;
 
 import model.Booking;
 import model.DatabaseInterface;
@@ -11,12 +12,10 @@ import model.Receipt;
 import model.ReceiptExpert;
 
 import org.eclipse.emf.common.notify.Notification;
-
+import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
@@ -104,89 +103,123 @@ public class ReceiptExpertImpl extends MinimalEObjectImpl.Container implements R
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public Receipt getReceipt(int ID) {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		String[] result =  database.query("SELECT * FROM tlbReceipts WHERE ID = " + ID);
+		Calendar date = Calendar.getInstance();
+		if (result != null){
+			Receipt r1 = new ReceiptImpl();
+			date.setTimeInMillis(Long.valueOf(result[1]]));
+			r1.Receipt(Integer.parseInt(result[0]), date.getTime(), result[2]);
+		
+		
+			return r1;
+		//throw new UnsupportedOperationException();
+		}else{
+			return null;
+		}
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public Receipt getReceipt(Booking booking) {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		String[] receipt1 = database.query("SELECT * FROM tblReceipts WHERE ReceiptID = (SELECT ReceiptID FROM tlbBooking WHERE BookingID = " + booking.getBookingID() + ")");
+		//throw new UnsupportedOperationException();
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT 
 	 */
 	public EList<Receipt> getAllReceipt() {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		
+		EList<String[]> receipt = database.query("SELECT * FROM tblReceipts");
+		EList<Receipt> mylist = new BasicEList<Receipt>();
+		Calendar date = Calendar.getInstance();
+		if( receipt != null){
+			for (String[] re: receipt){
+				Receipt rp = new ReceiptImpl();
+				date.setTimeInMillis(Long.valueOf(re[2]));
+				rp.Receipt(Integer.parseInt(re[0]), date.getTime(), re[2]);
+				mylist.add(rp);
+			}
+		}
+		//throw new UnsupportedOperationException();
+		return mylist;
+		
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public Receipt combine(Receipt receiptList) {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
+		
+			
 		throw new UnsupportedOperationException();
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public boolean addReceipt(Receipt receipt) {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		return  database.send("INSERT INTO tblReceipts (ReceiptID, ReceiptDescription, TotalCost, ReceiptDate)  VALUES (" + receipt.getID() + ", " + receipt.getExpenses() + ", " + receipt.getTotalCost() + ", " + receipt.getDate() + ";");
+		
+	
+		//throw new UnsupportedOperationException();
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public boolean removeReceipt(Receipt receipt) {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		return database.send("DELETE * FROM tblReceipts WHERE ReceiptID = " + receipt.getID() + ";");
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public boolean updateReceipt(Receipt receipt) {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		//throw new UnsupportedOperationException();
+		return database.send("UPDATE tblReceipts WHERE ReceiptID = " + receipt.getID() + "SET ReceiptDescription =" + receipt.getExpense() + "TotalCost = " + receipt.getTotalCost() + "ReceiptDate" + receipt.getDate());
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public void ReceiptExpert(DatabaseInterface database) {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		this.database = database;
+		
 	}
 
 	/**
