@@ -149,21 +149,34 @@ public class BookingExpertImpl extends MinimalEObjectImpl.Container implements B
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public boolean addBooking(Booking booking) {
-		// TODO: implement this method
+		// Rickard
 		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		return database.send("INSERT INTO tblBookings ('BookingID', 'DateFrom', 'DateTo', 'CustomerMail', 'ClientRequests', 'CheckedIn') VALUES("
+						+ booking.getBookingID()
+						+ ", "
+						+ booking.getFromDate().getTime()
+						+ ","
+						+ booking.getToDate().getTime()
+						+ ",'"
+						+ booking.getCustomer().getEmail() 
+						+ "','"
+						+ booking.getWishes()
+						+ "',"
+						+ booking.isCheckedIn()
+						+ ");");
+		//throw new UnsupportedOperationException();
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public boolean removeBooking(Booking booking) {
-		// TODO: implement this method
+		// Rickard
 		// Ensure that you remove @generated or mark it @generated NOT
 		return database.send("DELETTE FROM tblBookings Where BookingID=" + booking.getBookingID()
 				+ ";");
@@ -173,12 +186,16 @@ public class BookingExpertImpl extends MinimalEObjectImpl.Container implements B
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public boolean updateBooking(Booking booking) {
-		// TODO: implement this method
+		// Rickard
 		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		return database.send("UPDATE tblBookings SET DateFrom="
+				+ booking.getFromDate() + ", DateTo='" + booking.getToDate()
+				+ "' WHERE BookingID =" + booking.getBookingID() + ";");
+		
+		//throw new UnsupportedOperationException();
 	}
 
 	/**
