@@ -144,12 +144,27 @@ public class UserExpertImpl extends MinimalEObjectImpl.Container implements User
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
-	public boolean addUser(User user) {
-		return database.send("INSERT INTO tblUsers SET FirstName = " + user.getFirstName() + ", LastName = " + user.getSurname() + ", Password = " + 
-				user.getPassword() +", Receptionist = "+ user.isReceptionist() + ", Adiministrator = "+ user.isAdministrator());
-	}
-
-	/**
+	public User addUser(User user){
+		
+		 database.send("INSERT INTO tblUsers SET FirstName = " + user.getFirstName() + ", LastName = " + user.getSurname() + ", Password = " + 
+					user.getPassword() +", Receptionist = "+ user.isReceptionist() + ", Adiministrator = "+ user.isAdministrator());
+		
+		 
+		 EList<String[]> addedUser = database.query("SELECT * FROM tblUsers WHERE FirstName = " + user.getFirstName() + ", LastName = "
+		+ user.getSurname() + ", Password = " + user.getPassword() +", Receptionist = "+ user.isReceptionist() + ", Adiministrator = "+ user.isAdministrator() + 
+		"ORDER BY DESC");
+		 
+		 String[] newUser = addedUser.get(0);
+		 
+		 if(newUser != null){
+				User u = new UserImpl();
+				u.User(newUser[0], newUser[1], newUser[2], Boolean.parseBoolean(newUser[3]), Boolean.parseBoolean(newUser[4]));
+		return  u;
+		}
+		return null;
+			
+		}
+		/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated NOT
