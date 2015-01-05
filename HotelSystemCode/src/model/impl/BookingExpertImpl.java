@@ -165,7 +165,9 @@ public class BookingExpertImpl extends MinimalEObjectImpl.Container implements B
 	public boolean removeBooking(Booking booking) {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		return database.send("DELETTE FROM tblBookings Where BookingID=" + booking.getBookingID()
+				+ ";");
+		//throw new UnsupportedOperationException();
 	}
 
 	/**
