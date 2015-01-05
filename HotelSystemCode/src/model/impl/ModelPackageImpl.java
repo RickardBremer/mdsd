@@ -34,17 +34,13 @@ import model.RoomExpert;
 import model.User;
 import model.UserExpert;
 import model.email;
-
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
-
 import org.eclipse.emf.ecore.impl.EPackageImpl;
-
 import org.eclipse.uml2.types.TypesPackage;
-
 import org.eclipse.uml2.types.impl.TypesPackageImpl;
 
 /**
@@ -425,7 +421,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getCustomerInterface__ValidateCard__String_String_int_int() {
+	public EOperation getCustomerInterface__ValidateCard__Customer() {
 		return customerInterfaceEClass.getEOperations().get(3);
 	}
 
@@ -434,7 +430,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getCustomerInterface__CreateBooking__Date_Date_String_Customer_String_Receipt_String() {
+	public EOperation getCustomerInterface__CreateBooking__Date_Date_String_Customer_String_Receipt_EList() {
 		return customerInterfaceEClass.getEOperations().get(4);
 	}
 
@@ -445,15 +441,6 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 */
 	public EClass getRoom() {
 		return roomEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getRoom_Expense() {
-		return (EReference)roomEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -498,7 +485,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * @generated
 	 */
 	public EReference getRoom_Price() {
-		return (EReference)roomEClass.getEStructuralFeatures().get(5);
+		return (EReference)roomEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -507,7 +494,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * @generated
 	 */
 	public EAttribute getRoom_Beds() {
-		return (EAttribute)roomEClass.getEStructuralFeatures().get(6);
+		return (EAttribute)roomEClass.getEStructuralFeatures().get(5);
 	}
 
 	/**
@@ -516,6 +503,15 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * @generated
 	 */
 	public EReference getRoom_Receipt() {
+		return (EReference)roomEClass.getEStructuralFeatures().get(6);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getRoom_Residents() {
 		return (EReference)roomEClass.getEStructuralFeatures().get(7);
 	}
 
@@ -524,8 +520,8 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getRoom_Resident() {
-		return (EReference)roomEClass.getEStructuralFeatures().get(8);
+	public EAttribute getRoom_Status() {
+		return (EAttribute)roomEClass.getEStructuralFeatures().get(8);
 	}
 
 	/**
@@ -533,7 +529,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getRoom__Room__int_String_String_Expense_int() {
+	public EOperation getRoom__Room__int_String_String_Expense_int_String() {
 		return roomEClass.getEOperations().get(0);
 	}
 
@@ -587,7 +583,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getExpense_ID() {
+	public EAttribute getExpense_Id() {
 		return (EAttribute)expenseEClass.getEStructuralFeatures().get(4);
 	}
 
@@ -596,7 +592,16 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getExpense__Expense__int_String_String_Date() {
+	public EAttribute getExpense_Fixed() {
+		return (EAttribute)expenseEClass.getEStructuralFeatures().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getExpense__Expense__int_String_Date_String_int_boolean() {
 		return expenseEClass.getEOperations().get(0);
 	}
 
@@ -607,15 +612,6 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 */
 	public EClass getReceipt() {
 		return receiptEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getReceipt_Expense() {
-		return (EReference)receiptEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -641,8 +637,8 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getReceipt_Expenses() {
-		return (EReference)receiptEClass.getEStructuralFeatures().get(3);
+	public EAttribute getReceipt_Id() {
+		return (EAttribute)receiptEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -650,8 +646,8 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getReceipt_ID() {
-		return (EAttribute)receiptEClass.getEStructuralFeatures().get(4);
+	public EReference getReceipt_Expenses() {
+		return (EReference)receiptEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -686,7 +682,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getReceipt__Receipt() {
+	public EOperation getReceipt__Receipt__int_Date_EList() {
 		return receiptEClass.getEOperations().get(3);
 	}
 
@@ -731,7 +727,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getUser_ID() {
+	public EAttribute getUser_Id() {
 		return (EAttribute)userEClass.getEStructuralFeatures().get(3);
 	}
 
@@ -758,7 +754,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getUser__User__String_String_String_boolean_boolean() {
+	public EOperation getUser__User__String_String_String_boolean_boolean_int() {
 		return userEClass.getEOperations().get(0);
 	}
 
@@ -794,7 +790,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getResident_PassportNumber() {
+	public EAttribute getResident_Id() {
 		return (EAttribute)residentEClass.getEStructuralFeatures().get(2);
 	}
 
@@ -929,7 +925,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getReceptionistInterface__GetBooking__String() {
+	public EOperation getReceptionistInterface__GetBooking__int() {
 		return receptionistInterfaceEClass.getEOperations().get(2);
 	}
 
@@ -947,7 +943,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getReceptionistInterface__GetBooking__String_Date_Date() {
+	public EOperation getReceptionistInterface__ViewAllBookings__String_Date_Date() {
 		return receptionistInterfaceEClass.getEOperations().get(4);
 	}
 
@@ -965,7 +961,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getReceptionistInterface__CheckIn__Booking() {
+	public EOperation getReceptionistInterface__CheckIn__Booking_EList() {
 		return receptionistInterfaceEClass.getEOperations().get(6);
 	}
 
@@ -1001,7 +997,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getBooking_BookingID() {
+	public EAttribute getBooking_FromDate() {
 		return (EAttribute)bookingEClass.getEStructuralFeatures().get(1);
 	}
 
@@ -1010,7 +1006,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getBooking_FromDate() {
+	public EAttribute getBooking_ToDate() {
 		return (EAttribute)bookingEClass.getEStructuralFeatures().get(2);
 	}
 
@@ -1019,7 +1015,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getBooking_ToDate() {
+	public EAttribute getBooking_Wishes() {
 		return (EAttribute)bookingEClass.getEStructuralFeatures().get(3);
 	}
 
@@ -1028,7 +1024,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getBooking_Wishes() {
+	public EAttribute getBooking_Promotion() {
 		return (EAttribute)bookingEClass.getEStructuralFeatures().get(4);
 	}
 
@@ -1037,7 +1033,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getBooking_Promotion() {
+	public EAttribute getBooking_RoomTypes() {
 		return (EAttribute)bookingEClass.getEStructuralFeatures().get(5);
 	}
 
@@ -1046,7 +1042,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getBooking_RoomTypes() {
+	public EAttribute getBooking_CheckedIn() {
 		return (EAttribute)bookingEClass.getEStructuralFeatures().get(6);
 	}
 
@@ -1055,7 +1051,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getBooking_CheckedIn() {
+	public EAttribute getBooking_Id() {
 		return (EAttribute)bookingEClass.getEStructuralFeatures().get(7);
 	}
 
@@ -1064,7 +1060,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getBooking__Booking__String_Date_Date_String_Customer_EList_String() {
+	public EOperation getBooking__Booking__String_Date_Date_String_Customer_EList_String_int_Receipt() {
 		return bookingEClass.getEOperations().get(0);
 	}
 
@@ -1280,7 +1276,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getPromotion_ID() {
+	public EAttribute getPromotion_ValidFrom() {
 		return (EAttribute)promotionEClass.getEStructuralFeatures().get(3);
 	}
 
@@ -1289,7 +1285,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getPromotion_ValidFrom() {
+	public EAttribute getPromotion_ValidTo() {
 		return (EAttribute)promotionEClass.getEStructuralFeatures().get(4);
 	}
 
@@ -1298,8 +1294,17 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getPromotion_ValidTo() {
+	public EAttribute getPromotion_RoomType() {
 		return (EAttribute)promotionEClass.getEStructuralFeatures().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getPromotion_ExpirationDate() {
+		return (EAttribute)promotionEClass.getEStructuralFeatures().get(6);
 	}
 
 	/**
@@ -1316,7 +1321,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getPromotion__Promotion__String_String_int_Date_Date() {
+	public EOperation getPromotion__Promotion__String_String_int_Date_Date_String_Date() {
 		return promotionEClass.getEOperations().get(1);
 	}
 
@@ -1424,7 +1429,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getDatabaseInterface__QuerystringrowArrayLst() {
+	public EOperation getDatabaseInterface__Query__String() {
 		return databaseInterfaceEClass.getEOperations().get(0);
 	}
 
@@ -1433,62 +1438,8 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getDatabaseInterface__Updatestringboolean() {
+	public EOperation getDatabaseInterface__Send__String() {
 		return databaseInterfaceEClass.getEOperations().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getDatabaseInterface__Createstringboolean() {
-		return databaseInterfaceEClass.getEOperations().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getDatabaseInterface__Removestringboolean() {
-		return databaseInterfaceEClass.getEOperations().get(3);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getDatabaseInterface__Query__String() {
-		return databaseInterfaceEClass.getEOperations().get(4);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getDatabaseInterface__Update__String() {
-		return databaseInterfaceEClass.getEOperations().get(5);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getDatabaseInterface__Create__String() {
-		return databaseInterfaceEClass.getEOperations().get(6);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getDatabaseInterface__Remove__String() {
-		return databaseInterfaceEClass.getEOperations().get(7);
 	}
 
 	/**
@@ -1721,6 +1672,15 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EOperation getPromotionExpert__AddPromotion__Promotion() {
+		return promotionExpertEClass.getEOperations().get(6);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getBookingExpert() {
 		return bookingExpertEClass;
 	}
@@ -1748,7 +1708,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getBookingExpert__GetBooking__String() {
+	public EOperation getBookingExpert__GetAllBookings__Date_Date() {
 		return bookingExpertEClass.getEOperations().get(1);
 	}
 
@@ -1757,7 +1717,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getBookingExpert__GetAllBooking__Date_Date() {
+	public EOperation getBookingExpert__AddBooking__Booking() {
 		return bookingExpertEClass.getEOperations().get(2);
 	}
 
@@ -1766,7 +1726,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getBookingExpert__GetAllBookings() {
+	public EOperation getBookingExpert__RemoveBooking__Booking() {
 		return bookingExpertEClass.getEOperations().get(3);
 	}
 
@@ -1775,7 +1735,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getBookingExpert__AddBooking__Booking() {
+	public EOperation getBookingExpert__UpdateBooking__Booking() {
 		return bookingExpertEClass.getEOperations().get(4);
 	}
 
@@ -1784,7 +1744,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getBookingExpert__RemoveBooking__Booking() {
+	public EOperation getBookingExpert__GetAllBookings__Date_Date_String() {
 		return bookingExpertEClass.getEOperations().get(5);
 	}
 
@@ -1793,7 +1753,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getBookingExpert__UpdateBooking__Booking() {
+	public EOperation getBookingExpert__BookingExpert__DatabaseInterface() {
 		return bookingExpertEClass.getEOperations().get(6);
 	}
 
@@ -1802,7 +1762,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getBookingExpert__GetAllBookings__String() {
+	public EOperation getBookingExpert__CheckIn__Booking_EList() {
 		return bookingExpertEClass.getEOperations().get(7);
 	}
 
@@ -1811,7 +1771,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getBookingExpert__BookingExpert__DatabaseInterface() {
+	public EOperation getBookingExpert__CheckOut__Booking() {
 		return bookingExpertEClass.getEOperations().get(8);
 	}
 
@@ -1856,7 +1816,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getReceiptExpert__GetAllReceipt() {
+	public EOperation getReceiptExpert__GetReceipt__Room() {
 		return receiptExpertEClass.getEOperations().get(2);
 	}
 
@@ -1865,7 +1825,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getReceiptExpert__Combine__Receipt() {
+	public EOperation getReceiptExpert__GetAllReceipt() {
 		return receiptExpertEClass.getEOperations().get(3);
 	}
 
@@ -1874,7 +1834,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getReceiptExpert__AddReceipt__Receipt() {
+	public EOperation getReceiptExpert__Combine__EList() {
 		return receiptExpertEClass.getEOperations().get(4);
 	}
 
@@ -1883,7 +1843,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getReceiptExpert__RemoveReceipt__Receipt() {
+	public EOperation getReceiptExpert__AddReceipt__Receipt() {
 		return receiptExpertEClass.getEOperations().get(5);
 	}
 
@@ -1892,7 +1852,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getReceiptExpert__UpdateReceipt__Receipt() {
+	public EOperation getReceiptExpert__RemoveReceipt__Receipt() {
 		return receiptExpertEClass.getEOperations().get(6);
 	}
 
@@ -1901,8 +1861,17 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getReceiptExpert__ReceiptExpert__DatabaseInterface() {
+	public EOperation getReceiptExpert__UpdateReceipt__Receipt() {
 		return receiptExpertEClass.getEOperations().get(7);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getReceiptExpert__ReceiptExpert__DatabaseInterface() {
+		return receiptExpertEClass.getEOperations().get(8);
 	}
 
 	/**
@@ -1946,7 +1915,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getPayment__IsCreditCardValidcustomerBool() {
+	public EOperation getPayment__IsCreditCardValid__Customer() {
 		return paymentEClass.getEOperations().get(1);
 	}
 
@@ -2147,20 +2116,20 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		createEOperation(customerInterfaceEClass, CUSTOMER_INTERFACE___SEARCH_ROOMS__DATE_DATE_INT_INT);
 		createEOperation(customerInterfaceEClass, CUSTOMER_INTERFACE___CREATE_CUSTOMER__STRING_STRING_STRING_STRING_STRING_STRING_INT_INT);
 		createEOperation(customerInterfaceEClass, CUSTOMER_INTERFACE___PAY__CUSTOMER_RECEIPT);
-		createEOperation(customerInterfaceEClass, CUSTOMER_INTERFACE___VALIDATE_CARD__STRING_STRING_INT_INT);
-		createEOperation(customerInterfaceEClass, CUSTOMER_INTERFACE___CREATE_BOOKING__DATE_DATE_STRING_CUSTOMER_STRING_RECEIPT_STRING);
+		createEOperation(customerInterfaceEClass, CUSTOMER_INTERFACE___VALIDATE_CARD__CUSTOMER);
+		createEOperation(customerInterfaceEClass, CUSTOMER_INTERFACE___CREATE_BOOKING__DATE_DATE_STRING_CUSTOMER_STRING_RECEIPT_ELIST);
 
 		roomEClass = createEClass(ROOM);
-		createEReference(roomEClass, ROOM__EXPENSE);
+		createEReference(roomEClass, ROOM__PRICE);
 		createEAttribute(roomEClass, ROOM__NUMBER);
 		createEAttribute(roomEClass, ROOM__DESCRIPTION);
 		createEAttribute(roomEClass, ROOM__CLEAN);
 		createEAttribute(roomEClass, ROOM__TYPE);
-		createEReference(roomEClass, ROOM__PRICE);
 		createEAttribute(roomEClass, ROOM__BEDS);
 		createEReference(roomEClass, ROOM__RECEIPT);
-		createEReference(roomEClass, ROOM__RESIDENT);
-		createEOperation(roomEClass, ROOM___ROOM__INT_STRING_STRING_EXPENSE_INT);
+		createEReference(roomEClass, ROOM__RESIDENTS);
+		createEAttribute(roomEClass, ROOM__STATUS);
+		createEOperation(roomEClass, ROOM___ROOM__INT_STRING_STRING_EXPENSE_INT_STRING);
 
 		expenseEClass = createEClass(EXPENSE);
 		createEAttribute(expenseEClass, EXPENSE__PRICE);
@@ -2168,23 +2137,23 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		createEAttribute(expenseEClass, EXPENSE__DESCRIPTION);
 		createEAttribute(expenseEClass, EXPENSE__DATE);
 		createEAttribute(expenseEClass, EXPENSE__ID);
-		createEOperation(expenseEClass, EXPENSE___EXPENSE__INT_STRING_STRING_DATE);
+		createEAttribute(expenseEClass, EXPENSE__FIXED);
+		createEOperation(expenseEClass, EXPENSE___EXPENSE__INT_STRING_DATE_STRING_INT_BOOLEAN);
 
 		receiptEClass = createEClass(RECEIPT);
-		createEReference(receiptEClass, RECEIPT__EXPENSE);
+		createEReference(receiptEClass, RECEIPT__EXPENSES);
 		createEAttribute(receiptEClass, RECEIPT__TOTAL_COST);
 		createEAttribute(receiptEClass, RECEIPT__DATE);
-		createEReference(receiptEClass, RECEIPT__EXPENSES);
 		createEAttribute(receiptEClass, RECEIPT__ID);
 		createEOperation(receiptEClass, RECEIPT___ADD_EXPENSE__EXPENSE);
 		createEOperation(receiptEClass, RECEIPT___REMOVE_EXPENSE__EXPENSE);
 		createEOperation(receiptEClass, RECEIPT___GET_ALL_EXPENSES);
-		createEOperation(receiptEClass, RECEIPT___RECEIPT);
+		createEOperation(receiptEClass, RECEIPT___RECEIPT__INT_DATE_ELIST);
 
 		residentEClass = createEClass(RESIDENT);
 		createEAttribute(residentEClass, RESIDENT__FIRST_NAME);
 		createEAttribute(residentEClass, RESIDENT__SURNAME);
-		createEAttribute(residentEClass, RESIDENT__PASSPORT_NUMBER);
+		createEAttribute(residentEClass, RESIDENT__ID);
 		createEOperation(residentEClass, RESIDENT___RESIDENT__STRING_STRING_STRING);
 
 		customerEClass = createEClass(CUSTOMER);
@@ -2201,23 +2170,23 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		receptionistInterfaceEClass = createEClass(RECEPTIONIST_INTERFACE);
 		createEOperation(receptionistInterfaceEClass, RECEPTIONIST_INTERFACE___CREATE_RESIDENT__STRING_STRING_STRING);
 		createEOperation(receptionistInterfaceEClass, RECEPTIONIST_INTERFACE___VIEW_ALL_BOOKINGS__DATE_DATE);
-		createEOperation(receptionistInterfaceEClass, RECEPTIONIST_INTERFACE___GET_BOOKING__STRING);
+		createEOperation(receptionistInterfaceEClass, RECEPTIONIST_INTERFACE___GET_BOOKING__INT);
 		createEOperation(receptionistInterfaceEClass, RECEPTIONIST_INTERFACE___VIEW_UN_OCCUPIED_ROOMS);
-		createEOperation(receptionistInterfaceEClass, RECEPTIONIST_INTERFACE___GET_BOOKING__STRING_DATE_DATE);
+		createEOperation(receptionistInterfaceEClass, RECEPTIONIST_INTERFACE___VIEW_ALL_BOOKINGS__STRING_DATE_DATE);
 		createEOperation(receptionistInterfaceEClass, RECEPTIONIST_INTERFACE___VIEW_UN_OCCUPIED_ROOMS__STRING);
-		createEOperation(receptionistInterfaceEClass, RECEPTIONIST_INTERFACE___CHECK_IN__BOOKING);
+		createEOperation(receptionistInterfaceEClass, RECEPTIONIST_INTERFACE___CHECK_IN__BOOKING_ELIST);
 		createEOperation(receptionistInterfaceEClass, RECEPTIONIST_INTERFACE___CHECK_OUT__BOOKING);
 
 		bookingEClass = createEClass(BOOKING);
 		createEReference(bookingEClass, BOOKING__CUSTOMER);
-		createEAttribute(bookingEClass, BOOKING__BOOKING_ID);
 		createEAttribute(bookingEClass, BOOKING__FROM_DATE);
 		createEAttribute(bookingEClass, BOOKING__TO_DATE);
 		createEAttribute(bookingEClass, BOOKING__WISHES);
 		createEAttribute(bookingEClass, BOOKING__PROMOTION);
 		createEAttribute(bookingEClass, BOOKING__ROOM_TYPES);
 		createEAttribute(bookingEClass, BOOKING__CHECKED_IN);
-		createEOperation(bookingEClass, BOOKING___BOOKING__STRING_DATE_DATE_STRING_CUSTOMER_ELIST_STRING);
+		createEAttribute(bookingEClass, BOOKING__ID);
+		createEOperation(bookingEClass, BOOKING___BOOKING__STRING_DATE_DATE_STRING_CUSTOMER_ELIST_STRING_INT_RECEIPT);
 
 		adminInterfaceEClass = createEClass(ADMIN_INTERFACE);
 		createEOperation(adminInterfaceEClass, ADMIN_INTERFACE___LOGIN__STRING_STRING);
@@ -2246,17 +2215,18 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		createEAttribute(userEClass, USER__ID);
 		createEAttribute(userEClass, USER__RECEPTIONIST);
 		createEAttribute(userEClass, USER__ADMINISTRATOR);
-		createEOperation(userEClass, USER___USER__STRING_STRING_STRING_BOOLEAN_BOOLEAN);
+		createEOperation(userEClass, USER___USER__STRING_STRING_STRING_BOOLEAN_BOOLEAN_INT);
 
 		promotionEClass = createEClass(PROMOTION);
 		createEAttribute(promotionEClass, PROMOTION__CODE);
 		createEAttribute(promotionEClass, PROMOTION__DESCRIPTION);
 		createEAttribute(promotionEClass, PROMOTION__PERCENTAGE);
-		createEAttribute(promotionEClass, PROMOTION__ID);
 		createEAttribute(promotionEClass, PROMOTION__VALID_FROM);
 		createEAttribute(promotionEClass, PROMOTION__VALID_TO);
+		createEAttribute(promotionEClass, PROMOTION__ROOM_TYPE);
+		createEAttribute(promotionEClass, PROMOTION__EXPIRATION_DATE);
 		createEOperation(promotionEClass, PROMOTION___CALCULATE_DISCOUNT__ROOM);
-		createEOperation(promotionEClass, PROMOTION___PROMOTION__STRING_STRING_INT_DATE_DATE);
+		createEOperation(promotionEClass, PROMOTION___PROMOTION__STRING_STRING_INT_DATE_DATE_STRING_DATE);
 
 		roomExpertEClass = createEClass(ROOM_EXPERT);
 		createEReference(roomExpertEClass, ROOM_EXPERT__DATABASE);
@@ -2270,14 +2240,8 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		createEOperation(roomExpertEClass, ROOM_EXPERT___ROOM_EXPERT__DATABASEINTERFACE);
 
 		databaseInterfaceEClass = createEClass(DATABASE_INTERFACE);
-		createEOperation(databaseInterfaceEClass, DATABASE_INTERFACE___QUERYSTRINGROW_ARRAY_LST);
-		createEOperation(databaseInterfaceEClass, DATABASE_INTERFACE___UPDATESTRINGBOOLEAN);
-		createEOperation(databaseInterfaceEClass, DATABASE_INTERFACE___CREATESTRINGBOOLEAN);
-		createEOperation(databaseInterfaceEClass, DATABASE_INTERFACE___REMOVESTRINGBOOLEAN);
 		createEOperation(databaseInterfaceEClass, DATABASE_INTERFACE___QUERY__STRING);
-		createEOperation(databaseInterfaceEClass, DATABASE_INTERFACE___UPDATE__STRING);
-		createEOperation(databaseInterfaceEClass, DATABASE_INTERFACE___CREATE__STRING);
-		createEOperation(databaseInterfaceEClass, DATABASE_INTERFACE___REMOVE__STRING);
+		createEOperation(databaseInterfaceEClass, DATABASE_INTERFACE___SEND__STRING);
 
 		expenseExpertEClass = createEClass(EXPENSE_EXPERT);
 		createEReference(expenseExpertEClass, EXPENSE_EXPERT__DATABASE);
@@ -2306,25 +2270,27 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		createEOperation(promotionExpertEClass, PROMOTION_EXPERT___REMOVE_PROMOTION__INT);
 		createEOperation(promotionExpertEClass, PROMOTION_EXPERT___UPDATE_PROMOTION__PROMOTION);
 		createEOperation(promotionExpertEClass, PROMOTION_EXPERT___PROMOTION_EXPERT__DATABASEINTERFACE);
+		createEOperation(promotionExpertEClass, PROMOTION_EXPERT___ADD_PROMOTION__PROMOTION);
 
 		bookingExpertEClass = createEClass(BOOKING_EXPERT);
 		createEReference(bookingExpertEClass, BOOKING_EXPERT__DATABASE);
 		createEOperation(bookingExpertEClass, BOOKING_EXPERT___GET_BOOKING__INT);
-		createEOperation(bookingExpertEClass, BOOKING_EXPERT___GET_BOOKING__STRING);
-		createEOperation(bookingExpertEClass, BOOKING_EXPERT___GET_ALL_BOOKING__DATE_DATE);
-		createEOperation(bookingExpertEClass, BOOKING_EXPERT___GET_ALL_BOOKINGS);
+		createEOperation(bookingExpertEClass, BOOKING_EXPERT___GET_ALL_BOOKINGS__DATE_DATE);
 		createEOperation(bookingExpertEClass, BOOKING_EXPERT___ADD_BOOKING__BOOKING);
 		createEOperation(bookingExpertEClass, BOOKING_EXPERT___REMOVE_BOOKING__BOOKING);
 		createEOperation(bookingExpertEClass, BOOKING_EXPERT___UPDATE_BOOKING__BOOKING);
-		createEOperation(bookingExpertEClass, BOOKING_EXPERT___GET_ALL_BOOKINGS__STRING);
+		createEOperation(bookingExpertEClass, BOOKING_EXPERT___GET_ALL_BOOKINGS__DATE_DATE_STRING);
 		createEOperation(bookingExpertEClass, BOOKING_EXPERT___BOOKING_EXPERT__DATABASEINTERFACE);
+		createEOperation(bookingExpertEClass, BOOKING_EXPERT___CHECK_IN__BOOKING_ELIST);
+		createEOperation(bookingExpertEClass, BOOKING_EXPERT___CHECK_OUT__BOOKING);
 
 		receiptExpertEClass = createEClass(RECEIPT_EXPERT);
 		createEReference(receiptExpertEClass, RECEIPT_EXPERT__DATABASE);
 		createEOperation(receiptExpertEClass, RECEIPT_EXPERT___GET_RECEIPT__INT);
 		createEOperation(receiptExpertEClass, RECEIPT_EXPERT___GET_RECEIPT__BOOKING);
+		createEOperation(receiptExpertEClass, RECEIPT_EXPERT___GET_RECEIPT__ROOM);
 		createEOperation(receiptExpertEClass, RECEIPT_EXPERT___GET_ALL_RECEIPT);
-		createEOperation(receiptExpertEClass, RECEIPT_EXPERT___COMBINE__RECEIPT);
+		createEOperation(receiptExpertEClass, RECEIPT_EXPERT___COMBINE__ELIST);
 		createEOperation(receiptExpertEClass, RECEIPT_EXPERT___ADD_RECEIPT__RECEIPT);
 		createEOperation(receiptExpertEClass, RECEIPT_EXPERT___REMOVE_RECEIPT__RECEIPT);
 		createEOperation(receiptExpertEClass, RECEIPT_EXPERT___UPDATE_RECEIPT__RECEIPT);
@@ -2335,7 +2301,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 
 		paymentEClass = createEClass(PAYMENT);
 		createEOperation(paymentEClass, PAYMENT___MAKE_PAYMENT__CUSTOMER_INT);
-		createEOperation(paymentEClass, PAYMENT___IS_CREDIT_CARD_VALIDCUSTOMER_BOOL);
+		createEOperation(paymentEClass, PAYMENT___IS_CREDIT_CARD_VALID__CUSTOMER);
 
 		bookingControllerEClass = createEClass(BOOKING_CONTROLLER);
 		createEReference(bookingControllerEClass, BOOKING_CONTROLLER__ROOM);
@@ -2394,6 +2360,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		adminControllerEClass.getESuperTypes().add(this.getAdminInterface());
 		receptionistControllerEClass.getESuperTypes().add(this.getBookingController());
 		receptionistControllerEClass.getESuperTypes().add(this.getReceptionistInterface());
+		msAccessDBEClass.getESuperTypes().add(this.getDatabaseInterface());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(bankComponentEClass, BankComponent.class, "BankComponent", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -2430,58 +2397,58 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		addEParameter(op, this.getCustomer(), "customer", 1, 1, IS_UNIQUE, !IS_ORDERED);
 		addEParameter(op, this.getReceipt(), "receipt", 1, 1, IS_UNIQUE, !IS_ORDERED);
 
-		op = initEOperation(getCustomerInterface__ValidateCard__String_String_int_int(), ecorePackage.getEBoolean(), "validateCard", 1, 1, IS_UNIQUE, !IS_ORDERED);
-		addEParameter(op, theTypesPackage.getString(), "ccNumber", 1, 1, IS_UNIQUE, !IS_ORDERED);
-		addEParameter(op, theTypesPackage.getString(), "ccv", 1, 1, IS_UNIQUE, !IS_ORDERED);
-		addEParameter(op, ecorePackage.getEInt(), "expiringMonth", 1, 1, IS_UNIQUE, !IS_ORDERED);
-		addEParameter(op, ecorePackage.getEInt(), "expiringYear", 1, 1, IS_UNIQUE, !IS_ORDERED);
+		op = initEOperation(getCustomerInterface__ValidateCard__Customer(), ecorePackage.getEBoolean(), "validateCard", 1, 1, IS_UNIQUE, !IS_ORDERED);
+		addEParameter(op, this.getCustomer(), "customer", 1, 1, IS_UNIQUE, !IS_ORDERED);
 
-		op = initEOperation(getCustomerInterface__CreateBooking__Date_Date_String_Customer_String_Receipt_String(), ecorePackage.getEBoolean(), "createBooking", 1, 1, IS_UNIQUE, !IS_ORDERED);
+		op = initEOperation(getCustomerInterface__CreateBooking__Date_Date_String_Customer_String_Receipt_EList(), ecorePackage.getEBoolean(), "createBooking", 1, 1, IS_UNIQUE, !IS_ORDERED);
 		addEParameter(op, ecorePackage.getEDate(), "fromDate", 1, 1, IS_UNIQUE, !IS_ORDERED);
 		addEParameter(op, ecorePackage.getEDate(), "toDate", 1, 1, IS_UNIQUE, !IS_ORDERED);
 		addEParameter(op, theTypesPackage.getString(), "wishes", 1, 1, IS_UNIQUE, !IS_ORDERED);
 		addEParameter(op, this.getCustomer(), "customer", 1, 1, IS_UNIQUE, !IS_ORDERED);
 		addEParameter(op, theTypesPackage.getString(), "promotion", 1, 1, IS_UNIQUE, !IS_ORDERED);
 		addEParameter(op, this.getReceipt(), "receipt", 1, 1, IS_UNIQUE, !IS_ORDERED);
-		addEParameter(op, theTypesPackage.getString(), "roomType", 1, 1, IS_UNIQUE, !IS_ORDERED);
+		addEParameter(op, theTypesPackage.getString(), "roomTypes", 0, -1, IS_UNIQUE, !IS_ORDERED);
 
 		initEClass(roomEClass, Room.class, "Room", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getRoom_Expense(), this.getExpense(), null, "expense", null, 1, 1, Room.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getRoom_Price(), this.getExpense(), null, "price", null, 1, 1, Room.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEAttribute(getRoom_Number(), theTypesPackage.getInteger(), "number", null, 1, 1, Room.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEAttribute(getRoom_Description(), theTypesPackage.getString(), "description", null, 1, 1, Room.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEAttribute(getRoom_Clean(), theTypesPackage.getBoolean(), "clean", null, 1, 1, Room.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEAttribute(getRoom_Type(), theTypesPackage.getString(), "type", null, 1, 1, Room.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEReference(getRoom_Price(), this.getExpense(), null, "price", null, 1, 1, Room.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEAttribute(getRoom_Beds(), theTypesPackage.getInteger(), "beds", null, 1, 1, Room.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEReference(getRoom_Receipt(), this.getReceipt(), null, "receipt", null, 1, 1, Room.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEReference(getRoom_Resident(), this.getResident(), null, "resident", null, 0, -1, Room.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getRoom_Residents(), this.getResident(), null, "residents", null, 0, -1, Room.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEAttribute(getRoom_Status(), theTypesPackage.getString(), "status", null, 1, 1, Room.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
-		op = initEOperation(getRoom__Room__int_String_String_Expense_int(), null, "Room", 1, 1, IS_UNIQUE, !IS_ORDERED);
+		op = initEOperation(getRoom__Room__int_String_String_Expense_int_String(), null, "Room", 1, 1, IS_UNIQUE, !IS_ORDERED);
 		addEParameter(op, theTypesPackage.getInteger(), "number", 1, 1, IS_UNIQUE, !IS_ORDERED);
 		addEParameter(op, theTypesPackage.getString(), "description", 1, 1, IS_UNIQUE, !IS_ORDERED);
 		addEParameter(op, theTypesPackage.getString(), "type", 1, 1, IS_UNIQUE, !IS_ORDERED);
 		addEParameter(op, this.getExpense(), "price", 1, 1, IS_UNIQUE, !IS_ORDERED);
 		addEParameter(op, theTypesPackage.getInteger(), "beds", 1, 1, IS_UNIQUE, !IS_ORDERED);
+		addEParameter(op, theTypesPackage.getString(), "status", 1, 1, IS_UNIQUE, !IS_ORDERED);
 
 		initEClass(expenseEClass, Expense.class, "Expense", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getExpense_Price(), theTypesPackage.getInteger(), "price", null, 1, 1, Expense.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEAttribute(getExpense_Price(), ecorePackage.getEDouble(), "price", null, 1, 1, Expense.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEAttribute(getExpense_Name(), theTypesPackage.getString(), "name", null, 1, 1, Expense.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEAttribute(getExpense_Description(), theTypesPackage.getString(), "description", null, 1, 1, Expense.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEAttribute(getExpense_Date(), ecorePackage.getEDate(), "date", null, 1, 1, Expense.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEAttribute(getExpense_ID(), theTypesPackage.getInteger(), "ID", null, 1, 1, Expense.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEAttribute(getExpense_Id(), ecorePackage.getEInt(), "id", null, 1, 1, Expense.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEAttribute(getExpense_Fixed(), ecorePackage.getEBoolean(), "fixed", null, 1, 1, Expense.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
-		op = initEOperation(getExpense__Expense__int_String_String_Date(), null, "Expense", 1, 1, IS_UNIQUE, !IS_ORDERED);
-		addEParameter(op, theTypesPackage.getInteger(), "price", 1, 1, IS_UNIQUE, !IS_ORDERED);
+		op = initEOperation(getExpense__Expense__int_String_Date_String_int_boolean(), null, "Expense", 1, 1, IS_UNIQUE, !IS_ORDERED);
+		addEParameter(op, ecorePackage.getEInt(), "id", 1, 1, IS_UNIQUE, !IS_ORDERED);
 		addEParameter(op, theTypesPackage.getString(), "name", 1, 1, IS_UNIQUE, !IS_ORDERED);
-		addEParameter(op, theTypesPackage.getString(), "description", 1, 1, IS_UNIQUE, !IS_ORDERED);
 		addEParameter(op, ecorePackage.getEDate(), "date", 1, 1, IS_UNIQUE, !IS_ORDERED);
+		addEParameter(op, theTypesPackage.getString(), "description", 1, 1, IS_UNIQUE, !IS_ORDERED);
+		addEParameter(op, theTypesPackage.getInteger(), "price", 1, 1, IS_UNIQUE, !IS_ORDERED);
+		addEParameter(op, ecorePackage.getEBoolean(), "isFixed", 1, 1, IS_UNIQUE, !IS_ORDERED);
 
 		initEClass(receiptEClass, Receipt.class, "Receipt", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getReceipt_Expense(), this.getExpense(), null, "expense", null, 0, -1, Receipt.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEAttribute(getReceipt_TotalCost(), theTypesPackage.getInteger(), "totalCost", null, 1, 1, Receipt.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEAttribute(getReceipt_Date(), ecorePackage.getEDate(), "Date", null, 1, 1, Receipt.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEReference(getReceipt_Expenses(), this.getExpense(), null, "expenses", null, 0, -1, Receipt.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEAttribute(getReceipt_ID(), ecorePackage.getEInt(), "ID", null, 1, 1, Receipt.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEAttribute(getReceipt_TotalCost(), ecorePackage.getEDouble(), "totalCost", null, 1, 1, Receipt.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEAttribute(getReceipt_Date(), ecorePackage.getEDate(), "Date", null, 1, 1, Receipt.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEAttribute(getReceipt_Id(), ecorePackage.getEInt(), "id", null, 1, 1, Receipt.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		op = initEOperation(getReceipt__AddExpense__Expense(), ecorePackage.getEBoolean(), "addExpense", 1, 1, IS_UNIQUE, !IS_ORDERED);
 		addEParameter(op, this.getExpense(), "expense", 1, 1, IS_UNIQUE, !IS_ORDERED);
@@ -2491,17 +2458,20 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 
 		initEOperation(getReceipt__GetAllExpenses(), this.getExpense(), "getAllExpenses", 0, -1, IS_UNIQUE, !IS_ORDERED);
 
-		initEOperation(getReceipt__Receipt(), null, "Receipt", 1, 1, IS_UNIQUE, !IS_ORDERED);
+		op = initEOperation(getReceipt__Receipt__int_Date_EList(), null, "Receipt", 1, 1, IS_UNIQUE, !IS_ORDERED);
+		addEParameter(op, ecorePackage.getEInt(), "id", 1, 1, IS_UNIQUE, !IS_ORDERED);
+		addEParameter(op, ecorePackage.getEDate(), "date", 1, 1, IS_UNIQUE, !IS_ORDERED);
+		addEParameter(op, this.getExpense(), "expenses", 0, -1, IS_UNIQUE, !IS_ORDERED);
 
 		initEClass(residentEClass, Resident.class, "Resident", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getResident_FirstName(), theTypesPackage.getString(), "firstName", null, 1, 1, Resident.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEAttribute(getResident_Surname(), theTypesPackage.getString(), "surname", null, 1, 1, Resident.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEAttribute(getResident_PassportNumber(), theTypesPackage.getString(), "passportNumber", null, 1, 1, Resident.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEAttribute(getResident_Id(), theTypesPackage.getString(), "id", null, 1, 1, Resident.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		op = initEOperation(getResident__Resident__String_String_String(), null, "Resident", 1, 1, IS_UNIQUE, !IS_ORDERED);
+		addEParameter(op, theTypesPackage.getString(), "id", 1, 1, IS_UNIQUE, !IS_ORDERED);
 		addEParameter(op, theTypesPackage.getString(), "firstName", 1, 1, IS_UNIQUE, !IS_ORDERED);
 		addEParameter(op, theTypesPackage.getString(), "surname", 1, 1, IS_UNIQUE, !IS_ORDERED);
-		addEParameter(op, theTypesPackage.getString(), "passportNumber", 1, 1, IS_UNIQUE, !IS_ORDERED);
 
 		initEClass(customerEClass, Customer.class, "Customer", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getCustomer_FirstName(), theTypesPackage.getString(), "firstName", null, 1, 1, Customer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
@@ -2534,12 +2504,12 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		addEParameter(op, ecorePackage.getEDate(), "fromDate", 1, 1, IS_UNIQUE, !IS_ORDERED);
 		addEParameter(op, ecorePackage.getEDate(), "toDate", 1, 1, IS_UNIQUE, !IS_ORDERED);
 
-		op = initEOperation(getReceptionistInterface__GetBooking__String(), this.getBooking(), "getBooking", 1, 1, IS_UNIQUE, !IS_ORDERED);
-		addEParameter(op, theTypesPackage.getString(), "bookingNumber", 1, 1, IS_UNIQUE, !IS_ORDERED);
+		op = initEOperation(getReceptionistInterface__GetBooking__int(), this.getBooking(), "getBooking", 1, 1, IS_UNIQUE, !IS_ORDERED);
+		addEParameter(op, ecorePackage.getEInt(), "bookingNumber", 1, 1, IS_UNIQUE, !IS_ORDERED);
 
 		initEOperation(getReceptionistInterface__ViewUnOccupiedRooms(), this.getRoom(), "viewUnOccupiedRooms", 0, -1, IS_UNIQUE, !IS_ORDERED);
 
-		op = initEOperation(getReceptionistInterface__GetBooking__String_Date_Date(), this.getBooking(), "getBooking", 1, 1, IS_UNIQUE, !IS_ORDERED);
+		op = initEOperation(getReceptionistInterface__ViewAllBookings__String_Date_Date(), this.getBooking(), "viewAllBookings", 0, -1, IS_UNIQUE, !IS_ORDERED);
 		addEParameter(op, theTypesPackage.getString(), "surname", 1, 1, IS_UNIQUE, !IS_ORDERED);
 		addEParameter(op, ecorePackage.getEDate(), "dateFrom", 1, 1, IS_UNIQUE, !IS_ORDERED);
 		addEParameter(op, ecorePackage.getEDate(), "dateTo", 1, 1, IS_UNIQUE, !IS_ORDERED);
@@ -2547,23 +2517,24 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		op = initEOperation(getReceptionistInterface__ViewUnOccupiedRooms__String(), this.getRoom(), "viewUnOccupiedRooms", 0, -1, IS_UNIQUE, !IS_ORDERED);
 		addEParameter(op, theTypesPackage.getString(), "roomType", 1, 1, IS_UNIQUE, !IS_ORDERED);
 
-		op = initEOperation(getReceptionistInterface__CheckIn__Booking(), ecorePackage.getEBoolean(), "checkIn", 1, 1, IS_UNIQUE, !IS_ORDERED);
+		op = initEOperation(getReceptionistInterface__CheckIn__Booking_EList(), ecorePackage.getEBoolean(), "checkIn", 1, 1, IS_UNIQUE, !IS_ORDERED);
 		addEParameter(op, this.getBooking(), "booking", 1, 1, IS_UNIQUE, !IS_ORDERED);
+		addEParameter(op, this.getRoom(), "rooms", 0, -1, IS_UNIQUE, !IS_ORDERED);
 
 		op = initEOperation(getReceptionistInterface__CheckOut__Booking(), ecorePackage.getEBoolean(), "checkOut", 1, 1, IS_UNIQUE, !IS_ORDERED);
 		addEParameter(op, this.getBooking(), "booking", 1, 1, IS_UNIQUE, !IS_ORDERED);
 
 		initEClass(bookingEClass, Booking.class, "Booking", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getBooking_Customer(), this.getCustomer(), null, "customer", null, 1, 1, Booking.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEAttribute(getBooking_BookingID(), theTypesPackage.getString(), "bookingID", null, 1, 1, Booking.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEAttribute(getBooking_FromDate(), ecorePackage.getEDate(), "fromDate", null, 1, 1, Booking.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEAttribute(getBooking_ToDate(), ecorePackage.getEDate(), "toDate", null, 1, 1, Booking.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEAttribute(getBooking_Wishes(), theTypesPackage.getString(), "wishes", null, 1, 1, Booking.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEAttribute(getBooking_Promotion(), theTypesPackage.getString(), "promotion", null, 1, 1, Booking.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEAttribute(getBooking_RoomTypes(), theTypesPackage.getString(), "roomTypes", null, 0, -1, Booking.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEAttribute(getBooking_CheckedIn(), theTypesPackage.getBoolean(), "checkedIn", null, 1, 1, Booking.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEAttribute(getBooking_Id(), ecorePackage.getEInt(), "id", null, 1, 1, Booking.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
-		op = initEOperation(getBooking__Booking__String_Date_Date_String_Customer_EList_String(), null, "Booking", 1, 1, IS_UNIQUE, !IS_ORDERED);
+		op = initEOperation(getBooking__Booking__String_Date_Date_String_Customer_EList_String_int_Receipt(), null, "Booking", 1, 1, IS_UNIQUE, !IS_ORDERED);
 		addEParameter(op, theTypesPackage.getString(), "bookingID", 1, 1, IS_UNIQUE, !IS_ORDERED);
 		addEParameter(op, ecorePackage.getEDate(), "fromDate", 1, 1, IS_UNIQUE, !IS_ORDERED);
 		addEParameter(op, ecorePackage.getEDate(), "toDate", 1, 1, IS_UNIQUE, !IS_ORDERED);
@@ -2571,6 +2542,8 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		addEParameter(op, this.getCustomer(), "customer", 1, 1, IS_UNIQUE, !IS_ORDERED);
 		addEParameter(op, theTypesPackage.getString(), "roomTypes", 0, -1, IS_UNIQUE, !IS_ORDERED);
 		addEParameter(op, theTypesPackage.getString(), "promotionCode", 1, 1, IS_UNIQUE, !IS_ORDERED);
+		addEParameter(op, ecorePackage.getEInt(), "id", 1, 1, IS_UNIQUE, !IS_ORDERED);
+		addEParameter(op, this.getReceipt(), "receipt", 1, 1, IS_UNIQUE, !IS_ORDERED);
 
 		initEClass(adminInterfaceEClass, AdminInterface.class, "AdminInterface", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -2646,34 +2619,38 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		initEAttribute(getUser_FirstName(), theTypesPackage.getString(), "firstName", null, 1, 1, User.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEAttribute(getUser_Surname(), theTypesPackage.getString(), "surname", null, 1, 1, User.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEAttribute(getUser_Password(), theTypesPackage.getString(), "password", null, 1, 1, User.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEAttribute(getUser_ID(), theTypesPackage.getInteger(), "ID", null, 1, 1, User.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEAttribute(getUser_Id(), theTypesPackage.getInteger(), "id", null, 1, 1, User.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEAttribute(getUser_Receptionist(), theTypesPackage.getBoolean(), "receptionist", null, 1, 1, User.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEAttribute(getUser_Administrator(), theTypesPackage.getBoolean(), "administrator", null, 1, 1, User.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
-		op = initEOperation(getUser__User__String_String_String_boolean_boolean(), null, "User", 1, 1, IS_UNIQUE, !IS_ORDERED);
+		op = initEOperation(getUser__User__String_String_String_boolean_boolean_int(), null, "User", 1, 1, IS_UNIQUE, !IS_ORDERED);
 		addEParameter(op, theTypesPackage.getString(), "firstName", 1, 1, IS_UNIQUE, !IS_ORDERED);
 		addEParameter(op, theTypesPackage.getString(), "surname", 1, 1, IS_UNIQUE, !IS_ORDERED);
 		addEParameter(op, theTypesPackage.getString(), "password", 1, 1, IS_UNIQUE, !IS_ORDERED);
 		addEParameter(op, ecorePackage.getEBoolean(), "receptionist", 1, 1, IS_UNIQUE, !IS_ORDERED);
 		addEParameter(op, ecorePackage.getEBoolean(), "administrator", 1, 1, IS_UNIQUE, !IS_ORDERED);
+		addEParameter(op, ecorePackage.getEInt(), "id", 1, 1, IS_UNIQUE, !IS_ORDERED);
 
 		initEClass(promotionEClass, Promotion.class, "Promotion", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getPromotion_Code(), theTypesPackage.getString(), "code", null, 1, 1, Promotion.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEAttribute(getPromotion_Description(), theTypesPackage.getString(), "description", null, 1, 1, Promotion.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEAttribute(getPromotion_Percentage(), theTypesPackage.getInteger(), "percentage", null, 1, 1, Promotion.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEAttribute(getPromotion_ID(), theTypesPackage.getInteger(), "ID", null, 1, 1, Promotion.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEAttribute(getPromotion_ValidFrom(), ecorePackage.getEDate(), "validFrom", null, 1, 1, Promotion.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEAttribute(getPromotion_ValidTo(), ecorePackage.getEDate(), "validTo", null, 1, 1, Promotion.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEAttribute(getPromotion_RoomType(), theTypesPackage.getString(), "roomType", null, 1, 1, Promotion.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEAttribute(getPromotion_ExpirationDate(), ecorePackage.getEDate(), "expirationDate", null, 1, 1, Promotion.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
-		op = initEOperation(getPromotion__CalculateDiscount__Room(), null, "calculateDiscount", 1, 1, IS_UNIQUE, !IS_ORDERED);
+		op = initEOperation(getPromotion__CalculateDiscount__Room(), ecorePackage.getEDouble(), "calculateDiscount", 1, 1, IS_UNIQUE, !IS_ORDERED);
 		addEParameter(op, this.getRoom(), "room", 1, 1, IS_UNIQUE, !IS_ORDERED);
 
-		op = initEOperation(getPromotion__Promotion__String_String_int_Date_Date(), null, "Promotion", 1, 1, IS_UNIQUE, !IS_ORDERED);
+		op = initEOperation(getPromotion__Promotion__String_String_int_Date_Date_String_Date(), null, "Promotion", 1, 1, IS_UNIQUE, !IS_ORDERED);
 		addEParameter(op, ecorePackage.getEString(), "code", 1, 1, IS_UNIQUE, !IS_ORDERED);
 		addEParameter(op, ecorePackage.getEString(), "description", 1, 1, IS_UNIQUE, !IS_ORDERED);
 		addEParameter(op, ecorePackage.getEInt(), "percentage", 1, 1, IS_UNIQUE, !IS_ORDERED);
 		addEParameter(op, ecorePackage.getEDate(), "vaildFrom", 1, 1, IS_UNIQUE, !IS_ORDERED);
 		addEParameter(op, ecorePackage.getEDate(), "vaildTo", 1, 1, IS_UNIQUE, !IS_ORDERED);
+		addEParameter(op, theTypesPackage.getString(), "roomType", 1, 1, IS_UNIQUE, !IS_ORDERED);
+		addEParameter(op, ecorePackage.getEDate(), "expirationDate", 1, 1, IS_UNIQUE, !IS_ORDERED);
 
 		initEClass(roomExpertEClass, RoomExpert.class, "RoomExpert", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getRoomExpert_Database(), this.getDatabaseInterface(), null, "database", null, 1, 1, RoomExpert.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
@@ -2688,7 +2665,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 
 		initEOperation(getRoomExpert__GetUnoccupiedRooms(), this.getRoom(), "getUnoccupiedRooms", 0, -1, IS_UNIQUE, !IS_ORDERED);
 
-		op = initEOperation(getRoomExpert__AddRoom__Room(), ecorePackage.getEBoolean(), "addRoom", 1, 1, IS_UNIQUE, !IS_ORDERED);
+		op = initEOperation(getRoomExpert__AddRoom__Room(), this.getRoom(), "addRoom", 1, 1, IS_UNIQUE, !IS_ORDERED);
 		addEParameter(op, this.getRoom(), "room", 1, 1, IS_UNIQUE, !IS_ORDERED);
 
 		op = initEOperation(getRoomExpert__RemoveRoom__Room(), ecorePackage.getEBoolean(), "removeRoom", 1, 1, IS_UNIQUE, !IS_ORDERED);
@@ -2705,24 +2682,10 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 
 		initEClass(databaseInterfaceEClass, DatabaseInterface.class, "DatabaseInterface", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		initEOperation(getDatabaseInterface__QuerystringrowArrayLst(), null, "querystringrowArrayLst", 1, 1, IS_UNIQUE, !IS_ORDERED);
-
-		initEOperation(getDatabaseInterface__Updatestringboolean(), null, "updatestringboolean", 1, 1, IS_UNIQUE, !IS_ORDERED);
-
-		initEOperation(getDatabaseInterface__Createstringboolean(), null, "createstringboolean", 1, 1, IS_UNIQUE, !IS_ORDERED);
-
-		initEOperation(getDatabaseInterface__Removestringboolean(), null, "removestringboolean", 1, 1, IS_UNIQUE, !IS_ORDERED);
-
-		op = initEOperation(getDatabaseInterface__Query__String(), theTypesPackage.getString(), "query", 1, 1, IS_UNIQUE, !IS_ORDERED);
+		op = initEOperation(getDatabaseInterface__Query__String(), theTypesPackage.getString(), "query", 0, -1, IS_UNIQUE, !IS_ORDERED);
 		addEParameter(op, theTypesPackage.getString(), "query", 1, 1, IS_UNIQUE, !IS_ORDERED);
 
-		op = initEOperation(getDatabaseInterface__Update__String(), ecorePackage.getEBoolean(), "update", 1, 1, IS_UNIQUE, !IS_ORDERED);
-		addEParameter(op, theTypesPackage.getString(), "query", 1, 1, IS_UNIQUE, !IS_ORDERED);
-
-		op = initEOperation(getDatabaseInterface__Create__String(), ecorePackage.getEBoolean(), "create", 1, 1, IS_UNIQUE, !IS_ORDERED);
-		addEParameter(op, theTypesPackage.getString(), "query", 1, 1, IS_UNIQUE, !IS_ORDERED);
-
-		op = initEOperation(getDatabaseInterface__Remove__String(), ecorePackage.getEBoolean(), "remove", 1, 1, IS_UNIQUE, !IS_ORDERED);
+		op = initEOperation(getDatabaseInterface__Send__String(), ecorePackage.getEBoolean(), "send", 1, 1, IS_UNIQUE, !IS_ORDERED);
 		addEParameter(op, theTypesPackage.getString(), "query", 1, 1, IS_UNIQUE, !IS_ORDERED);
 
 		initEClass(expenseExpertEClass, ExpenseExpert.class, "ExpenseExpert", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -2733,7 +2696,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 
 		initEOperation(getExpenseExpert__GetAllExpense(), this.getExpense(), "getAllExpense", 0, -1, IS_UNIQUE, !IS_ORDERED);
 
-		op = initEOperation(getExpenseExpert__AddExpense__Expense(), ecorePackage.getEBoolean(), "addExpense", 1, 1, IS_UNIQUE, !IS_ORDERED);
+		op = initEOperation(getExpenseExpert__AddExpense__Expense(), this.getExpense(), "addExpense", 1, 1, IS_UNIQUE, !IS_ORDERED);
 		addEParameter(op, this.getExpense(), "expense", 1, 1, IS_UNIQUE, !IS_ORDERED);
 
 		op = initEOperation(getExpenseExpert__RemoveExpense__int(), ecorePackage.getEBoolean(), "removeExpense", 1, 1, IS_UNIQUE, !IS_ORDERED);
@@ -2753,7 +2716,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 
 		initEOperation(getUserExpert__GetAllUsers(), this.getUser(), "getAllUsers", 0, -1, IS_UNIQUE, !IS_ORDERED);
 
-		op = initEOperation(getUserExpert__AddUser__User(), ecorePackage.getEBoolean(), "addUser", 1, 1, IS_UNIQUE, !IS_ORDERED);
+		op = initEOperation(getUserExpert__AddUser__User(), this.getUser(), "addUser", 1, 1, IS_UNIQUE, !IS_ORDERED);
 		addEParameter(op, this.getUser(), "user", 1, 1, IS_UNIQUE, !IS_ORDERED);
 
 		op = initEOperation(getUserExpert__RemoveUser__int(), ecorePackage.getEBoolean(), "removeUser", 1, 1, IS_UNIQUE, !IS_ORDERED);
@@ -2772,7 +2735,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		initEClass(promotionExpertEClass, PromotionExpert.class, "PromotionExpert", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getPromotionExpert_Database(), this.getDatabaseInterface(), null, "database", null, 1, 1, PromotionExpert.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
-		op = initEOperation(getPromotionExpert__GetPromotion__int(), ecorePackage.getEBoolean(), "getPromotion", 1, 1, IS_UNIQUE, !IS_ORDERED);
+		op = initEOperation(getPromotionExpert__GetPromotion__int(), this.getPromotion(), "getPromotion", 1, 1, IS_UNIQUE, !IS_ORDERED);
 		addEParameter(op, theTypesPackage.getInteger(), "ID", 1, 1, IS_UNIQUE, !IS_ORDERED);
 
 		op = initEOperation(getPromotionExpert__GetPromotion__String(), this.getPromotion(), "getPromotion", 1, 1, IS_UNIQUE, !IS_ORDERED);
@@ -2789,22 +2752,20 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		op = initEOperation(getPromotionExpert__PromotionExpert__DatabaseInterface(), null, "PromotionExpert", 1, 1, IS_UNIQUE, !IS_ORDERED);
 		addEParameter(op, this.getDatabaseInterface(), "database", 1, 1, IS_UNIQUE, !IS_ORDERED);
 
+		op = initEOperation(getPromotionExpert__AddPromotion__Promotion(), this.getPromotion(), "addPromotion", 1, 1, IS_UNIQUE, !IS_ORDERED);
+		addEParameter(op, this.getPromotion(), "promotion", 1, 1, IS_UNIQUE, !IS_ORDERED);
+
 		initEClass(bookingExpertEClass, BookingExpert.class, "BookingExpert", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getBookingExpert_Database(), this.getDatabaseInterface(), null, "database", null, 1, 1, BookingExpert.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		op = initEOperation(getBookingExpert__GetBooking__int(), this.getBooking(), "getBooking", 1, 1, IS_UNIQUE, !IS_ORDERED);
 		addEParameter(op, theTypesPackage.getInteger(), "ID", 1, 1, IS_UNIQUE, !IS_ORDERED);
 
-		op = initEOperation(getBookingExpert__GetBooking__String(), this.getBooking(), "getBooking", 1, 1, IS_UNIQUE, !IS_ORDERED);
-		addEParameter(op, theTypesPackage.getString(), "bookingID", 1, 1, IS_UNIQUE, !IS_ORDERED);
-
-		op = initEOperation(getBookingExpert__GetAllBooking__Date_Date(), this.getBooking(), "getAllBooking", 0, -1, IS_UNIQUE, !IS_ORDERED);
+		op = initEOperation(getBookingExpert__GetAllBookings__Date_Date(), this.getBooking(), "getAllBookings", 0, -1, IS_UNIQUE, !IS_ORDERED);
 		addEParameter(op, ecorePackage.getEDate(), "dateFrom", 1, 1, IS_UNIQUE, !IS_ORDERED);
 		addEParameter(op, ecorePackage.getEDate(), "dateTo", 1, 1, IS_UNIQUE, !IS_ORDERED);
 
-		initEOperation(getBookingExpert__GetAllBookings(), this.getBooking(), "getAllBookings", 1, 1, IS_UNIQUE, !IS_ORDERED);
-
-		op = initEOperation(getBookingExpert__AddBooking__Booking(), ecorePackage.getEBoolean(), "addBooking", 1, 1, IS_UNIQUE, !IS_ORDERED);
+		op = initEOperation(getBookingExpert__AddBooking__Booking(), this.getBooking(), "addBooking", 1, 1, IS_UNIQUE, !IS_ORDERED);
 		addEParameter(op, this.getBooking(), "booking", 1, 1, IS_UNIQUE, !IS_ORDERED);
 
 		op = initEOperation(getBookingExpert__RemoveBooking__Booking(), ecorePackage.getEBoolean(), "removeBooking", 1, 1, IS_UNIQUE, !IS_ORDERED);
@@ -2813,11 +2774,20 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		op = initEOperation(getBookingExpert__UpdateBooking__Booking(), ecorePackage.getEBoolean(), "updateBooking", 1, 1, IS_UNIQUE, !IS_ORDERED);
 		addEParameter(op, this.getBooking(), "booking", 1, 1, IS_UNIQUE, !IS_ORDERED);
 
-		op = initEOperation(getBookingExpert__GetAllBookings__String(), this.getBooking(), "getAllBookings", 1, 1, IS_UNIQUE, !IS_ORDERED);
+		op = initEOperation(getBookingExpert__GetAllBookings__Date_Date_String(), this.getBooking(), "getAllBookings", 0, -1, IS_UNIQUE, !IS_ORDERED);
+		addEParameter(op, ecorePackage.getEDate(), "dateFrom", 1, 1, IS_UNIQUE, !IS_ORDERED);
+		addEParameter(op, ecorePackage.getEDate(), "dateTo", 1, 1, IS_UNIQUE, !IS_ORDERED);
 		addEParameter(op, theTypesPackage.getString(), "surname", 1, 1, IS_UNIQUE, !IS_ORDERED);
 
 		op = initEOperation(getBookingExpert__BookingExpert__DatabaseInterface(), null, "BookingExpert", 1, 1, IS_UNIQUE, !IS_ORDERED);
 		addEParameter(op, this.getDatabaseInterface(), "database", 1, 1, IS_UNIQUE, !IS_ORDERED);
+
+		op = initEOperation(getBookingExpert__CheckIn__Booking_EList(), ecorePackage.getEBoolean(), "checkIn", 1, 1, IS_UNIQUE, !IS_ORDERED);
+		addEParameter(op, this.getBooking(), "booking", 1, 1, IS_UNIQUE, !IS_ORDERED);
+		addEParameter(op, this.getRoom(), "rooms", 0, -1, IS_UNIQUE, !IS_ORDERED);
+
+		op = initEOperation(getBookingExpert__CheckOut__Booking(), ecorePackage.getEBoolean(), "checkOut", 1, 1, IS_UNIQUE, !IS_ORDERED);
+		addEParameter(op, this.getBooking(), "booking", 1, 1, IS_UNIQUE, !IS_ORDERED);
 
 		initEClass(receiptExpertEClass, ReceiptExpert.class, "ReceiptExpert", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getReceiptExpert_Database(), this.getDatabaseInterface(), null, "database", null, 1, 1, ReceiptExpert.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
@@ -2828,12 +2798,15 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		op = initEOperation(getReceiptExpert__GetReceipt__Booking(), this.getReceipt(), "getReceipt", 1, 1, IS_UNIQUE, !IS_ORDERED);
 		addEParameter(op, this.getBooking(), "booking", 1, 1, IS_UNIQUE, !IS_ORDERED);
 
+		op = initEOperation(getReceiptExpert__GetReceipt__Room(), this.getReceipt(), "getReceipt", 1, 1, IS_UNIQUE, !IS_ORDERED);
+		addEParameter(op, this.getRoom(), "room", 1, 1, IS_UNIQUE, !IS_ORDERED);
+
 		initEOperation(getReceiptExpert__GetAllReceipt(), this.getReceipt(), "getAllReceipt", 0, -1, IS_UNIQUE, !IS_ORDERED);
 
-		op = initEOperation(getReceiptExpert__Combine__Receipt(), this.getReceipt(), "combine", 1, 1, IS_UNIQUE, !IS_ORDERED);
-		addEParameter(op, this.getReceipt(), "receiptList", 1, 1, IS_UNIQUE, !IS_ORDERED);
+		op = initEOperation(getReceiptExpert__Combine__EList(), this.getReceipt(), "combine", 1, 1, IS_UNIQUE, !IS_ORDERED);
+		addEParameter(op, this.getReceipt(), "receiptList", 0, -1, IS_UNIQUE, !IS_ORDERED);
 
-		op = initEOperation(getReceiptExpert__AddReceipt__Receipt(), ecorePackage.getEBoolean(), "addReceipt", 1, 1, IS_UNIQUE, !IS_ORDERED);
+		op = initEOperation(getReceiptExpert__AddReceipt__Receipt(), this.getReceipt(), "addReceipt", 1, 1, IS_UNIQUE, !IS_ORDERED);
 		addEParameter(op, this.getReceipt(), "receipt", 1, 1, IS_UNIQUE, !IS_ORDERED);
 
 		op = initEOperation(getReceiptExpert__RemoveReceipt__Receipt(), ecorePackage.getEBoolean(), "removeReceipt", 1, 1, IS_UNIQUE, !IS_ORDERED);
@@ -2847,7 +2820,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 
 		initEClass(emailEClass, email.class, "email", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		op = initEOperation(getemail__Send__Booking(), null, "send", 1, 1, IS_UNIQUE, !IS_ORDERED);
+		op = initEOperation(getemail__Send__Booking(), ecorePackage.getEBoolean(), "send", 1, 1, IS_UNIQUE, !IS_ORDERED);
 		addEParameter(op, this.getBooking(), "booking", 1, 1, IS_UNIQUE, !IS_ORDERED);
 
 		initEClass(paymentEClass, Payment.class, "Payment", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -2856,7 +2829,8 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		addEParameter(op, this.getCustomer(), "customer", 1, 1, IS_UNIQUE, !IS_ORDERED);
 		addEParameter(op, theTypesPackage.getInteger(), "amount", 1, 1, IS_UNIQUE, !IS_ORDERED);
 
-		initEOperation(getPayment__IsCreditCardValidcustomerBool(), null, "isCreditCardValidcustomerBool", 1, 1, IS_UNIQUE, !IS_ORDERED);
+		op = initEOperation(getPayment__IsCreditCardValid__Customer(), ecorePackage.getEBoolean(), "isCreditCardValid", 1, 1, IS_UNIQUE, !IS_ORDERED);
+		addEParameter(op, this.getCustomer(), "customer", 1, 1, IS_UNIQUE, !IS_ORDERED);
 
 		initEClass(bookingControllerEClass, BookingController.class, "BookingController", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getBookingController_Room(), this.getRoomExpert(), null, "room", null, 1, 1, BookingController.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
@@ -2897,50 +2871,6 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 
 		// Create resource
 		createResource(eNS_URI);
-
-		// Create annotations
-		// http://www.eclipse.org/uml2/2.0.0/UML
-		createUMLAnnotations();
-	}
-
-	/**
-	 * Initializes the annotations for <b>http://www.eclipse.org/uml2/2.0.0/UML</b>.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void createUMLAnnotations() {
-		String source = "http://www.eclipse.org/uml2/2.0.0/UML";	
-		addAnnotation
-		  (getDatabaseInterface__QuerystringrowArrayLst(), 
-		   source, 
-		   new String[] {
-			 "originalName", "query(string): row[]/ArrayLst"
-		   });	
-		addAnnotation
-		  (getDatabaseInterface__Updatestringboolean(), 
-		   source, 
-		   new String[] {
-			 "originalName", "update(string):boolean"
-		   });	
-		addAnnotation
-		  (getDatabaseInterface__Createstringboolean(), 
-		   source, 
-		   new String[] {
-			 "originalName", "create(string):boolean"
-		   });	
-		addAnnotation
-		  (getDatabaseInterface__Removestringboolean(), 
-		   source, 
-		   new String[] {
-			 "originalName", "remove(string):boolean"
-		   });	
-		addAnnotation
-		  (getPayment__IsCreditCardValidcustomerBool(), 
-		   source, 
-		   new String[] {
-			 "originalName", "isCreditCardValid(customer : Bool)"
-		   });
 	}
 
 } //ModelPackageImpl

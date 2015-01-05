@@ -45,17 +45,17 @@ public interface CustomerInterface extends EObject {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model required="true" ordered="false" ccNumberDataType="org.eclipse.uml2.types.String" ccNumberRequired="true" ccNumberOrdered="false" ccvDataType="org.eclipse.uml2.types.String" ccvRequired="true" ccvOrdered="false" expiringMonthRequired="true" expiringMonthOrdered="false" expiringYearRequired="true" expiringYearOrdered="false"
+	 * @model required="true" ordered="false" customerRequired="true" customerOrdered="false"
 	 * @generated
 	 */
-	boolean validateCard(String ccNumber, String ccv, int expiringMonth, int expiringYear);
+	boolean validateCard(Customer customer);
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model required="true" ordered="false" fromDateRequired="true" fromDateOrdered="false" toDateRequired="true" toDateOrdered="false" wishesDataType="org.eclipse.uml2.types.String" wishesRequired="true" wishesOrdered="false" customerRequired="true" customerOrdered="false" promotionDataType="org.eclipse.uml2.types.String" promotionRequired="true" promotionOrdered="false" receiptRequired="true" receiptOrdered="false" roomTypeDataType="org.eclipse.uml2.types.String" roomTypeRequired="true" roomTypeOrdered="false"
+	 * @model required="true" ordered="false" fromDateRequired="true" fromDateOrdered="false" toDateRequired="true" toDateOrdered="false" wishesDataType="org.eclipse.uml2.types.String" wishesRequired="true" wishesOrdered="false" customerRequired="true" customerOrdered="false" promotionDataType="org.eclipse.uml2.types.String" promotionRequired="true" promotionOrdered="false" receiptRequired="true" receiptOrdered="false" roomTypesDataType="org.eclipse.uml2.types.String" roomTypesMany="true" roomTypesOrdered="false"
 	 * @generated
 	 */
-	boolean createBooking(Date fromDate, Date toDate, String wishes, Customer customer, String promotion, Receipt receipt, String roomType);
+	boolean createBooking(Date fromDate, Date toDate, String wishes, Customer customer, String promotion, Receipt receipt, EList<String> roomTypes);
 
 } // CustomerInterface

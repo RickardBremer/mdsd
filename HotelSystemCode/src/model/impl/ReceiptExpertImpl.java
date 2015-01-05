@@ -11,6 +11,7 @@ import model.ModelPackage;
 import model.Receipt;
 import model.ReceiptExpert;
 
+import model.Room;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
@@ -112,7 +113,7 @@ public class ReceiptExpertImpl extends MinimalEObjectImpl.Container implements R
 		Calendar date = Calendar.getInstance();
 		if (result != null){
 			Receipt r1 = new ReceiptImpl();
-			date.setTimeInMillis(Long.valueOf(result[1]]));
+			date.setTimeInMillis(Long.valueOf(result[1]));
 			r1.Receipt(Integer.parseInt(result[0]), date.getTime(), result[2]);
 		
 		
@@ -138,6 +139,17 @@ public class ReceiptExpertImpl extends MinimalEObjectImpl.Container implements R
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Receipt getReceipt(Room room) {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated NOT 
 	 */
 	public EList<Receipt> getAllReceipt() {
@@ -158,6 +170,17 @@ public class ReceiptExpertImpl extends MinimalEObjectImpl.Container implements R
 		//throw new UnsupportedOperationException();
 		return mylist;
 		
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Receipt combine(EList<Receipt> receiptList) {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
 	}
 
 	/**
@@ -287,16 +310,19 @@ public class ReceiptExpertImpl extends MinimalEObjectImpl.Container implements R
 	 * @generated
 	 */
 	@Override
+	@SuppressWarnings("unchecked")
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
 			case ModelPackage.RECEIPT_EXPERT___GET_RECEIPT__INT:
 				return getReceipt((Integer)arguments.get(0));
 			case ModelPackage.RECEIPT_EXPERT___GET_RECEIPT__BOOKING:
 				return getReceipt((Booking)arguments.get(0));
+			case ModelPackage.RECEIPT_EXPERT___GET_RECEIPT__ROOM:
+				return getReceipt((Room)arguments.get(0));
 			case ModelPackage.RECEIPT_EXPERT___GET_ALL_RECEIPT:
 				return getAllReceipt();
-			case ModelPackage.RECEIPT_EXPERT___COMBINE__RECEIPT:
-				return combine((Receipt)arguments.get(0));
+			case ModelPackage.RECEIPT_EXPERT___COMBINE__ELIST:
+				return combine((EList<Receipt>)arguments.get(0));
 			case ModelPackage.RECEIPT_EXPERT___ADD_RECEIPT__RECEIPT:
 				return addReceipt((Receipt)arguments.get(0));
 			case ModelPackage.RECEIPT_EXPERT___REMOVE_RECEIPT__RECEIPT:

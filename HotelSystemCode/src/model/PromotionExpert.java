@@ -55,7 +55,7 @@ public interface PromotionExpert extends EObject {
 	 * @model required="true" ordered="false" IDDataType="org.eclipse.uml2.types.Integer" IDRequired="true" IDOrdered="false"
 	 * @generated
 	 */
-	boolean getPromotion(int ID);
+	Promotion getPromotion(int ID);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -96,5 +96,13 @@ public interface PromotionExpert extends EObject {
 	 * @generated
 	 */
 	void PromotionExpert(DatabaseInterface database);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model required="true" ordered="false" promotionRequired="true" promotionOrdered="false"
+	 * @generated
+	 */
+	Promotion addPromotion(Promotion promotion);
 
 } // PromotionExpert

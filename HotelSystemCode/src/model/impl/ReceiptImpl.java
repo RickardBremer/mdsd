@@ -27,28 +27,27 @@ import org.eclipse.emf.ecore.util.EObjectResolvingEList;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link model.impl.ReceiptImpl#getExpense <em>Expense</em>}</li>
+ *   <li>{@link model.impl.ReceiptImpl#getExpenses <em>Expenses</em>}</li>
  *   <li>{@link model.impl.ReceiptImpl#getTotalCost <em>Total Cost</em>}</li>
  *   <li>{@link model.impl.ReceiptImpl#getDate <em>Date</em>}</li>
- *   <li>{@link model.impl.ReceiptImpl#getExpenses <em>Expenses</em>}</li>
- *   <li>{@link model.impl.ReceiptImpl#getID <em>ID</em>}</li>
+ *   <li>{@link model.impl.ReceiptImpl#getId <em>Id</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
 public class ReceiptImpl extends MinimalEObjectImpl.Container implements Receipt {
+	protected DatabaseInterface database;
+
 	/**
-	 * The cached value of the '{@link #getExpense() <em>Expense</em>}' reference list.
+	 * The cached value of the '{@link #getExpenses() <em>Expenses</em>}' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getExpense()
+	 * @see #getExpenses()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Expense> expense;
-	protected DatabaseInterface database;
-
+	protected EList<Expense> expenses;
 	/**
 	 * The default value of the '{@link #getTotalCost() <em>Total Cost</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -57,8 +56,7 @@ public class ReceiptImpl extends MinimalEObjectImpl.Container implements Receipt
 	 * @generated
 	 * @ordered
 	 */
-	protected static final int TOTAL_COST_EDEFAULT = 0;
-
+	protected static final double TOTAL_COST_EDEFAULT = 0.0;
 	/**
 	 * The cached value of the '{@link #getTotalCost() <em>Total Cost</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -67,8 +65,7 @@ public class ReceiptImpl extends MinimalEObjectImpl.Container implements Receipt
 	 * @generated
 	 * @ordered
 	 */
-	protected int totalCost = TOTAL_COST_EDEFAULT;
-
+	protected double totalCost = TOTAL_COST_EDEFAULT;
 	/**
 	 * The default value of the '{@link #getDate() <em>Date</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -78,7 +75,6 @@ public class ReceiptImpl extends MinimalEObjectImpl.Container implements Receipt
 	 * @ordered
 	 */
 	protected static final Date DATE_EDEFAULT = null;
-
 	/**
 	 * The cached value of the '{@link #getDate() <em>Date</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -90,30 +86,20 @@ public class ReceiptImpl extends MinimalEObjectImpl.Container implements Receipt
 	protected Date date = DATE_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getExpenses() <em>Expenses</em>}' reference list.
+	 * The default value of the '{@link #getId() <em>Id</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getExpenses()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<Expense> expenses;
-
-	/**
-	 * The default value of the '{@link #getID() <em>ID</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getID()
+	 * @see #getId()
 	 * @generated
 	 * @ordered
 	 */
 	protected static final int ID_EDEFAULT = 0;
 
 	/**
-	 * The cached value of the '{@link #getID() <em>ID</em>}' attribute.
+	 * The cached value of the '{@link #getId() <em>Id</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getID()
+	 * @see #getId()
 	 * @generated
 	 * @ordered
 	 */
@@ -143,19 +129,7 @@ public class ReceiptImpl extends MinimalEObjectImpl.Container implements Receipt
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Expense> getExpense() {
-		if (expense == null) {
-			expense = new EObjectResolvingEList<Expense>(Expense.class, this, ModelPackage.RECEIPT__EXPENSE);
-		}
-		return expense;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public int getTotalCost() {
+	public double getTotalCost() {
 		return totalCost;
 	}
 
@@ -164,8 +138,8 @@ public class ReceiptImpl extends MinimalEObjectImpl.Container implements Receipt
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setTotalCost(int newTotalCost) {
-		int oldTotalCost = totalCost;
+	public void setTotalCost(double newTotalCost) {
+		double oldTotalCost = totalCost;
 		totalCost = newTotalCost;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.RECEIPT__TOTAL_COST, oldTotalCost, totalCost));
@@ -197,20 +171,7 @@ public class ReceiptImpl extends MinimalEObjectImpl.Container implements Receipt
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Expense> getExpenses() {
-		if (expenses == null) {
-			expenses = new EObjectResolvingEList<Expense>(Expense.class, this, ModelPackage.RECEIPT__EXPENSES);
-			
-		}
-		return expenses;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public int getID() {
+	public int getId() {
 		return id;
 	}
 
@@ -219,11 +180,23 @@ public class ReceiptImpl extends MinimalEObjectImpl.Container implements Receipt
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setID(int newID) {
-		int oldID = id;
-		id = newID;
+	public void setId(int newId) {
+		int oldId = id;
+		id = newId;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.RECEIPT__ID, oldID, id));
+			eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.RECEIPT__ID, oldId, id));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<Expense> getExpenses() {
+		if (expenses == null) {
+			expenses = new EObjectResolvingEList<Expense>(Expense.class, this, ModelPackage.RECEIPT__EXPENSES);
+		}
+		return expenses;
 	}
 
 	/**
@@ -291,6 +264,17 @@ public class ReceiptImpl extends MinimalEObjectImpl.Container implements Receipt
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void Receipt(int id, Date date, EList<Expense> expenses) {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
 	public void Receipt() {
@@ -309,16 +293,14 @@ public class ReceiptImpl extends MinimalEObjectImpl.Container implements Receipt
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case ModelPackage.RECEIPT__EXPENSE:
-				return getExpense();
+			case ModelPackage.RECEIPT__EXPENSES:
+				return getExpenses();
 			case ModelPackage.RECEIPT__TOTAL_COST:
 				return getTotalCost();
 			case ModelPackage.RECEIPT__DATE:
 				return getDate();
-			case ModelPackage.RECEIPT__EXPENSES:
-				return getExpenses();
 			case ModelPackage.RECEIPT__ID:
-				return getID();
+				return getId();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -332,22 +314,18 @@ public class ReceiptImpl extends MinimalEObjectImpl.Container implements Receipt
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case ModelPackage.RECEIPT__EXPENSE:
-				getExpense().clear();
-				getExpense().addAll((Collection<? extends Expense>)newValue);
-				return;
-			case ModelPackage.RECEIPT__TOTAL_COST:
-				setTotalCost((Integer)newValue);
-				return;
-			case ModelPackage.RECEIPT__DATE:
-				setDate((Date)newValue);
-				return;
 			case ModelPackage.RECEIPT__EXPENSES:
 				getExpenses().clear();
 				getExpenses().addAll((Collection<? extends Expense>)newValue);
 				return;
+			case ModelPackage.RECEIPT__TOTAL_COST:
+				setTotalCost((Double)newValue);
+				return;
+			case ModelPackage.RECEIPT__DATE:
+				setDate((Date)newValue);
+				return;
 			case ModelPackage.RECEIPT__ID:
-				setID((Integer)newValue);
+				setId((Integer)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -361,8 +339,8 @@ public class ReceiptImpl extends MinimalEObjectImpl.Container implements Receipt
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case ModelPackage.RECEIPT__EXPENSE:
-				getExpense().clear();
+			case ModelPackage.RECEIPT__EXPENSES:
+				getExpenses().clear();
 				return;
 			case ModelPackage.RECEIPT__TOTAL_COST:
 				setTotalCost(TOTAL_COST_EDEFAULT);
@@ -370,11 +348,8 @@ public class ReceiptImpl extends MinimalEObjectImpl.Container implements Receipt
 			case ModelPackage.RECEIPT__DATE:
 				setDate(DATE_EDEFAULT);
 				return;
-			case ModelPackage.RECEIPT__EXPENSES:
-				getExpenses().clear();
-				return;
 			case ModelPackage.RECEIPT__ID:
-				setID(ID_EDEFAULT);
+				setId(ID_EDEFAULT);
 				return;
 		}
 		super.eUnset(featureID);
@@ -388,14 +363,12 @@ public class ReceiptImpl extends MinimalEObjectImpl.Container implements Receipt
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case ModelPackage.RECEIPT__EXPENSE:
-				return expense != null && !expense.isEmpty();
+			case ModelPackage.RECEIPT__EXPENSES:
+				return expenses != null && !expenses.isEmpty();
 			case ModelPackage.RECEIPT__TOTAL_COST:
 				return totalCost != TOTAL_COST_EDEFAULT;
 			case ModelPackage.RECEIPT__DATE:
 				return DATE_EDEFAULT == null ? date != null : !DATE_EDEFAULT.equals(date);
-			case ModelPackage.RECEIPT__EXPENSES:
-				return expenses != null && !expenses.isEmpty();
 			case ModelPackage.RECEIPT__ID:
 				return id != ID_EDEFAULT;
 		}
@@ -408,6 +381,7 @@ public class ReceiptImpl extends MinimalEObjectImpl.Container implements Receipt
 	 * @generated
 	 */
 	@Override
+	@SuppressWarnings("unchecked")
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
 			case ModelPackage.RECEIPT___ADD_EXPENSE__EXPENSE:
@@ -416,8 +390,8 @@ public class ReceiptImpl extends MinimalEObjectImpl.Container implements Receipt
 				return removeExpense((Expense)arguments.get(0));
 			case ModelPackage.RECEIPT___GET_ALL_EXPENSES:
 				return getAllExpenses();
-			case ModelPackage.RECEIPT___RECEIPT:
-				Receipt();
+			case ModelPackage.RECEIPT___RECEIPT__INT_DATE_ELIST:
+				Receipt((Integer)arguments.get(0), (Date)arguments.get(1), (EList<Expense>)arguments.get(2));
 				return null;
 		}
 		return super.eInvoke(operationID, arguments);
@@ -437,7 +411,7 @@ public class ReceiptImpl extends MinimalEObjectImpl.Container implements Receipt
 		result.append(totalCost);
 		result.append(", Date: ");
 		result.append(date);
-		result.append(", ID: ");
+		result.append(", id: ");
 		result.append(id);
 		result.append(')');
 		return result.toString();

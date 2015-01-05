@@ -278,7 +278,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CUSTOMER_INTERFACE___VALIDATE_CARD__STRING_STRING_INT_INT = 3;
+	int CUSTOMER_INTERFACE___VALIDATE_CARD__CUSTOMER = 3;
 
 	/**
 	 * The operation id for the '<em>Create Booking</em>' operation.
@@ -287,7 +287,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CUSTOMER_INTERFACE___CREATE_BOOKING__DATE_DATE_STRING_CUSTOMER_STRING_RECEIPT_STRING = 4;
+	int CUSTOMER_INTERFACE___CREATE_BOOKING__DATE_DATE_STRING_CUSTOMER_STRING_RECEIPT_ELIST = 4;
 
 	/**
 	 * The number of operations of the '<em>Customer Interface</em>' class.
@@ -309,13 +309,13 @@ public interface ModelPackage extends EPackage {
 	int ROOM = 7;
 
 	/**
-	 * The feature id for the '<em><b>Expense</b></em>' reference.
+	 * The feature id for the '<em><b>Price</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ROOM__EXPENSE = 0;
+	int ROOM__PRICE = 0;
 
 	/**
 	 * The feature id for the '<em><b>Number</b></em>' attribute.
@@ -354,22 +354,13 @@ public interface ModelPackage extends EPackage {
 	int ROOM__TYPE = 4;
 
 	/**
-	 * The feature id for the '<em><b>Price</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ROOM__PRICE = 5;
-
-	/**
 	 * The feature id for the '<em><b>Beds</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ROOM__BEDS = 6;
+	int ROOM__BEDS = 5;
 
 	/**
 	 * The feature id for the '<em><b>Receipt</b></em>' reference.
@@ -378,16 +369,25 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ROOM__RECEIPT = 7;
+	int ROOM__RECEIPT = 6;
 
 	/**
-	 * The feature id for the '<em><b>Resident</b></em>' reference list.
+	 * The feature id for the '<em><b>Residents</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ROOM__RESIDENT = 8;
+	int ROOM__RESIDENTS = 7;
+
+	/**
+	 * The feature id for the '<em><b>Status</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ROOM__STATUS = 8;
 
 	/**
 	 * The number of structural features of the '<em>Room</em>' class.
@@ -405,7 +405,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ROOM___ROOM__INT_STRING_STRING_EXPENSE_INT = 0;
+	int ROOM___ROOM__INT_STRING_STRING_EXPENSE_INT_STRING = 0;
 
 	/**
 	 * The number of operations of the '<em>Room</em>' class.
@@ -463,7 +463,7 @@ public interface ModelPackage extends EPackage {
 	int EXPENSE__DATE = 3;
 
 	/**
-	 * The feature id for the '<em><b>ID</b></em>' attribute.
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -472,13 +472,22 @@ public interface ModelPackage extends EPackage {
 	int EXPENSE__ID = 4;
 
 	/**
+	 * The feature id for the '<em><b>Fixed</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXPENSE__FIXED = 5;
+
+	/**
 	 * The number of structural features of the '<em>Expense</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int EXPENSE_FEATURE_COUNT = 5;
+	int EXPENSE_FEATURE_COUNT = 6;
 
 	/**
 	 * The operation id for the '<em>Expense</em>' operation.
@@ -487,7 +496,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EXPENSE___EXPENSE__INT_STRING_STRING_DATE = 0;
+	int EXPENSE___EXPENSE__INT_STRING_DATE_STRING_INT_BOOLEAN = 0;
 
 	/**
 	 * The number of operations of the '<em>Expense</em>' class.
@@ -509,13 +518,13 @@ public interface ModelPackage extends EPackage {
 	int RECEIPT = 9;
 
 	/**
-	 * The feature id for the '<em><b>Expense</b></em>' reference list.
+	 * The feature id for the '<em><b>Expenses</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int RECEIPT__EXPENSE = 0;
+	int RECEIPT__EXPENSES = 0;
 
 	/**
 	 * The feature id for the '<em><b>Total Cost</b></em>' attribute.
@@ -536,22 +545,13 @@ public interface ModelPackage extends EPackage {
 	int RECEIPT__DATE = 2;
 
 	/**
-	 * The feature id for the '<em><b>Expenses</b></em>' reference list.
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int RECEIPT__EXPENSES = 3;
-
-	/**
-	 * The feature id for the '<em><b>ID</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RECEIPT__ID = 4;
+	int RECEIPT__ID = 3;
 
 	/**
 	 * The number of structural features of the '<em>Receipt</em>' class.
@@ -560,7 +560,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RECEIPT_FEATURE_COUNT = 5;
+	int RECEIPT_FEATURE_COUNT = 4;
 
 	/**
 	 * The operation id for the '<em>Add Expense</em>' operation.
@@ -596,7 +596,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RECEIPT___RECEIPT = 3;
+	int RECEIPT___RECEIPT__INT_DATE_ELIST = 3;
 
 	/**
 	 * The number of operations of the '<em>Receipt</em>' class.
@@ -646,13 +646,13 @@ public interface ModelPackage extends EPackage {
 	int RESIDENT__SURNAME = 1;
 
 	/**
-	 * The feature id for the '<em><b>Passport Number</b></em>' attribute.
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int RESIDENT__PASSPORT_NUMBER = 2;
+	int RESIDENT__ID = 2;
 
 	/**
 	 * The number of structural features of the '<em>Resident</em>' class.
@@ -834,7 +834,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RECEPTIONIST_INTERFACE___GET_BOOKING__STRING = 2;
+	int RECEPTIONIST_INTERFACE___GET_BOOKING__INT = 2;
 
 	/**
 	 * The operation id for the '<em>View Un Occupied Rooms</em>' operation.
@@ -846,13 +846,13 @@ public interface ModelPackage extends EPackage {
 	int RECEPTIONIST_INTERFACE___VIEW_UN_OCCUPIED_ROOMS = 3;
 
 	/**
-	 * The operation id for the '<em>Get Booking</em>' operation.
+	 * The operation id for the '<em>View All Bookings</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int RECEPTIONIST_INTERFACE___GET_BOOKING__STRING_DATE_DATE = 4;
+	int RECEPTIONIST_INTERFACE___VIEW_ALL_BOOKINGS__STRING_DATE_DATE = 4;
 
 	/**
 	 * The operation id for the '<em>View Un Occupied Rooms</em>' operation.
@@ -870,7 +870,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RECEPTIONIST_INTERFACE___CHECK_IN__BOOKING = 6;
+	int RECEPTIONIST_INTERFACE___CHECK_IN__BOOKING_ELIST = 6;
 
 	/**
 	 * The operation id for the '<em>Check Out</em>' operation.
@@ -910,22 +910,13 @@ public interface ModelPackage extends EPackage {
 	int BOOKING__CUSTOMER = 0;
 
 	/**
-	 * The feature id for the '<em><b>Booking ID</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BOOKING__BOOKING_ID = 1;
-
-	/**
 	 * The feature id for the '<em><b>From Date</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int BOOKING__FROM_DATE = 2;
+	int BOOKING__FROM_DATE = 1;
 
 	/**
 	 * The feature id for the '<em><b>To Date</b></em>' attribute.
@@ -934,7 +925,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BOOKING__TO_DATE = 3;
+	int BOOKING__TO_DATE = 2;
 
 	/**
 	 * The feature id for the '<em><b>Wishes</b></em>' attribute.
@@ -943,7 +934,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BOOKING__WISHES = 4;
+	int BOOKING__WISHES = 3;
 
 	/**
 	 * The feature id for the '<em><b>Promotion</b></em>' attribute.
@@ -952,7 +943,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BOOKING__PROMOTION = 5;
+	int BOOKING__PROMOTION = 4;
 
 	/**
 	 * The feature id for the '<em><b>Room Types</b></em>' attribute list.
@@ -961,7 +952,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BOOKING__ROOM_TYPES = 6;
+	int BOOKING__ROOM_TYPES = 5;
 
 	/**
 	 * The feature id for the '<em><b>Checked In</b></em>' attribute.
@@ -970,7 +961,16 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BOOKING__CHECKED_IN = 7;
+	int BOOKING__CHECKED_IN = 6;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOOKING__ID = 7;
 
 	/**
 	 * The number of structural features of the '<em>Booking</em>' class.
@@ -988,7 +988,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BOOKING___BOOKING__STRING_DATE_DATE_STRING_CUSTOMER_ELIST_STRING = 0;
+	int BOOKING___BOOKING__STRING_DATE_DATE_STRING_CUSTOMER_ELIST_STRING_INT_RECEIPT = 0;
 
 	/**
 	 * The number of operations of the '<em>Booking</em>' class.
@@ -1217,7 +1217,7 @@ public interface ModelPackage extends EPackage {
 	int USER__PASSWORD = 2;
 
 	/**
-	 * The feature id for the '<em><b>ID</b></em>' attribute.
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -1259,7 +1259,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int USER___USER__STRING_STRING_STRING_BOOLEAN_BOOLEAN = 0;
+	int USER___USER__STRING_STRING_STRING_BOOLEAN_BOOLEAN_INT = 0;
 
 	/**
 	 * The number of operations of the '<em>User</em>' class.
@@ -1308,22 +1308,13 @@ public interface ModelPackage extends EPackage {
 	int PROMOTION__PERCENTAGE = 2;
 
 	/**
-	 * The feature id for the '<em><b>ID</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PROMOTION__ID = 3;
-
-	/**
 	 * The feature id for the '<em><b>Valid From</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PROMOTION__VALID_FROM = 4;
+	int PROMOTION__VALID_FROM = 3;
 
 	/**
 	 * The feature id for the '<em><b>Valid To</b></em>' attribute.
@@ -1332,7 +1323,25 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROMOTION__VALID_TO = 5;
+	int PROMOTION__VALID_TO = 4;
+
+	/**
+	 * The feature id for the '<em><b>Room Type</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROMOTION__ROOM_TYPE = 5;
+
+	/**
+	 * The feature id for the '<em><b>Expiration Date</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROMOTION__EXPIRATION_DATE = 6;
 
 	/**
 	 * The number of structural features of the '<em>Promotion</em>' class.
@@ -1341,7 +1350,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROMOTION_FEATURE_COUNT = 6;
+	int PROMOTION_FEATURE_COUNT = 7;
 
 	/**
 	 * The operation id for the '<em>Calculate Discount</em>' operation.
@@ -1359,7 +1368,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROMOTION___PROMOTION__STRING_STRING_INT_DATE_DATE = 1;
+	int PROMOTION___PROMOTION__STRING_STRING_INT_DATE_DATE_STRING_DATE = 1;
 
 	/**
 	 * The number of operations of the '<em>Promotion</em>' class.
@@ -1499,76 +1508,22 @@ public interface ModelPackage extends EPackage {
 	int DATABASE_INTERFACE_FEATURE_COUNT = 0;
 
 	/**
-	 * The operation id for the '<em>Querystringrow Array Lst</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DATABASE_INTERFACE___QUERYSTRINGROW_ARRAY_LST = 0;
-
-	/**
-	 * The operation id for the '<em>Updatestringboolean</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DATABASE_INTERFACE___UPDATESTRINGBOOLEAN = 1;
-
-	/**
-	 * The operation id for the '<em>Createstringboolean</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DATABASE_INTERFACE___CREATESTRINGBOOLEAN = 2;
-
-	/**
-	 * The operation id for the '<em>Removestringboolean</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DATABASE_INTERFACE___REMOVESTRINGBOOLEAN = 3;
-
-	/**
 	 * The operation id for the '<em>Query</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DATABASE_INTERFACE___QUERY__STRING = 4;
+	int DATABASE_INTERFACE___QUERY__STRING = 0;
 
 	/**
-	 * The operation id for the '<em>Update</em>' operation.
+	 * The operation id for the '<em>Send</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DATABASE_INTERFACE___UPDATE__STRING = 5;
-
-	/**
-	 * The operation id for the '<em>Create</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DATABASE_INTERFACE___CREATE__STRING = 6;
-
-	/**
-	 * The operation id for the '<em>Remove</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DATABASE_INTERFACE___REMOVE__STRING = 7;
+	int DATABASE_INTERFACE___SEND__STRING = 1;
 
 	/**
 	 * The number of operations of the '<em>Database Interface</em>' class.
@@ -1577,7 +1532,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DATABASE_INTERFACE_OPERATION_COUNT = 8;
+	int DATABASE_INTERFACE_OPERATION_COUNT = 2;
 
 	/**
 	 * The meta object id for the '{@link model.impl.ExpenseExpertImpl <em>Expense Expert</em>}' class.
@@ -1853,13 +1808,22 @@ public interface ModelPackage extends EPackage {
 	int PROMOTION_EXPERT___PROMOTION_EXPERT__DATABASEINTERFACE = 5;
 
 	/**
+	 * The operation id for the '<em>Add Promotion</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROMOTION_EXPERT___ADD_PROMOTION__PROMOTION = 6;
+
+	/**
 	 * The number of operations of the '<em>Promotion Expert</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PROMOTION_EXPERT_OPERATION_COUNT = 6;
+	int PROMOTION_EXPERT_OPERATION_COUNT = 7;
 
 	/**
 	 * The meta object id for the '{@link model.impl.BookingExpertImpl <em>Booking Expert</em>}' class.
@@ -1899,31 +1863,13 @@ public interface ModelPackage extends EPackage {
 	int BOOKING_EXPERT___GET_BOOKING__INT = 0;
 
 	/**
-	 * The operation id for the '<em>Get Booking</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BOOKING_EXPERT___GET_BOOKING__STRING = 1;
-
-	/**
-	 * The operation id for the '<em>Get All Booking</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BOOKING_EXPERT___GET_ALL_BOOKING__DATE_DATE = 2;
-
-	/**
 	 * The operation id for the '<em>Get All Bookings</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int BOOKING_EXPERT___GET_ALL_BOOKINGS = 3;
+	int BOOKING_EXPERT___GET_ALL_BOOKINGS__DATE_DATE = 1;
 
 	/**
 	 * The operation id for the '<em>Add Booking</em>' operation.
@@ -1932,7 +1878,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BOOKING_EXPERT___ADD_BOOKING__BOOKING = 4;
+	int BOOKING_EXPERT___ADD_BOOKING__BOOKING = 2;
 
 	/**
 	 * The operation id for the '<em>Remove Booking</em>' operation.
@@ -1941,7 +1887,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BOOKING_EXPERT___REMOVE_BOOKING__BOOKING = 5;
+	int BOOKING_EXPERT___REMOVE_BOOKING__BOOKING = 3;
 
 	/**
 	 * The operation id for the '<em>Update Booking</em>' operation.
@@ -1950,7 +1896,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BOOKING_EXPERT___UPDATE_BOOKING__BOOKING = 6;
+	int BOOKING_EXPERT___UPDATE_BOOKING__BOOKING = 4;
 
 	/**
 	 * The operation id for the '<em>Get All Bookings</em>' operation.
@@ -1959,7 +1905,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BOOKING_EXPERT___GET_ALL_BOOKINGS__STRING = 7;
+	int BOOKING_EXPERT___GET_ALL_BOOKINGS__DATE_DATE_STRING = 5;
 
 	/**
 	 * The operation id for the '<em>Booking Expert</em>' operation.
@@ -1968,7 +1914,25 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BOOKING_EXPERT___BOOKING_EXPERT__DATABASEINTERFACE = 8;
+	int BOOKING_EXPERT___BOOKING_EXPERT__DATABASEINTERFACE = 6;
+
+	/**
+	 * The operation id for the '<em>Check In</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOOKING_EXPERT___CHECK_IN__BOOKING_ELIST = 7;
+
+	/**
+	 * The operation id for the '<em>Check Out</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOOKING_EXPERT___CHECK_OUT__BOOKING = 8;
 
 	/**
 	 * The number of operations of the '<em>Booking Expert</em>' class.
@@ -2026,13 +1990,22 @@ public interface ModelPackage extends EPackage {
 	int RECEIPT_EXPERT___GET_RECEIPT__BOOKING = 1;
 
 	/**
+	 * The operation id for the '<em>Get Receipt</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RECEIPT_EXPERT___GET_RECEIPT__ROOM = 2;
+
+	/**
 	 * The operation id for the '<em>Get All Receipt</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int RECEIPT_EXPERT___GET_ALL_RECEIPT = 2;
+	int RECEIPT_EXPERT___GET_ALL_RECEIPT = 3;
 
 	/**
 	 * The operation id for the '<em>Combine</em>' operation.
@@ -2041,7 +2014,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RECEIPT_EXPERT___COMBINE__RECEIPT = 3;
+	int RECEIPT_EXPERT___COMBINE__ELIST = 4;
 
 	/**
 	 * The operation id for the '<em>Add Receipt</em>' operation.
@@ -2050,7 +2023,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RECEIPT_EXPERT___ADD_RECEIPT__RECEIPT = 4;
+	int RECEIPT_EXPERT___ADD_RECEIPT__RECEIPT = 5;
 
 	/**
 	 * The operation id for the '<em>Remove Receipt</em>' operation.
@@ -2059,7 +2032,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RECEIPT_EXPERT___REMOVE_RECEIPT__RECEIPT = 5;
+	int RECEIPT_EXPERT___REMOVE_RECEIPT__RECEIPT = 6;
 
 	/**
 	 * The operation id for the '<em>Update Receipt</em>' operation.
@@ -2068,7 +2041,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RECEIPT_EXPERT___UPDATE_RECEIPT__RECEIPT = 6;
+	int RECEIPT_EXPERT___UPDATE_RECEIPT__RECEIPT = 7;
 
 	/**
 	 * The operation id for the '<em>Receipt Expert</em>' operation.
@@ -2077,7 +2050,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RECEIPT_EXPERT___RECEIPT_EXPERT__DATABASEINTERFACE = 7;
+	int RECEIPT_EXPERT___RECEIPT_EXPERT__DATABASEINTERFACE = 8;
 
 	/**
 	 * The number of operations of the '<em>Receipt Expert</em>' class.
@@ -2086,7 +2059,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RECEIPT_EXPERT_OPERATION_COUNT = 8;
+	int RECEIPT_EXPERT_OPERATION_COUNT = 9;
 
 	/**
 	 * The meta object id for the '{@link model.impl.emailImpl <em>email</em>}' class.
@@ -2154,13 +2127,13 @@ public interface ModelPackage extends EPackage {
 	int PAYMENT___MAKE_PAYMENT__CUSTOMER_INT = 0;
 
 	/**
-	 * The operation id for the '<em>Is Credit Card Validcustomer Bool</em>' operation.
+	 * The operation id for the '<em>Is Credit Card Valid</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PAYMENT___IS_CREDIT_CARD_VALIDCUSTOMER_BOOL = 1;
+	int PAYMENT___IS_CREDIT_CARD_VALID__CUSTOMER = 1;
 
 	/**
 	 * The number of operations of the '<em>Payment</em>' class.
@@ -2260,7 +2233,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BOOKING_CONTROLLER___VALIDATE_CARD__STRING_STRING_INT_INT = CUSTOMER_INTERFACE___VALIDATE_CARD__STRING_STRING_INT_INT;
+	int BOOKING_CONTROLLER___VALIDATE_CARD__CUSTOMER = CUSTOMER_INTERFACE___VALIDATE_CARD__CUSTOMER;
 
 	/**
 	 * The operation id for the '<em>Create Booking</em>' operation.
@@ -2269,7 +2242,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BOOKING_CONTROLLER___CREATE_BOOKING__DATE_DATE_STRING_CUSTOMER_STRING_RECEIPT_STRING = CUSTOMER_INTERFACE___CREATE_BOOKING__DATE_DATE_STRING_CUSTOMER_STRING_RECEIPT_STRING;
+	int BOOKING_CONTROLLER___CREATE_BOOKING__DATE_DATE_STRING_CUSTOMER_STRING_RECEIPT_ELIST = CUSTOMER_INTERFACE___CREATE_BOOKING__DATE_DATE_STRING_CUSTOMER_STRING_RECEIPT_ELIST;
 
 	/**
 	 * The operation id for the '<em>Booking Controller</em>' operation.
@@ -2631,7 +2604,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RECEPTIONIST_CONTROLLER___VALIDATE_CARD__STRING_STRING_INT_INT = BOOKING_CONTROLLER___VALIDATE_CARD__STRING_STRING_INT_INT;
+	int RECEPTIONIST_CONTROLLER___VALIDATE_CARD__CUSTOMER = BOOKING_CONTROLLER___VALIDATE_CARD__CUSTOMER;
 
 	/**
 	 * The operation id for the '<em>Create Booking</em>' operation.
@@ -2640,7 +2613,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RECEPTIONIST_CONTROLLER___CREATE_BOOKING__DATE_DATE_STRING_CUSTOMER_STRING_RECEIPT_STRING = BOOKING_CONTROLLER___CREATE_BOOKING__DATE_DATE_STRING_CUSTOMER_STRING_RECEIPT_STRING;
+	int RECEPTIONIST_CONTROLLER___CREATE_BOOKING__DATE_DATE_STRING_CUSTOMER_STRING_RECEIPT_ELIST = BOOKING_CONTROLLER___CREATE_BOOKING__DATE_DATE_STRING_CUSTOMER_STRING_RECEIPT_ELIST;
 
 	/**
 	 * The operation id for the '<em>Booking Controller</em>' operation.
@@ -2676,7 +2649,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RECEPTIONIST_CONTROLLER___GET_BOOKING__STRING = BOOKING_CONTROLLER_OPERATION_COUNT + 2;
+	int RECEPTIONIST_CONTROLLER___GET_BOOKING__INT = BOOKING_CONTROLLER_OPERATION_COUNT + 2;
 
 	/**
 	 * The operation id for the '<em>View Un Occupied Rooms</em>' operation.
@@ -2688,13 +2661,13 @@ public interface ModelPackage extends EPackage {
 	int RECEPTIONIST_CONTROLLER___VIEW_UN_OCCUPIED_ROOMS = BOOKING_CONTROLLER_OPERATION_COUNT + 3;
 
 	/**
-	 * The operation id for the '<em>Get Booking</em>' operation.
+	 * The operation id for the '<em>View All Bookings</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int RECEPTIONIST_CONTROLLER___GET_BOOKING__STRING_DATE_DATE = BOOKING_CONTROLLER_OPERATION_COUNT + 4;
+	int RECEPTIONIST_CONTROLLER___VIEW_ALL_BOOKINGS__STRING_DATE_DATE = BOOKING_CONTROLLER_OPERATION_COUNT + 4;
 
 	/**
 	 * The operation id for the '<em>View Un Occupied Rooms</em>' operation.
@@ -2712,7 +2685,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RECEPTIONIST_CONTROLLER___CHECK_IN__BOOKING = BOOKING_CONTROLLER_OPERATION_COUNT + 6;
+	int RECEPTIONIST_CONTROLLER___CHECK_IN__BOOKING_ELIST = BOOKING_CONTROLLER_OPERATION_COUNT + 6;
 
 	/**
 	 * The operation id for the '<em>Check Out</em>' operation.
@@ -2758,7 +2731,25 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MS_ACCESS_DB_FEATURE_COUNT = 0;
+	int MS_ACCESS_DB_FEATURE_COUNT = DATABASE_INTERFACE_FEATURE_COUNT + 0;
+
+	/**
+	 * The operation id for the '<em>Query</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MS_ACCESS_DB___QUERY__STRING = DATABASE_INTERFACE___QUERY__STRING;
+
+	/**
+	 * The operation id for the '<em>Send</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MS_ACCESS_DB___SEND__STRING = DATABASE_INTERFACE___SEND__STRING;
 
 	/**
 	 * The number of operations of the '<em>MS Access DB</em>' class.
@@ -2767,7 +2758,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MS_ACCESS_DB_OPERATION_COUNT = 0;
+	int MS_ACCESS_DB_OPERATION_COUNT = DATABASE_INTERFACE_OPERATION_COUNT + 0;
 
 
 	/**
@@ -2871,24 +2862,24 @@ public interface ModelPackage extends EPackage {
 	EOperation getCustomerInterface__Pay__Customer_Receipt();
 
 	/**
-	 * Returns the meta object for the '{@link model.CustomerInterface#validateCard(java.lang.String, java.lang.String, int, int) <em>Validate Card</em>}' operation.
+	 * Returns the meta object for the '{@link model.CustomerInterface#validateCard(model.Customer) <em>Validate Card</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Validate Card</em>' operation.
-	 * @see model.CustomerInterface#validateCard(java.lang.String, java.lang.String, int, int)
+	 * @see model.CustomerInterface#validateCard(model.Customer)
 	 * @generated
 	 */
-	EOperation getCustomerInterface__ValidateCard__String_String_int_int();
+	EOperation getCustomerInterface__ValidateCard__Customer();
 
 	/**
-	 * Returns the meta object for the '{@link model.CustomerInterface#createBooking(java.util.Date, java.util.Date, java.lang.String, model.Customer, java.lang.String, model.Receipt, java.lang.String) <em>Create Booking</em>}' operation.
+	 * Returns the meta object for the '{@link model.CustomerInterface#createBooking(java.util.Date, java.util.Date, java.lang.String, model.Customer, java.lang.String, model.Receipt, org.eclipse.emf.common.util.EList) <em>Create Booking</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Create Booking</em>' operation.
-	 * @see model.CustomerInterface#createBooking(java.util.Date, java.util.Date, java.lang.String, model.Customer, java.lang.String, model.Receipt, java.lang.String)
+	 * @see model.CustomerInterface#createBooking(java.util.Date, java.util.Date, java.lang.String, model.Customer, java.lang.String, model.Receipt, org.eclipse.emf.common.util.EList)
 	 * @generated
 	 */
-	EOperation getCustomerInterface__CreateBooking__Date_Date_String_Customer_String_Receipt_String();
+	EOperation getCustomerInterface__CreateBooking__Date_Date_String_Customer_String_Receipt_EList();
 
 	/**
 	 * Returns the meta object for class '{@link model.Room <em>Room</em>}'.
@@ -2899,17 +2890,6 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getRoom();
-
-	/**
-	 * Returns the meta object for the reference '{@link model.Room#getExpense <em>Expense</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Expense</em>'.
-	 * @see model.Room#getExpense()
-	 * @see #getRoom()
-	 * @generated
-	 */
-	EReference getRoom_Expense();
 
 	/**
 	 * Returns the meta object for the attribute '{@link model.Room#getNumber <em>Number</em>}'.
@@ -2989,25 +2969,36 @@ public interface ModelPackage extends EPackage {
 	EReference getRoom_Receipt();
 
 	/**
-	 * Returns the meta object for the reference list '{@link model.Room#getResident <em>Resident</em>}'.
+	 * Returns the meta object for the reference list '{@link model.Room#getResidents <em>Residents</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Resident</em>'.
-	 * @see model.Room#getResident()
+	 * @return the meta object for the reference list '<em>Residents</em>'.
+	 * @see model.Room#getResidents()
 	 * @see #getRoom()
 	 * @generated
 	 */
-	EReference getRoom_Resident();
+	EReference getRoom_Residents();
 
 	/**
-	 * Returns the meta object for the '{@link model.Room#Room(int, java.lang.String, java.lang.String, model.Expense, int) <em>Room</em>}' operation.
+	 * Returns the meta object for the attribute '{@link model.Room#getStatus <em>Status</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Status</em>'.
+	 * @see model.Room#getStatus()
+	 * @see #getRoom()
+	 * @generated
+	 */
+	EAttribute getRoom_Status();
+
+	/**
+	 * Returns the meta object for the '{@link model.Room#Room(int, java.lang.String, java.lang.String, model.Expense, int, java.lang.String) <em>Room</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Room</em>' operation.
-	 * @see model.Room#Room(int, java.lang.String, java.lang.String, model.Expense, int)
+	 * @see model.Room#Room(int, java.lang.String, java.lang.String, model.Expense, int, java.lang.String)
 	 * @generated
 	 */
-	EOperation getRoom__Room__int_String_String_Expense_int();
+	EOperation getRoom__Room__int_String_String_Expense_int_String();
 
 	/**
 	 * Returns the meta object for class '{@link model.Expense <em>Expense</em>}'.
@@ -3064,25 +3055,36 @@ public interface ModelPackage extends EPackage {
 	EAttribute getExpense_Date();
 
 	/**
-	 * Returns the meta object for the attribute '{@link model.Expense#getID <em>ID</em>}'.
+	 * Returns the meta object for the attribute '{@link model.Expense#getId <em>Id</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>ID</em>'.
-	 * @see model.Expense#getID()
+	 * @return the meta object for the attribute '<em>Id</em>'.
+	 * @see model.Expense#getId()
 	 * @see #getExpense()
 	 * @generated
 	 */
-	EAttribute getExpense_ID();
+	EAttribute getExpense_Id();
 
 	/**
-	 * Returns the meta object for the '{@link model.Expense#Expense(int, java.lang.String, java.lang.String, java.util.Date) <em>Expense</em>}' operation.
+	 * Returns the meta object for the attribute '{@link model.Expense#isFixed <em>Fixed</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Fixed</em>'.
+	 * @see model.Expense#isFixed()
+	 * @see #getExpense()
+	 * @generated
+	 */
+	EAttribute getExpense_Fixed();
+
+	/**
+	 * Returns the meta object for the '{@link model.Expense#Expense(int, java.lang.String, java.util.Date, java.lang.String, int, boolean) <em>Expense</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Expense</em>' operation.
-	 * @see model.Expense#Expense(int, java.lang.String, java.lang.String, java.util.Date)
+	 * @see model.Expense#Expense(int, java.lang.String, java.util.Date, java.lang.String, int, boolean)
 	 * @generated
 	 */
-	EOperation getExpense__Expense__int_String_String_Date();
+	EOperation getExpense__Expense__int_String_Date_String_int_boolean();
 
 	/**
 	 * Returns the meta object for class '{@link model.Receipt <em>Receipt</em>}'.
@@ -3093,17 +3095,6 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getReceipt();
-
-	/**
-	 * Returns the meta object for the reference list '{@link model.Receipt#getExpense <em>Expense</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Expense</em>'.
-	 * @see model.Receipt#getExpense()
-	 * @see #getReceipt()
-	 * @generated
-	 */
-	EReference getReceipt_Expense();
 
 	/**
 	 * Returns the meta object for the attribute '{@link model.Receipt#getTotalCost <em>Total Cost</em>}'.
@@ -3128,6 +3119,17 @@ public interface ModelPackage extends EPackage {
 	EAttribute getReceipt_Date();
 
 	/**
+	 * Returns the meta object for the attribute '{@link model.Receipt#getId <em>Id</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Id</em>'.
+	 * @see model.Receipt#getId()
+	 * @see #getReceipt()
+	 * @generated
+	 */
+	EAttribute getReceipt_Id();
+
+	/**
 	 * Returns the meta object for the reference list '{@link model.Receipt#getExpenses <em>Expenses</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3137,17 +3139,6 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getReceipt_Expenses();
-
-	/**
-	 * Returns the meta object for the attribute '{@link model.Receipt#getID <em>ID</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>ID</em>'.
-	 * @see model.Receipt#getID()
-	 * @see #getReceipt()
-	 * @generated
-	 */
-	EAttribute getReceipt_ID();
 
 	/**
 	 * Returns the meta object for the '{@link model.Receipt#addExpense(model.Expense) <em>Add Expense</em>}' operation.
@@ -3180,14 +3171,14 @@ public interface ModelPackage extends EPackage {
 	EOperation getReceipt__GetAllExpenses();
 
 	/**
-	 * Returns the meta object for the '{@link model.Receipt#Receipt() <em>Receipt</em>}' operation.
+	 * Returns the meta object for the '{@link model.Receipt#Receipt(int, java.util.Date, org.eclipse.emf.common.util.EList) <em>Receipt</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Receipt</em>' operation.
-	 * @see model.Receipt#Receipt()
+	 * @see model.Receipt#Receipt(int, java.util.Date, org.eclipse.emf.common.util.EList)
 	 * @generated
 	 */
-	EOperation getReceipt__Receipt();
+	EOperation getReceipt__Receipt__int_Date_EList();
 
 	/**
 	 * Returns the meta object for class '{@link model.User <em>User</em>}'.
@@ -3233,15 +3224,15 @@ public interface ModelPackage extends EPackage {
 	EAttribute getUser_Password();
 
 	/**
-	 * Returns the meta object for the attribute '{@link model.User#getID <em>ID</em>}'.
+	 * Returns the meta object for the attribute '{@link model.User#getId <em>Id</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>ID</em>'.
-	 * @see model.User#getID()
+	 * @return the meta object for the attribute '<em>Id</em>'.
+	 * @see model.User#getId()
 	 * @see #getUser()
 	 * @generated
 	 */
-	EAttribute getUser_ID();
+	EAttribute getUser_Id();
 
 	/**
 	 * Returns the meta object for the attribute '{@link model.User#isReceptionist <em>Receptionist</em>}'.
@@ -3266,14 +3257,14 @@ public interface ModelPackage extends EPackage {
 	EAttribute getUser_Administrator();
 
 	/**
-	 * Returns the meta object for the '{@link model.User#User(java.lang.String, java.lang.String, java.lang.String, boolean, boolean) <em>User</em>}' operation.
+	 * Returns the meta object for the '{@link model.User#User(java.lang.String, java.lang.String, java.lang.String, boolean, boolean, int) <em>User</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>User</em>' operation.
-	 * @see model.User#User(java.lang.String, java.lang.String, java.lang.String, boolean, boolean)
+	 * @see model.User#User(java.lang.String, java.lang.String, java.lang.String, boolean, boolean, int)
 	 * @generated
 	 */
-	EOperation getUser__User__String_String_String_boolean_boolean();
+	EOperation getUser__User__String_String_String_boolean_boolean_int();
 
 	/**
 	 * Returns the meta object for class '{@link model.Resident <em>Resident</em>}'.
@@ -3308,15 +3299,15 @@ public interface ModelPackage extends EPackage {
 	EAttribute getResident_Surname();
 
 	/**
-	 * Returns the meta object for the attribute '{@link model.Resident#getPassportNumber <em>Passport Number</em>}'.
+	 * Returns the meta object for the attribute '{@link model.Resident#getId <em>Id</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Passport Number</em>'.
-	 * @see model.Resident#getPassportNumber()
+	 * @return the meta object for the attribute '<em>Id</em>'.
+	 * @see model.Resident#getId()
 	 * @see #getResident()
 	 * @generated
 	 */
-	EAttribute getResident_PassportNumber();
+	EAttribute getResident_Id();
 
 	/**
 	 * Returns the meta object for the '{@link model.Resident#Resident(java.lang.String, java.lang.String, java.lang.String) <em>Resident</em>}' operation.
@@ -3467,14 +3458,14 @@ public interface ModelPackage extends EPackage {
 	EOperation getReceptionistInterface__ViewAllBookings__Date_Date();
 
 	/**
-	 * Returns the meta object for the '{@link model.ReceptionistInterface#getBooking(java.lang.String) <em>Get Booking</em>}' operation.
+	 * Returns the meta object for the '{@link model.ReceptionistInterface#getBooking(int) <em>Get Booking</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Get Booking</em>' operation.
-	 * @see model.ReceptionistInterface#getBooking(java.lang.String)
+	 * @see model.ReceptionistInterface#getBooking(int)
 	 * @generated
 	 */
-	EOperation getReceptionistInterface__GetBooking__String();
+	EOperation getReceptionistInterface__GetBooking__int();
 
 	/**
 	 * Returns the meta object for the '{@link model.ReceptionistInterface#viewUnOccupiedRooms() <em>View Un Occupied Rooms</em>}' operation.
@@ -3487,14 +3478,14 @@ public interface ModelPackage extends EPackage {
 	EOperation getReceptionistInterface__ViewUnOccupiedRooms();
 
 	/**
-	 * Returns the meta object for the '{@link model.ReceptionistInterface#getBooking(java.lang.String, java.util.Date, java.util.Date) <em>Get Booking</em>}' operation.
+	 * Returns the meta object for the '{@link model.ReceptionistInterface#viewAllBookings(java.lang.String, java.util.Date, java.util.Date) <em>View All Bookings</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Get Booking</em>' operation.
-	 * @see model.ReceptionistInterface#getBooking(java.lang.String, java.util.Date, java.util.Date)
+	 * @return the meta object for the '<em>View All Bookings</em>' operation.
+	 * @see model.ReceptionistInterface#viewAllBookings(java.lang.String, java.util.Date, java.util.Date)
 	 * @generated
 	 */
-	EOperation getReceptionistInterface__GetBooking__String_Date_Date();
+	EOperation getReceptionistInterface__ViewAllBookings__String_Date_Date();
 
 	/**
 	 * Returns the meta object for the '{@link model.ReceptionistInterface#viewUnOccupiedRooms(java.lang.String) <em>View Un Occupied Rooms</em>}' operation.
@@ -3507,14 +3498,14 @@ public interface ModelPackage extends EPackage {
 	EOperation getReceptionistInterface__ViewUnOccupiedRooms__String();
 
 	/**
-	 * Returns the meta object for the '{@link model.ReceptionistInterface#checkIn(model.Booking) <em>Check In</em>}' operation.
+	 * Returns the meta object for the '{@link model.ReceptionistInterface#checkIn(model.Booking, org.eclipse.emf.common.util.EList) <em>Check In</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Check In</em>' operation.
-	 * @see model.ReceptionistInterface#checkIn(model.Booking)
+	 * @see model.ReceptionistInterface#checkIn(model.Booking, org.eclipse.emf.common.util.EList)
 	 * @generated
 	 */
-	EOperation getReceptionistInterface__CheckIn__Booking();
+	EOperation getReceptionistInterface__CheckIn__Booking_EList();
 
 	/**
 	 * Returns the meta object for the '{@link model.ReceptionistInterface#checkOut(model.Booking) <em>Check Out</em>}' operation.
@@ -3546,17 +3537,6 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getBooking_Customer();
-
-	/**
-	 * Returns the meta object for the attribute '{@link model.Booking#getBookingID <em>Booking ID</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Booking ID</em>'.
-	 * @see model.Booking#getBookingID()
-	 * @see #getBooking()
-	 * @generated
-	 */
-	EAttribute getBooking_BookingID();
 
 	/**
 	 * Returns the meta object for the attribute '{@link model.Booking#getFromDate <em>From Date</em>}'.
@@ -3625,14 +3605,25 @@ public interface ModelPackage extends EPackage {
 	EAttribute getBooking_CheckedIn();
 
 	/**
-	 * Returns the meta object for the '{@link model.Booking#Booking(java.lang.String, java.util.Date, java.util.Date, java.lang.String, model.Customer, org.eclipse.emf.common.util.EList, java.lang.String) <em>Booking</em>}' operation.
+	 * Returns the meta object for the attribute '{@link model.Booking#getId <em>Id</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Id</em>'.
+	 * @see model.Booking#getId()
+	 * @see #getBooking()
+	 * @generated
+	 */
+	EAttribute getBooking_Id();
+
+	/**
+	 * Returns the meta object for the '{@link model.Booking#Booking(java.lang.String, java.util.Date, java.util.Date, java.lang.String, model.Customer, org.eclipse.emf.common.util.EList, java.lang.String, int, model.Receipt) <em>Booking</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Booking</em>' operation.
-	 * @see model.Booking#Booking(java.lang.String, java.util.Date, java.util.Date, java.lang.String, model.Customer, org.eclipse.emf.common.util.EList, java.lang.String)
+	 * @see model.Booking#Booking(java.lang.String, java.util.Date, java.util.Date, java.lang.String, model.Customer, org.eclipse.emf.common.util.EList, java.lang.String, int, model.Receipt)
 	 * @generated
 	 */
-	EOperation getBooking__Booking__String_Date_Date_String_Customer_EList_String();
+	EOperation getBooking__Booking__String_Date_Date_String_Customer_EList_String_int_Receipt();
 
 	/**
 	 * Returns the meta object for class '{@link model.AdminInterface <em>Admin Interface</em>}'.
@@ -3868,17 +3859,6 @@ public interface ModelPackage extends EPackage {
 	EAttribute getPromotion_Percentage();
 
 	/**
-	 * Returns the meta object for the attribute '{@link model.Promotion#getID <em>ID</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>ID</em>'.
-	 * @see model.Promotion#getID()
-	 * @see #getPromotion()
-	 * @generated
-	 */
-	EAttribute getPromotion_ID();
-
-	/**
 	 * Returns the meta object for the attribute '{@link model.Promotion#getValidFrom <em>Valid From</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3901,6 +3881,28 @@ public interface ModelPackage extends EPackage {
 	EAttribute getPromotion_ValidTo();
 
 	/**
+	 * Returns the meta object for the attribute '{@link model.Promotion#getRoomType <em>Room Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Room Type</em>'.
+	 * @see model.Promotion#getRoomType()
+	 * @see #getPromotion()
+	 * @generated
+	 */
+	EAttribute getPromotion_RoomType();
+
+	/**
+	 * Returns the meta object for the attribute '{@link model.Promotion#getExpirationDate <em>Expiration Date</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Expiration Date</em>'.
+	 * @see model.Promotion#getExpirationDate()
+	 * @see #getPromotion()
+	 * @generated
+	 */
+	EAttribute getPromotion_ExpirationDate();
+
+	/**
 	 * Returns the meta object for the '{@link model.Promotion#calculateDiscount(model.Room) <em>Calculate Discount</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3911,14 +3913,14 @@ public interface ModelPackage extends EPackage {
 	EOperation getPromotion__CalculateDiscount__Room();
 
 	/**
-	 * Returns the meta object for the '{@link model.Promotion#Promotion(java.lang.String, java.lang.String, int, java.util.Date, java.util.Date) <em>Promotion</em>}' operation.
+	 * Returns the meta object for the '{@link model.Promotion#Promotion(java.lang.String, java.lang.String, int, java.util.Date, java.util.Date, java.lang.String, java.util.Date) <em>Promotion</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Promotion</em>' operation.
-	 * @see model.Promotion#Promotion(java.lang.String, java.lang.String, int, java.util.Date, java.util.Date)
+	 * @see model.Promotion#Promotion(java.lang.String, java.lang.String, int, java.util.Date, java.util.Date, java.lang.String, java.util.Date)
 	 * @generated
 	 */
-	EOperation getPromotion__Promotion__String_String_int_Date_Date();
+	EOperation getPromotion__Promotion__String_String_int_Date_Date_String_Date();
 
 	/**
 	 * Returns the meta object for class '{@link model.RoomExpert <em>Room Expert</em>}'.
@@ -4032,46 +4034,6 @@ public interface ModelPackage extends EPackage {
 	EClass getDatabaseInterface();
 
 	/**
-	 * Returns the meta object for the '{@link model.DatabaseInterface#querystringrowArrayLst() <em>Querystringrow Array Lst</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Querystringrow Array Lst</em>' operation.
-	 * @see model.DatabaseInterface#querystringrowArrayLst()
-	 * @generated
-	 */
-	EOperation getDatabaseInterface__QuerystringrowArrayLst();
-
-	/**
-	 * Returns the meta object for the '{@link model.DatabaseInterface#updatestringboolean() <em>Updatestringboolean</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Updatestringboolean</em>' operation.
-	 * @see model.DatabaseInterface#updatestringboolean()
-	 * @generated
-	 */
-	EOperation getDatabaseInterface__Updatestringboolean();
-
-	/**
-	 * Returns the meta object for the '{@link model.DatabaseInterface#createstringboolean() <em>Createstringboolean</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Createstringboolean</em>' operation.
-	 * @see model.DatabaseInterface#createstringboolean()
-	 * @generated
-	 */
-	EOperation getDatabaseInterface__Createstringboolean();
-
-	/**
-	 * Returns the meta object for the '{@link model.DatabaseInterface#removestringboolean() <em>Removestringboolean</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Removestringboolean</em>' operation.
-	 * @see model.DatabaseInterface#removestringboolean()
-	 * @generated
-	 */
-	EOperation getDatabaseInterface__Removestringboolean();
-
-	/**
 	 * Returns the meta object for the '{@link model.DatabaseInterface#query(java.lang.String) <em>Query</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4082,34 +4044,14 @@ public interface ModelPackage extends EPackage {
 	EOperation getDatabaseInterface__Query__String();
 
 	/**
-	 * Returns the meta object for the '{@link model.DatabaseInterface#update(java.lang.String) <em>Update</em>}' operation.
+	 * Returns the meta object for the '{@link model.DatabaseInterface#send(java.lang.String) <em>Send</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Update</em>' operation.
-	 * @see model.DatabaseInterface#update(java.lang.String)
+	 * @return the meta object for the '<em>Send</em>' operation.
+	 * @see model.DatabaseInterface#send(java.lang.String)
 	 * @generated
 	 */
-	EOperation getDatabaseInterface__Update__String();
-
-	/**
-	 * Returns the meta object for the '{@link model.DatabaseInterface#create(java.lang.String) <em>Create</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Create</em>' operation.
-	 * @see model.DatabaseInterface#create(java.lang.String)
-	 * @generated
-	 */
-	EOperation getDatabaseInterface__Create__String();
-
-	/**
-	 * Returns the meta object for the '{@link model.DatabaseInterface#remove(java.lang.String) <em>Remove</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Remove</em>' operation.
-	 * @see model.DatabaseInterface#remove(java.lang.String)
-	 * @generated
-	 */
-	EOperation getDatabaseInterface__Remove__String();
+	EOperation getDatabaseInterface__Send__String();
 
 	/**
 	 * Returns the meta object for class '{@link model.ExpenseExpert <em>Expense Expert</em>}'.
@@ -4365,6 +4307,16 @@ public interface ModelPackage extends EPackage {
 	EOperation getPromotionExpert__PromotionExpert__DatabaseInterface();
 
 	/**
+	 * Returns the meta object for the '{@link model.PromotionExpert#addPromotion(model.Promotion) <em>Add Promotion</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Add Promotion</em>' operation.
+	 * @see model.PromotionExpert#addPromotion(model.Promotion)
+	 * @generated
+	 */
+	EOperation getPromotionExpert__AddPromotion__Promotion();
+
+	/**
 	 * Returns the meta object for class '{@link model.BookingExpert <em>Booking Expert</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4396,34 +4348,14 @@ public interface ModelPackage extends EPackage {
 	EOperation getBookingExpert__GetBooking__int();
 
 	/**
-	 * Returns the meta object for the '{@link model.BookingExpert#getBooking(java.lang.String) <em>Get Booking</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Get Booking</em>' operation.
-	 * @see model.BookingExpert#getBooking(java.lang.String)
-	 * @generated
-	 */
-	EOperation getBookingExpert__GetBooking__String();
-
-	/**
-	 * Returns the meta object for the '{@link model.BookingExpert#getAllBooking(java.util.Date, java.util.Date) <em>Get All Booking</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Get All Booking</em>' operation.
-	 * @see model.BookingExpert#getAllBooking(java.util.Date, java.util.Date)
-	 * @generated
-	 */
-	EOperation getBookingExpert__GetAllBooking__Date_Date();
-
-	/**
-	 * Returns the meta object for the '{@link model.BookingExpert#getAllBookings() <em>Get All Bookings</em>}' operation.
+	 * Returns the meta object for the '{@link model.BookingExpert#getAllBookings(java.util.Date, java.util.Date) <em>Get All Bookings</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Get All Bookings</em>' operation.
-	 * @see model.BookingExpert#getAllBookings()
+	 * @see model.BookingExpert#getAllBookings(java.util.Date, java.util.Date)
 	 * @generated
 	 */
-	EOperation getBookingExpert__GetAllBookings();
+	EOperation getBookingExpert__GetAllBookings__Date_Date();
 
 	/**
 	 * Returns the meta object for the '{@link model.BookingExpert#addBooking(model.Booking) <em>Add Booking</em>}' operation.
@@ -4456,14 +4388,14 @@ public interface ModelPackage extends EPackage {
 	EOperation getBookingExpert__UpdateBooking__Booking();
 
 	/**
-	 * Returns the meta object for the '{@link model.BookingExpert#getAllBookings(java.lang.String) <em>Get All Bookings</em>}' operation.
+	 * Returns the meta object for the '{@link model.BookingExpert#getAllBookings(java.util.Date, java.util.Date, java.lang.String) <em>Get All Bookings</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Get All Bookings</em>' operation.
-	 * @see model.BookingExpert#getAllBookings(java.lang.String)
+	 * @see model.BookingExpert#getAllBookings(java.util.Date, java.util.Date, java.lang.String)
 	 * @generated
 	 */
-	EOperation getBookingExpert__GetAllBookings__String();
+	EOperation getBookingExpert__GetAllBookings__Date_Date_String();
 
 	/**
 	 * Returns the meta object for the '{@link model.BookingExpert#BookingExpert(model.DatabaseInterface) <em>Booking Expert</em>}' operation.
@@ -4474,6 +4406,26 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 */
 	EOperation getBookingExpert__BookingExpert__DatabaseInterface();
+
+	/**
+	 * Returns the meta object for the '{@link model.BookingExpert#checkIn(model.Booking, org.eclipse.emf.common.util.EList) <em>Check In</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Check In</em>' operation.
+	 * @see model.BookingExpert#checkIn(model.Booking, org.eclipse.emf.common.util.EList)
+	 * @generated
+	 */
+	EOperation getBookingExpert__CheckIn__Booking_EList();
+
+	/**
+	 * Returns the meta object for the '{@link model.BookingExpert#checkOut(model.Booking) <em>Check Out</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Check Out</em>' operation.
+	 * @see model.BookingExpert#checkOut(model.Booking)
+	 * @generated
+	 */
+	EOperation getBookingExpert__CheckOut__Booking();
 
 	/**
 	 * Returns the meta object for class '{@link model.ReceiptExpert <em>Receipt Expert</em>}'.
@@ -4517,6 +4469,16 @@ public interface ModelPackage extends EPackage {
 	EOperation getReceiptExpert__GetReceipt__Booking();
 
 	/**
+	 * Returns the meta object for the '{@link model.ReceiptExpert#getReceipt(model.Room) <em>Get Receipt</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get Receipt</em>' operation.
+	 * @see model.ReceiptExpert#getReceipt(model.Room)
+	 * @generated
+	 */
+	EOperation getReceiptExpert__GetReceipt__Room();
+
+	/**
 	 * Returns the meta object for the '{@link model.ReceiptExpert#getAllReceipt() <em>Get All Receipt</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4527,14 +4489,14 @@ public interface ModelPackage extends EPackage {
 	EOperation getReceiptExpert__GetAllReceipt();
 
 	/**
-	 * Returns the meta object for the '{@link model.ReceiptExpert#combine(model.Receipt) <em>Combine</em>}' operation.
+	 * Returns the meta object for the '{@link model.ReceiptExpert#combine(org.eclipse.emf.common.util.EList) <em>Combine</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Combine</em>' operation.
-	 * @see model.ReceiptExpert#combine(model.Receipt)
+	 * @see model.ReceiptExpert#combine(org.eclipse.emf.common.util.EList)
 	 * @generated
 	 */
-	EOperation getReceiptExpert__Combine__Receipt();
+	EOperation getReceiptExpert__Combine__EList();
 
 	/**
 	 * Returns the meta object for the '{@link model.ReceiptExpert#addReceipt(model.Receipt) <em>Add Receipt</em>}' operation.
@@ -4617,14 +4579,14 @@ public interface ModelPackage extends EPackage {
 	EOperation getPayment__MakePayment__Customer_int();
 
 	/**
-	 * Returns the meta object for the '{@link model.Payment#isCreditCardValidcustomerBool() <em>Is Credit Card Validcustomer Bool</em>}' operation.
+	 * Returns the meta object for the '{@link model.Payment#isCreditCardValid(model.Customer) <em>Is Credit Card Valid</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Is Credit Card Validcustomer Bool</em>' operation.
-	 * @see model.Payment#isCreditCardValidcustomerBool()
+	 * @return the meta object for the '<em>Is Credit Card Valid</em>' operation.
+	 * @see model.Payment#isCreditCardValid(model.Customer)
 	 * @generated
 	 */
-	EOperation getPayment__IsCreditCardValidcustomerBool();
+	EOperation getPayment__IsCreditCardValid__Customer();
 
 	/**
 	 * Returns the meta object for class '{@link model.BookingController <em>Booking Controller</em>}'.
@@ -4929,7 +4891,7 @@ public interface ModelPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation CUSTOMER_INTERFACE___VALIDATE_CARD__STRING_STRING_INT_INT = eINSTANCE.getCustomerInterface__ValidateCard__String_String_int_int();
+		EOperation CUSTOMER_INTERFACE___VALIDATE_CARD__CUSTOMER = eINSTANCE.getCustomerInterface__ValidateCard__Customer();
 
 		/**
 		 * The meta object literal for the '<em><b>Create Booking</b></em>' operation.
@@ -4937,7 +4899,7 @@ public interface ModelPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation CUSTOMER_INTERFACE___CREATE_BOOKING__DATE_DATE_STRING_CUSTOMER_STRING_RECEIPT_STRING = eINSTANCE.getCustomerInterface__CreateBooking__Date_Date_String_Customer_String_Receipt_String();
+		EOperation CUSTOMER_INTERFACE___CREATE_BOOKING__DATE_DATE_STRING_CUSTOMER_STRING_RECEIPT_ELIST = eINSTANCE.getCustomerInterface__CreateBooking__Date_Date_String_Customer_String_Receipt_EList();
 
 		/**
 		 * The meta object literal for the '{@link model.impl.RoomImpl <em>Room</em>}' class.
@@ -4948,14 +4910,6 @@ public interface ModelPackage extends EPackage {
 		 * @generated
 		 */
 		EClass ROOM = eINSTANCE.getRoom();
-
-		/**
-		 * The meta object literal for the '<em><b>Expense</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference ROOM__EXPENSE = eINSTANCE.getRoom_Expense();
 
 		/**
 		 * The meta object literal for the '<em><b>Number</b></em>' attribute feature.
@@ -5014,12 +4968,20 @@ public interface ModelPackage extends EPackage {
 		EReference ROOM__RECEIPT = eINSTANCE.getRoom_Receipt();
 
 		/**
-		 * The meta object literal for the '<em><b>Resident</b></em>' reference list feature.
+		 * The meta object literal for the '<em><b>Residents</b></em>' reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference ROOM__RESIDENT = eINSTANCE.getRoom_Resident();
+		EReference ROOM__RESIDENTS = eINSTANCE.getRoom_Residents();
+
+		/**
+		 * The meta object literal for the '<em><b>Status</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ROOM__STATUS = eINSTANCE.getRoom_Status();
 
 		/**
 		 * The meta object literal for the '<em><b>Room</b></em>' operation.
@@ -5027,7 +4989,7 @@ public interface ModelPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation ROOM___ROOM__INT_STRING_STRING_EXPENSE_INT = eINSTANCE.getRoom__Room__int_String_String_Expense_int();
+		EOperation ROOM___ROOM__INT_STRING_STRING_EXPENSE_INT_STRING = eINSTANCE.getRoom__Room__int_String_String_Expense_int_String();
 
 		/**
 		 * The meta object literal for the '{@link model.impl.ExpenseImpl <em>Expense</em>}' class.
@@ -5072,12 +5034,20 @@ public interface ModelPackage extends EPackage {
 		EAttribute EXPENSE__DATE = eINSTANCE.getExpense_Date();
 
 		/**
-		 * The meta object literal for the '<em><b>ID</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Id</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute EXPENSE__ID = eINSTANCE.getExpense_ID();
+		EAttribute EXPENSE__ID = eINSTANCE.getExpense_Id();
+
+		/**
+		 * The meta object literal for the '<em><b>Fixed</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute EXPENSE__FIXED = eINSTANCE.getExpense_Fixed();
 
 		/**
 		 * The meta object literal for the '<em><b>Expense</b></em>' operation.
@@ -5085,7 +5055,7 @@ public interface ModelPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation EXPENSE___EXPENSE__INT_STRING_STRING_DATE = eINSTANCE.getExpense__Expense__int_String_String_Date();
+		EOperation EXPENSE___EXPENSE__INT_STRING_DATE_STRING_INT_BOOLEAN = eINSTANCE.getExpense__Expense__int_String_Date_String_int_boolean();
 
 		/**
 		 * The meta object literal for the '{@link model.impl.ReceiptImpl <em>Receipt</em>}' class.
@@ -5096,14 +5066,6 @@ public interface ModelPackage extends EPackage {
 		 * @generated
 		 */
 		EClass RECEIPT = eINSTANCE.getReceipt();
-
-		/**
-		 * The meta object literal for the '<em><b>Expense</b></em>' reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference RECEIPT__EXPENSE = eINSTANCE.getReceipt_Expense();
 
 		/**
 		 * The meta object literal for the '<em><b>Total Cost</b></em>' attribute feature.
@@ -5130,12 +5092,12 @@ public interface ModelPackage extends EPackage {
 		EReference RECEIPT__EXPENSES = eINSTANCE.getReceipt_Expenses();
 
 		/**
-		 * The meta object literal for the '<em><b>ID</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Id</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute RECEIPT__ID = eINSTANCE.getReceipt_ID();
+		EAttribute RECEIPT__ID = eINSTANCE.getReceipt_Id();
 
 		/**
 		 * The meta object literal for the '<em><b>Add Expense</b></em>' operation.
@@ -5167,7 +5129,7 @@ public interface ModelPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation RECEIPT___RECEIPT = eINSTANCE.getReceipt__Receipt();
+		EOperation RECEIPT___RECEIPT__INT_DATE_ELIST = eINSTANCE.getReceipt__Receipt__int_Date_EList();
 
 		/**
 		 * The meta object literal for the '{@link model.impl.UserImpl <em>User</em>}' class.
@@ -5204,12 +5166,12 @@ public interface ModelPackage extends EPackage {
 		EAttribute USER__PASSWORD = eINSTANCE.getUser_Password();
 
 		/**
-		 * The meta object literal for the '<em><b>ID</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Id</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute USER__ID = eINSTANCE.getUser_ID();
+		EAttribute USER__ID = eINSTANCE.getUser_Id();
 
 		/**
 		 * The meta object literal for the '<em><b>Receptionist</b></em>' attribute feature.
@@ -5233,7 +5195,7 @@ public interface ModelPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation USER___USER__STRING_STRING_STRING_BOOLEAN_BOOLEAN = eINSTANCE.getUser__User__String_String_String_boolean_boolean();
+		EOperation USER___USER__STRING_STRING_STRING_BOOLEAN_BOOLEAN_INT = eINSTANCE.getUser__User__String_String_String_boolean_boolean_int();
 
 		/**
 		 * The meta object literal for the '{@link model.impl.ResidentImpl <em>Resident</em>}' class.
@@ -5262,12 +5224,12 @@ public interface ModelPackage extends EPackage {
 		EAttribute RESIDENT__SURNAME = eINSTANCE.getResident_Surname();
 
 		/**
-		 * The meta object literal for the '<em><b>Passport Number</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Id</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute RESIDENT__PASSPORT_NUMBER = eINSTANCE.getResident_PassportNumber();
+		EAttribute RESIDENT__ID = eINSTANCE.getResident_Id();
 
 		/**
 		 * The meta object literal for the '<em><b>Resident</b></em>' operation.
@@ -5391,7 +5353,7 @@ public interface ModelPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation RECEPTIONIST_INTERFACE___GET_BOOKING__STRING = eINSTANCE.getReceptionistInterface__GetBooking__String();
+		EOperation RECEPTIONIST_INTERFACE___GET_BOOKING__INT = eINSTANCE.getReceptionistInterface__GetBooking__int();
 
 		/**
 		 * The meta object literal for the '<em><b>View Un Occupied Rooms</b></em>' operation.
@@ -5402,12 +5364,12 @@ public interface ModelPackage extends EPackage {
 		EOperation RECEPTIONIST_INTERFACE___VIEW_UN_OCCUPIED_ROOMS = eINSTANCE.getReceptionistInterface__ViewUnOccupiedRooms();
 
 		/**
-		 * The meta object literal for the '<em><b>Get Booking</b></em>' operation.
+		 * The meta object literal for the '<em><b>View All Bookings</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation RECEPTIONIST_INTERFACE___GET_BOOKING__STRING_DATE_DATE = eINSTANCE.getReceptionistInterface__GetBooking__String_Date_Date();
+		EOperation RECEPTIONIST_INTERFACE___VIEW_ALL_BOOKINGS__STRING_DATE_DATE = eINSTANCE.getReceptionistInterface__ViewAllBookings__String_Date_Date();
 
 		/**
 		 * The meta object literal for the '<em><b>View Un Occupied Rooms</b></em>' operation.
@@ -5423,7 +5385,7 @@ public interface ModelPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation RECEPTIONIST_INTERFACE___CHECK_IN__BOOKING = eINSTANCE.getReceptionistInterface__CheckIn__Booking();
+		EOperation RECEPTIONIST_INTERFACE___CHECK_IN__BOOKING_ELIST = eINSTANCE.getReceptionistInterface__CheckIn__Booking_EList();
 
 		/**
 		 * The meta object literal for the '<em><b>Check Out</b></em>' operation.
@@ -5450,14 +5412,6 @@ public interface ModelPackage extends EPackage {
 		 * @generated
 		 */
 		EReference BOOKING__CUSTOMER = eINSTANCE.getBooking_Customer();
-
-		/**
-		 * The meta object literal for the '<em><b>Booking ID</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute BOOKING__BOOKING_ID = eINSTANCE.getBooking_BookingID();
 
 		/**
 		 * The meta object literal for the '<em><b>From Date</b></em>' attribute feature.
@@ -5508,12 +5462,20 @@ public interface ModelPackage extends EPackage {
 		EAttribute BOOKING__CHECKED_IN = eINSTANCE.getBooking_CheckedIn();
 
 		/**
+		 * The meta object literal for the '<em><b>Id</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute BOOKING__ID = eINSTANCE.getBooking_Id();
+
+		/**
 		 * The meta object literal for the '<em><b>Booking</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation BOOKING___BOOKING__STRING_DATE_DATE_STRING_CUSTOMER_ELIST_STRING = eINSTANCE.getBooking__Booking__String_Date_Date_String_Customer_EList_String();
+		EOperation BOOKING___BOOKING__STRING_DATE_DATE_STRING_CUSTOMER_ELIST_STRING_INT_RECEIPT = eINSTANCE.getBooking__Booking__String_Date_Date_String_Customer_EList_String_int_Receipt();
 
 		/**
 		 * The meta object literal for the '{@link model.AdminInterface <em>Admin Interface</em>}' class.
@@ -5704,14 +5666,6 @@ public interface ModelPackage extends EPackage {
 		EAttribute PROMOTION__PERCENTAGE = eINSTANCE.getPromotion_Percentage();
 
 		/**
-		 * The meta object literal for the '<em><b>ID</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute PROMOTION__ID = eINSTANCE.getPromotion_ID();
-
-		/**
 		 * The meta object literal for the '<em><b>Valid From</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -5728,6 +5682,22 @@ public interface ModelPackage extends EPackage {
 		EAttribute PROMOTION__VALID_TO = eINSTANCE.getPromotion_ValidTo();
 
 		/**
+		 * The meta object literal for the '<em><b>Room Type</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute PROMOTION__ROOM_TYPE = eINSTANCE.getPromotion_RoomType();
+
+		/**
+		 * The meta object literal for the '<em><b>Expiration Date</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute PROMOTION__EXPIRATION_DATE = eINSTANCE.getPromotion_ExpirationDate();
+
+		/**
 		 * The meta object literal for the '<em><b>Calculate Discount</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -5741,7 +5711,7 @@ public interface ModelPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation PROMOTION___PROMOTION__STRING_STRING_INT_DATE_DATE = eINSTANCE.getPromotion__Promotion__String_String_int_Date_Date();
+		EOperation PROMOTION___PROMOTION__STRING_STRING_INT_DATE_DATE_STRING_DATE = eINSTANCE.getPromotion__Promotion__String_String_int_Date_Date_String_Date();
 
 		/**
 		 * The meta object literal for the '{@link model.impl.RoomExpertImpl <em>Room Expert</em>}' class.
@@ -5836,38 +5806,6 @@ public interface ModelPackage extends EPackage {
 		EClass DATABASE_INTERFACE = eINSTANCE.getDatabaseInterface();
 
 		/**
-		 * The meta object literal for the '<em><b>Querystringrow Array Lst</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation DATABASE_INTERFACE___QUERYSTRINGROW_ARRAY_LST = eINSTANCE.getDatabaseInterface__QuerystringrowArrayLst();
-
-		/**
-		 * The meta object literal for the '<em><b>Updatestringboolean</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation DATABASE_INTERFACE___UPDATESTRINGBOOLEAN = eINSTANCE.getDatabaseInterface__Updatestringboolean();
-
-		/**
-		 * The meta object literal for the '<em><b>Createstringboolean</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation DATABASE_INTERFACE___CREATESTRINGBOOLEAN = eINSTANCE.getDatabaseInterface__Createstringboolean();
-
-		/**
-		 * The meta object literal for the '<em><b>Removestringboolean</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation DATABASE_INTERFACE___REMOVESTRINGBOOLEAN = eINSTANCE.getDatabaseInterface__Removestringboolean();
-
-		/**
 		 * The meta object literal for the '<em><b>Query</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -5876,28 +5814,12 @@ public interface ModelPackage extends EPackage {
 		EOperation DATABASE_INTERFACE___QUERY__STRING = eINSTANCE.getDatabaseInterface__Query__String();
 
 		/**
-		 * The meta object literal for the '<em><b>Update</b></em>' operation.
+		 * The meta object literal for the '<em><b>Send</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation DATABASE_INTERFACE___UPDATE__STRING = eINSTANCE.getDatabaseInterface__Update__String();
-
-		/**
-		 * The meta object literal for the '<em><b>Create</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation DATABASE_INTERFACE___CREATE__STRING = eINSTANCE.getDatabaseInterface__Create__String();
-
-		/**
-		 * The meta object literal for the '<em><b>Remove</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation DATABASE_INTERFACE___REMOVE__STRING = eINSTANCE.getDatabaseInterface__Remove__String();
+		EOperation DATABASE_INTERFACE___SEND__STRING = eINSTANCE.getDatabaseInterface__Send__String();
 
 		/**
 		 * The meta object literal for the '{@link model.impl.ExpenseExpertImpl <em>Expense Expert</em>}' class.
@@ -6106,6 +6028,14 @@ public interface ModelPackage extends EPackage {
 		EOperation PROMOTION_EXPERT___PROMOTION_EXPERT__DATABASEINTERFACE = eINSTANCE.getPromotionExpert__PromotionExpert__DatabaseInterface();
 
 		/**
+		 * The meta object literal for the '<em><b>Add Promotion</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation PROMOTION_EXPERT___ADD_PROMOTION__PROMOTION = eINSTANCE.getPromotionExpert__AddPromotion__Promotion();
+
+		/**
 		 * The meta object literal for the '{@link model.impl.BookingExpertImpl <em>Booking Expert</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -6132,28 +6062,12 @@ public interface ModelPackage extends EPackage {
 		EOperation BOOKING_EXPERT___GET_BOOKING__INT = eINSTANCE.getBookingExpert__GetBooking__int();
 
 		/**
-		 * The meta object literal for the '<em><b>Get Booking</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation BOOKING_EXPERT___GET_BOOKING__STRING = eINSTANCE.getBookingExpert__GetBooking__String();
-
-		/**
-		 * The meta object literal for the '<em><b>Get All Booking</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation BOOKING_EXPERT___GET_ALL_BOOKING__DATE_DATE = eINSTANCE.getBookingExpert__GetAllBooking__Date_Date();
-
-		/**
 		 * The meta object literal for the '<em><b>Get All Bookings</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation BOOKING_EXPERT___GET_ALL_BOOKINGS = eINSTANCE.getBookingExpert__GetAllBookings();
+		EOperation BOOKING_EXPERT___GET_ALL_BOOKINGS__DATE_DATE = eINSTANCE.getBookingExpert__GetAllBookings__Date_Date();
 
 		/**
 		 * The meta object literal for the '<em><b>Add Booking</b></em>' operation.
@@ -6185,7 +6099,7 @@ public interface ModelPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation BOOKING_EXPERT___GET_ALL_BOOKINGS__STRING = eINSTANCE.getBookingExpert__GetAllBookings__String();
+		EOperation BOOKING_EXPERT___GET_ALL_BOOKINGS__DATE_DATE_STRING = eINSTANCE.getBookingExpert__GetAllBookings__Date_Date_String();
 
 		/**
 		 * The meta object literal for the '<em><b>Booking Expert</b></em>' operation.
@@ -6194,6 +6108,22 @@ public interface ModelPackage extends EPackage {
 		 * @generated
 		 */
 		EOperation BOOKING_EXPERT___BOOKING_EXPERT__DATABASEINTERFACE = eINSTANCE.getBookingExpert__BookingExpert__DatabaseInterface();
+
+		/**
+		 * The meta object literal for the '<em><b>Check In</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation BOOKING_EXPERT___CHECK_IN__BOOKING_ELIST = eINSTANCE.getBookingExpert__CheckIn__Booking_EList();
+
+		/**
+		 * The meta object literal for the '<em><b>Check Out</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation BOOKING_EXPERT___CHECK_OUT__BOOKING = eINSTANCE.getBookingExpert__CheckOut__Booking();
 
 		/**
 		 * The meta object literal for the '{@link model.impl.ReceiptExpertImpl <em>Receipt Expert</em>}' class.
@@ -6230,6 +6160,14 @@ public interface ModelPackage extends EPackage {
 		EOperation RECEIPT_EXPERT___GET_RECEIPT__BOOKING = eINSTANCE.getReceiptExpert__GetReceipt__Booking();
 
 		/**
+		 * The meta object literal for the '<em><b>Get Receipt</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation RECEIPT_EXPERT___GET_RECEIPT__ROOM = eINSTANCE.getReceiptExpert__GetReceipt__Room();
+
+		/**
 		 * The meta object literal for the '<em><b>Get All Receipt</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -6243,7 +6181,7 @@ public interface ModelPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation RECEIPT_EXPERT___COMBINE__RECEIPT = eINSTANCE.getReceiptExpert__Combine__Receipt();
+		EOperation RECEIPT_EXPERT___COMBINE__ELIST = eINSTANCE.getReceiptExpert__Combine__EList();
 
 		/**
 		 * The meta object literal for the '<em><b>Add Receipt</b></em>' operation.
@@ -6314,12 +6252,12 @@ public interface ModelPackage extends EPackage {
 		EOperation PAYMENT___MAKE_PAYMENT__CUSTOMER_INT = eINSTANCE.getPayment__MakePayment__Customer_int();
 
 		/**
-		 * The meta object literal for the '<em><b>Is Credit Card Validcustomer Bool</b></em>' operation.
+		 * The meta object literal for the '<em><b>Is Credit Card Valid</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation PAYMENT___IS_CREDIT_CARD_VALIDCUSTOMER_BOOL = eINSTANCE.getPayment__IsCreditCardValidcustomerBool();
+		EOperation PAYMENT___IS_CREDIT_CARD_VALID__CUSTOMER = eINSTANCE.getPayment__IsCreditCardValid__Customer();
 
 		/**
 		 * The meta object literal for the '{@link model.impl.BookingControllerImpl <em>Booking Controller</em>}' class.

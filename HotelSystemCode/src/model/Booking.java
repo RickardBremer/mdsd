@@ -17,13 +17,13 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * <ul>
  *   <li>{@link model.Booking#getCustomer <em>Customer</em>}</li>
- *   <li>{@link model.Booking#getBookingID <em>Booking ID</em>}</li>
  *   <li>{@link model.Booking#getFromDate <em>From Date</em>}</li>
  *   <li>{@link model.Booking#getToDate <em>To Date</em>}</li>
  *   <li>{@link model.Booking#getWishes <em>Wishes</em>}</li>
  *   <li>{@link model.Booking#getPromotion <em>Promotion</em>}</li>
  *   <li>{@link model.Booking#getRoomTypes <em>Room Types</em>}</li>
  *   <li>{@link model.Booking#isCheckedIn <em>Checked In</em>}</li>
+ *   <li>{@link model.Booking#getId <em>Id</em>}</li>
  * </ul>
  * </p>
  *
@@ -57,32 +57,6 @@ public interface Booking extends EObject {
 	 * @generated
 	 */
 	void setCustomer(Customer value);
-
-	/**
-	 * Returns the value of the '<em><b>Booking ID</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Booking ID</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Booking ID</em>' attribute.
-	 * @see #setBookingID(String)
-	 * @see model.ModelPackage#getBooking_BookingID()
-	 * @model dataType="org.eclipse.uml2.types.String" required="true" ordered="false"
-	 * @generated
-	 */
-	String getBookingID();
-
-	/**
-	 * Sets the value of the '{@link model.Booking#getBookingID <em>Booking ID</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Booking ID</em>' attribute.
-	 * @see #getBookingID()
-	 * @generated
-	 */
-	void setBookingID(String value);
 
 	/**
 	 * Returns the value of the '<em><b>From Date</b></em>' attribute.
@@ -231,11 +205,37 @@ public interface Booking extends EObject {
 	void setCheckedIn(boolean value);
 
 	/**
+	 * Returns the value of the '<em><b>Id</b></em>' attribute.
 	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Id</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
 	 * <!-- end-user-doc -->
-	 * @model bookingIDDataType="org.eclipse.uml2.types.String" bookingIDRequired="true" bookingIDOrdered="false" fromDateRequired="true" fromDateOrdered="false" toDateRequired="true" toDateOrdered="false" wishesDataType="org.eclipse.uml2.types.String" wishesRequired="true" wishesOrdered="false" customerRequired="true" customerOrdered="false" roomTypesDataType="org.eclipse.uml2.types.String" roomTypesMany="true" roomTypesOrdered="false" promotionCodeDataType="org.eclipse.uml2.types.String" promotionCodeRequired="true" promotionCodeOrdered="false"
+	 * @return the value of the '<em>Id</em>' attribute.
+	 * @see #setId(int)
+	 * @see model.ModelPackage#getBooking_Id()
+	 * @model required="true" ordered="false"
 	 * @generated
 	 */
-	void Booking(String bookingID, Date fromDate, Date toDate, String wishes, Customer customer, EList<String> roomTypes, String promotionCode);
+	int getId();
+
+	/**
+	 * Sets the value of the '{@link model.Booking#getId <em>Id</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Id</em>' attribute.
+	 * @see #getId()
+	 * @generated
+	 */
+	void setId(int value);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model bookingIDDataType="org.eclipse.uml2.types.String" bookingIDRequired="true" bookingIDOrdered="false" fromDateRequired="true" fromDateOrdered="false" toDateRequired="true" toDateOrdered="false" wishesDataType="org.eclipse.uml2.types.String" wishesRequired="true" wishesOrdered="false" customerRequired="true" customerOrdered="false" roomTypesDataType="org.eclipse.uml2.types.String" roomTypesMany="true" roomTypesOrdered="false" promotionCodeDataType="org.eclipse.uml2.types.String" promotionCodeRequired="true" promotionCodeOrdered="false" idRequired="true" idOrdered="false" receiptRequired="true" receiptOrdered="false"
+	 * @generated
+	 */
+	void Booking(String bookingID, Date fromDate, Date toDate, String wishes, Customer customer, EList<String> roomTypes, String promotionCode, int id, Receipt receipt);
 
 } // Booking

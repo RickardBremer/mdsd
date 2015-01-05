@@ -15,7 +15,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link model.User#getFirstName <em>First Name</em>}</li>
  *   <li>{@link model.User#getSurname <em>Surname</em>}</li>
  *   <li>{@link model.User#getPassword <em>Password</em>}</li>
- *   <li>{@link model.User#getID <em>ID</em>}</li>
+ *   <li>{@link model.User#getId <em>Id</em>}</li>
  *   <li>{@link model.User#isReceptionist <em>Receptionist</em>}</li>
  *   <li>{@link model.User#isAdministrator <em>Administrator</em>}</li>
  * </ul>
@@ -105,30 +105,30 @@ public interface User extends EObject {
 	void setPassword(String value);
 
 	/**
-	 * Returns the value of the '<em><b>ID</b></em>' attribute.
+	 * Returns the value of the '<em><b>Id</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>ID</em>' attribute isn't clear,
+	 * If the meaning of the '<em>Id</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>ID</em>' attribute.
-	 * @see #setID(int)
-	 * @see model.ModelPackage#getUser_ID()
+	 * @return the value of the '<em>Id</em>' attribute.
+	 * @see #setId(int)
+	 * @see model.ModelPackage#getUser_Id()
 	 * @model dataType="org.eclipse.uml2.types.Integer" required="true" ordered="false"
 	 * @generated
 	 */
-	int getID();
+	int getId();
 
 	/**
-	 * Sets the value of the '{@link model.User#getID <em>ID</em>}' attribute.
+	 * Sets the value of the '{@link model.User#getId <em>Id</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>ID</em>' attribute.
-	 * @see #getID()
+	 * @param value the new value of the '<em>Id</em>' attribute.
+	 * @see #getId()
 	 * @generated
 	 */
-	void setID(int value);
+	void setId(int value);
 
 	/**
 	 * Returns the value of the '<em><b>Receptionist</b></em>' attribute.
@@ -185,9 +185,9 @@ public interface User extends EObject {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model firstNameDataType="org.eclipse.uml2.types.String" firstNameRequired="true" firstNameOrdered="false" surnameDataType="org.eclipse.uml2.types.String" surnameRequired="true" surnameOrdered="false" passwordDataType="org.eclipse.uml2.types.String" passwordRequired="true" passwordOrdered="false" receptionistRequired="true" receptionistOrdered="false" administratorRequired="true" administratorOrdered="false"
+	 * @model firstNameDataType="org.eclipse.uml2.types.String" firstNameRequired="true" firstNameOrdered="false" surnameDataType="org.eclipse.uml2.types.String" surnameRequired="true" surnameOrdered="false" passwordDataType="org.eclipse.uml2.types.String" passwordRequired="true" passwordOrdered="false" receptionistRequired="true" receptionistOrdered="false" administratorRequired="true" administratorOrdered="false" idRequired="true" idOrdered="false"
 	 * @generated
 	 */
-	void User(String firstName, String surname, String password, boolean receptionist, boolean administrator);
+	void User(String firstName, String surname, String password, boolean receptionist, boolean administrator, int id);
 
 } // User

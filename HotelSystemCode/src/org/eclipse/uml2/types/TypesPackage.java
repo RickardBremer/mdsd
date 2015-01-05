@@ -71,7 +71,7 @@ public interface TypesPackage extends EPackage {
 	 * @see org.eclipse.uml2.types.impl.TypesPackageImpl#getReal()
 	 * @generated
 	 */
-	int REAL = 1;
+	int REAL = 2;
 
 	/**
 	 * The meta object id for the '<em>String</em>' data type.
@@ -81,7 +81,7 @@ public interface TypesPackage extends EPackage {
 	 * @see org.eclipse.uml2.types.impl.TypesPackageImpl#getString()
 	 * @generated
 	 */
-	int STRING = 2;
+	int STRING = 4;
 
 	/**
 	 * The meta object id for the '<em>Unlimited Natural</em>' data type.
@@ -99,7 +99,7 @@ public interface TypesPackage extends EPackage {
 	 * @see org.eclipse.uml2.types.impl.TypesPackageImpl#getInteger()
 	 * @generated
 	 */
-	int INTEGER = 4;
+	int INTEGER = 1;
 
 
 	/**

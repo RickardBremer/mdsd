@@ -68,6 +68,14 @@ public interface ReceiptExpert extends EObject {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @model required="true" ordered="false" roomRequired="true" roomOrdered="false"
+	 * @generated
+	 */
+	Receipt getReceipt(Room room);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @model kind="operation" ordered="false"
 	 * @generated
 	 */
@@ -76,10 +84,10 @@ public interface ReceiptExpert extends EObject {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model required="true" ordered="false" receiptListRequired="true" receiptListOrdered="false"
+	 * @model required="true" ordered="false" receiptListMany="true" receiptListOrdered="false"
 	 * @generated
 	 */
-	Receipt combine(Receipt receiptList);
+	Receipt combine(EList<Receipt> receiptList);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -87,7 +95,7 @@ public interface ReceiptExpert extends EObject {
 	 * @model required="true" ordered="false" receiptRequired="true" receiptOrdered="false"
 	 * @generated
 	 */
-	boolean addReceipt(Receipt receipt);
+	Receipt addReceipt(Receipt receipt);
 
 	/**
 	 * <!-- begin-user-doc -->

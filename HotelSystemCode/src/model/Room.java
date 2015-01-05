@@ -14,15 +14,15 @@ import org.eclipse.emf.ecore.EObject;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link model.Room#getExpense <em>Expense</em>}</li>
+ *   <li>{@link model.Room#getPrice <em>Price</em>}</li>
  *   <li>{@link model.Room#getNumber <em>Number</em>}</li>
  *   <li>{@link model.Room#getDescription <em>Description</em>}</li>
  *   <li>{@link model.Room#isClean <em>Clean</em>}</li>
  *   <li>{@link model.Room#getType <em>Type</em>}</li>
- *   <li>{@link model.Room#getPrice <em>Price</em>}</li>
  *   <li>{@link model.Room#getBeds <em>Beds</em>}</li>
  *   <li>{@link model.Room#getReceipt <em>Receipt</em>}</li>
- *   <li>{@link model.Room#getResident <em>Resident</em>}</li>
+ *   <li>{@link model.Room#getResidents <em>Residents</em>}</li>
+ *   <li>{@link model.Room#getStatus <em>Status</em>}</li>
  * </ul>
  * </p>
  *
@@ -31,32 +31,6 @@ import org.eclipse.emf.ecore.EObject;
  * @generated
  */
 public interface Room extends EObject {
-	/**
-	 * Returns the value of the '<em><b>Expense</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Expense</em>' reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Expense</em>' reference.
-	 * @see #setExpense(Expense)
-	 * @see model.ModelPackage#getRoom_Expense()
-	 * @model required="true" ordered="false"
-	 * @generated
-	 */
-	Expense getExpense();
-
-	/**
-	 * Sets the value of the '{@link model.Room#getExpense <em>Expense</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Expense</em>' reference.
-	 * @see #getExpense()
-	 * @generated
-	 */
-	void setExpense(Expense value);
-
 	/**
 	 * Returns the value of the '<em><b>Number</b></em>' attribute.
 	 * <!-- begin-user-doc -->
@@ -240,27 +214,53 @@ public interface Room extends EObject {
 	void setReceipt(Receipt value);
 
 	/**
-	 * Returns the value of the '<em><b>Resident</b></em>' reference list.
+	 * Returns the value of the '<em><b>Residents</b></em>' reference list.
 	 * The list contents are of type {@link model.Resident}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Resident</em>' reference list isn't clear,
+	 * If the meaning of the '<em>Residents</em>' reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Resident</em>' reference list.
-	 * @see model.ModelPackage#getRoom_Resident()
+	 * @return the value of the '<em>Residents</em>' reference list.
+	 * @see model.ModelPackage#getRoom_Residents()
 	 * @model ordered="false"
 	 * @generated
 	 */
-	EList<Resident> getResident();
+	EList<Resident> getResidents();
+
+	/**
+	 * Returns the value of the '<em><b>Status</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Status</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Status</em>' attribute.
+	 * @see #setStatus(String)
+	 * @see model.ModelPackage#getRoom_Status()
+	 * @model dataType="org.eclipse.uml2.types.String" required="true" ordered="false"
+	 * @generated
+	 */
+	String getStatus();
+
+	/**
+	 * Sets the value of the '{@link model.Room#getStatus <em>Status</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Status</em>' attribute.
+	 * @see #getStatus()
+	 * @generated
+	 */
+	void setStatus(String value);
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model numberDataType="org.eclipse.uml2.types.Integer" numberRequired="true" numberOrdered="false" descriptionDataType="org.eclipse.uml2.types.String" descriptionRequired="true" descriptionOrdered="false" typeDataType="org.eclipse.uml2.types.String" typeRequired="true" typeOrdered="false" priceRequired="true" priceOrdered="false" bedsDataType="org.eclipse.uml2.types.Integer" bedsRequired="true" bedsOrdered="false"
+	 * @model numberDataType="org.eclipse.uml2.types.Integer" numberRequired="true" numberOrdered="false" descriptionDataType="org.eclipse.uml2.types.String" descriptionRequired="true" descriptionOrdered="false" typeDataType="org.eclipse.uml2.types.String" typeRequired="true" typeOrdered="false" priceRequired="true" priceOrdered="false" bedsDataType="org.eclipse.uml2.types.Integer" bedsRequired="true" bedsOrdered="false" statusDataType="org.eclipse.uml2.types.String" statusRequired="true" statusOrdered="false"
 	 * @generated
 	 */
-	void Room(int number, String description, String type, Expense price, int beds);
+	void Room(int number, String description, String type, Expense price, int beds, String status);
 
 } // Room

@@ -115,8 +115,7 @@ public class emailImpl extends MinimalEObjectImpl.Container implements email {
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
 			case ModelPackage.EMAIL___SEND__BOOKING:
-				send((Booking)arguments.get(0));
-				return null;
+				return send((Booking)arguments.get(0));
 		}
 		return super.eInvoke(operationID, arguments);
 	}

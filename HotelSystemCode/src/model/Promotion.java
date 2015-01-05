@@ -17,9 +17,10 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link model.Promotion#getCode <em>Code</em>}</li>
  *   <li>{@link model.Promotion#getDescription <em>Description</em>}</li>
  *   <li>{@link model.Promotion#getPercentage <em>Percentage</em>}</li>
- *   <li>{@link model.Promotion#getID <em>ID</em>}</li>
  *   <li>{@link model.Promotion#getValidFrom <em>Valid From</em>}</li>
  *   <li>{@link model.Promotion#getValidTo <em>Valid To</em>}</li>
+ *   <li>{@link model.Promotion#getRoomType <em>Room Type</em>}</li>
+ *   <li>{@link model.Promotion#getExpirationDate <em>Expiration Date</em>}</li>
  * </ul>
  * </p>
  *
@@ -107,32 +108,6 @@ public interface Promotion extends EObject {
 	void setPercentage(int value);
 
 	/**
-	 * Returns the value of the '<em><b>ID</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>ID</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>ID</em>' attribute.
-	 * @see #setID(int)
-	 * @see model.ModelPackage#getPromotion_ID()
-	 * @model dataType="org.eclipse.uml2.types.Integer" required="true" ordered="false"
-	 * @generated
-	 */
-	int getID();
-
-	/**
-	 * Sets the value of the '{@link model.Promotion#getID <em>ID</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>ID</em>' attribute.
-	 * @see #getID()
-	 * @generated
-	 */
-	void setID(int value);
-
-	/**
 	 * Returns the value of the '<em><b>Valid From</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
@@ -185,19 +160,71 @@ public interface Promotion extends EObject {
 	void setValidTo(Date value);
 
 	/**
+	 * Returns the value of the '<em><b>Room Type</b></em>' attribute.
 	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Room Type</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
 	 * <!-- end-user-doc -->
-	 * @model roomRequired="true" roomOrdered="false"
+	 * @return the value of the '<em>Room Type</em>' attribute.
+	 * @see #setRoomType(String)
+	 * @see model.ModelPackage#getPromotion_RoomType()
+	 * @model dataType="org.eclipse.uml2.types.String" required="true" ordered="false"
 	 * @generated
 	 */
-	void calculateDiscount(Room room);
+	String getRoomType();
+
+	/**
+	 * Sets the value of the '{@link model.Promotion#getRoomType <em>Room Type</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Room Type</em>' attribute.
+	 * @see #getRoomType()
+	 * @generated
+	 */
+	void setRoomType(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Expiration Date</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Expiration Date</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Expiration Date</em>' attribute.
+	 * @see #setExpirationDate(Date)
+	 * @see model.ModelPackage#getPromotion_ExpirationDate()
+	 * @model required="true" ordered="false"
+	 * @generated
+	 */
+	Date getExpirationDate();
+
+	/**
+	 * Sets the value of the '{@link model.Promotion#getExpirationDate <em>Expiration Date</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Expiration Date</em>' attribute.
+	 * @see #getExpirationDate()
+	 * @generated
+	 */
+	void setExpirationDate(Date value);
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model codeRequired="true" codeOrdered="false" descriptionRequired="true" descriptionOrdered="false" percentageRequired="true" percentageOrdered="false" vaildFromRequired="true" vaildFromOrdered="false" vaildToRequired="true" vaildToOrdered="false"
+	 * @model required="true" ordered="false" roomRequired="true" roomOrdered="false"
 	 * @generated
 	 */
-	void Promotion(String code, String description, int percentage, Date vaildFrom, Date vaildTo);
+	double calculateDiscount(Room room);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model codeRequired="true" codeOrdered="false" descriptionRequired="true" descriptionOrdered="false" percentageRequired="true" percentageOrdered="false" vaildFromRequired="true" vaildFromOrdered="false" vaildToRequired="true" vaildToOrdered="false" roomTypeDataType="org.eclipse.uml2.types.String" roomTypeRequired="true" roomTypeOrdered="false" expirationDateRequired="true" expirationDateOrdered="false"
+	 * @generated
+	 */
+	void Promotion(String code, String description, int percentage, Date vaildFrom, Date vaildTo, String roomType, Date expirationDate);
 
 } // Promotion

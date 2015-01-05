@@ -25,7 +25,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * <ul>
  *   <li>{@link model.impl.ResidentImpl#getFirstName <em>First Name</em>}</li>
  *   <li>{@link model.impl.ResidentImpl#getSurname <em>Surname</em>}</li>
- *   <li>{@link model.impl.ResidentImpl#getPassportNumber <em>Passport Number</em>}</li>
+ *   <li>{@link model.impl.ResidentImpl#getId <em>Id</em>}</li>
  * </ul>
  * </p>
  *
@@ -73,24 +73,24 @@ public class ResidentImpl extends MinimalEObjectImpl.Container implements Reside
 	protected String surname = SURNAME_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getPassportNumber() <em>Passport Number</em>}' attribute.
+	 * The default value of the '{@link #getId() <em>Id</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getPassportNumber()
+	 * @see #getId()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String PASSPORT_NUMBER_EDEFAULT = null;
+	protected static final String ID_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getPassportNumber() <em>Passport Number</em>}' attribute.
+	 * The cached value of the '{@link #getId() <em>Id</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getPassportNumber()
+	 * @see #getId()
 	 * @generated
 	 * @ordered
 	 */
-	protected String passportNumber = PASSPORT_NUMBER_EDEFAULT;
+	protected String id = ID_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -158,8 +158,8 @@ public class ResidentImpl extends MinimalEObjectImpl.Container implements Reside
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getPassportNumber() {
-		return passportNumber;
+	public String getId() {
+		return id;
 	}
 
 	/**
@@ -167,11 +167,11 @@ public class ResidentImpl extends MinimalEObjectImpl.Container implements Reside
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setPassportNumber(String newPassportNumber) {
-		String oldPassportNumber = passportNumber;
-		passportNumber = newPassportNumber;
+	public void setId(String newId) {
+		String oldId = id;
+		id = newId;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.RESIDENT__PASSPORT_NUMBER, oldPassportNumber, passportNumber));
+			eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.RESIDENT__ID, oldId, id));
 	}
 
 	/**
@@ -179,7 +179,7 @@ public class ResidentImpl extends MinimalEObjectImpl.Container implements Reside
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void Resident(String firstName, String surname, String passportNumber) {
+	public void Resident(String id, String firstName, String surname) {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();
@@ -197,8 +197,8 @@ public class ResidentImpl extends MinimalEObjectImpl.Container implements Reside
 				return getFirstName();
 			case ModelPackage.RESIDENT__SURNAME:
 				return getSurname();
-			case ModelPackage.RESIDENT__PASSPORT_NUMBER:
-				return getPassportNumber();
+			case ModelPackage.RESIDENT__ID:
+				return getId();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -217,8 +217,8 @@ public class ResidentImpl extends MinimalEObjectImpl.Container implements Reside
 			case ModelPackage.RESIDENT__SURNAME:
 				setSurname((String)newValue);
 				return;
-			case ModelPackage.RESIDENT__PASSPORT_NUMBER:
-				setPassportNumber((String)newValue);
+			case ModelPackage.RESIDENT__ID:
+				setId((String)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -238,8 +238,8 @@ public class ResidentImpl extends MinimalEObjectImpl.Container implements Reside
 			case ModelPackage.RESIDENT__SURNAME:
 				setSurname(SURNAME_EDEFAULT);
 				return;
-			case ModelPackage.RESIDENT__PASSPORT_NUMBER:
-				setPassportNumber(PASSPORT_NUMBER_EDEFAULT);
+			case ModelPackage.RESIDENT__ID:
+				setId(ID_EDEFAULT);
 				return;
 		}
 		super.eUnset(featureID);
@@ -257,8 +257,8 @@ public class ResidentImpl extends MinimalEObjectImpl.Container implements Reside
 				return FIRST_NAME_EDEFAULT == null ? firstName != null : !FIRST_NAME_EDEFAULT.equals(firstName);
 			case ModelPackage.RESIDENT__SURNAME:
 				return SURNAME_EDEFAULT == null ? surname != null : !SURNAME_EDEFAULT.equals(surname);
-			case ModelPackage.RESIDENT__PASSPORT_NUMBER:
-				return PASSPORT_NUMBER_EDEFAULT == null ? passportNumber != null : !PASSPORT_NUMBER_EDEFAULT.equals(passportNumber);
+			case ModelPackage.RESIDENT__ID:
+				return ID_EDEFAULT == null ? id != null : !ID_EDEFAULT.equals(id);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -292,8 +292,8 @@ public class ResidentImpl extends MinimalEObjectImpl.Container implements Reside
 		result.append(firstName);
 		result.append(", surname: ");
 		result.append(surname);
-		result.append(", passportNumber: ");
-		result.append(passportNumber);
+		result.append(", id: ");
+		result.append(id);
 		result.append(')');
 		return result.toString();
 	}

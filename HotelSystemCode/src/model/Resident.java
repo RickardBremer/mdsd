@@ -14,7 +14,7 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link model.Resident#getFirstName <em>First Name</em>}</li>
  *   <li>{@link model.Resident#getSurname <em>Surname</em>}</li>
- *   <li>{@link model.Resident#getPassportNumber <em>Passport Number</em>}</li>
+ *   <li>{@link model.Resident#getId <em>Id</em>}</li>
  * </ul>
  * </p>
  *
@@ -76,37 +76,37 @@ public interface Resident extends EObject {
 	void setSurname(String value);
 
 	/**
-	 * Returns the value of the '<em><b>Passport Number</b></em>' attribute.
+	 * Returns the value of the '<em><b>Id</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Passport Number</em>' attribute isn't clear,
+	 * If the meaning of the '<em>Id</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Passport Number</em>' attribute.
-	 * @see #setPassportNumber(String)
-	 * @see model.ModelPackage#getResident_PassportNumber()
+	 * @return the value of the '<em>Id</em>' attribute.
+	 * @see #setId(String)
+	 * @see model.ModelPackage#getResident_Id()
 	 * @model dataType="org.eclipse.uml2.types.String" required="true" ordered="false"
 	 * @generated
 	 */
-	String getPassportNumber();
+	String getId();
 
 	/**
-	 * Sets the value of the '{@link model.Resident#getPassportNumber <em>Passport Number</em>}' attribute.
+	 * Sets the value of the '{@link model.Resident#getId <em>Id</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Passport Number</em>' attribute.
-	 * @see #getPassportNumber()
+	 * @param value the new value of the '<em>Id</em>' attribute.
+	 * @see #getId()
 	 * @generated
 	 */
-	void setPassportNumber(String value);
+	void setId(String value);
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model firstNameDataType="org.eclipse.uml2.types.String" firstNameRequired="true" firstNameOrdered="false" surnameDataType="org.eclipse.uml2.types.String" surnameRequired="true" surnameOrdered="false" passportNumberDataType="org.eclipse.uml2.types.String" passportNumberRequired="true" passportNumberOrdered="false"
+	 * @model idDataType="org.eclipse.uml2.types.String" idRequired="true" idOrdered="false" firstNameDataType="org.eclipse.uml2.types.String" firstNameRequired="true" firstNameOrdered="false" surnameDataType="org.eclipse.uml2.types.String" surnameRequired="true" surnameOrdered="false"
 	 * @generated
 	 */
-	void Resident(String firstName, String surname, String passportNumber);
+	void Resident(String id, String firstName, String surname);
 
 } // Resident

@@ -37,10 +37,10 @@ public interface ReceptionistInterface extends EObject {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model required="true" ordered="false" bookingNumberDataType="org.eclipse.uml2.types.String" bookingNumberRequired="true" bookingNumberOrdered="false"
+	 * @model required="true" ordered="false" bookingNumberRequired="true" bookingNumberOrdered="false"
 	 * @generated
 	 */
-	Booking getBooking(String bookingNumber);
+	Booking getBooking(int bookingNumber);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -53,10 +53,10 @@ public interface ReceptionistInterface extends EObject {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model required="true" ordered="false" surnameDataType="org.eclipse.uml2.types.String" surnameRequired="true" surnameOrdered="false" dateFromRequired="true" dateFromOrdered="false" dateToRequired="true" dateToOrdered="false"
+	 * @model ordered="false" surnameDataType="org.eclipse.uml2.types.String" surnameRequired="true" surnameOrdered="false" dateFromRequired="true" dateFromOrdered="false" dateToRequired="true" dateToOrdered="false"
 	 * @generated
 	 */
-	Booking getBooking(String surname, Date dateFrom, Date dateTo);
+	EList<Booking> viewAllBookings(String surname, Date dateFrom, Date dateTo);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -69,10 +69,10 @@ public interface ReceptionistInterface extends EObject {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model required="true" ordered="false" bookingRequired="true" bookingOrdered="false"
+	 * @model required="true" ordered="false" bookingRequired="true" bookingOrdered="false" roomsMany="true" roomsOrdered="false"
 	 * @generated
 	 */
-	boolean checkIn(Booking booking);
+	boolean checkIn(Booking booking, EList<Room> rooms);
 
 	/**
 	 * <!-- begin-user-doc -->

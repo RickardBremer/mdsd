@@ -6,8 +6,6 @@ import java.lang.reflect.InvocationTargetException;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
-import java.util.List;
-
 import model.DatabaseInterface;
 import model.Expense;
 import model.ExpenseExpert;
@@ -15,7 +13,6 @@ import model.ModelPackage;
 import model.Resident;
 import model.Room;
 import model.RoomExpert;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;

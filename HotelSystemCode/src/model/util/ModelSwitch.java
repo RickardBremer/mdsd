@@ -248,6 +248,7 @@ public class ModelSwitch<T> extends Switch<T> {
 			case ModelPackage.MS_ACCESS_DB: {
 				MSAccessDB msAccessDB = (MSAccessDB)theEObject;
 				T result = caseMSAccessDB(msAccessDB);
+				if (result == null) result = caseDatabaseInterface(msAccessDB);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}

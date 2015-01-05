@@ -4,21 +4,18 @@ package model.impl;
 
 import java.lang.reflect.InvocationTargetException;
 import java.util.Date;
-
 import model.Booking;
 import model.BookingController;
 import model.BookingExpert;
 import model.Customer;
 import model.DatabaseInterface;
 import model.Expense;
-import model.ExpenseExpert;
 import model.ModelPackage;
 import model.Payment;
 import model.PromotionExpert;
 import model.Receipt;
 import model.Room;
 import model.RoomExpert;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
@@ -260,7 +257,9 @@ public class BookingControllerImpl extends MinimalEObjectImpl.Container implemen
 	 * @generated
 	 */
 	public EList<Room> searchRooms(Date dateFrom, Date dateTo, int numberOfGuests, int numberOfRooms) {
-		return room.getAvailableRoomTypes(dateFrom, dateTo, numberOfRooms, numberOfGuests);
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
 	}
 
 	/**
@@ -269,9 +268,9 @@ public class BookingControllerImpl extends MinimalEObjectImpl.Container implemen
 	 * @generated
 	 */
 	public Customer createCustomer(String firstName, String surname, String email, String address, String ccNumber, String ccv, int expiringMonth, int expriningYear) {
-		Customer customer = new CustomerImpl();
-		customer.Customer(firstName, surname, email, address, ccNumber, ccv, expiringMonth, expriningYear);
-		return customer;
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
 	}
 
 	/**
@@ -280,8 +279,20 @@ public class BookingControllerImpl extends MinimalEObjectImpl.Container implemen
 	 * @generated
 	 */
 	public boolean pay(Customer customer, Receipt receipt) {
-		Payment pay = new PaymentImpl();
-		return pay.makePayment(customer, receipt.getTotalCost());
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateCard(Customer customer) {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
 	}
 
 	/**
@@ -432,6 +443,7 @@ public class BookingControllerImpl extends MinimalEObjectImpl.Container implemen
 	 * @generated
 	 */
 	@Override
+	@SuppressWarnings("unchecked")
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
 			case ModelPackage.BOOKING_CONTROLLER___SEARCH_ROOMS__DATE_DATE_INT_INT:
@@ -440,10 +452,10 @@ public class BookingControllerImpl extends MinimalEObjectImpl.Container implemen
 				return createCustomer((String)arguments.get(0), (String)arguments.get(1), (String)arguments.get(2), (String)arguments.get(3), (String)arguments.get(4), (String)arguments.get(5), (Integer)arguments.get(6), (Integer)arguments.get(7));
 			case ModelPackage.BOOKING_CONTROLLER___PAY__CUSTOMER_RECEIPT:
 				return pay((Customer)arguments.get(0), (Receipt)arguments.get(1));
-			case ModelPackage.BOOKING_CONTROLLER___VALIDATE_CARD__STRING_STRING_INT_INT:
-				return validateCard((String)arguments.get(0), (String)arguments.get(1), (Integer)arguments.get(2), (Integer)arguments.get(3));
-			case ModelPackage.BOOKING_CONTROLLER___CREATE_BOOKING__DATE_DATE_STRING_CUSTOMER_STRING_RECEIPT_STRING:
-				return createBooking((Date)arguments.get(0), (Date)arguments.get(1), (String)arguments.get(2), (Customer)arguments.get(3), (String)arguments.get(4), (Receipt)arguments.get(5), (String)arguments.get(6));
+			case ModelPackage.BOOKING_CONTROLLER___VALIDATE_CARD__CUSTOMER:
+				return validateCard((Customer)arguments.get(0));
+			case ModelPackage.BOOKING_CONTROLLER___CREATE_BOOKING__DATE_DATE_STRING_CUSTOMER_STRING_RECEIPT_ELIST:
+				return createBooking((Date)arguments.get(0), (Date)arguments.get(1), (String)arguments.get(2), (Customer)arguments.get(3), (String)arguments.get(4), (Receipt)arguments.get(5), (EList<String>)arguments.get(6));
 			case ModelPackage.BOOKING_CONTROLLER___BOOKING_CONTROLLER__ROOMEXPERT_BOOKINGEXPERT_PROMOTIONEXPERT:
 				BookingController((RoomExpert)arguments.get(0), (BookingExpert)arguments.get(1), (PromotionExpert)arguments.get(2));
 				return null;

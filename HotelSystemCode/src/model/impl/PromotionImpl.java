@@ -29,9 +29,10 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  *   <li>{@link model.impl.PromotionImpl#getCode <em>Code</em>}</li>
  *   <li>{@link model.impl.PromotionImpl#getDescription <em>Description</em>}</li>
  *   <li>{@link model.impl.PromotionImpl#getPercentage <em>Percentage</em>}</li>
- *   <li>{@link model.impl.PromotionImpl#getID <em>ID</em>}</li>
  *   <li>{@link model.impl.PromotionImpl#getValidFrom <em>Valid From</em>}</li>
  *   <li>{@link model.impl.PromotionImpl#getValidTo <em>Valid To</em>}</li>
+ *   <li>{@link model.impl.PromotionImpl#getRoomType <em>Room Type</em>}</li>
+ *   <li>{@link model.impl.PromotionImpl#getExpirationDate <em>Expiration Date</em>}</li>
  * </ul>
  * </p>
  *
@@ -99,26 +100,6 @@ public class PromotionImpl extends MinimalEObjectImpl.Container implements Promo
 	protected int percentage = PERCENTAGE_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getID() <em>ID</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getID()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final int ID_EDEFAULT = 0;
-
-	/**
-	 * The cached value of the '{@link #getID() <em>ID</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getID()
-	 * @generated
-	 * @ordered
-	 */
-	protected int id = ID_EDEFAULT;
-
-	/**
 	 * The default value of the '{@link #getValidFrom() <em>Valid From</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -157,6 +138,46 @@ public class PromotionImpl extends MinimalEObjectImpl.Container implements Promo
 	 * @ordered
 	 */
 	protected Date validTo = VALID_TO_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getRoomType() <em>Room Type</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getRoomType()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String ROOM_TYPE_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getRoomType() <em>Room Type</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getRoomType()
+	 * @generated
+	 * @ordered
+	 */
+	protected String roomType = ROOM_TYPE_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getExpirationDate() <em>Expiration Date</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getExpirationDate()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final Date EXPIRATION_DATE_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getExpirationDate() <em>Expiration Date</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getExpirationDate()
+	 * @generated
+	 * @ordered
+	 */
+	protected Date expirationDate = EXPIRATION_DATE_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -245,27 +266,6 @@ public class PromotionImpl extends MinimalEObjectImpl.Container implements Promo
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public int getID() {
-		return id;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setID(int newID) {
-		int oldID = id;
-		id = newID;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.PROMOTION__ID, oldID, id));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public Date getValidFrom() {
 		return validFrom;
 	}
@@ -308,11 +308,49 @@ public class PromotionImpl extends MinimalEObjectImpl.Container implements Promo
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void calculateDiscount(Room room) {
-		int total = 0;
-		int rp = room.getPrice();
-		total = rp * percentage;
-				
+	public String getRoomType() {
+		return roomType;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setRoomType(String newRoomType) {
+		String oldRoomType = roomType;
+		roomType = newRoomType;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.PROMOTION__ROOM_TYPE, oldRoomType, roomType));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Date getExpirationDate() {
+		return expirationDate;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setExpirationDate(Date newExpirationDate) {
+		Date oldExpirationDate = expirationDate;
+		expirationDate = newExpirationDate;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.PROMOTION__EXPIRATION_DATE, oldExpirationDate, expirationDate));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public double calculateDiscount(Room room) {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();
@@ -323,13 +361,7 @@ public class PromotionImpl extends MinimalEObjectImpl.Container implements Promo
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void Promotion(String code, String description, int percentage, Date vaildFrom, Date vaildTo) {
-		this.code ＝ code;
-		this.description = description;
-		this.percentage = percentage;
-		this.validFrom = validFrom;
-		this.validTo = validTo;
-		
+	public void Promotion(String code, String description, int percentage, Date vaildFrom, Date vaildTo, String roomType, Date expirationDate) {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();
@@ -349,12 +381,14 @@ public class PromotionImpl extends MinimalEObjectImpl.Container implements Promo
 				return getDescription();
 			case ModelPackage.PROMOTION__PERCENTAGE:
 				return getPercentage();
-			case ModelPackage.PROMOTION__ID:
-				return getID();
 			case ModelPackage.PROMOTION__VALID_FROM:
 				return getValidFrom();
 			case ModelPackage.PROMOTION__VALID_TO:
 				return getValidTo();
+			case ModelPackage.PROMOTION__ROOM_TYPE:
+				return getRoomType();
+			case ModelPackage.PROMOTION__EXPIRATION_DATE:
+				return getExpirationDate();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -376,14 +410,17 @@ public class PromotionImpl extends MinimalEObjectImpl.Container implements Promo
 			case ModelPackage.PROMOTION__PERCENTAGE:
 				setPercentage((Integer)newValue);
 				return;
-			case ModelPackage.PROMOTION__ID:
-				setID((Integer)newValue);
-				return;
 			case ModelPackage.PROMOTION__VALID_FROM:
 				setValidFrom((Date)newValue);
 				return;
 			case ModelPackage.PROMOTION__VALID_TO:
 				setValidTo((Date)newValue);
+				return;
+			case ModelPackage.PROMOTION__ROOM_TYPE:
+				setRoomType((String)newValue);
+				return;
+			case ModelPackage.PROMOTION__EXPIRATION_DATE:
+				setExpirationDate((Date)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -406,14 +443,17 @@ public class PromotionImpl extends MinimalEObjectImpl.Container implements Promo
 			case ModelPackage.PROMOTION__PERCENTAGE:
 				setPercentage(PERCENTAGE_EDEFAULT);
 				return;
-			case ModelPackage.PROMOTION__ID:
-				setID(ID_EDEFAULT);
-				return;
 			case ModelPackage.PROMOTION__VALID_FROM:
 				setValidFrom(VALID_FROM_EDEFAULT);
 				return;
 			case ModelPackage.PROMOTION__VALID_TO:
 				setValidTo(VALID_TO_EDEFAULT);
+				return;
+			case ModelPackage.PROMOTION__ROOM_TYPE:
+				setRoomType(ROOM_TYPE_EDEFAULT);
+				return;
+			case ModelPackage.PROMOTION__EXPIRATION_DATE:
+				setExpirationDate(EXPIRATION_DATE_EDEFAULT);
 				return;
 		}
 		super.eUnset(featureID);
@@ -433,12 +473,14 @@ public class PromotionImpl extends MinimalEObjectImpl.Container implements Promo
 				return DESCRIPTION_EDEFAULT == null ? description != null : !DESCRIPTION_EDEFAULT.equals(description);
 			case ModelPackage.PROMOTION__PERCENTAGE:
 				return percentage != PERCENTAGE_EDEFAULT;
-			case ModelPackage.PROMOTION__ID:
-				return id != ID_EDEFAULT;
 			case ModelPackage.PROMOTION__VALID_FROM:
 				return VALID_FROM_EDEFAULT == null ? validFrom != null : !VALID_FROM_EDEFAULT.equals(validFrom);
 			case ModelPackage.PROMOTION__VALID_TO:
 				return VALID_TO_EDEFAULT == null ? validTo != null : !VALID_TO_EDEFAULT.equals(validTo);
+			case ModelPackage.PROMOTION__ROOM_TYPE:
+				return ROOM_TYPE_EDEFAULT == null ? roomType != null : !ROOM_TYPE_EDEFAULT.equals(roomType);
+			case ModelPackage.PROMOTION__EXPIRATION_DATE:
+				return EXPIRATION_DATE_EDEFAULT == null ? expirationDate != null : !EXPIRATION_DATE_EDEFAULT.equals(expirationDate);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -452,10 +494,9 @@ public class PromotionImpl extends MinimalEObjectImpl.Container implements Promo
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
 			case ModelPackage.PROMOTION___CALCULATE_DISCOUNT__ROOM:
-				calculateDiscount((Room)arguments.get(0));
-				return null;
-			case ModelPackage.PROMOTION___PROMOTION__STRING_STRING_INT_DATE_DATE:
-				Promotion((String)arguments.get(0), (String)arguments.get(1), (Integer)arguments.get(2), (Date)arguments.get(3), (Date)arguments.get(4));
+				return calculateDiscount((Room)arguments.get(0));
+			case ModelPackage.PROMOTION___PROMOTION__STRING_STRING_INT_DATE_DATE_STRING_DATE:
+				Promotion((String)arguments.get(0), (String)arguments.get(1), (Integer)arguments.get(2), (Date)arguments.get(3), (Date)arguments.get(4), (String)arguments.get(5), (Date)arguments.get(6));
 				return null;
 		}
 		return super.eInvoke(operationID, arguments);
@@ -477,12 +518,14 @@ public class PromotionImpl extends MinimalEObjectImpl.Container implements Promo
 		result.append(description);
 		result.append(", percentage: ");
 		result.append(percentage);
-		result.append(", ID: ");
-		result.append(id);
 		result.append(", validFrom: ");
 		result.append(validFrom);
 		result.append(", validTo: ");
 		result.append(validTo);
+		result.append(", roomType: ");
+		result.append(roomType);
+		result.append(", expirationDate: ");
+		result.append(expirationDate);
 		result.append(')');
 		return result.toString();
 	}

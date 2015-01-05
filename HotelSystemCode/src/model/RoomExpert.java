@@ -81,7 +81,7 @@ public interface RoomExpert extends EObject {
 	 * @model required="true" ordered="false" roomRequired="true" roomOrdered="false"
 	 * @generated
 	 */
-	boolean addRoom(Room room);
+	Room addRoom(Room room);
 
 	/**
 	 * <!-- begin-user-doc -->

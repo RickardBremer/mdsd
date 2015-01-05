@@ -2,6 +2,7 @@
  */
 package model;
 
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -18,42 +19,10 @@ public interface DatabaseInterface extends EObject {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model annotation="http://www.eclipse.org/uml2/2.0.0/UML originalName='query(string): row[]/ArrayLst'"
+	 * @model dataType="org.eclipse.uml2.types.String" ordered="false" queryDataType="org.eclipse.uml2.types.String" queryRequired="true" queryOrdered="false"
 	 * @generated
 	 */
-	void querystringrowArrayLst();
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model annotation="http://www.eclipse.org/uml2/2.0.0/UML originalName='update(string):boolean'"
-	 * @generated
-	 */
-	void updatestringboolean();
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model annotation="http://www.eclipse.org/uml2/2.0.0/UML originalName='create(string):boolean'"
-	 * @generated
-	 */
-	void createstringboolean();
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model annotation="http://www.eclipse.org/uml2/2.0.0/UML originalName='remove(string):boolean'"
-	 * @generated
-	 */
-	void removestringboolean();
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model dataType="org.eclipse.uml2.types.String" required="true" ordered="false" queryDataType="org.eclipse.uml2.types.String" queryRequired="true" queryOrdered="false"
-	 * @generated
-	 */
-	String query(String query);
+	EList<String> query(String query);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -61,22 +30,6 @@ public interface DatabaseInterface extends EObject {
 	 * @model required="true" ordered="false" queryDataType="org.eclipse.uml2.types.String" queryRequired="true" queryOrdered="false"
 	 * @generated
 	 */
-	boolean update(String query);
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model required="true" ordered="false" queryDataType="org.eclipse.uml2.types.String" queryRequired="true" queryOrdered="false"
-	 * @generated
-	 */
-	boolean create(String query);
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model required="true" ordered="false" queryDataType="org.eclipse.uml2.types.String" queryRequired="true" queryOrdered="false"
-	 * @generated
-	 */
-	boolean remove(String query);
+	boolean send(String query);
 
 } // DatabaseInterface

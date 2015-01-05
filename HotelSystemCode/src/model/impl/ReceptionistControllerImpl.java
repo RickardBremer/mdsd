@@ -162,9 +162,7 @@ public class ReceptionistControllerImpl extends BookingControllerImpl implements
 	public Resident createResident(String firstName, String surname, String passportNumber) {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
-		Resident r = new ResidentImpl();
-		r.Resident(firstName, surname, passportNumber);
-		return r;
+		throw new UnsupportedOperationException();
 	}
 
 	/**
@@ -175,9 +173,7 @@ public class ReceptionistControllerImpl extends BookingControllerImpl implements
 	public EList<Booking> viewAllBookings(Date fromDate, Date toDate) {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
-		EList<Booking> blist = bookingExpert.getAllBooking(fromDate, toDate);
-		return blist;
-		
+		throw new UnsupportedOperationException();
 	}
 //	public EList<Booking> viewAllBookings() {
 //		// TODO: implement this method
@@ -192,13 +188,12 @@ public class ReceptionistControllerImpl extends BookingControllerImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Booking getBooking(String bookingNumber) {
+	public Booking getBooking(int bookingNumber) {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
-		Booking b = bookingExpert.getBooking(bookingNumber);
-		return b;
+		throw new UnsupportedOperationException();
 	}
-	
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -220,11 +215,21 @@ public class ReceptionistControllerImpl extends BookingControllerImpl implements
 	public EList<Room> viewUnOccupiedRooms() {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
-		EList<Room> rlist = room.getUnoccupiedRooms();
-		return rlist;
+		throw new UnsupportedOperationException();
 	}
 
 
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<Booking> viewAllBookings(String surname, Date dateFrom, Date dateTo) {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -234,14 +239,7 @@ public class ReceptionistControllerImpl extends BookingControllerImpl implements
 	public EList<Room> viewUnOccupiedRooms(String roomType) {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
-		EList<Room> roomlist = room.getUnoccupiedRooms();
-		EList<Room> resultlist = null;
-		for (Room r : roomlist) {
-			if (r.getType().matches(roomType)) {
-				resultlist.add(r);
-			}
-		}
-		return resultlist;
+		throw new UnsupportedOperationException();
 	}
 
 	/**
@@ -249,23 +247,13 @@ public class ReceptionistControllerImpl extends BookingControllerImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean checkIn(Booking booking, Room[] room) {
+	public boolean checkIn(Booking booking, EList<Room> rooms) {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
-		EList<String> bookedTypes =  booking.getRoomTypes();
-		EList<Room> availableTypes = viewUnOccupiedRooms();
-		for (Room r : room) {
-			databaseInterface.send("INSERT INTO tblStays(BookingID,RoomID) VALUES (" +booking.getBookingID() + "," +r.getNumber() +");" );
-			for (Resident res : r.getResident()){
-				databaseInterface.send("INSERT INTO tblResidents VALUES ('"+res.getPassportNumber()+"','"+res.getFirstName() +"','" +res.getSurname() +"');" );
-				databaseInterface.query("SELECT StayID FROM tblStays WHERE BookingID='"+booking.getBookingID()+"' AND WHERE RoomID='"+r.getNumber()+"'");
-			}
-		}
-		databaseInterface.send("UPDATE tblBookings SET CheckedIn=true WHERE BookingID='" + booking.getBookingID() + "';");
-		return true;
+		throw new UnsupportedOperationException();
 	}
-	
-//	public boolean checkIn(Room[] room) {
+
+	//	public boolean checkIn(Room[] room) {
 //		// TODO: implement this method
 //		// Ensure that you remove @generated or mark it @generated NOT
 //		EList<String> bookedTypes =  booking.getRoomTypes();
@@ -301,7 +289,6 @@ public class ReceptionistControllerImpl extends BookingControllerImpl implements
 	public void ReceptionistController(ReceiptExpert receiptExpert, ExpenseExpert expenseExpert, RoomExpert roomExpert, BookingExpert bookingExpert, PromotionExpert promotionExpert, UserExpert userExpert) {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
-		receiptExpert = receiptExpert;
 		throw new UnsupportedOperationException();
 	}
 
@@ -386,11 +373,11 @@ public class ReceptionistControllerImpl extends BookingControllerImpl implements
 			switch (baseOperationID) {
 				case ModelPackage.RECEPTIONIST_INTERFACE___CREATE_RESIDENT__STRING_STRING_STRING: return ModelPackage.RECEPTIONIST_CONTROLLER___CREATE_RESIDENT__STRING_STRING_STRING;
 				case ModelPackage.RECEPTIONIST_INTERFACE___VIEW_ALL_BOOKINGS__DATE_DATE: return ModelPackage.RECEPTIONIST_CONTROLLER___VIEW_ALL_BOOKINGS__DATE_DATE;
-				case ModelPackage.RECEPTIONIST_INTERFACE___GET_BOOKING__STRING: return ModelPackage.RECEPTIONIST_CONTROLLER___GET_BOOKING__STRING;
+				case ModelPackage.RECEPTIONIST_INTERFACE___GET_BOOKING__INT: return ModelPackage.RECEPTIONIST_CONTROLLER___GET_BOOKING__INT;
 				case ModelPackage.RECEPTIONIST_INTERFACE___VIEW_UN_OCCUPIED_ROOMS: return ModelPackage.RECEPTIONIST_CONTROLLER___VIEW_UN_OCCUPIED_ROOMS;
-				case ModelPackage.RECEPTIONIST_INTERFACE___GET_BOOKING__STRING_DATE_DATE: return ModelPackage.RECEPTIONIST_CONTROLLER___GET_BOOKING__STRING_DATE_DATE;
+				case ModelPackage.RECEPTIONIST_INTERFACE___VIEW_ALL_BOOKINGS__STRING_DATE_DATE: return ModelPackage.RECEPTIONIST_CONTROLLER___VIEW_ALL_BOOKINGS__STRING_DATE_DATE;
 				case ModelPackage.RECEPTIONIST_INTERFACE___VIEW_UN_OCCUPIED_ROOMS__STRING: return ModelPackage.RECEPTIONIST_CONTROLLER___VIEW_UN_OCCUPIED_ROOMS__STRING;
-				case ModelPackage.RECEPTIONIST_INTERFACE___CHECK_IN__BOOKING: return ModelPackage.RECEPTIONIST_CONTROLLER___CHECK_IN__BOOKING;
+				case ModelPackage.RECEPTIONIST_INTERFACE___CHECK_IN__BOOKING_ELIST: return ModelPackage.RECEPTIONIST_CONTROLLER___CHECK_IN__BOOKING_ELIST;
 				case ModelPackage.RECEPTIONIST_INTERFACE___CHECK_OUT__BOOKING: return ModelPackage.RECEPTIONIST_CONTROLLER___CHECK_OUT__BOOKING;
 				default: return -1;
 			}
@@ -404,22 +391,23 @@ public class ReceptionistControllerImpl extends BookingControllerImpl implements
 	 * @generated
 	 */
 	@Override
+	@SuppressWarnings("unchecked")
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
 			case ModelPackage.RECEPTIONIST_CONTROLLER___CREATE_RESIDENT__STRING_STRING_STRING:
 				return createResident((String)arguments.get(0), (String)arguments.get(1), (String)arguments.get(2));
 			case ModelPackage.RECEPTIONIST_CONTROLLER___VIEW_ALL_BOOKINGS__DATE_DATE:
 				return viewAllBookings((Date)arguments.get(0), (Date)arguments.get(1));
-			case ModelPackage.RECEPTIONIST_CONTROLLER___GET_BOOKING__STRING:
-				return getBooking((String)arguments.get(0));
+			case ModelPackage.RECEPTIONIST_CONTROLLER___GET_BOOKING__INT:
+				return getBooking((Integer)arguments.get(0));
 			case ModelPackage.RECEPTIONIST_CONTROLLER___VIEW_UN_OCCUPIED_ROOMS:
 				return viewUnOccupiedRooms();
-			case ModelPackage.RECEPTIONIST_CONTROLLER___GET_BOOKING__STRING_DATE_DATE:
-				return getBooking((String)arguments.get(0), (Date)arguments.get(1), (Date)arguments.get(2));
+			case ModelPackage.RECEPTIONIST_CONTROLLER___VIEW_ALL_BOOKINGS__STRING_DATE_DATE:
+				return viewAllBookings((String)arguments.get(0), (Date)arguments.get(1), (Date)arguments.get(2));
 			case ModelPackage.RECEPTIONIST_CONTROLLER___VIEW_UN_OCCUPIED_ROOMS__STRING:
 				return viewUnOccupiedRooms((String)arguments.get(0));
-			case ModelPackage.RECEPTIONIST_CONTROLLER___CHECK_IN__BOOKING:
-				return checkIn((Booking)arguments.get(0));
+			case ModelPackage.RECEPTIONIST_CONTROLLER___CHECK_IN__BOOKING_ELIST:
+				return checkIn((Booking)arguments.get(0), (EList<Room>)arguments.get(1));
 			case ModelPackage.RECEPTIONIST_CONTROLLER___CHECK_OUT__BOOKING:
 				return checkOut((Booking)arguments.get(0));
 			case ModelPackage.RECEPTIONIST_CONTROLLER___RECEPTIONIST_CONTROLLER__RECEIPTEXPERT_EXPENSEEXPERT_ROOMEXPERT_BOOKINGEXPERT_PROMOTIONEXPERT_USEREXPERT:

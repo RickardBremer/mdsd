@@ -26,10 +26,9 @@ public interface Payment extends EObject {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model kind="operation"
-	 *        annotation="http://www.eclipse.org/uml2/2.0.0/UML originalName='isCreditCardValid(customer : Bool)'"
+	 * @model required="true" ordered="false" customerRequired="true" customerOrdered="false"
 	 * @generated
 	 */
-	void isCreditCardValidcustomerBool();
+	boolean isCreditCardValid(Customer customer);
 
 } // Payment

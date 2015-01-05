@@ -71,7 +71,7 @@ public interface ExpenseExpert extends EObject {
 	 * @model required="true" ordered="false" expenseRequired="true" expenseOrdered="false"
 	 * @generated
 	 */
-	boolean addExpense(Expense expense);
+	Expense addExpense(Expense expense);
 
 	/**
 	 * <!-- begin-user-doc -->

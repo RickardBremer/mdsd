@@ -26,7 +26,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  *   <li>{@link model.impl.UserImpl#getFirstName <em>First Name</em>}</li>
  *   <li>{@link model.impl.UserImpl#getSurname <em>Surname</em>}</li>
  *   <li>{@link model.impl.UserImpl#getPassword <em>Password</em>}</li>
- *   <li>{@link model.impl.UserImpl#getID <em>ID</em>}</li>
+ *   <li>{@link model.impl.UserImpl#getId <em>Id</em>}</li>
  *   <li>{@link model.impl.UserImpl#isReceptionist <em>Receptionist</em>}</li>
  *   <li>{@link model.impl.UserImpl#isAdministrator <em>Administrator</em>}</li>
  * </ul>
@@ -96,20 +96,20 @@ public class UserImpl extends MinimalEObjectImpl.Container implements User {
 	protected String password = PASSWORD_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getID() <em>ID</em>}' attribute.
+	 * The default value of the '{@link #getId() <em>Id</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getID()
+	 * @see #getId()
 	 * @generated
 	 * @ordered
 	 */
 	protected static final int ID_EDEFAULT = 0;
 
 	/**
-	 * The cached value of the '{@link #getID() <em>ID</em>}' attribute.
+	 * The cached value of the '{@link #getId() <em>Id</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getID()
+	 * @see #getId()
 	 * @generated
 	 * @ordered
 	 */
@@ -242,7 +242,7 @@ public class UserImpl extends MinimalEObjectImpl.Container implements User {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public int getID() {
+	public int getId() {
 		return id;
 	}
 
@@ -251,11 +251,11 @@ public class UserImpl extends MinimalEObjectImpl.Container implements User {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setID(int newID) {
-		int oldID = id;
-		id = newID;
+	public void setId(int newId) {
+		int oldId = id;
+		id = newId;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.USER__ID, oldID, id));
+			eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.USER__ID, oldId, id));
 	}
 
 	/**
@@ -303,6 +303,17 @@ public class UserImpl extends MinimalEObjectImpl.Container implements User {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void User(String firstName, String surname, String password, boolean receptionist, boolean administrator, int id) {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
 	public void User(String firstName, String surname, String password, boolean receptionist, boolean administrator) {
@@ -329,7 +340,7 @@ public class UserImpl extends MinimalEObjectImpl.Container implements User {
 			case ModelPackage.USER__PASSWORD:
 				return getPassword();
 			case ModelPackage.USER__ID:
-				return getID();
+				return getId();
 			case ModelPackage.USER__RECEPTIONIST:
 				return isReceptionist();
 			case ModelPackage.USER__ADMINISTRATOR:
@@ -356,7 +367,7 @@ public class UserImpl extends MinimalEObjectImpl.Container implements User {
 				setPassword((String)newValue);
 				return;
 			case ModelPackage.USER__ID:
-				setID((Integer)newValue);
+				setId((Integer)newValue);
 				return;
 			case ModelPackage.USER__RECEPTIONIST:
 				setReceptionist((Boolean)newValue);
@@ -386,7 +397,7 @@ public class UserImpl extends MinimalEObjectImpl.Container implements User {
 				setPassword(PASSWORD_EDEFAULT);
 				return;
 			case ModelPackage.USER__ID:
-				setID(ID_EDEFAULT);
+				setId(ID_EDEFAULT);
 				return;
 			case ModelPackage.USER__RECEPTIONIST:
 				setReceptionist(RECEPTIONIST_EDEFAULT);
@@ -430,8 +441,8 @@ public class UserImpl extends MinimalEObjectImpl.Container implements User {
 	@Override
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
-			case ModelPackage.USER___USER__STRING_STRING_STRING_BOOLEAN_BOOLEAN:
-				User((String)arguments.get(0), (String)arguments.get(1), (String)arguments.get(2), (Boolean)arguments.get(3), (Boolean)arguments.get(4));
+			case ModelPackage.USER___USER__STRING_STRING_STRING_BOOLEAN_BOOLEAN_INT:
+				User((String)arguments.get(0), (String)arguments.get(1), (String)arguments.get(2), (Boolean)arguments.get(3), (Boolean)arguments.get(4), (Integer)arguments.get(5));
 				return null;
 		}
 		return super.eInvoke(operationID, arguments);
@@ -453,7 +464,7 @@ public class UserImpl extends MinimalEObjectImpl.Container implements User {
 		result.append(surname);
 		result.append(", password: ");
 		result.append(password);
-		result.append(", ID: ");
+		result.append(", id: ");
 		result.append(id);
 		result.append(", receptionist: ");
 		result.append(receptionist);

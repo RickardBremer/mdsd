@@ -62,26 +62,10 @@ public interface BookingExpert extends EObject {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model required="true" ordered="false" bookingIDDataType="org.eclipse.uml2.types.String" bookingIDRequired="true" bookingIDOrdered="false"
-	 * @generated
-	 */
-	Booking getBooking(String bookingID);
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
 	 * @model ordered="false" dateFromRequired="true" dateFromOrdered="false" dateToRequired="true" dateToOrdered="false"
 	 * @generated
 	 */
-	EList<Booking> getAllBooking(Date dateFrom, Date dateTo);
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model kind="operation" required="true" ordered="false"
-	 * @generated
-	 */
-	Booking getAllBookings();
+	EList<Booking> getAllBookings(Date dateFrom, Date dateTo);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -89,7 +73,7 @@ public interface BookingExpert extends EObject {
 	 * @model required="true" ordered="false" bookingRequired="true" bookingOrdered="false"
 	 * @generated
 	 */
-	boolean addBooking(Booking booking);
+	Booking addBooking(Booking booking);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -110,10 +94,10 @@ public interface BookingExpert extends EObject {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model required="true" ordered="false" surnameDataType="org.eclipse.uml2.types.String" surnameRequired="true" surnameOrdered="false"
+	 * @model ordered="false" dateFromRequired="true" dateFromOrdered="false" dateToRequired="true" dateToOrdered="false" surnameDataType="org.eclipse.uml2.types.String" surnameRequired="true" surnameOrdered="false"
 	 * @generated
 	 */
-	Booking getAllBookings(String surname);
+	EList<Booking> getAllBookings(Date dateFrom, Date dateTo, String surname);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -122,5 +106,21 @@ public interface BookingExpert extends EObject {
 	 * @generated
 	 */
 	void BookingExpert(DatabaseInterface database);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model required="true" ordered="false" bookingRequired="true" bookingOrdered="false" roomsMany="true" roomsOrdered="false"
+	 * @generated
+	 */
+	boolean checkIn(Booking booking, EList<Room> rooms);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model required="true" ordered="false" bookingRequired="true" bookingOrdered="false"
+	 * @generated
+	 */
+	boolean checkOut(Booking booking);
 
 } // BookingExpert

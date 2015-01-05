@@ -18,7 +18,8 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link model.Expense#getName <em>Name</em>}</li>
  *   <li>{@link model.Expense#getDescription <em>Description</em>}</li>
  *   <li>{@link model.Expense#getDate <em>Date</em>}</li>
- *   <li>{@link model.Expense#getID <em>ID</em>}</li>
+ *   <li>{@link model.Expense#getId <em>Id</em>}</li>
+ *   <li>{@link model.Expense#isFixed <em>Fixed</em>}</li>
  * </ul>
  * </p>
  *
@@ -36,12 +37,12 @@ public interface Expense extends EObject {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Price</em>' attribute.
-	 * @see #setPrice(int)
+	 * @see #setPrice(double)
 	 * @see model.ModelPackage#getExpense_Price()
-	 * @model dataType="org.eclipse.uml2.types.Integer" required="true" ordered="false"
+	 * @model required="true" ordered="false"
 	 * @generated
 	 */
-	int getPrice();
+	double getPrice();
 
 	/**
 	 * Sets the value of the '{@link model.Expense#getPrice <em>Price</em>}' attribute.
@@ -51,7 +52,7 @@ public interface Expense extends EObject {
 	 * @see #getPrice()
 	 * @generated
 	 */
-	void setPrice(int value);
+	void setPrice(double value);
 
 	/**
 	 * Returns the value of the '<em><b>Name</b></em>' attribute.
@@ -132,37 +133,63 @@ public interface Expense extends EObject {
 	void setDate(Date value);
 
 	/**
-	 * Returns the value of the '<em><b>ID</b></em>' attribute.
+	 * Returns the value of the '<em><b>Id</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>ID</em>' attribute isn't clear,
+	 * If the meaning of the '<em>Id</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>ID</em>' attribute.
-	 * @see #setID(int)
-	 * @see model.ModelPackage#getExpense_ID()
-	 * @model dataType="org.eclipse.uml2.types.Integer" required="true" ordered="false"
+	 * @return the value of the '<em>Id</em>' attribute.
+	 * @see #setId(int)
+	 * @see model.ModelPackage#getExpense_Id()
+	 * @model required="true" ordered="false"
 	 * @generated
 	 */
-	int getID();
+	int getId();
 
 	/**
-	 * Sets the value of the '{@link model.Expense#getID <em>ID</em>}' attribute.
+	 * Sets the value of the '{@link model.Expense#getId <em>Id</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>ID</em>' attribute.
-	 * @see #getID()
+	 * @param value the new value of the '<em>Id</em>' attribute.
+	 * @see #getId()
 	 * @generated
 	 */
-	void setID(int value);
+	void setId(int value);
+
+	/**
+	 * Returns the value of the '<em><b>Fixed</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Fixed</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Fixed</em>' attribute.
+	 * @see #setFixed(boolean)
+	 * @see model.ModelPackage#getExpense_Fixed()
+	 * @model required="true" ordered="false"
+	 * @generated
+	 */
+	boolean isFixed();
+
+	/**
+	 * Sets the value of the '{@link model.Expense#isFixed <em>Fixed</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Fixed</em>' attribute.
+	 * @see #isFixed()
+	 * @generated
+	 */
+	void setFixed(boolean value);
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model priceDataType="org.eclipse.uml2.types.Integer" priceRequired="true" priceOrdered="false" nameDataType="org.eclipse.uml2.types.String" nameRequired="true" nameOrdered="false" descriptionDataType="org.eclipse.uml2.types.String" descriptionRequired="true" descriptionOrdered="false" dateRequired="true" dateOrdered="false"
+	 * @model idRequired="true" idOrdered="false" nameDataType="org.eclipse.uml2.types.String" nameRequired="true" nameOrdered="false" dateRequired="true" dateOrdered="false" descriptionDataType="org.eclipse.uml2.types.String" descriptionRequired="true" descriptionOrdered="false" priceDataType="org.eclipse.uml2.types.Integer" priceRequired="true" priceOrdered="false" isFixedRequired="true" isFixedOrdered="false"
 	 * @generated
 	 */
-	void Expense(int price, String name, String description, Date date);
+	void Expense(int id, String name, Date date, String description, int price, boolean isFixed);
 
 } // Expense

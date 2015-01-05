@@ -71,7 +71,7 @@ public interface UserExpert extends EObject {
 	 * @model required="true" ordered="false" userRequired="true" userOrdered="false"
 	 * @generated
 	 */
-	boolean addUser(User user);
+	User addUser(User user);
 
 	/**
 	 * <!-- begin-user-doc -->

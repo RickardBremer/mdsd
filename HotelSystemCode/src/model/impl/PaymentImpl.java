@@ -59,7 +59,7 @@ public class PaymentImpl extends MinimalEObjectImpl.Container implements Payment
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void isCreditCardValidcustomerBool() {
+	public boolean isCreditCardValid(Customer customer) {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();
@@ -75,9 +75,8 @@ public class PaymentImpl extends MinimalEObjectImpl.Container implements Payment
 		switch (operationID) {
 			case ModelPackage.PAYMENT___MAKE_PAYMENT__CUSTOMER_INT:
 				return makePayment((Customer)arguments.get(0), (Integer)arguments.get(1));
-			case ModelPackage.PAYMENT___IS_CREDIT_CARD_VALIDCUSTOMER_BOOL:
-				isCreditCardValidcustomerBool();
-				return null;
+			case ModelPackage.PAYMENT___IS_CREDIT_CARD_VALID__CUSTOMER:
+				return isCreditCardValid((Customer)arguments.get(0));
 		}
 		return super.eInvoke(operationID, arguments);
 	}

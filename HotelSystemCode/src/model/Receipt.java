@@ -16,11 +16,10 @@ import org.eclipse.emf.ecore.EObject;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link model.Receipt#getExpense <em>Expense</em>}</li>
+ *   <li>{@link model.Receipt#getExpenses <em>Expenses</em>}</li>
  *   <li>{@link model.Receipt#getTotalCost <em>Total Cost</em>}</li>
  *   <li>{@link model.Receipt#getDate <em>Date</em>}</li>
- *   <li>{@link model.Receipt#getExpenses <em>Expenses</em>}</li>
- *   <li>{@link model.Receipt#getID <em>ID</em>}</li>
+ *   <li>{@link model.Receipt#getId <em>Id</em>}</li>
  * </ul>
  * </p>
  *
@@ -30,22 +29,6 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface Receipt extends EObject {
 	/**
-	 * Returns the value of the '<em><b>Expense</b></em>' reference list.
-	 * The list contents are of type {@link model.Expense}.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Expense</em>' reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Expense</em>' reference list.
-	 * @see model.ModelPackage#getReceipt_Expense()
-	 * @model ordered="false"
-	 * @generated
-	 */
-	EList<Expense> getExpense();
-
-	/**
 	 * Returns the value of the '<em><b>Total Cost</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
@@ -54,12 +37,12 @@ public interface Receipt extends EObject {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Total Cost</em>' attribute.
-	 * @see #setTotalCost(int)
+	 * @see #setTotalCost(double)
 	 * @see model.ModelPackage#getReceipt_TotalCost()
-	 * @model dataType="org.eclipse.uml2.types.Integer" required="true" ordered="false"
+	 * @model required="true" ordered="false"
 	 * @generated
 	 */
-	int getTotalCost();
+	double getTotalCost();
 
 	/**
 	 * Sets the value of the '{@link model.Receipt#getTotalCost <em>Total Cost</em>}' attribute.
@@ -69,7 +52,7 @@ public interface Receipt extends EObject {
 	 * @see #getTotalCost()
 	 * @generated
 	 */
-	void setTotalCost(int value);
+	void setTotalCost(double value);
 
 	/**
 	 * Returns the value of the '<em><b>Date</b></em>' attribute.
@@ -98,6 +81,32 @@ public interface Receipt extends EObject {
 	void setDate(Date value);
 
 	/**
+	 * Returns the value of the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Id</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Id</em>' attribute.
+	 * @see #setId(int)
+	 * @see model.ModelPackage#getReceipt_Id()
+	 * @model required="true" ordered="false"
+	 * @generated
+	 */
+	int getId();
+
+	/**
+	 * Sets the value of the '{@link model.Receipt#getId <em>Id</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Id</em>' attribute.
+	 * @see #getId()
+	 * @generated
+	 */
+	void setId(int value);
+
+	/**
 	 * Returns the value of the '<em><b>Expenses</b></em>' reference list.
 	 * The list contents are of type {@link model.Expense}.
 	 * <!-- begin-user-doc -->
@@ -112,32 +121,6 @@ public interface Receipt extends EObject {
 	 * @generated
 	 */
 	EList<Expense> getExpenses();
-
-	/**
-	 * Returns the value of the '<em><b>ID</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>ID</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>ID</em>' attribute.
-	 * @see #setID(int)
-	 * @see model.ModelPackage#getReceipt_ID()
-	 * @model required="true" ordered="false"
-	 * @generated
-	 */
-	int getID();
-
-	/**
-	 * Sets the value of the '{@link model.Receipt#getID <em>ID</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>ID</em>' attribute.
-	 * @see #getID()
-	 * @generated
-	 */
-	void setID(int value);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -166,9 +149,9 @@ public interface Receipt extends EObject {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model
+	 * @model idRequired="true" idOrdered="false" dateRequired="true" dateOrdered="false" expensesMany="true" expensesOrdered="false"
 	 * @generated
 	 */
-	void Receipt();
+	void Receipt(int id, Date date, EList<Expense> expenses);
 
 } // Receipt

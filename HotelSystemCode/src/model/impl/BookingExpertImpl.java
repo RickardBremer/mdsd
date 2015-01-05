@@ -3,14 +3,12 @@
 package model.impl;
 
 import java.lang.reflect.InvocationTargetException;
-import java.util.Calendar;
 import java.util.Date;
-
 import model.Booking;
 import model.BookingExpert;
 import model.DatabaseInterface;
 import model.ModelPackage;
-
+import model.Room;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
@@ -111,7 +109,7 @@ public class BookingExpertImpl extends MinimalEObjectImpl.Container implements B
 		String[] roomtype = database.query("SELECT 'RoomType' FROM tblStays, tblRooms, tblBookins WHERE tblBookings.BookingID = tblStays.BookingID AND tblStays.RoomID = tblRooms.RoomNumber").get(0);
 				if(response != null){
 					Booking b = new BookingImpl();
-					b.Booking(response[0], response[1]., response[2], response[3], response[4], roomtype, response[5]);
+					b.Booking(response[0], response[1], response[2], response[3], response[4], roomtype, response[5]);
 					return b; 
 				}
 				return null;
@@ -125,29 +123,7 @@ public class BookingExpertImpl extends MinimalEObjectImpl.Container implements B
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Booking getBooking(String bookingID) {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EList<Booking> getAllBooking(Date dateFrom, Date dateTo) {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Booking getAllBookings() {
+	public EList<Booking> getAllBookings(Date dateFrom, Date dateTo) {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();
@@ -210,7 +186,7 @@ public class BookingExpertImpl extends MinimalEObjectImpl.Container implements B
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Booking getAllBookings(String surname) {
+	public EList<Booking> getAllBookings(Date dateFrom, Date dateTo, String surname) {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();
@@ -222,6 +198,28 @@ public class BookingExpertImpl extends MinimalEObjectImpl.Container implements B
 	 * @generated
 	 */
 	public void BookingExpert(DatabaseInterface database) {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean checkIn(Booking booking, EList<Room> rooms) {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean checkOut(Booking booking) {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();
@@ -292,27 +290,28 @@ public class BookingExpertImpl extends MinimalEObjectImpl.Container implements B
 	 * @generated
 	 */
 	@Override
+	@SuppressWarnings("unchecked")
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
 			case ModelPackage.BOOKING_EXPERT___GET_BOOKING__INT:
 				return getBooking((Integer)arguments.get(0));
-			case ModelPackage.BOOKING_EXPERT___GET_BOOKING__STRING:
-				return getBooking((String)arguments.get(0));
-			case ModelPackage.BOOKING_EXPERT___GET_ALL_BOOKING__DATE_DATE:
-				return getAllBooking((Date)arguments.get(0), (Date)arguments.get(1));
-			case ModelPackage.BOOKING_EXPERT___GET_ALL_BOOKINGS:
-				return getAllBookings();
+			case ModelPackage.BOOKING_EXPERT___GET_ALL_BOOKINGS__DATE_DATE:
+				return getAllBookings((Date)arguments.get(0), (Date)arguments.get(1));
 			case ModelPackage.BOOKING_EXPERT___ADD_BOOKING__BOOKING:
 				return addBooking((Booking)arguments.get(0));
 			case ModelPackage.BOOKING_EXPERT___REMOVE_BOOKING__BOOKING:
 				return removeBooking((Booking)arguments.get(0));
 			case ModelPackage.BOOKING_EXPERT___UPDATE_BOOKING__BOOKING:
 				return updateBooking((Booking)arguments.get(0));
-			case ModelPackage.BOOKING_EXPERT___GET_ALL_BOOKINGS__STRING:
-				return getAllBookings((String)arguments.get(0));
+			case ModelPackage.BOOKING_EXPERT___GET_ALL_BOOKINGS__DATE_DATE_STRING:
+				return getAllBookings((Date)arguments.get(0), (Date)arguments.get(1), (String)arguments.get(2));
 			case ModelPackage.BOOKING_EXPERT___BOOKING_EXPERT__DATABASEINTERFACE:
 				BookingExpert((DatabaseInterface)arguments.get(0));
 				return null;
+			case ModelPackage.BOOKING_EXPERT___CHECK_IN__BOOKING_ELIST:
+				return checkIn((Booking)arguments.get(0), (EList<Room>)arguments.get(1));
+			case ModelPackage.BOOKING_EXPERT___CHECK_OUT__BOOKING:
+				return checkOut((Booking)arguments.get(0));
 		}
 		return super.eInvoke(operationID, arguments);
 	}

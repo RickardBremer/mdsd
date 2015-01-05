@@ -4,15 +4,12 @@ package model.impl;
 
 import java.lang.reflect.InvocationTargetException;
 import java.util.Collection;
-
 import model.Expense;
 import model.ModelPackage;
 import model.Receipt;
 import model.Resident;
 import model.Room;
-
 import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
@@ -27,15 +24,15 @@ import org.eclipse.emf.ecore.util.EObjectResolvingEList;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link model.impl.RoomImpl#getExpense <em>Expense</em>}</li>
+ *   <li>{@link model.impl.RoomImpl#getPrice <em>Price</em>}</li>
  *   <li>{@link model.impl.RoomImpl#getNumber <em>Number</em>}</li>
  *   <li>{@link model.impl.RoomImpl#getDescription <em>Description</em>}</li>
  *   <li>{@link model.impl.RoomImpl#isClean <em>Clean</em>}</li>
  *   <li>{@link model.impl.RoomImpl#getType <em>Type</em>}</li>
- *   <li>{@link model.impl.RoomImpl#getPrice <em>Price</em>}</li>
  *   <li>{@link model.impl.RoomImpl#getBeds <em>Beds</em>}</li>
  *   <li>{@link model.impl.RoomImpl#getReceipt <em>Receipt</em>}</li>
- *   <li>{@link model.impl.RoomImpl#getResident <em>Resident</em>}</li>
+ *   <li>{@link model.impl.RoomImpl#getResidents <em>Residents</em>}</li>
+ *   <li>{@link model.impl.RoomImpl#getStatus <em>Status</em>}</li>
  * </ul>
  * </p>
  *
@@ -43,14 +40,14 @@ import org.eclipse.emf.ecore.util.EObjectResolvingEList;
  */
 public class RoomImpl extends MinimalEObjectImpl.Container implements Room {
 	/**
-	 * The cached value of the '{@link #getExpense() <em>Expense</em>}' reference.
+	 * The cached value of the '{@link #getPrice() <em>Price</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getExpense()
+	 * @see #getPrice()
 	 * @generated
 	 * @ordered
 	 */
-	protected Expense expense;
+	protected Expense price;
 
 	/**
 	 * The default value of the '{@link #getNumber() <em>Number</em>}' attribute.
@@ -133,16 +130,6 @@ public class RoomImpl extends MinimalEObjectImpl.Container implements Room {
 	protected String type = TYPE_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getPrice() <em>Price</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getPrice()
-	 * @generated
-	 * @ordered
-	 */
-	protected Expense price;
-
-	/**
 	 * The default value of the '{@link #getBeds() <em>Beds</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -173,14 +160,34 @@ public class RoomImpl extends MinimalEObjectImpl.Container implements Room {
 	protected Receipt receipt;
 
 	/**
-	 * The cached value of the '{@link #getResident() <em>Resident</em>}' reference list.
+	 * The cached value of the '{@link #getResidents() <em>Residents</em>}' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getResident()
+	 * @see #getResidents()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Resident> resident;
+	protected EList<Resident> residents;
+
+	/**
+	 * The default value of the '{@link #getStatus() <em>Status</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getStatus()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String STATUS_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getStatus() <em>Status</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getStatus()
+	 * @generated
+	 * @ordered
+	 */
+	protected String status = STATUS_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -199,44 +206,6 @@ public class RoomImpl extends MinimalEObjectImpl.Container implements Room {
 	@Override
 	protected EClass eStaticClass() {
 		return ModelPackage.Literals.ROOM;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Expense getExpense() {
-		if (expense != null && expense.eIsProxy()) {
-			InternalEObject oldExpense = (InternalEObject)expense;
-			expense = (Expense)eResolveProxy(oldExpense);
-			if (expense != oldExpense) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, ModelPackage.ROOM__EXPENSE, oldExpense, expense));
-			}
-		}
-		return expense;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Expense basicGetExpense() {
-		return expense;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setExpense(Expense newExpense) {
-		Expense oldExpense = expense;
-		expense = newExpense;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.ROOM__EXPENSE, oldExpense, expense));
 	}
 
 	/**
@@ -425,11 +394,11 @@ public class RoomImpl extends MinimalEObjectImpl.Container implements Room {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Resident> getResident() {
-		if (resident == null) {
-			resident = new EObjectResolvingEList<Resident>(Resident.class, this, ModelPackage.ROOM__RESIDENT);
+	public EList<Resident> getResidents() {
+		if (residents == null) {
+			residents = new EObjectResolvingEList<Resident>(Resident.class, this, ModelPackage.ROOM__RESIDENTS);
 		}
-		return resident;
+		return residents;
 	}
 
 	/**
@@ -437,15 +406,31 @@ public class RoomImpl extends MinimalEObjectImpl.Container implements Room {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void Room(int number, String description, String type, Expense price, int beds) {
-		this.number = number;
-		this.description = description;
-		this.type = type;
-		this.price = price;
-		this.beds = beds;
-		this.clean = false;
-		this.resident = residents;
-		this.status = status;
+	public String getStatus() {
+		return status;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setStatus(String newStatus) {
+		String oldStatus = status;
+		status = newStatus;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.ROOM__STATUS, oldStatus, status));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void Room(int number, String description, String type, Expense price, int beds, String status) {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
 	}
 
 	/**
@@ -456,9 +441,9 @@ public class RoomImpl extends MinimalEObjectImpl.Container implements Room {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case ModelPackage.ROOM__EXPENSE:
-				if (resolve) return getExpense();
-				return basicGetExpense();
+			case ModelPackage.ROOM__PRICE:
+				if (resolve) return getPrice();
+				return basicGetPrice();
 			case ModelPackage.ROOM__NUMBER:
 				return getNumber();
 			case ModelPackage.ROOM__DESCRIPTION:
@@ -467,16 +452,15 @@ public class RoomImpl extends MinimalEObjectImpl.Container implements Room {
 				return isClean();
 			case ModelPackage.ROOM__TYPE:
 				return getType();
-			case ModelPackage.ROOM__PRICE:
-				if (resolve) return getPrice();
-				return basicGetPrice();
 			case ModelPackage.ROOM__BEDS:
 				return getBeds();
 			case ModelPackage.ROOM__RECEIPT:
 				if (resolve) return getReceipt();
 				return basicGetReceipt();
-			case ModelPackage.ROOM__RESIDENT:
-				return getResident();
+			case ModelPackage.ROOM__RESIDENTS:
+				return getResidents();
+			case ModelPackage.ROOM__STATUS:
+				return getStatus();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -490,8 +474,8 @@ public class RoomImpl extends MinimalEObjectImpl.Container implements Room {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case ModelPackage.ROOM__EXPENSE:
-				setExpense((Expense)newValue);
+			case ModelPackage.ROOM__PRICE:
+				setPrice((Expense)newValue);
 				return;
 			case ModelPackage.ROOM__NUMBER:
 				setNumber((Integer)newValue);
@@ -505,18 +489,18 @@ public class RoomImpl extends MinimalEObjectImpl.Container implements Room {
 			case ModelPackage.ROOM__TYPE:
 				setType((String)newValue);
 				return;
-			case ModelPackage.ROOM__PRICE:
-				setPrice((Expense)newValue);
-				return;
 			case ModelPackage.ROOM__BEDS:
 				setBeds((Integer)newValue);
 				return;
 			case ModelPackage.ROOM__RECEIPT:
 				setReceipt((Receipt)newValue);
 				return;
-			case ModelPackage.ROOM__RESIDENT:
-				getResident().clear();
-				getResident().addAll((Collection<? extends Resident>)newValue);
+			case ModelPackage.ROOM__RESIDENTS:
+				getResidents().clear();
+				getResidents().addAll((Collection<? extends Resident>)newValue);
+				return;
+			case ModelPackage.ROOM__STATUS:
+				setStatus((String)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -530,8 +514,8 @@ public class RoomImpl extends MinimalEObjectImpl.Container implements Room {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case ModelPackage.ROOM__EXPENSE:
-				setExpense((Expense)null);
+			case ModelPackage.ROOM__PRICE:
+				setPrice((Expense)null);
 				return;
 			case ModelPackage.ROOM__NUMBER:
 				setNumber(NUMBER_EDEFAULT);
@@ -545,17 +529,17 @@ public class RoomImpl extends MinimalEObjectImpl.Container implements Room {
 			case ModelPackage.ROOM__TYPE:
 				setType(TYPE_EDEFAULT);
 				return;
-			case ModelPackage.ROOM__PRICE:
-				setPrice((Expense)null);
-				return;
 			case ModelPackage.ROOM__BEDS:
 				setBeds(BEDS_EDEFAULT);
 				return;
 			case ModelPackage.ROOM__RECEIPT:
 				setReceipt((Receipt)null);
 				return;
-			case ModelPackage.ROOM__RESIDENT:
-				getResident().clear();
+			case ModelPackage.ROOM__RESIDENTS:
+				getResidents().clear();
+				return;
+			case ModelPackage.ROOM__STATUS:
+				setStatus(STATUS_EDEFAULT);
 				return;
 		}
 		super.eUnset(featureID);
@@ -569,8 +553,8 @@ public class RoomImpl extends MinimalEObjectImpl.Container implements Room {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case ModelPackage.ROOM__EXPENSE:
-				return expense != null;
+			case ModelPackage.ROOM__PRICE:
+				return price != null;
 			case ModelPackage.ROOM__NUMBER:
 				return number != NUMBER_EDEFAULT;
 			case ModelPackage.ROOM__DESCRIPTION:
@@ -579,14 +563,14 @@ public class RoomImpl extends MinimalEObjectImpl.Container implements Room {
 				return clean != CLEAN_EDEFAULT;
 			case ModelPackage.ROOM__TYPE:
 				return TYPE_EDEFAULT == null ? type != null : !TYPE_EDEFAULT.equals(type);
-			case ModelPackage.ROOM__PRICE:
-				return price != null;
 			case ModelPackage.ROOM__BEDS:
 				return beds != BEDS_EDEFAULT;
 			case ModelPackage.ROOM__RECEIPT:
 				return receipt != null;
-			case ModelPackage.ROOM__RESIDENT:
-				return resident != null && !resident.isEmpty();
+			case ModelPackage.ROOM__RESIDENTS:
+				return residents != null && !residents.isEmpty();
+			case ModelPackage.ROOM__STATUS:
+				return STATUS_EDEFAULT == null ? status != null : !STATUS_EDEFAULT.equals(status);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -599,8 +583,8 @@ public class RoomImpl extends MinimalEObjectImpl.Container implements Room {
 	@Override
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
-			case ModelPackage.ROOM___ROOM__INT_STRING_STRING_EXPENSE_INT:
-				Room((Integer)arguments.get(0), (String)arguments.get(1), (String)arguments.get(2), (Expense)arguments.get(3), (Integer)arguments.get(4));
+			case ModelPackage.ROOM___ROOM__INT_STRING_STRING_EXPENSE_INT_STRING:
+				Room((Integer)arguments.get(0), (String)arguments.get(1), (String)arguments.get(2), (Expense)arguments.get(3), (Integer)arguments.get(4), (String)arguments.get(5));
 				return null;
 		}
 		return super.eInvoke(operationID, arguments);
@@ -626,6 +610,8 @@ public class RoomImpl extends MinimalEObjectImpl.Container implements Room {
 		result.append(type);
 		result.append(", beds: ");
 		result.append(beds);
+		result.append(", status: ");
+		result.append(status);
 		result.append(')');
 		return result.toString();
 	}
