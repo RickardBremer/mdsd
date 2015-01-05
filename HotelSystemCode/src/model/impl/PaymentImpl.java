@@ -4,15 +4,17 @@ package model.impl;
 
 import java.lang.reflect.InvocationTargetException;
 
+import javax.xml.soap.SOAPException;
+
 import model.Customer;
 import model.ModelPackage;
 import model.Payment;
 
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EClass;
-
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+
+import se.chalmers.cse.mdsd1415.banking.customerRequires.CustomerRequires;
 
 /**
  * <!-- begin-user-doc -->
@@ -48,7 +50,7 @@ public class PaymentImpl extends MinimalEObjectImpl.Container implements Payment
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean makePayment(Customer customer, int amount) {
+	public boolean makePayment(Customer customer, double amount) {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();
@@ -57,12 +59,40 @@ public class PaymentImpl extends MinimalEObjectImpl.Container implements Payment
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
+	 */
+	public boolean makePayment(Customer customer, int amount) {
+		CustomerRequires cr;
+		try {
+			cr = CustomerRequires.instance();
+		} catch (SOAPException e) {
+			return false;
+		}
+		
+		try {
+			return cr.makePayment(customer.getCcNumber(), customer.getCcv(), customer.getExpiringMonth(), customer.getExpiringYear(), customer.getFirstName(), customer.getFirstName(), amount);
+		} catch (SOAPException e) {
+			return false;
+		}
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
 	 */
 	public boolean isCreditCardValid(Customer customer) {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		CustomerRequires cr;
+		try {
+			cr = CustomerRequires.instance();
+		} catch (SOAPException e1) {
+			return false;
+		}
+		try {
+			return cr.isCreditCardValid(customer.getCcNumber(), customer.getCcv(), customer.getExpiringMonth(), customer.getExpiringYear(), customer.getFirstName(), customer.getSurname());
+		} catch (SOAPException e) {
+			return false;
+		}
 	}
 
 	/**
@@ -74,7 +104,7 @@ public class PaymentImpl extends MinimalEObjectImpl.Container implements Payment
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
 			case ModelPackage.PAYMENT___MAKE_PAYMENT__CUSTOMER_INT:
-				return makePayment((Customer)arguments.get(0), (Integer)arguments.get(1));
+				return makePayment((Customer)arguments.get(0), (Double)arguments.get(1));
 			case ModelPackage.PAYMENT___IS_CREDIT_CARD_VALID__CUSTOMER:
 				return isCreditCardValid((Customer)arguments.get(0));
 		}

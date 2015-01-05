@@ -18,10 +18,10 @@ public interface Payment extends EObject {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model required="true" ordered="false" customerRequired="true" customerOrdered="false" amountDataType="org.eclipse.uml2.types.Integer" amountRequired="true" amountOrdered="false"
+	 * @model required="true" ordered="false" customerRequired="true" customerOrdered="false" amountRequired="true" amountOrdered="false"
 	 * @generated
 	 */
-	boolean makePayment(Customer customer, int amount);
+	boolean makePayment(Customer customer, double amount);
 
 	/**
 	 * <!-- begin-user-doc -->
