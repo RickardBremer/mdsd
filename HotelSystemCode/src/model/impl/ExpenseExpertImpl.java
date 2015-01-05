@@ -155,7 +155,7 @@ public class ExpenseExpertImpl extends MinimalEObjectImpl.Container implements
 	 */
 	public boolean addExpense(Expense expense) {
 		return database
-				.create("INSERT INTO tblExpense ('ExpenseName', 'ExpenseDate', 'ExpenseDescription', 'Price') VALUES("
+				.send("INSERT INTO tblExpense ('ExpenseName', 'ExpenseDate', 'ExpenseDescription', 'Price') VALUES("
 						+ expense.getName()
 						+ ", '"
 						+ expense.getDate().getTime()
@@ -171,7 +171,7 @@ public class ExpenseExpertImpl extends MinimalEObjectImpl.Container implements
 	 * @generated NOT
 	 */
 	public boolean removeExpense(int ID) {
-		return database.remove("DELETTE FROM tblExpense Where ExpenseID=" + ID
+		return database.send("DELETTE FROM tblExpense Where ExpenseID=" + ID
 				+ ";");
 	}
 
@@ -181,7 +181,7 @@ public class ExpenseExpertImpl extends MinimalEObjectImpl.Container implements
 	 * @generated NOT
 	 */
 	public boolean updateExpense(Expense expense) {
-		return database.update("UPDATE tblExpense SET Price="
+		return database.send("UPDATE tblExpense SET Price="
 				+ expense.getPrice() + ", ExpenseName='" + expense.getName()
 				+ "', ExpenseDescription='" + expense.getDescription()
 				+ "', ExpenseDate='" + expense.getDate().getTime()
