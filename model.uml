@@ -777,7 +777,10 @@
         </ownedParameter>
       </ownedOperation>
       <ownedOperation xmi:type="uml:Operation" xmi:id="_Vd5yMIX5EeSSWPBCkg2FMw" name="combine" visibility="protected">
-        <ownedParameter xmi:type="uml:Parameter" xmi:id="_BbT8kId4EeSzUtUd_ZlEnQ" name="receiptList" type="_6dx-kIB4EeSIi9xXvYIBqQ"/>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_BbT8kId4EeSzUtUd_ZlEnQ" name="receiptList" type="_6dx-kIB4EeSIi9xXvYIBqQ">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_ARlcQJTdEeSK-7NQpyjlhQ"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_ARmDUJTdEeSK-7NQpyjlhQ" value="*"/>
+        </ownedParameter>
         <ownedParameter xmi:type="uml:Parameter" xmi:id="_ICYXMId4EeSzUtUd_ZlEnQ" type="_6dx-kIB4EeSIi9xXvYIBqQ" direction="return"/>
       </ownedOperation>
       <ownedOperation xmi:type="uml:Operation" xmi:id="_dDRoIIX5EeSSWPBCkg2FMw" name="addReceipt" visibility="protected">
@@ -842,9 +845,7 @@
         <ownedParameter xmi:type="uml:Parameter" xmi:id="_bwehMIdyEeSzUtUd_ZlEnQ" name="ID">
           <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
         </ownedParameter>
-        <ownedParameter xmi:type="uml:Parameter" xmi:id="_eXTZgIdyEeSzUtUd_ZlEnQ" direction="return">
-          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#boolean"/>
-        </ownedParameter>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_eXTZgIdyEeSzUtUd_ZlEnQ" type="_DfTCYIB5EeSIi9xXvYIBqQ" direction="return"/>
       </ownedOperation>
       <ownedOperation xmi:type="uml:Operation" xmi:id="_R_UrIIX8EeSSWPBCkg2FMw" name="getPromotion" visibility="protected">
         <ownedParameter xmi:type="uml:Parameter" xmi:id="_l56PUIdyEeSzUtUd_ZlEnQ" name="promotionCode">
