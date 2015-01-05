@@ -302,12 +302,15 @@ public class ExpenseImpl extends MinimalEObjectImpl.Container implements Expense
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public void Expense(int id, String name, Date date, String description, int price, boolean isFixed) {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		this.id = id;
+		this.name = name; 
+		this.date = date;
+		this.description = description;
+		this.price = price;
+		this.fixed = isFixed;
 	}
 
 	/**
@@ -459,17 +462,4 @@ public class ExpenseImpl extends MinimalEObjectImpl.Container implements Expense
 		return result.toString();
 	}
 	
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated NOT
-	 */
-	@Override 
-	public void Expense(int price, String name, String description, Date date) {
-		this.price = price;
-		this.name = name;
-		this.description = description;
-		this.date = date; 		
-	}
-
 } //ExpenseImpl

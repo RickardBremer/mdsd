@@ -57,7 +57,7 @@ public class emailImpl extends MinimalEObjectImpl.Container implements email {
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
-	public void send(Booking booking) {
+	public boolean send(Booking booking) {
 		String toAddress = booking.getCustomer().getEmail(); 
 		String fromAddress = "mddhotelbooking@gmail.com"; 
 		final String username = "mddhotelbooking@gmail.com";
@@ -88,7 +88,7 @@ public class emailImpl extends MinimalEObjectImpl.Container implements email {
 					"! You have successfully booked a stay at our hotell \n"
 					+ "From: " + booking.getFromDate() + " \n"
 							+ "to: "+ booking.getToDate() + "\n"
-							+ "Your booking ID is: " + booking.getBookingID() + 
+							+ "Your booking ID is: " + booking.getId() + 
 							"\nHave a nice stay! \n\n "
 							+ "Kind Regards, \n //The hotel staff");
 			msg.setSentDate(new Date());
@@ -98,12 +98,13 @@ public class emailImpl extends MinimalEObjectImpl.Container implements email {
 			transport.sendMessage(msg, msg.getAllRecipients());
 			transport.close();
 
-			System.out.println("Email sent");
+			return true;
 
 		} catch (MessagingException e) {
 			e.printStackTrace();
 		}
-
+		
+		return false;
 	}
 
 	/**

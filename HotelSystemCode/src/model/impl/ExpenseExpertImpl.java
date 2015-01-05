@@ -5,10 +5,13 @@ package model.impl;
 
 import java.lang.reflect.InvocationTargetException;
 import java.util.Calendar;
+import java.util.Date;
+
 import model.DatabaseInterface;
 import model.Expense;
 import model.ExpenseExpert;
 import model.ModelPackage;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
@@ -97,14 +100,14 @@ public class ExpenseExpertImpl extends MinimalEObjectImpl.Container implements
 	 * 
 	 * @generated NOT
 	 */
-	public Expense getExpense(int ID) {		
-		String[] response = database.query("SELECT 'ExpenseID', 'ExpenseName', 'ExpenseDate', 'ExpenseDescription', 'Price' "
-		+ "FROM tblExpense WHERE ExpenseID =" + ID + ";").get(0); 
+	public Expense getExpense(int ID) {	
+		String[] response = database.query("SELECT 'ExpenseID', 'ExpenseName', 'ExpenseDate', 'ExpenseDescription', 'Price', 'IsFixed' "
+		+ "FROM tblExpense WHERE ExpenseID =" + ID + ";").get(0).split(";");		
 		Calendar cal = Calendar.getInstance();
 		if(response != null){
 			ExpenseImpl e = new ExpenseImpl();
 			cal.setTimeInMillis(Long.valueOf(response[2]));
-			e.Expense(Integer.valueOf(response[0]), response[1], cal.getTime(), response[3], Integer.valueOf(response[4]));
+			e.Expense(Integer.valueOf(response[0]), response[1], cal.getTime(), response[3], Integer.valueOf(response[4]), Boolean.parseBoolean(response[5]));
 			return e; 
 		}
 		return null;
@@ -116,15 +119,16 @@ public class ExpenseExpertImpl extends MinimalEObjectImpl.Container implements
 	 * @generated NOT
 	 */
 	public EList<Expense> getAllExpense() {
-		EList<String[]> strExpenses = database
-				.query("SELECT 'ExpenseID', 'ExpenseName', 'ExpenseDate', 'ExpenseDescription', 'Price' FROM tblExpense;");
+		EList<String> strExpenses = database
+				.query("SELECT 'ExpenseID', 'ExpenseName', 'ExpenseDate', 'ExpenseDescription', 'Price', 'IsFixed' FROM tblExpense;");
 		EList<Expense> expenses = new BasicEList<Expense>();
 		Calendar cal = Calendar.getInstance();
 		if (strExpenses != null) {
-			for (String[] response : strExpenses) {
+			for (String response : strExpenses) {
+				String[] splitResponse = response.split(";");
 				Expense e = new ExpenseImpl();
-				cal.setTimeInMillis(Long.valueOf(response[2]));
-				e.Expense(Integer.valueOf(response[0]), response[1], cal.getTime(), response[3],Integer.valueOf(response[4]));
+				cal.setTimeInMillis(Long.valueOf(splitResponse[2]));
+				e.Expense(Integer.valueOf(splitResponse[0]), splitResponse[1], cal.getTime(), splitResponse[3],Integer.valueOf(splitResponse[4]), Boolean.parseBoolean(splitResponse[5]));
 				expenses.add(e);
 			}
 		}
@@ -137,16 +141,39 @@ public class ExpenseExpertImpl extends MinimalEObjectImpl.Container implements
 	 * 
 	 * @generated NOT
 	 */
-	public boolean addExpense(Expense expense) {
-		return database
-				.send("INSERT INTO tblExpense ('ExpenseName', 'ExpenseDate', 'ExpenseDescription', 'Price') VALUES("
+	public Expense addExpense(Expense expense) {
+		boolean check = database
+				.send("INSERT INTO tblExpense ('ExpenseName', 'ExpenseDate', 'ExpenseDescription', 'Price', 'IsFixed') VALUES("
 						+ expense.getName()
 						+ ", '"
 						+ expense.getDate().getTime()
 						+ "', '"
 						+ expense.getDescription()
 						+ "', "
-						+ expense.getPrice() + ");");
+						+ expense.getPrice()  
+						+","
+						+ expense.isFixed()  
+						+ ");");
+		
+		if(check){
+			String[] response = database.query("SELECT 'ExpenseID', 'ExpenseName', "
+					+ "'ExpenseDate', 'ExpenseDescription', 'Price', 'IsFixed' "
+					+ "FROM tblExpense WHERE ExpenseName='" 
+					+ expense.getName() + "' AND ExpenseDate='" 
+					+ expense.getDate().getTime() + "' AND ExpenseDescription='" 
+					+ expense.getDescription() + "' AND Price ="
+					+ expense.getPrice() + " AND IsFixed=" 
+					+ expense.isFixed() + "ORDER BY desc;").get(0).split(";");
+			
+			Calendar cal = Calendar.getInstance();
+			if(response != null){
+				ExpenseImpl e = new ExpenseImpl();
+				cal.setTimeInMillis(Long.valueOf(response[2]));
+				e.Expense(Integer.valueOf(response[0]), response[1], cal.getTime(), response[3], Integer.valueOf(response[4]), Boolean.parseBoolean(response[5]));
+				return e; 
+			}			
+		}
+		return null;
 	}
 
 	/**
@@ -169,7 +196,7 @@ public class ExpenseExpertImpl extends MinimalEObjectImpl.Container implements
 				+ expense.getPrice() + ", ExpenseName='" + expense.getName()
 				+ "', ExpenseDescription='" + expense.getDescription()
 				+ "', ExpenseDate='" + expense.getDate().getTime()
-				+ "' WHERE ID =" + expense.getID() + ";");
+				+ "' WHERE ID =" + expense.getId() + ";");
 	}
 
 	/**
