@@ -10,6 +10,7 @@ import model.BookingController;
 import model.BookingExpert;
 import model.Customer;
 import model.DatabaseInterface;
+import model.EmailSender;
 import model.Expense;
 import model.ExpenseExpert;
 import model.ModelPackage;
@@ -412,8 +413,8 @@ public class BookingControllerImpl extends MinimalEObjectImpl.Container implemen
 		double total = rec.getTotalCost();
 		double fee = total * -0.1;
 		Expense ex = new ExpenseImpl();
-		ex.Expense(fee, "Booking-fee", "" + fee, new Date());
-		ex = expenseExpert.add(ex);
+		ex.Expense(-1, "Booking-fee", new Date(), "" + fee, fee, false);
+		ex = expenseExpert.addExpense(ex);
 		rec.addExpense(ex);
 		receiptExpert.updateReceipt(rec);
 		
@@ -422,7 +423,7 @@ public class BookingControllerImpl extends MinimalEObjectImpl.Container implemen
 			bookingExpert.removeBooking(booking);
 			return false;
 		};
-		email email = new emailImpl();
+		EmailSender email = new EmailSenderImpl();
 		email.send(booking);
 		return true;
 	}

@@ -3113,11 +3113,11 @@ public interface ModelPackage extends EPackage {
 	EAttribute getExpense_Fixed();
 
 	/**
-	 * Returns the meta object for the '{@link model.Expense#Expense(int, java.lang.String, java.util.Date, java.lang.String, int, boolean) <em>Expense</em>}' operation.
+	 * Returns the meta object for the '{@link model.Expense#Expense(int, java.lang.String, java.util.Date, java.lang.String, double, boolean) <em>Expense</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Expense</em>' operation.
-	 * @see model.Expense#Expense(int, java.lang.String, java.util.Date, java.lang.String, int, boolean)
+	 * @see model.Expense#Expense(int, java.lang.String, java.util.Date, java.lang.String, double, boolean)
 	 * @generated
 	 */
 	EOperation getExpense__Expense__int_String_Date_String_int_boolean();
@@ -4616,11 +4616,11 @@ public interface ModelPackage extends EPackage {
 	EClass getPayment();
 
 	/**
-	 * Returns the meta object for the '{@link model.Payment#makePayment(model.Customer, int) <em>Make Payment</em>}' operation.
+	 * Returns the meta object for the '{@link model.Payment#makePayment(model.Customer, double) <em>Make Payment</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Make Payment</em>' operation.
-	 * @see model.Payment#makePayment(model.Customer, int)
+	 * @see model.Payment#makePayment(model.Customer, double)
 	 * @generated
 	 */
 	EOperation getPayment__MakePayment__Customer_int();

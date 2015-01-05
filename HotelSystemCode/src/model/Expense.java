@@ -187,9 +187,9 @@ public interface Expense extends EObject {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model idRequired="true" idOrdered="false" nameDataType="org.eclipse.uml2.types.String" nameRequired="true" nameOrdered="false" dateRequired="true" dateOrdered="false" descriptionDataType="org.eclipse.uml2.types.String" descriptionRequired="true" descriptionOrdered="false" priceDataType="org.eclipse.uml2.types.Integer" priceRequired="true" priceOrdered="false" isFixedRequired="true" isFixedOrdered="false"
+	 * @model idRequired="true" idOrdered="false" nameDataType="org.eclipse.uml2.types.String" nameRequired="true" nameOrdered="false" dateRequired="true" dateOrdered="false" descriptionDataType="org.eclipse.uml2.types.String" descriptionRequired="true" descriptionOrdered="false" priceRequired="true" priceOrdered="false" isFixedRequired="true" isFixedOrdered="false"
 	 * @generated
 	 */
-	void Expense(int id, String name, Date date, String description, int price, boolean isFixed);
+	void Expense(int id, String name, Date date, String description, double price, boolean isFixed);
 
 } // Expense
