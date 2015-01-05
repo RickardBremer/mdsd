@@ -297,9 +297,9 @@ public class BookingControllerImpl extends MinimalEObjectImpl.Container implemen
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
-	public boolean createBooking(Date fromDate, Date toDate, String wishes, Customer customer, String promotion, Receipt receipt, String roomType) {
+	public boolean createBooking(Date fromDate, Date toDate, String wishes, Customer customer, String promotion, Receipt receipt, EList<String> roomTypes) {
 		Payment pay = new PaymentImpl();
 		if (!pay.isCreditCardValid(customer)) {
 			return false;
@@ -310,12 +310,8 @@ public class BookingControllerImpl extends MinimalEObjectImpl.Container implemen
 		Receipt rec = booking.getReceipt();
 		double total = rec.getTotalCost();
 		double fee = total * -0.1;
-		Expense ex = expenseExpert.get("Booking-fee " + fee);
-		if (ex == null) {
-			ex.Expense(fee, "Booking-fee " + fee, "", new Date());
-			expenseExpert.add(ex);
-			ex = expenseExpert.get("Booking-fee " + fee);
-		}
+		ex.Expense(fee, "Booking-fee " + fee, "", new Date());
+		ex = expenseExpert.add(ex);
 		rec.addExpense(ex);
 		receiptExpert.updateReceipt(rec);
 		
