@@ -200,6 +200,7 @@ public class ReceiptImpl extends MinimalEObjectImpl.Container implements Receipt
 	public EList<Expense> getExpenses() {
 		if (expenses == null) {
 			expenses = new EObjectResolvingEList<Expense>(Expense.class, this, ModelPackage.RECEIPT__EXPENSES);
+			
 		}
 		return expenses;
 	}
