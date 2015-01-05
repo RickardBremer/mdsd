@@ -157,40 +157,12 @@ public class ReceptionistControllerImpl extends BookingControllerImpl implements
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public Resident createResident(String firstName, String surname, String passportNumber) {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EList<Booking> viewAllBookings(Date fromDate, Date toDate) {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
-	}
-//	public EList<Booking> viewAllBookings() {
-//		// TODO: implement this method
-//		// Ensure that you remove @generated or mark it @generated NOT
-//		EList<Booking> blist = bookingExpert.getAllBookings();
-//		return blist;
-//		
-//	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Booking getBooking(int bookingNumber) {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
+		// Done - Creates a new resident object
+		Resident r = new ResidentImpl();
+		r.Resident(firstName, surname, passportNumber);
 		throw new UnsupportedOperationException();
 	}
 
@@ -199,23 +171,32 @@ public class ReceptionistControllerImpl extends BookingControllerImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
-	public Booking getBooking(String surname, Date dateFrom, Date dateTo) {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		EList<Booking> b  = bookingExpert.getAllBookings(dateFrom,dateTo,surname);
-		return b;
+	public EList<Booking> viewAllBookings(Date fromDate, Date toDate) {
+		// Done - Fetches all bookings betweeen certain dates
+		EList<Booking> blist = bookingExpert.getAllBookings(fromDate, toDate);
+		return blist;
 	}
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	public Booking getBooking(int bookingNumber) {
+		// Done - Fetches a certain booking by its identification number
+		Booking b = bookingExpert.getBooking(bookingNumber);
+		return b;
+	}
 	
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public EList<Room> viewUnOccupiedRooms() {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		// Done - fetches all unoccupied rooms
+		EList<Room> rlist = room.getUnoccupiedRooms();
+		return rlist;
 	}
 
 
@@ -223,12 +204,12 @@ public class ReceptionistControllerImpl extends BookingControllerImpl implements
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public EList<Booking> viewAllBookings(String surname, Date dateFrom, Date dateTo) {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		// Done - Finds all bookings within a certain date range and with a certain surname
+		EList<Booking> b = bookingExpert.getAllBookings(dateFrom,dateTo,surname);
+		return b;
 	}
 
 	/**
@@ -237,48 +218,37 @@ public class ReceptionistControllerImpl extends BookingControllerImpl implements
 	 * @generated
 	 */
 	public EList<Room> viewUnOccupiedRooms(String roomType) {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		// Done - Fetches all unoccupied rooms and filters the rooms which fit the roomType into a new list
+		EList<Room> roomlist = room.getUnoccupiedRooms();
+		EList<Room> resultlist = null;
+		for (Room r : roomlist) {
+			if (r.getType().matches(roomType)) {
+				resultlist.add(r);
+			}
+		}
+		return resultlist;
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public boolean checkIn(Booking booking, EList<Room> rooms) {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		// Done - uses bookingExpert to check in a booking
+		boolean checkedin = bookingExpert.checkIn(booking, rooms);
+		return checkedin;
 	}
-
-	//	public boolean checkIn(Room[] room) {
-//		// TODO: implement this method
-//		// Ensure that you remove @generated or mark it @generated NOT
-//		EList<String> bookedTypes =  booking.getRoomTypes();
-//		EList<Room> availableTypes = viewUnOccupiedRooms();
-//		for(String bt : bookedTypes) {
-//			for(Room r : availableTypes) {
-//				if (bt.matches(r.getType())) {
-//					room.updateRoom(r); 
-//				}
-//			}
-//		}
-//		
-//		databaseInterface.update("UPDATE tblBookings SET CheckedIn=true WHERE BookingID=" + booking.getBookingID() +";");
-//		throw new UnsupportedOperationException();
-//	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public boolean checkOut(Booking booking) {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		// Done - Checks out a booking
+		boolean checkedout = bookingExpert.checkOut(booking);
+		return checkedout;
 	}
 
 	/**
