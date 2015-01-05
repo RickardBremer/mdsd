@@ -3,7 +3,7 @@
 package model.impl;
 
 import java.lang.reflect.InvocationTargetException;
-
+import java.util.Calendar;
 import java.util.Date;
 
 import model.Booking;
@@ -12,12 +12,9 @@ import model.DatabaseInterface;
 import model.ModelPackage;
 
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
@@ -105,11 +102,21 @@ public class BookingExpertImpl extends MinimalEObjectImpl.Container implements B
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public Booking getBooking(int ID) {
-		// TODO: implement this method
+		// Rickard
 		// Ensure that you remove @generated or mark it @generated NOT
+		String[] response = database.query("SELECT 'BookingID', 'DateFrom', 'DateTo', 'ClientRequests', 'CustomerMail', 'PromotionCode' " + "FROM tblBookings WHERE BookingID =" + ID + ";").get(0);
+		String[] roomtype = database.query("SELECT 'RoomType' FROM tblStays, tblRooms, tblBookins WHERE tblBookings.BookingID = tblStays.BookingID AND tblStays.RoomID = tblRooms.RoomNumber").get(0);
+				if(response != null){
+					Booking b = new BookingImpl();
+					b.Booking(response[0], response[1]., response[2], response[3], response[4], roomtype, response[5]);
+					return b; 
+				}
+				return null;
+		
+		
 		throw new UnsupportedOperationException();
 	}
 
