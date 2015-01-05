@@ -3,7 +3,6 @@
 package model.impl;
 
 import java.lang.reflect.InvocationTargetException;
-
 import java.util.Collection;
 
 import model.Expense;
@@ -13,15 +12,12 @@ import model.Resident;
 import model.Room;
 
 import org.eclipse.emf.common.notify.Notification;
-
+import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
 import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 
 /**
@@ -442,9 +438,14 @@ public class RoomImpl extends MinimalEObjectImpl.Container implements Room {
 	 * @generated
 	 */
 	public void Room(int number, String description, String type, Expense price, int beds) {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		this.number = number;
+		this.description = description;
+		this.type = type;
+		this.price = price;
+		this.beds = beds;
+		this.clean = false;
+		this.resident = residents;
+		this.status = status;
 	}
 
 	/**
