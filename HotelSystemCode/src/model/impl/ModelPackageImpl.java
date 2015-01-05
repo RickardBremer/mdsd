@@ -14,6 +14,7 @@ import model.Customer;
 import model.CustomerInterface;
 import model.Customers;
 import model.DatabaseInterface;
+import model.EmailSender;
 import model.Expense;
 import model.ExpenseExpert;
 import model.HotelComponent;
@@ -33,7 +34,6 @@ import model.Room;
 import model.RoomExpert;
 import model.User;
 import model.UserExpert;
-import model.email;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EOperation;
@@ -223,7 +223,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass emailEClass = null;
+	private EClass emailSenderEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -1888,8 +1888,8 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getemail() {
-		return emailEClass;
+	public EClass getEmailSender() {
+		return emailSenderEClass;
 	}
 
 	/**
@@ -1897,8 +1897,8 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getemail__Send__Booking() {
-		return emailEClass.getEOperations().get(0);
+	public EOperation getEmailSender__Send__Booking() {
+		return emailSenderEClass.getEOperations().get(0);
 	}
 
 	/**
@@ -1978,6 +1978,24 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getBookingController_ExpenseExpert() {
+		return (EReference)bookingControllerEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getBookingController_ReceiptExpert() {
+		return (EReference)bookingControllerEClass.getEStructuralFeatures().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EOperation getBookingController__BookingController__RoomExpert_BookingExpert_PromotionExpert() {
 		return bookingControllerEClass.getEOperations().get(0);
 	}
@@ -2050,17 +2068,8 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getReceptionistController_ExpenseExpert() {
-		return (EReference)receptionistControllerEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EReference getReceptionistController_UserExpert() {
-		return (EReference)receptionistControllerEClass.getEStructuralFeatures().get(1);
+		return (EReference)receptionistControllerEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -2306,8 +2315,8 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		createEOperation(receiptExpertEClass, RECEIPT_EXPERT___UPDATE_RECEIPT__RECEIPT);
 		createEOperation(receiptExpertEClass, RECEIPT_EXPERT___RECEIPT_EXPERT__DATABASEINTERFACE);
 
-		emailEClass = createEClass(EMAIL);
-		createEOperation(emailEClass, EMAIL___SEND__BOOKING);
+		emailSenderEClass = createEClass(EMAIL_SENDER);
+		createEOperation(emailSenderEClass, EMAIL_SENDER___SEND__BOOKING);
 
 		paymentEClass = createEClass(PAYMENT);
 		createEOperation(paymentEClass, PAYMENT___MAKE_PAYMENT__CUSTOMER_INT);
@@ -2318,6 +2327,8 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		createEReference(bookingControllerEClass, BOOKING_CONTROLLER__BOOKING_EXPERT);
 		createEReference(bookingControllerEClass, BOOKING_CONTROLLER__PROMOTION_EXPERT);
 		createEReference(bookingControllerEClass, BOOKING_CONTROLLER__DATABASE_INTERFACE);
+		createEReference(bookingControllerEClass, BOOKING_CONTROLLER__EXPENSE_EXPERT);
+		createEReference(bookingControllerEClass, BOOKING_CONTROLLER__RECEIPT_EXPERT);
 		createEOperation(bookingControllerEClass, BOOKING_CONTROLLER___BOOKING_CONTROLLER__ROOMEXPERT_BOOKINGEXPERT_PROMOTIONEXPERT);
 
 		adminControllerEClass = createEClass(ADMIN_CONTROLLER);
@@ -2328,7 +2339,6 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		createEOperation(adminControllerEClass, ADMIN_CONTROLLER___ADMIN_CONTROLLER__EXPENSEEXPERT_PROMOTIONEXPERT_USEREXPERT_ROOMEXPERT);
 
 		receptionistControllerEClass = createEClass(RECEPTIONIST_CONTROLLER);
-		createEReference(receptionistControllerEClass, RECEPTIONIST_CONTROLLER__EXPENSE_EXPERT);
 		createEReference(receptionistControllerEClass, RECEPTIONIST_CONTROLLER__USER_EXPERT);
 		createEOperation(receptionistControllerEClass, RECEPTIONIST_CONTROLLER___RECEPTIONIST_CONTROLLER__RECEIPTEXPERT_EXPENSEEXPERT_ROOMEXPERT_BOOKINGEXPERT_PROMOTIONEXPERT_USEREXPERT);
 
@@ -2827,9 +2837,9 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		op = initEOperation(getReceiptExpert__ReceiptExpert__DatabaseInterface(), null, "ReceiptExpert", 1, 1, IS_UNIQUE, !IS_ORDERED);
 		addEParameter(op, this.getDatabaseInterface(), "database", 1, 1, IS_UNIQUE, !IS_ORDERED);
 
-		initEClass(emailEClass, email.class, "email", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(emailSenderEClass, EmailSender.class, "EmailSender", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		op = initEOperation(getemail__Send__Booking(), ecorePackage.getEBoolean(), "send", 1, 1, IS_UNIQUE, !IS_ORDERED);
+		op = initEOperation(getEmailSender__Send__Booking(), ecorePackage.getEBoolean(), "send", 1, 1, IS_UNIQUE, !IS_ORDERED);
 		addEParameter(op, this.getBooking(), "booking", 1, 1, IS_UNIQUE, !IS_ORDERED);
 
 		initEClass(paymentEClass, Payment.class, "Payment", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -2846,6 +2856,8 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		initEReference(getBookingController_BookingExpert(), this.getBookingExpert(), null, "bookingExpert", null, 1, 1, BookingController.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEReference(getBookingController_PromotionExpert(), this.getPromotionExpert(), null, "promotionExpert", null, 1, 1, BookingController.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEReference(getBookingController_DatabaseInterface(), this.getDatabaseInterface(), null, "databaseInterface", null, 1, 1, BookingController.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getBookingController_ExpenseExpert(), this.getExpenseExpert(), null, "expenseExpert", null, 1, 1, BookingController.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getBookingController_ReceiptExpert(), this.getReceiptExpert(), null, "receiptExpert", null, 1, 1, BookingController.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		op = initEOperation(getBookingController__BookingController__RoomExpert_BookingExpert_PromotionExpert(), null, "BookingController", 1, 1, IS_UNIQUE, !IS_ORDERED);
 		addEParameter(op, this.getRoomExpert(), "roomExpert", 1, 1, IS_UNIQUE, !IS_ORDERED);
@@ -2865,7 +2877,6 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		addEParameter(op, this.getRoomExpert(), "roomExpert", 1, 1, IS_UNIQUE, !IS_ORDERED);
 
 		initEClass(receptionistControllerEClass, ReceptionistController.class, "ReceptionistController", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getReceptionistController_ExpenseExpert(), this.getExpenseExpert(), null, "expenseExpert", null, 1, 1, ReceptionistController.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEReference(getReceptionistController_UserExpert(), this.getUserExpert(), null, "userExpert", null, 1, 1, ReceptionistController.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		op = initEOperation(getReceptionistController__ReceptionistController__ReceiptExpert_ExpenseExpert_RoomExpert_BookingExpert_PromotionExpert_UserExpert(), null, "ReceptionistController", 1, 1, IS_UNIQUE, !IS_ORDERED);

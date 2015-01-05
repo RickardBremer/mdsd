@@ -75,7 +75,7 @@ public class ModelFactoryImpl extends EFactoryImpl implements ModelFactory {
 			case ModelPackage.PROMOTION_EXPERT: return createPromotionExpert();
 			case ModelPackage.BOOKING_EXPERT: return createBookingExpert();
 			case ModelPackage.RECEIPT_EXPERT: return createReceiptExpert();
-			case ModelPackage.EMAIL: return createemail();
+			case ModelPackage.EMAIL_SENDER: return createEmailSender();
 			case ModelPackage.PAYMENT: return createPayment();
 			case ModelPackage.BOOKING_CONTROLLER: return createBookingController();
 			case ModelPackage.ADMIN_CONTROLLER: return createAdminController();
@@ -281,9 +281,9 @@ public class ModelFactoryImpl extends EFactoryImpl implements ModelFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public email createemail() {
-		emailImpl email = new emailImpl();
-		return email;
+	public EmailSender createEmailSender() {
+		EmailSenderImpl emailSender = new EmailSenderImpl();
+		return emailSender;
 	}
 
 	/**

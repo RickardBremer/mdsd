@@ -496,7 +496,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="database" ordered="false"
         lowerBound="1" eType="#//DatabaseInterface"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="email">
+  <eClassifiers xsi:type="ecore:EClass" name="EmailSender">
     <eOperations name="send" ordered="false" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
       <eParameters name="booking" ordered="false" lowerBound="1" eType="#//Booking"/>
     </eOperations>
@@ -524,6 +524,10 @@
         lowerBound="1" eType="#//PromotionExpert"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="databaseInterface" ordered="false"
         lowerBound="1" eType="#//DatabaseInterface"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="expenseExpert" ordered="false"
+        lowerBound="1" eType="#//ExpenseExpert"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="receiptExpert" ordered="false"
+        lowerBound="1" eType="#//ReceiptExpert"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="AdminController" eSuperTypes="#//AdminInterface">
     <eOperations name="AdminController" ordered="false" lowerBound="1">
@@ -550,8 +554,6 @@
       <eParameters name="promotionExpert" ordered="false" lowerBound="1" eType="#//PromotionExpert"/>
       <eParameters name="userExpert" ordered="false" lowerBound="1" eType="#//UserExpert"/>
     </eOperations>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="expenseExpert" ordered="false"
-        lowerBound="1" eType="#//ExpenseExpert"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="userExpert" ordered="false"
         lowerBound="1" eType="#//UserExpert"/>
   </eClassifiers>

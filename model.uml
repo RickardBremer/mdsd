@@ -941,7 +941,7 @@
         </ownedParameter>
       </ownedOperation>
     </packagedElement>
-    <packagedElement xmi:type="uml:Class" xmi:id="_csqCsIB5EeSIi9xXvYIBqQ" name="email">
+    <packagedElement xmi:type="uml:Class" xmi:id="_csqCsIB5EeSIi9xXvYIBqQ" name="EmailSender">
       <ownedOperation xmi:type="uml:Operation" xmi:id="_F1wZoIXuEeSSGO62vt7qUQ" name="send" visibility="protected">
         <ownedParameter xmi:type="uml:Parameter" xmi:id="_WhJY4IXuEeSSGO62vt7qUQ" name="booking" type="_3KJDkIB4EeSIi9xXvYIBqQ"/>
         <ownedParameter xmi:type="uml:Parameter" xmi:id="_SXJswJTYEeSK-7NQpyjlhQ" name="returnValue" direction="return">
@@ -1093,6 +1093,14 @@
         <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_wVY1MoX9EeSSWPBCkg2FMw" value="1"/>
       </ownedAttribute>
       <ownedAttribute xmi:type="uml:Property" xmi:id="_QgzU0InEEeSH0aSvdd46GA" name="databaseInterface" visibility="private" type="_5pSK4IBJEeSIi9xXvYIBqQ"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_JrNDwJTtEeSK-7NQpyjlhQ" name="expenseExpert" type="_RVmD0IB5EeSIi9xXvYIBqQ" association="_JrOR4JTtEeSK-7NQpyjlhQ">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_JrNDwZTtEeSK-7NQpyjlhQ" value="1"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_JrNDwpTtEeSK-7NQpyjlhQ" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_ODUTgJTtEeSK-7NQpyjlhQ" name="receiptExpert" type="_LKi20IB5EeSIi9xXvYIBqQ" association="_ODU6kJTtEeSK-7NQpyjlhQ">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_ODUTgZTtEeSK-7NQpyjlhQ" value="1"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_ODUTgpTtEeSK-7NQpyjlhQ" value="1"/>
+      </ownedAttribute>
       <interfaceRealization xmi:type="uml:InterfaceRealization" xmi:id="_SJ8YoIqPEeSCo51zhpbIKg" client="__5260IB6EeSIi9xXvYIBqQ" supplier="_x4FxwH4gEeSissZ6Et6fRA" contract="_x4FxwH4gEeSissZ6Et6fRA"/>
       <ownedOperation xmi:type="uml:Operation" xmi:id="_UuEpoIqMEeSCo51zhpbIKg" name="BookingController">
         <ownedParameter xmi:type="uml:Parameter" xmi:id="_Y1724IqMEeSCo51zhpbIKg" name="roomExpert" type="_FOiycIB5EeSIi9xXvYIBqQ"/>
@@ -1134,23 +1142,6 @@
       <ownedEnd xmi:type="uml:Property" xmi:id="_qQLnMYB7EeSIi9xXvYIBqQ" name="adminController" type="_MM4ysIB7EeSIi9xXvYIBqQ" association="_qQLnMIB7EeSIi9xXvYIBqQ">
         <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_qQLnMoB7EeSIi9xXvYIBqQ" value="1"/>
         <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_qQLnM4B7EeSIi9xXvYIBqQ" value="1"/>
-      </ownedEnd>
-    </packagedElement>
-    <packagedElement xmi:type="uml:Association" xmi:id="_dGwA4IB9EeSIi9xXvYIBqQ" memberEnd="_dGwA4YB9EeSIi9xXvYIBqQ _dGvZ0IB9EeSIi9xXvYIBqQ">
-      <ownedEnd xmi:type="uml:Property" xmi:id="_dGwA4YB9EeSIi9xXvYIBqQ" name="receptionistController" type="_IGSwwIB7EeSIi9xXvYIBqQ" association="_dGwA4IB9EeSIi9xXvYIBqQ">
-        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_dGwA4oB9EeSIi9xXvYIBqQ" value="1"/>
-        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_dGwA44B9EeSIi9xXvYIBqQ" value="1"/>
-      </ownedEnd>
-      <ownedEnd xmi:type="uml:Property" xmi:id="_dGvZ0IB9EeSIi9xXvYIBqQ" name="receiptExpert" type="_LKi20IB5EeSIi9xXvYIBqQ" association="_dGwA4IB9EeSIi9xXvYIBqQ">
-        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_dGvZ0YB9EeSIi9xXvYIBqQ" value="1"/>
-        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_dGvZ0oB9EeSIi9xXvYIBqQ" value="1"/>
-      </ownedEnd>
-    </packagedElement>
-    <packagedElement xmi:type="uml:Association" xmi:id="_jOcX4IB9EeSIi9xXvYIBqQ" memberEnd="_jOcX4YB9EeSIi9xXvYIBqQ _jObw0IB9EeSIi9xXvYIBqQ">
-      <name xsi:nil="true"/>
-      <ownedEnd xmi:type="uml:Property" xmi:id="_jOcX4YB9EeSIi9xXvYIBqQ" name="receptionistController" type="_IGSwwIB7EeSIi9xXvYIBqQ" association="_jOcX4IB9EeSIi9xXvYIBqQ">
-        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_jOcX4oB9EeSIi9xXvYIBqQ" value="1"/>
-        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_jOcX44B9EeSIi9xXvYIBqQ" value="1"/>
       </ownedEnd>
     </packagedElement>
     <packagedElement xmi:type="uml:Association" xmi:id="_lclDYIB9EeSIi9xXvYIBqQ" memberEnd="_lclDYYB9EeSIi9xXvYIBqQ _lckcUIB9EeSIi9xXvYIBqQ">
@@ -1209,10 +1200,6 @@
     </packagedElement>
     <packagedElement xmi:type="uml:Class" xmi:id="_IGSwwIB7EeSIi9xXvYIBqQ" name="ReceptionistController">
       <generalization xmi:type="uml:Generalization" xmi:id="_GEgMsInSEeSH0aSvdd46GA" general="__5260IB6EeSIi9xXvYIBqQ"/>
-      <ownedAttribute xmi:type="uml:Property" xmi:id="_jObw0IB9EeSIi9xXvYIBqQ" name="expenseExpert" visibility="private" type="_RVmD0IB5EeSIi9xXvYIBqQ" association="_jOcX4IB9EeSIi9xXvYIBqQ">
-        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_jObw0YB9EeSIi9xXvYIBqQ" value="1"/>
-        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_jObw0oB9EeSIi9xXvYIBqQ" value="1"/>
-      </ownedAttribute>
       <ownedAttribute xmi:type="uml:Property" xmi:id="_B1oukIqNEeSCo51zhpbIKg" name="userExpert" visibility="private" type="_nKQqAIB5EeSIi9xXvYIBqQ" association="_B1pVoIqNEeSCo51zhpbIKg">
         <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_B1oukYqNEeSCo51zhpbIKg" value="1"/>
         <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_B1oukoqNEeSCo51zhpbIKg" value="1"/>
@@ -1267,6 +1254,20 @@
       <ownedEnd xmi:type="uml:Property" xmi:id="_KFTQsJTrEeSK-7NQpyjlhQ" name="booking" type="_3KJDkIB4EeSIi9xXvYIBqQ" association="_KFSpoJTrEeSK-7NQpyjlhQ">
         <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_KFTQsZTrEeSK-7NQpyjlhQ" value="1"/>
         <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_KFTQspTrEeSK-7NQpyjlhQ" value="1"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_JrOR4JTtEeSK-7NQpyjlhQ" memberEnd="_JrOR4ZTtEeSK-7NQpyjlhQ _JrNDwJTtEeSK-7NQpyjlhQ">
+      <name xsi:nil="true"/>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_JrOR4ZTtEeSK-7NQpyjlhQ" name="bookingController" type="__5260IB6EeSIi9xXvYIBqQ" association="_JrOR4JTtEeSK-7NQpyjlhQ">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_JrOR4pTtEeSK-7NQpyjlhQ" value="1"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_JrOR45TtEeSK-7NQpyjlhQ" value="1"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_ODU6kJTtEeSK-7NQpyjlhQ" memberEnd="_ODU6kZTtEeSK-7NQpyjlhQ _ODUTgJTtEeSK-7NQpyjlhQ">
+      <name xsi:nil="true"/>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_ODU6kZTtEeSK-7NQpyjlhQ" name="bookingController" type="__5260IB6EeSIi9xXvYIBqQ" association="_ODU6kJTtEeSK-7NQpyjlhQ">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_ODU6kpTtEeSK-7NQpyjlhQ" value="1"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_ODU6k5TtEeSK-7NQpyjlhQ" value="1"/>
       </ownedEnd>
     </packagedElement>
     <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_KZiQMIXVEeSa4Ps4qtz0aQ">

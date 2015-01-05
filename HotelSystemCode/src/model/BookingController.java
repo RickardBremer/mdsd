@@ -15,6 +15,8 @@ package model;
  *   <li>{@link model.BookingController#getBookingExpert <em>Booking Expert</em>}</li>
  *   <li>{@link model.BookingController#getPromotionExpert <em>Promotion Expert</em>}</li>
  *   <li>{@link model.BookingController#getDatabaseInterface <em>Database Interface</em>}</li>
+ *   <li>{@link model.BookingController#getExpenseExpert <em>Expense Expert</em>}</li>
+ *   <li>{@link model.BookingController#getReceiptExpert <em>Receipt Expert</em>}</li>
  * </ul>
  * </p>
  *
@@ -126,6 +128,58 @@ public interface BookingController extends CustomerInterface {
 	 * @generated
 	 */
 	void setDatabaseInterface(DatabaseInterface value);
+
+	/**
+	 * Returns the value of the '<em><b>Expense Expert</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Expense Expert</em>' reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Expense Expert</em>' reference.
+	 * @see #setExpenseExpert(ExpenseExpert)
+	 * @see model.ModelPackage#getBookingController_ExpenseExpert()
+	 * @model required="true" ordered="false"
+	 * @generated
+	 */
+	ExpenseExpert getExpenseExpert();
+
+	/**
+	 * Sets the value of the '{@link model.BookingController#getExpenseExpert <em>Expense Expert</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Expense Expert</em>' reference.
+	 * @see #getExpenseExpert()
+	 * @generated
+	 */
+	void setExpenseExpert(ExpenseExpert value);
+
+	/**
+	 * Returns the value of the '<em><b>Receipt Expert</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Receipt Expert</em>' reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Receipt Expert</em>' reference.
+	 * @see #setReceiptExpert(ReceiptExpert)
+	 * @see model.ModelPackage#getBookingController_ReceiptExpert()
+	 * @model required="true" ordered="false"
+	 * @generated
+	 */
+	ReceiptExpert getReceiptExpert();
+
+	/**
+	 * Sets the value of the '{@link model.BookingController#getReceiptExpert <em>Receipt Expert</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Receipt Expert</em>' reference.
+	 * @see #getReceiptExpert()
+	 * @generated
+	 */
+	void setReceiptExpert(ReceiptExpert value);
 
 	/**
 	 * <!-- begin-user-doc -->

@@ -2071,23 +2071,23 @@ public interface ModelPackage extends EPackage {
 	int RECEIPT_EXPERT_OPERATION_COUNT = 9;
 
 	/**
-	 * The meta object id for the '{@link model.impl.emailImpl <em>email</em>}' class.
+	 * The meta object id for the '{@link model.impl.EmailSenderImpl <em>Email Sender</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see model.impl.emailImpl
-	 * @see model.impl.ModelPackageImpl#getemail()
+	 * @see model.impl.EmailSenderImpl
+	 * @see model.impl.ModelPackageImpl#getEmailSender()
 	 * @generated
 	 */
-	int EMAIL = 24;
+	int EMAIL_SENDER = 24;
 
 	/**
-	 * The number of structural features of the '<em>email</em>' class.
+	 * The number of structural features of the '<em>Email Sender</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int EMAIL_FEATURE_COUNT = 0;
+	int EMAIL_SENDER_FEATURE_COUNT = 0;
 
 	/**
 	 * The operation id for the '<em>Send</em>' operation.
@@ -2096,16 +2096,16 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EMAIL___SEND__BOOKING = 0;
+	int EMAIL_SENDER___SEND__BOOKING = 0;
 
 	/**
-	 * The number of operations of the '<em>email</em>' class.
+	 * The number of operations of the '<em>Email Sender</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int EMAIL_OPERATION_COUNT = 1;
+	int EMAIL_SENDER_OPERATION_COUNT = 1;
 
 	/**
 	 * The meta object id for the '{@link model.impl.PaymentImpl <em>Payment</em>}' class.
@@ -2200,13 +2200,31 @@ public interface ModelPackage extends EPackage {
 	int BOOKING_CONTROLLER__DATABASE_INTERFACE = CUSTOMER_INTERFACE_FEATURE_COUNT + 3;
 
 	/**
+	 * The feature id for the '<em><b>Expense Expert</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOOKING_CONTROLLER__EXPENSE_EXPERT = CUSTOMER_INTERFACE_FEATURE_COUNT + 4;
+
+	/**
+	 * The feature id for the '<em><b>Receipt Expert</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOOKING_CONTROLLER__RECEIPT_EXPERT = CUSTOMER_INTERFACE_FEATURE_COUNT + 5;
+
+	/**
 	 * The number of structural features of the '<em>Booking Controller</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int BOOKING_CONTROLLER_FEATURE_COUNT = CUSTOMER_INTERFACE_FEATURE_COUNT + 4;
+	int BOOKING_CONTROLLER_FEATURE_COUNT = CUSTOMER_INTERFACE_FEATURE_COUNT + 6;
 
 	/**
 	 * The operation id for the '<em>Search Rooms</em>' operation.
@@ -2559,7 +2577,16 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RECEPTIONIST_CONTROLLER__EXPENSE_EXPERT = BOOKING_CONTROLLER_FEATURE_COUNT + 0;
+	int RECEPTIONIST_CONTROLLER__EXPENSE_EXPERT = BOOKING_CONTROLLER__EXPENSE_EXPERT;
+
+	/**
+	 * The feature id for the '<em><b>Receipt Expert</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RECEPTIONIST_CONTROLLER__RECEIPT_EXPERT = BOOKING_CONTROLLER__RECEIPT_EXPERT;
 
 	/**
 	 * The feature id for the '<em><b>User Expert</b></em>' reference.
@@ -2568,7 +2595,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RECEPTIONIST_CONTROLLER__USER_EXPERT = BOOKING_CONTROLLER_FEATURE_COUNT + 1;
+	int RECEPTIONIST_CONTROLLER__USER_EXPERT = BOOKING_CONTROLLER_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Receptionist Controller</em>' class.
@@ -2577,7 +2604,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RECEPTIONIST_CONTROLLER_FEATURE_COUNT = BOOKING_CONTROLLER_FEATURE_COUNT + 2;
+	int RECEPTIONIST_CONTROLLER_FEATURE_COUNT = BOOKING_CONTROLLER_FEATURE_COUNT + 1;
 
 	/**
 	 * The operation id for the '<em>Search Rooms</em>' operation.
@@ -4559,24 +4586,24 @@ public interface ModelPackage extends EPackage {
 	EOperation getReceiptExpert__ReceiptExpert__DatabaseInterface();
 
 	/**
-	 * Returns the meta object for class '{@link model.email <em>email</em>}'.
+	 * Returns the meta object for class '{@link model.EmailSender <em>Email Sender</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>email</em>'.
-	 * @see model.email
+	 * @return the meta object for class '<em>Email Sender</em>'.
+	 * @see model.EmailSender
 	 * @generated
 	 */
-	EClass getemail();
+	EClass getEmailSender();
 
 	/**
-	 * Returns the meta object for the '{@link model.email#send(model.Booking) <em>Send</em>}' operation.
+	 * Returns the meta object for the '{@link model.EmailSender#send(model.Booking) <em>Send</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Send</em>' operation.
-	 * @see model.email#send(model.Booking)
+	 * @see model.EmailSender#send(model.Booking)
 	 * @generated
 	 */
-	EOperation getemail__Send__Booking();
+	EOperation getEmailSender__Send__Booking();
 
 	/**
 	 * Returns the meta object for class '{@link model.Payment <em>Payment</em>}'.
@@ -4663,6 +4690,28 @@ public interface ModelPackage extends EPackage {
 	EReference getBookingController_DatabaseInterface();
 
 	/**
+	 * Returns the meta object for the reference '{@link model.BookingController#getExpenseExpert <em>Expense Expert</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Expense Expert</em>'.
+	 * @see model.BookingController#getExpenseExpert()
+	 * @see #getBookingController()
+	 * @generated
+	 */
+	EReference getBookingController_ExpenseExpert();
+
+	/**
+	 * Returns the meta object for the reference '{@link model.BookingController#getReceiptExpert <em>Receipt Expert</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Receipt Expert</em>'.
+	 * @see model.BookingController#getReceiptExpert()
+	 * @see #getBookingController()
+	 * @generated
+	 */
+	EReference getBookingController_ReceiptExpert();
+
+	/**
 	 * Returns the meta object for the '{@link model.BookingController#BookingController(model.RoomExpert, model.BookingExpert, model.PromotionExpert) <em>Booking Controller</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4745,17 +4794,6 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getReceptionistController();
-
-	/**
-	 * Returns the meta object for the reference '{@link model.ReceptionistController#getExpenseExpert <em>Expense Expert</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Expense Expert</em>'.
-	 * @see model.ReceptionistController#getExpenseExpert()
-	 * @see #getReceptionistController()
-	 * @generated
-	 */
-	EReference getReceptionistController_ExpenseExpert();
 
 	/**
 	 * Returns the meta object for the reference '{@link model.ReceptionistController#getUserExpert <em>User Expert</em>}'.
@@ -6244,14 +6282,14 @@ public interface ModelPackage extends EPackage {
 		EOperation RECEIPT_EXPERT___RECEIPT_EXPERT__DATABASEINTERFACE = eINSTANCE.getReceiptExpert__ReceiptExpert__DatabaseInterface();
 
 		/**
-		 * The meta object literal for the '{@link model.impl.emailImpl <em>email</em>}' class.
+		 * The meta object literal for the '{@link model.impl.EmailSenderImpl <em>Email Sender</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see model.impl.emailImpl
-		 * @see model.impl.ModelPackageImpl#getemail()
+		 * @see model.impl.EmailSenderImpl
+		 * @see model.impl.ModelPackageImpl#getEmailSender()
 		 * @generated
 		 */
-		EClass EMAIL = eINSTANCE.getemail();
+		EClass EMAIL_SENDER = eINSTANCE.getEmailSender();
 
 		/**
 		 * The meta object literal for the '<em><b>Send</b></em>' operation.
@@ -6259,7 +6297,7 @@ public interface ModelPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation EMAIL___SEND__BOOKING = eINSTANCE.getemail__Send__Booking();
+		EOperation EMAIL_SENDER___SEND__BOOKING = eINSTANCE.getEmailSender__Send__Booking();
 
 		/**
 		 * The meta object literal for the '{@link model.impl.PaymentImpl <em>Payment</em>}' class.
@@ -6330,6 +6368,22 @@ public interface ModelPackage extends EPackage {
 		EReference BOOKING_CONTROLLER__DATABASE_INTERFACE = eINSTANCE.getBookingController_DatabaseInterface();
 
 		/**
+		 * The meta object literal for the '<em><b>Expense Expert</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference BOOKING_CONTROLLER__EXPENSE_EXPERT = eINSTANCE.getBookingController_ExpenseExpert();
+
+		/**
+		 * The meta object literal for the '<em><b>Receipt Expert</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference BOOKING_CONTROLLER__RECEIPT_EXPERT = eINSTANCE.getBookingController_ReceiptExpert();
+
+		/**
 		 * The meta object literal for the '<em><b>Booking Controller</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -6396,14 +6450,6 @@ public interface ModelPackage extends EPackage {
 		 * @generated
 		 */
 		EClass RECEPTIONIST_CONTROLLER = eINSTANCE.getReceptionistController();
-
-		/**
-		 * The meta object literal for the '<em><b>Expense Expert</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference RECEPTIONIST_CONTROLLER__EXPENSE_EXPERT = eINSTANCE.getReceptionistController_ExpenseExpert();
 
 		/**
 		 * The meta object literal for the '<em><b>User Expert</b></em>' reference feature.

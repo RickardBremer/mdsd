@@ -164,8 +164,8 @@ public class ModelAdapterFactory extends AdapterFactoryImpl {
 				return createReceiptExpertAdapter();
 			}
 			@Override
-			public Adapter caseemail(email object) {
-				return createemailAdapter();
+			public Adapter caseEmailSender(EmailSender object) {
+				return createEmailSenderAdapter();
 			}
 			@Override
 			public Adapter casePayment(Payment object) {
@@ -544,16 +544,16 @@ public class ModelAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link model.email <em>email</em>}'.
+	 * Creates a new adapter for an object of class '{@link model.EmailSender <em>Email Sender</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see model.email
+	 * @see model.EmailSender
 	 * @generated
 	 */
-	public Adapter createemailAdapter() {
+	public Adapter createEmailSenderAdapter() {
 		return null;
 	}
 
