@@ -193,13 +193,13 @@ public interface ModelFactory extends EFactory {
 	ReceiptExpert createReceiptExpert();
 
 	/**
-	 * Returns a new object of class '<em>email</em>'.
+	 * Returns a new object of class '<em>Email Sender</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>email</em>'.
+	 * @return a new object of class '<em>Email Sender</em>'.
 	 * @generated
 	 */
-	email createemail();
+	EmailSender createEmailSender();
 
 	/**
 	 * Returns a new object of class '<em>Payment</em>'.

@@ -24,6 +24,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link model.Booking#getRoomTypes <em>Room Types</em>}</li>
  *   <li>{@link model.Booking#isCheckedIn <em>Checked In</em>}</li>
  *   <li>{@link model.Booking#getId <em>Id</em>}</li>
+ *   <li>{@link model.Booking#getReceipt <em>Receipt</em>}</li>
  * </ul>
  * </p>
  *
@@ -231,11 +232,37 @@ public interface Booking extends EObject {
 	void setId(int value);
 
 	/**
+	 * Returns the value of the '<em><b>Receipt</b></em>' reference.
 	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Receipt</em>' reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
 	 * <!-- end-user-doc -->
-	 * @model bookingIDDataType="org.eclipse.uml2.types.String" bookingIDRequired="true" bookingIDOrdered="false" fromDateRequired="true" fromDateOrdered="false" toDateRequired="true" toDateOrdered="false" wishesDataType="org.eclipse.uml2.types.String" wishesRequired="true" wishesOrdered="false" customerRequired="true" customerOrdered="false" roomTypesDataType="org.eclipse.uml2.types.String" roomTypesMany="true" roomTypesOrdered="false" promotionCodeDataType="org.eclipse.uml2.types.String" promotionCodeRequired="true" promotionCodeOrdered="false" idRequired="true" idOrdered="false" receiptRequired="true" receiptOrdered="false"
+	 * @return the value of the '<em>Receipt</em>' reference.
+	 * @see #setReceipt(Receipt)
+	 * @see model.ModelPackage#getBooking_Receipt()
+	 * @model required="true" ordered="false"
 	 * @generated
 	 */
-	void Booking(String bookingID, Date fromDate, Date toDate, String wishes, Customer customer, EList<String> roomTypes, String promotionCode, int id, Receipt receipt);
+	Receipt getReceipt();
+
+	/**
+	 * Sets the value of the '{@link model.Booking#getReceipt <em>Receipt</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Receipt</em>' reference.
+	 * @see #getReceipt()
+	 * @generated
+	 */
+	void setReceipt(Receipt value);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model fromDateRequired="true" fromDateOrdered="false" toDateRequired="true" toDateOrdered="false" wishesDataType="org.eclipse.uml2.types.String" wishesRequired="true" wishesOrdered="false" customerRequired="true" customerOrdered="false" roomTypesDataType="org.eclipse.uml2.types.String" roomTypesMany="true" roomTypesOrdered="false" promotionCodeDataType="org.eclipse.uml2.types.String" promotionCodeRequired="true" promotionCodeOrdered="false" idRequired="true" idOrdered="false"
+	 * @generated
+	 */
+	void Booking(Date fromDate, Date toDate, String wishes, Customer customer, EList<String> roomTypes, String promotionCode, int id);
 
 } // Booking

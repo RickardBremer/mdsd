@@ -3,25 +3,18 @@
 package model.impl;
 
 import java.lang.reflect.InvocationTargetException;
-
 import java.util.Collection;
 import java.util.Date;
-
 import model.Booking;
 import model.Customer;
 import model.ModelPackage;
-
 import model.Receipt;
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
 import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
 
 /**
@@ -39,6 +32,7 @@ import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
  *   <li>{@link model.impl.BookingImpl#getRoomTypes <em>Room Types</em>}</li>
  *   <li>{@link model.impl.BookingImpl#isCheckedIn <em>Checked In</em>}</li>
  *   <li>{@link model.impl.BookingImpl#getId <em>Id</em>}</li>
+ *   <li>{@link model.impl.BookingImpl#getReceipt <em>Receipt</em>}</li>
  * </ul>
  * </p>
  *
@@ -184,6 +178,16 @@ public class BookingImpl extends MinimalEObjectImpl.Container implements Booking
 	 * @ordered
 	 */
 	protected int id = ID_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getReceipt() <em>Receipt</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getReceipt()
+	 * @generated
+	 * @ordered
+	 */
+	protected Receipt receipt;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -385,7 +389,45 @@ public class BookingImpl extends MinimalEObjectImpl.Container implements Booking
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void Booking(String bookingID, Date fromDate, Date toDate, String wishes, Customer customer, EList<String> roomTypes, String promotionCode, int id, Receipt receipt) {
+	public Receipt getReceipt() {
+		if (receipt != null && receipt.eIsProxy()) {
+			InternalEObject oldReceipt = (InternalEObject)receipt;
+			receipt = (Receipt)eResolveProxy(oldReceipt);
+			if (receipt != oldReceipt) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, ModelPackage.BOOKING__RECEIPT, oldReceipt, receipt));
+			}
+		}
+		return receipt;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Receipt basicGetReceipt() {
+		return receipt;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setReceipt(Receipt newReceipt) {
+		Receipt oldReceipt = receipt;
+		receipt = newReceipt;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.BOOKING__RECEIPT, oldReceipt, receipt));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void Booking(Date fromDate, Date toDate, String wishes, Customer customer, EList<String> roomTypes, String promotionCode, int id) {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();
@@ -416,6 +458,9 @@ public class BookingImpl extends MinimalEObjectImpl.Container implements Booking
 				return isCheckedIn();
 			case ModelPackage.BOOKING__ID:
 				return getId();
+			case ModelPackage.BOOKING__RECEIPT:
+				if (resolve) return getReceipt();
+				return basicGetReceipt();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -454,6 +499,9 @@ public class BookingImpl extends MinimalEObjectImpl.Container implements Booking
 			case ModelPackage.BOOKING__ID:
 				setId((Integer)newValue);
 				return;
+			case ModelPackage.BOOKING__RECEIPT:
+				setReceipt((Receipt)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -490,6 +538,9 @@ public class BookingImpl extends MinimalEObjectImpl.Container implements Booking
 			case ModelPackage.BOOKING__ID:
 				setId(ID_EDEFAULT);
 				return;
+			case ModelPackage.BOOKING__RECEIPT:
+				setReceipt((Receipt)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -518,6 +569,8 @@ public class BookingImpl extends MinimalEObjectImpl.Container implements Booking
 				return checkedIn != CHECKED_IN_EDEFAULT;
 			case ModelPackage.BOOKING__ID:
 				return id != ID_EDEFAULT;
+			case ModelPackage.BOOKING__RECEIPT:
+				return receipt != null;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -531,8 +584,8 @@ public class BookingImpl extends MinimalEObjectImpl.Container implements Booking
 	@SuppressWarnings("unchecked")
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
-			case ModelPackage.BOOKING___BOOKING__STRING_DATE_DATE_STRING_CUSTOMER_ELIST_STRING_INT_RECEIPT:
-				Booking((String)arguments.get(0), (Date)arguments.get(1), (Date)arguments.get(2), (String)arguments.get(3), (Customer)arguments.get(4), (EList<String>)arguments.get(5), (String)arguments.get(6), (Integer)arguments.get(7), (Receipt)arguments.get(8));
+			case ModelPackage.BOOKING___BOOKING__DATE_DATE_STRING_CUSTOMER_ELIST_STRING_INT:
+				Booking((Date)arguments.get(0), (Date)arguments.get(1), (String)arguments.get(2), (Customer)arguments.get(3), (EList<String>)arguments.get(4), (String)arguments.get(5), (Integer)arguments.get(6));
 				return null;
 		}
 		return super.eInvoke(operationID, arguments);

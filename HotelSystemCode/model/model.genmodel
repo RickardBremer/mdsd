@@ -199,8 +199,9 @@
       <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//Booking/roomTypes"/>
       <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//Booking/checkedIn"/>
       <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//Booking/id"/>
+      <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+          propertySortChoices="true" ecoreFeature="ecore:EReference model.ecore#//Booking/receipt"/>
       <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="model.ecore#//Booking/Booking">
-        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="model.ecore#//Booking/Booking/bookingID"/>
         <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="model.ecore#//Booking/Booking/fromDate"/>
         <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="model.ecore#//Booking/Booking/toDate"/>
         <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="model.ecore#//Booking/Booking/wishes"/>
@@ -208,7 +209,6 @@
         <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="model.ecore#//Booking/Booking/roomTypes"/>
         <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="model.ecore#//Booking/Booking/promotionCode"/>
         <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="model.ecore#//Booking/Booking/id"/>
-        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="model.ecore#//Booking/Booking/receipt"/>
       </genOperations>
     </genClasses>
     <genClasses xsi:type="genmodel:GenClass" image="false" ecoreClass="model.ecore#//AdminInterface">
@@ -480,9 +480,9 @@
         <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="model.ecore#//ReceiptExpert/ReceiptExpert/database"/>
       </genOperations>
     </genClasses>
-    <genClasses xsi:type="genmodel:GenClass" ecoreClass="model.ecore#//email">
-      <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="model.ecore#//email/send">
-        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="model.ecore#//email/send/booking"/>
+    <genClasses xsi:type="genmodel:GenClass" ecoreClass="model.ecore#//EmailSender">
+      <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="model.ecore#//EmailSender/send">
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="model.ecore#//EmailSender/send/booking"/>
       </genOperations>
     </genClasses>
     <genClasses xsi:type="genmodel:GenClass" ecoreClass="model.ecore#//Payment">
@@ -503,6 +503,10 @@
           propertySortChoices="true" ecoreFeature="ecore:EReference model.ecore#//BookingController/promotionExpert"/>
       <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
           propertySortChoices="true" ecoreFeature="ecore:EReference model.ecore#//BookingController/databaseInterface"/>
+      <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+          propertySortChoices="true" ecoreFeature="ecore:EReference model.ecore#//BookingController/expenseExpert"/>
+      <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+          propertySortChoices="true" ecoreFeature="ecore:EReference model.ecore#//BookingController/receiptExpert"/>
       <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="model.ecore#//BookingController/BookingController">
         <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="model.ecore#//BookingController/BookingController/roomExpert"/>
         <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="model.ecore#//BookingController/BookingController/bookingExpert"/>
@@ -526,8 +530,6 @@
       </genOperations>
     </genClasses>
     <genClasses xsi:type="genmodel:GenClass" ecoreClass="model.ecore#//ReceptionistController">
-      <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
-          propertySortChoices="true" ecoreFeature="ecore:EReference model.ecore#//ReceptionistController/expenseExpert"/>
       <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
           propertySortChoices="true" ecoreFeature="ecore:EReference model.ecore#//ReceptionistController/userExpert"/>
       <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="model.ecore#//ReceptionistController/ReceptionistController">

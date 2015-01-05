@@ -4,18 +4,23 @@ package model.impl;
 
 import java.lang.reflect.InvocationTargetException;
 import java.util.Date;
+
 import model.Booking;
 import model.BookingController;
 import model.BookingExpert;
 import model.Customer;
 import model.DatabaseInterface;
 import model.Expense;
+import model.ExpenseExpert;
 import model.ModelPackage;
 import model.Payment;
 import model.PromotionExpert;
 import model.Receipt;
+import model.ReceiptExpert;
 import model.Room;
 import model.RoomExpert;
+import model.email;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
@@ -34,6 +39,8 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  *   <li>{@link model.impl.BookingControllerImpl#getBookingExpert <em>Booking Expert</em>}</li>
  *   <li>{@link model.impl.BookingControllerImpl#getPromotionExpert <em>Promotion Expert</em>}</li>
  *   <li>{@link model.impl.BookingControllerImpl#getDatabaseInterface <em>Database Interface</em>}</li>
+ *   <li>{@link model.impl.BookingControllerImpl#getExpenseExpert <em>Expense Expert</em>}</li>
+ *   <li>{@link model.impl.BookingControllerImpl#getReceiptExpert <em>Receipt Expert</em>}</li>
  * </ul>
  * </p>
  *
@@ -79,6 +86,26 @@ public class BookingControllerImpl extends MinimalEObjectImpl.Container implemen
 	 * @ordered
 	 */
 	protected DatabaseInterface databaseInterface;
+
+	/**
+	 * The cached value of the '{@link #getExpenseExpert() <em>Expense Expert</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getExpenseExpert()
+	 * @generated
+	 * @ordered
+	 */
+	protected ExpenseExpert expenseExpert;
+
+	/**
+	 * The cached value of the '{@link #getReceiptExpert() <em>Receipt Expert</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getReceiptExpert()
+	 * @generated
+	 * @ordered
+	 */
+	protected ReceiptExpert receiptExpert;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -256,53 +283,116 @@ public class BookingControllerImpl extends MinimalEObjectImpl.Container implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Room> searchRooms(Date dateFrom, Date dateTo, int numberOfGuests, int numberOfRooms) {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+	public ExpenseExpert getExpenseExpert() {
+		if (expenseExpert != null && expenseExpert.eIsProxy()) {
+			InternalEObject oldExpenseExpert = (InternalEObject)expenseExpert;
+			expenseExpert = (ExpenseExpert)eResolveProxy(oldExpenseExpert);
+			if (expenseExpert != oldExpenseExpert) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, ModelPackage.BOOKING_CONTROLLER__EXPENSE_EXPERT, oldExpenseExpert, expenseExpert));
+			}
+		}
+		return expenseExpert;
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
+	 */
+	public ExpenseExpert basicGetExpenseExpert() {
+		return expenseExpert;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setExpenseExpert(ExpenseExpert newExpenseExpert) {
+		ExpenseExpert oldExpenseExpert = expenseExpert;
+		expenseExpert = newExpenseExpert;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.BOOKING_CONTROLLER__EXPENSE_EXPERT, oldExpenseExpert, expenseExpert));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ReceiptExpert getReceiptExpert() {
+		if (receiptExpert != null && receiptExpert.eIsProxy()) {
+			InternalEObject oldReceiptExpert = (InternalEObject)receiptExpert;
+			receiptExpert = (ReceiptExpert)eResolveProxy(oldReceiptExpert);
+			if (receiptExpert != oldReceiptExpert) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, ModelPackage.BOOKING_CONTROLLER__RECEIPT_EXPERT, oldReceiptExpert, receiptExpert));
+			}
+		}
+		return receiptExpert;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ReceiptExpert basicGetReceiptExpert() {
+		return receiptExpert;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setReceiptExpert(ReceiptExpert newReceiptExpert) {
+		ReceiptExpert oldReceiptExpert = receiptExpert;
+		receiptExpert = newReceiptExpert;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.BOOKING_CONTROLLER__RECEIPT_EXPERT, oldReceiptExpert, receiptExpert));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	public EList<Room> searchRooms(Date dateFrom, Date dateTo, int numberOfGuests, int numberOfRooms) {
+		return room.getAvailableRoomTypes(dateFrom, dateTo, numberOfRooms, numberOfGuests);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
 	 */
 	public Customer createCustomer(String firstName, String surname, String email, String address, String ccNumber, String ccv, int expiringMonth, int expriningYear) {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		Customer customer = new CustomerImpl();
+		customer.Customer(firstName, surname, email, address, ccNumber, ccv, expiringMonth, expriningYear);
+		return customer;
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public boolean pay(Customer customer, Receipt receipt) {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		Payment pay = new PaymentImpl();
+		int amount = (int) Math.rint(receipt.getTotalCost());
+		return pay.makePayment(customer, amount);
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public boolean validateCard(Customer customer) {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generate
-	 */
-	public boolean validateCard(String ccNumber, String ccv, int expiringMonth, int expiringYear) {
 		Payment pay = new PaymentImpl();
-		return pay.isCreditCardVaild(customer);
+		return pay.isCreditCardValid(customer);
 	}
 
 	/**
@@ -316,21 +406,24 @@ public class BookingControllerImpl extends MinimalEObjectImpl.Container implemen
 			return false;
 		}
 		Booking booking = new BookingImpl();
-		booking.Booking(-1, fromDate, toDate, wishes, customer, roomTypes, promotion);
-		bookingExpert.addBooking(booking);
+		booking.Booking(fromDate, toDate, wishes, customer, roomTypes, promotion, -1);
+		booking = bookingExpert.addBooking(booking);
 		Receipt rec = booking.getReceipt();
 		double total = rec.getTotalCost();
 		double fee = total * -0.1;
-		ex.Expense(fee, "Booking-fee " + fee, "", new Date());
+		Expense ex = new ExpenseImpl();
+		ex.Expense(fee, "Booking-fee", "" + fee, new Date());
 		ex = expenseExpert.add(ex);
 		rec.addExpense(ex);
 		receiptExpert.updateReceipt(rec);
 		
-		if (!pay.makePayment(customer, -fee)) {
+		int amount = (int) Math.rint(-fee);
+		if (!pay.makePayment(customer, amount)) {
 			bookingExpert.removeBooking(booking);
 			return false;
 		};
-		//TODO: send email här
+		email email = new emailImpl();
+		email.send(booking);
 		return true;
 	}
 
@@ -365,6 +458,12 @@ public class BookingControllerImpl extends MinimalEObjectImpl.Container implemen
 			case ModelPackage.BOOKING_CONTROLLER__DATABASE_INTERFACE:
 				if (resolve) return getDatabaseInterface();
 				return basicGetDatabaseInterface();
+			case ModelPackage.BOOKING_CONTROLLER__EXPENSE_EXPERT:
+				if (resolve) return getExpenseExpert();
+				return basicGetExpenseExpert();
+			case ModelPackage.BOOKING_CONTROLLER__RECEIPT_EXPERT:
+				if (resolve) return getReceiptExpert();
+				return basicGetReceiptExpert();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -388,6 +487,12 @@ public class BookingControllerImpl extends MinimalEObjectImpl.Container implemen
 				return;
 			case ModelPackage.BOOKING_CONTROLLER__DATABASE_INTERFACE:
 				setDatabaseInterface((DatabaseInterface)newValue);
+				return;
+			case ModelPackage.BOOKING_CONTROLLER__EXPENSE_EXPERT:
+				setExpenseExpert((ExpenseExpert)newValue);
+				return;
+			case ModelPackage.BOOKING_CONTROLLER__RECEIPT_EXPERT:
+				setReceiptExpert((ReceiptExpert)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -413,6 +518,12 @@ public class BookingControllerImpl extends MinimalEObjectImpl.Container implemen
 			case ModelPackage.BOOKING_CONTROLLER__DATABASE_INTERFACE:
 				setDatabaseInterface((DatabaseInterface)null);
 				return;
+			case ModelPackage.BOOKING_CONTROLLER__EXPENSE_EXPERT:
+				setExpenseExpert((ExpenseExpert)null);
+				return;
+			case ModelPackage.BOOKING_CONTROLLER__RECEIPT_EXPERT:
+				setReceiptExpert((ReceiptExpert)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -433,6 +544,10 @@ public class BookingControllerImpl extends MinimalEObjectImpl.Container implemen
 				return promotionExpert != null;
 			case ModelPackage.BOOKING_CONTROLLER__DATABASE_INTERFACE:
 				return databaseInterface != null;
+			case ModelPackage.BOOKING_CONTROLLER__EXPENSE_EXPERT:
+				return expenseExpert != null;
+			case ModelPackage.BOOKING_CONTROLLER__RECEIPT_EXPERT:
+				return receiptExpert != null;
 		}
 		return super.eIsSet(featureID);
 	}
