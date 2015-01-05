@@ -6,5 +6,10 @@
 	<classpathentry kind="lib" path="BankingAdministrator/se.chalmers.cse.mdsd1415.banking.administratorRequires.jar"/>
 	<classpathentry kind="lib" path="BankingCustomer/se.chalmers.cse.mdsd1415.banking.customerRequires.jar"/>
 	<classpathentry kind="lib" path="javamail-1.4.4/mail.jar"/>
+	<classpathentry kind="lib" path="Database/commons-lang-2.6.jar"/>
+	<classpathentry kind="lib" path="Database/commons-logging-1.1.1.jar"/>
+	<classpathentry kind="lib" path="Database/hsqldb.jar"/>
+	<classpathentry kind="lib" path="Database/jackcess-2.0.6.jar"/>
+	<classpathentry kind="lib" path="Database/ucanaccess-2.0.9.2.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
