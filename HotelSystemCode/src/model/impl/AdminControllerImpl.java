@@ -383,12 +383,12 @@ public class AdminControllerImpl extends MinimalEObjectImpl.Container implements
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public Promotion createPromotion(Promotion promotion) {
-		// TODO: implement this method
+		// Rickard
 		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		return promoExpert.addPromotion(promotion);
 	}
 
 	/**
@@ -405,12 +405,12 @@ public class AdminControllerImpl extends MinimalEObjectImpl.Container implements
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public boolean updatePromotion(Promotion promotion) {
-		// TODO: implement this method
+		// Rickard
 		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		return promoExpert.updatePromotion(promotion);
 	}
 
 	/**
@@ -494,12 +494,18 @@ public class AdminControllerImpl extends MinimalEObjectImpl.Container implements
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
+
 	public void AdminController(RoomExpert roomExpert, ExpenseExpert expenseExpert, UserExpert userExpert, PromotionExpert promotionExpert) {
-		// TODO: implement this method
+		// Rickard
 		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		// throw new UnsupportedOperationException();
+		
+		this.roomExpert = roomExpert;
+		this.expenseExpert = expenseExpert;
+		this.userExpert = userExpert;
+		this.promoExpert = promotionExpert;
 	}
 
 	/**
@@ -511,6 +517,7 @@ public class AdminControllerImpl extends MinimalEObjectImpl.Container implements
 	public void AdminController(RoomExpert roomExpert, ExpenseExpert expenseExpert, UserExpert userExpert, PromotionExpert promotionExpert) {
 		// Rickard
 		// Ensure that you remove @generated or mark it @generated NOT
+		this.roomExpert = roomExpert;
 		this.expenseExpert = expenseExpert;
 		this.userExpert = userExpert;
 		this.promoExpert = promotionExpert;
@@ -526,10 +533,12 @@ public class AdminControllerImpl extends MinimalEObjectImpl.Container implements
 		// Rickard
 		// Ensure that you remove @generated or mark it @generated NOT
 		//throw new UnsupportedOperationException();
+		
 		this.roomExpert = roomExpert;
 		this.expenseExpert = expenseExpert;
 		this.userExpert = userExpert;
 		this.promoExpert = promotionExpert;
+		
 	}
 
 	/**
