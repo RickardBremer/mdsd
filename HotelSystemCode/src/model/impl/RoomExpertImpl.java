@@ -115,7 +115,7 @@ public class RoomExpertImpl extends MinimalEObjectImpl.Container implements Room
 			for (String rowFull : queryResult) {
 				String[] row = rowFull.split(";", -1);
 				String receiptID = database.query("SELECT tblStays.ReceiptID FROM tblRooms LEFT JOIN tblStays ON "
-				 		+ "tblRooms.RoomNumber=tblStays.RoomID WHERE RoomNumber=" + row[0] + " ORDER BY tblStays.StayID DESC LIMIT 0,1").get(0).split(";", -1)[0];
+				 		+ "tblRooms.RoomNumber=tblStays.RoomID WHERE RoomNumber=" + row[0] + " ORDER BY tblStays.StayID DESC LIMIT 0,1").get(0);
 				Room room = new RoomImpl();
 				ExpenseExpert ee = new ExpenseExpertImpl();
 				ee.ExpenseExpert(database);
