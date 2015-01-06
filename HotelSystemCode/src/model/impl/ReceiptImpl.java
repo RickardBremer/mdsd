@@ -8,9 +8,9 @@ import java.util.Collection;
 import java.util.Date;
 
 import model.Expense;
+import model.ExpenseExpert;
 import model.ModelPackage;
 import model.Receipt;
-import model.DatabaseInterface;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.BasicEList;
@@ -37,8 +37,6 @@ import org.eclipse.emf.ecore.util.EObjectResolvingEList;
  * @generated
  */
 public class ReceiptImpl extends MinimalEObjectImpl.Container implements Receipt {
-	protected DatabaseInterface database;
-
 	/**
 	 * The cached value of the '{@link #getExpenses() <em>Expenses</em>}' reference list.
 	 * <!-- begin-user-doc -->
@@ -48,6 +46,7 @@ public class ReceiptImpl extends MinimalEObjectImpl.Container implements Receipt
 	 * @ordered
 	 */
 	protected EList<Expense> expenses;
+
 	/**
 	 * The default value of the '{@link #getTotalCost() <em>Total Cost</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -57,6 +56,7 @@ public class ReceiptImpl extends MinimalEObjectImpl.Container implements Receipt
 	 * @ordered
 	 */
 	protected static final double TOTAL_COST_EDEFAULT = 0.0;
+
 	/**
 	 * The cached value of the '{@link #getTotalCost() <em>Total Cost</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -66,6 +66,7 @@ public class ReceiptImpl extends MinimalEObjectImpl.Container implements Receipt
 	 * @ordered
 	 */
 	protected double totalCost = TOTAL_COST_EDEFAULT;
+
 	/**
 	 * The default value of the '{@link #getDate() <em>Date</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -75,6 +76,7 @@ public class ReceiptImpl extends MinimalEObjectImpl.Container implements Receipt
 	 * @ordered
 	 */
 	protected static final Date DATE_EDEFAULT = null;
+
 	/**
 	 * The cached value of the '{@link #getDate() <em>Date</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -122,6 +124,18 @@ public class ReceiptImpl extends MinimalEObjectImpl.Container implements Receipt
 	@Override
 	protected EClass eStaticClass() {
 		return ModelPackage.Literals.RECEIPT;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<Expense> getExpenses() {
+		if (expenses == null) {
+			expenses = new EObjectResolvingEList<Expense>(Expense.class, this, ModelPackage.RECEIPT__EXPENSES);
+		}
+		return expenses;
 	}
 
 	/**
@@ -192,30 +206,27 @@ public class ReceiptImpl extends MinimalEObjectImpl.Container implements Receipt
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Expense> getExpenses() {
-		if (expenses == null) {
-			expenses = new EObjectResolvingEList<Expense>(Expense.class, this, ModelPackage.RECEIPT__EXPENSES);
-		}
-		return expenses;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated NOT
-	 */
 	public boolean addExpense(Expense expense) {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
+		//Calculate TotalCost!!!!! ******************
 		//throw new UnsupportedOperationException();
-		
-		this.expenses.add(expense);
+		//double total = 0;
 		ExpenseExpert e = new ExpenseExpertImpl();
+		boolean added = false;
+		if (expense != null){
+			expenses.add(expense);
+			
+			e.addExpense(expense);
+			totalCost =+ expense.getPrice();
+			added = true;
+		} else{
+			added = false;
+		}
 		
-		 e.addExpense(expense);
+	
 		
-		
-		return true;
+		return added;
 	}
 
 	/**
@@ -227,15 +238,20 @@ public class ReceiptImpl extends MinimalEObjectImpl.Container implements Receipt
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
 		//throw new UnsupportedOperationException();
-		for (int i = 0; i < expenses.size(); i++){
-			if(expense.getID() == expenses.get(i).getID()){
-				expenses.remove(expense);
+		boolean removed = false;
+		if (expense != null){
+			for (int i = 0; i < expenses.size(); i++){
+				if(expense.getId() == expenses.get(i).getId()){
+					expenses.remove(expense);
+					ExpenseExpertImpl e = new ExpenseExpertImpl();
+					e.removeExpense(expense.getId());
+				}
 			}
+			removed = true;	
 		}
-		return database.send("DELETE * FROM tlbExpenses WHERE ExpenseID = " + expense.getID());
+		
+		return removed;
 	}
-	
-	
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -243,33 +259,11 @@ public class ReceiptImpl extends MinimalEObjectImpl.Container implements Receipt
 	 * @generated NOT
 	 */
 	public EList<Expense> getAllExpenses() {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		//throw new UnsupportedOperationException();
-		EList<String[]> expenses = database.query("SELECT * FROM tblExpenses WHERE ReceiptID = " + this.id);
-		EList<Expense> mylist = new BasicEList<Expense>();
-		Calendar date = Calendar.getInstance();
-		if( expenses != null){
-			for (String[] ex: expenses){
-				Expense rp = new ExpenseImpl();
-				date.setTimeInMillis(Long.valueOf(ex[3]));
-				rp.Expense(Integer.parseInt(ex[0]), ex[1], ex[2], date.getTime());
-				mylist.add(rp);
-			}
-		}
-		//throw new UnsupportedOperationException();
-		return mylist;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void Receipt(int id, Date date, EList<Expense> expenses) {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		if(expenses.isEmpty()){
+			ExpenseExpert e = new ExpenseExpertImpl();
+			expenses = e.getAllExpense(id);
+		}		
+		return expenses;
 	}
 
 	/**
@@ -277,12 +271,13 @@ public class ReceiptImpl extends MinimalEObjectImpl.Container implements Receipt
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
-	public void Receipt() {
+	public void Receipt(int id, Date date, EList<Expense> expenses) {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
-		
-	
 		//throw new UnsupportedOperationException();
+		this.id = id;
+		this.date = date;
+		this.expenses = expenses;
 	}
 
 	/**
