@@ -265,20 +265,20 @@ public class AdminControllerImpl extends MinimalEObjectImpl.Container implements
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	
 	public Room createRoom(Room room) {
 		// Rickard
 		// Ensure that you remove @generated or mark it @generated NOT
-		
-		return Room;
+		RoomExpertImpl r = new RoomExpertImpl();
+		return r.addRoom(room);
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public boolean removeRoom(Room room) {
 		// Rickard
@@ -290,7 +290,7 @@ public class AdminControllerImpl extends MinimalEObjectImpl.Container implements
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public boolean updateRoom(Room room) {
 		// Rickard
@@ -303,12 +303,12 @@ public class AdminControllerImpl extends MinimalEObjectImpl.Container implements
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public User createUser(User user) {
-		// 
+		// Rickard
 		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		return userExpert.addUser(user);
 	}
 
 	/**
@@ -342,9 +342,9 @@ public class AdminControllerImpl extends MinimalEObjectImpl.Container implements
 	 * @generated
 	 */
 	public Promotion createPromotion(Promotion promotion) {
-		// TODO: implement this method
+		// Rickard NOT
 		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		return promoExpert.addPromotion(promotion);
 	}
 
 	/**
@@ -372,12 +372,12 @@ public class AdminControllerImpl extends MinimalEObjectImpl.Container implements
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public Expense createExpense(Expense expense) {
-		// TODO: implement this method
+		// Rickard
 		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		return expenseExpert.addExpense(expense);
 	}
 
 	/**
