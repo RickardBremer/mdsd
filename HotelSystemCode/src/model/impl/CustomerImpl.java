@@ -388,9 +388,14 @@ public class CustomerImpl extends MinimalEObjectImpl.Container implements Custom
 	 * @generated
 	 */
 	public void Customer(String firstName, String surname, String email, String address, String ccNumber, String ccv, int ccExpiringMonth, int ccExpiringYear) {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		this.firstName = firstName;
+		this.surname = surname;
+		this.email = email;
+		this.adress = address;
+		this.ccNumber = ccNumber;
+		this.ccv = ccv;
+		this.expiringMonth = ccExpiringMonth;
+		this.expiringYear = ccExpiringYear;
 	}
 
 	/**
