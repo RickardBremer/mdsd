@@ -2,8 +2,6 @@
  */
 package model;
 
-import java.util.Date;
-
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 
@@ -29,10 +27,10 @@ public interface AdminInterface extends EObject {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model dataType="org.eclipse.uml2.types.Boolean" required="true" ordered="false" roomNoDataType="org.eclipse.uml2.types.Integer" roomNoRequired="true" roomNoOrdered="false" descriptionDataType="org.eclipse.uml2.types.String" descriptionRequired="true" descriptionOrdered="false" typeDataType="org.eclipse.uml2.types.String" typeRequired="true" typeOrdered="false" priceDataType="org.eclipse.uml2.types.Integer" priceRequired="true" priceOrdered="false" bedsDataType="org.eclipse.uml2.types.Integer" bedsRequired="true" bedsOrdered="false"
+	 * @model required="true" ordered="false" roomRequired="true" roomOrdered="false"
 	 * @generated
 	 */
-	boolean createRoom(int roomNo, String description, String type, int price, int beds);
+	Room createRoom(Room room);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -53,10 +51,10 @@ public interface AdminInterface extends EObject {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model dataType="org.eclipse.uml2.types.Boolean" required="true" ordered="false" firstNameDataType="org.eclipse.uml2.types.String" firstNameRequired="true" firstNameOrdered="false" surnameDataType="org.eclipse.uml2.types.String" surnameRequired="true" surnameOrdered="false" passwordDataType="org.eclipse.uml2.types.String" passwordRequired="true" passwordOrdered="false" receptionistDataType="org.eclipse.uml2.types.Boolean" receptionistRequired="true" receptionistOrdered="false" adminDataType="org.eclipse.uml2.types.Boolean" adminRequired="true" adminOrdered="false"
+	 * @model required="true" ordered="false" userRequired="true" userOrdered="false"
 	 * @generated
 	 */
-	boolean createUser(String firstName, String surname, String password, boolean receptionist, boolean admin);
+	User createUser(User user);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -77,10 +75,10 @@ public interface AdminInterface extends EObject {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model required="true" ordered="false" codeDataType="org.eclipse.uml2.types.String" codeRequired="true" codeOrdered="false" descriptionDataType="org.eclipse.uml2.types.String" descriptionRequired="true" descriptionOrdered="false" percentageDataType="org.eclipse.uml2.types.Integer" percentageRequired="true" percentageOrdered="false" validFromRequired="true" validFromOrdered="false"
+	 * @model required="true" ordered="false" promotionRequired="true" promotionOrdered="false"
 	 * @generated
 	 */
-	boolean createPromotion(String code, String description, int percentage, Date validFrom);
+	Promotion createPromotion(Promotion promotion);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -101,10 +99,10 @@ public interface AdminInterface extends EObject {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model dataType="org.eclipse.uml2.types.Boolean" required="true" ordered="false" priceDataType="org.eclipse.uml2.types.Integer" priceRequired="true" priceOrdered="false" nameDataType="org.eclipse.uml2.types.String" nameRequired="true" nameOrdered="false" descriptionDataType="org.eclipse.uml2.types.String" descriptionRequired="true" descriptionOrdered="false" dateRequired="true" dateOrdered="false"
+	 * @model required="true" ordered="false" expenseRequired="true" expenseOrdered="false"
 	 * @generated
 	 */
-	boolean createExpense(int price, String name, String description, Date date);
+	Expense createExpense(Expense expense);
 
 	/**
 	 * <!-- begin-user-doc -->

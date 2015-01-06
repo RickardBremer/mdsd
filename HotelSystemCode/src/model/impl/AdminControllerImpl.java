@@ -3,7 +3,6 @@
 package model.impl;
 
 import java.lang.reflect.InvocationTargetException;
-import java.util.Date;
 import model.AdminController;
 import model.DatabaseInterface;
 import model.Expense;
@@ -15,13 +14,10 @@ import model.Room;
 import model.RoomExpert;
 import model.User;
 import model.UserExpert;
-
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
@@ -269,7 +265,7 @@ public class AdminControllerImpl extends MinimalEObjectImpl.Container implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean createRoom(int roomNo, String description, String type, int price, int beds) {
+	public Room createRoom(Room room) {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();
@@ -302,7 +298,7 @@ public class AdminControllerImpl extends MinimalEObjectImpl.Container implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean createUser(String firstName, String surname, String password, boolean receptionist, boolean admin) {
+	public User createUser(User user) {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();
@@ -335,7 +331,7 @@ public class AdminControllerImpl extends MinimalEObjectImpl.Container implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean createPromotion(String code, String description, int percentage, Date validFrom) {
+	public Promotion createPromotion(Promotion promotion) {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();
@@ -368,7 +364,7 @@ public class AdminControllerImpl extends MinimalEObjectImpl.Container implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean createExpense(int price, String name, String description, Date date) {
+	public Expense createExpense(Expense expense) {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();
@@ -564,26 +560,26 @@ public class AdminControllerImpl extends MinimalEObjectImpl.Container implements
 		switch (operationID) {
 			case ModelPackage.ADMIN_CONTROLLER___LOGIN__STRING_STRING:
 				return login((String)arguments.get(0), (String)arguments.get(1));
-			case ModelPackage.ADMIN_CONTROLLER___CREATE_ROOM__INT_STRING_STRING_INT_INT:
-				return createRoom((Integer)arguments.get(0), (String)arguments.get(1), (String)arguments.get(2), (Integer)arguments.get(3), (Integer)arguments.get(4));
+			case ModelPackage.ADMIN_CONTROLLER___CREATE_ROOM__ROOM:
+				return createRoom((Room)arguments.get(0));
 			case ModelPackage.ADMIN_CONTROLLER___REMOVE_ROOM__ROOM:
 				return removeRoom((Room)arguments.get(0));
 			case ModelPackage.ADMIN_CONTROLLER___UPDATE_ROOM__ROOM:
 				return updateRoom((Room)arguments.get(0));
-			case ModelPackage.ADMIN_CONTROLLER___CREATE_USER__STRING_STRING_STRING_BOOLEAN_BOOLEAN:
-				return createUser((String)arguments.get(0), (String)arguments.get(1), (String)arguments.get(2), (Boolean)arguments.get(3), (Boolean)arguments.get(4));
+			case ModelPackage.ADMIN_CONTROLLER___CREATE_USER__USER:
+				return createUser((User)arguments.get(0));
 			case ModelPackage.ADMIN_CONTROLLER___REMOVE_USER__USER:
 				return removeUser((User)arguments.get(0));
 			case ModelPackage.ADMIN_CONTROLLER___UPDATE_USER__USER:
 				return updateUser((User)arguments.get(0));
-			case ModelPackage.ADMIN_CONTROLLER___CREATE_PROMOTION__STRING_STRING_INT_DATE:
-				return createPromotion((String)arguments.get(0), (String)arguments.get(1), (Integer)arguments.get(2), (Date)arguments.get(3));
+			case ModelPackage.ADMIN_CONTROLLER___CREATE_PROMOTION__PROMOTION:
+				return createPromotion((Promotion)arguments.get(0));
 			case ModelPackage.ADMIN_CONTROLLER___REMOVE_PROMOTION__PROMOTION:
 				return removePromotion((Promotion)arguments.get(0));
 			case ModelPackage.ADMIN_CONTROLLER___UPDATE_PROMOTION__PROMOTION:
 				return updatePromotion((Promotion)arguments.get(0));
-			case ModelPackage.ADMIN_CONTROLLER___CREATE_EXPENSE__INT_STRING_STRING_DATE:
-				return createExpense((Integer)arguments.get(0), (String)arguments.get(1), (String)arguments.get(2), (Date)arguments.get(3));
+			case ModelPackage.ADMIN_CONTROLLER___CREATE_EXPENSE__EXPENSE:
+				return createExpense((Expense)arguments.get(0));
 			case ModelPackage.ADMIN_CONTROLLER___REMOVE_EXPENSE__EXPENSE:
 				return removeExpense((Expense)arguments.get(0));
 			case ModelPackage.ADMIN_CONTROLLER___UPDATE_EXPENSE__EXPENSE:

@@ -220,11 +220,7 @@
         <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="model.ecore#//AdminInterface/login/password"/>
       </genOperations>
       <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="model.ecore#//AdminInterface/createRoom">
-        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="model.ecore#//AdminInterface/createRoom/roomNo"/>
-        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="model.ecore#//AdminInterface/createRoom/description"/>
-        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="model.ecore#//AdminInterface/createRoom/type"/>
-        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="model.ecore#//AdminInterface/createRoom/price"/>
-        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="model.ecore#//AdminInterface/createRoom/beds"/>
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="model.ecore#//AdminInterface/createRoom/room"/>
       </genOperations>
       <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="model.ecore#//AdminInterface/removeRoom">
         <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="model.ecore#//AdminInterface/removeRoom/room"/>
@@ -233,11 +229,7 @@
         <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="model.ecore#//AdminInterface/updateRoom/room"/>
       </genOperations>
       <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="model.ecore#//AdminInterface/createUser">
-        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="model.ecore#//AdminInterface/createUser/firstName"/>
-        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="model.ecore#//AdminInterface/createUser/surname"/>
-        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="model.ecore#//AdminInterface/createUser/password"/>
-        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="model.ecore#//AdminInterface/createUser/receptionist"/>
-        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="model.ecore#//AdminInterface/createUser/admin"/>
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="model.ecore#//AdminInterface/createUser/user"/>
       </genOperations>
       <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="model.ecore#//AdminInterface/removeUser">
         <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="model.ecore#//AdminInterface/removeUser/user"/>
@@ -246,10 +238,7 @@
         <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="model.ecore#//AdminInterface/updateUser/user"/>
       </genOperations>
       <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="model.ecore#//AdminInterface/createPromotion">
-        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="model.ecore#//AdminInterface/createPromotion/code"/>
-        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="model.ecore#//AdminInterface/createPromotion/description"/>
-        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="model.ecore#//AdminInterface/createPromotion/percentage"/>
-        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="model.ecore#//AdminInterface/createPromotion/validFrom"/>
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="model.ecore#//AdminInterface/createPromotion/promotion"/>
       </genOperations>
       <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="model.ecore#//AdminInterface/removePromotion">
         <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="model.ecore#//AdminInterface/removePromotion/promotion"/>
@@ -258,10 +247,7 @@
         <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="model.ecore#//AdminInterface/updatePromotion/promotion"/>
       </genOperations>
       <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="model.ecore#//AdminInterface/createExpense">
-        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="model.ecore#//AdminInterface/createExpense/price"/>
-        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="model.ecore#//AdminInterface/createExpense/name"/>
-        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="model.ecore#//AdminInterface/createExpense/description"/>
-        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="model.ecore#//AdminInterface/createExpense/date"/>
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="model.ecore#//AdminInterface/createExpense/expense"/>
       </genOperations>
       <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="model.ecore#//AdminInterface/removeExpense">
         <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="model.ecore#//AdminInterface/removeExpense/expense"/>

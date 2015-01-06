@@ -222,12 +222,8 @@
       <eParameters name="name" ordered="false" lowerBound="1" eType="ecore:EDataType types.ecore#//String"/>
       <eParameters name="password" ordered="false" lowerBound="1" eType="ecore:EDataType types.ecore#//String"/>
     </eOperations>
-    <eOperations name="createRoom" ordered="false" lowerBound="1" eType="ecore:EDataType types.ecore#//Boolean">
-      <eParameters name="roomNo" ordered="false" lowerBound="1" eType="ecore:EDataType types.ecore#//Integer"/>
-      <eParameters name="description" ordered="false" lowerBound="1" eType="ecore:EDataType types.ecore#//String"/>
-      <eParameters name="type" ordered="false" lowerBound="1" eType="ecore:EDataType types.ecore#//String"/>
-      <eParameters name="price" ordered="false" lowerBound="1" eType="ecore:EDataType types.ecore#//Integer"/>
-      <eParameters name="beds" ordered="false" lowerBound="1" eType="ecore:EDataType types.ecore#//Integer"/>
+    <eOperations name="createRoom" ordered="false" lowerBound="1" eType="#//Room">
+      <eParameters name="room" ordered="false" lowerBound="1" eType="#//Room"/>
     </eOperations>
     <eOperations name="removeRoom" ordered="false" lowerBound="1" eType="ecore:EDataType types.ecore#//Boolean">
       <eParameters name="room" ordered="false" lowerBound="1" eType="#//Room"/>
@@ -235,12 +231,8 @@
     <eOperations name="updateRoom" ordered="false" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
       <eParameters name="room" ordered="false" lowerBound="1" eType="#//Room"/>
     </eOperations>
-    <eOperations name="createUser" ordered="false" lowerBound="1" eType="ecore:EDataType types.ecore#//Boolean">
-      <eParameters name="firstName" ordered="false" lowerBound="1" eType="ecore:EDataType types.ecore#//String"/>
-      <eParameters name="surname" ordered="false" lowerBound="1" eType="ecore:EDataType types.ecore#//String"/>
-      <eParameters name="password" ordered="false" lowerBound="1" eType="ecore:EDataType types.ecore#//String"/>
-      <eParameters name="receptionist" ordered="false" lowerBound="1" eType="ecore:EDataType types.ecore#//Boolean"/>
-      <eParameters name="admin" ordered="false" lowerBound="1" eType="ecore:EDataType types.ecore#//Boolean"/>
+    <eOperations name="createUser" ordered="false" lowerBound="1" eType="#//User">
+      <eParameters name="user" ordered="false" lowerBound="1" eType="#//User"/>
     </eOperations>
     <eOperations name="removeUser" ordered="false" lowerBound="1" eType="ecore:EDataType types.ecore#//Boolean">
       <eParameters name="user" ordered="false" lowerBound="1" eType="#//User"/>
@@ -248,11 +240,8 @@
     <eOperations name="updateUser" ordered="false" lowerBound="1" eType="ecore:EDataType types.ecore#//Boolean">
       <eParameters name="user" ordered="false" lowerBound="1" eType="#//User"/>
     </eOperations>
-    <eOperations name="createPromotion" ordered="false" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
-      <eParameters name="code" ordered="false" lowerBound="1" eType="ecore:EDataType types.ecore#//String"/>
-      <eParameters name="description" ordered="false" lowerBound="1" eType="ecore:EDataType types.ecore#//String"/>
-      <eParameters name="percentage" ordered="false" lowerBound="1" eType="ecore:EDataType types.ecore#//Integer"/>
-      <eParameters name="validFrom" ordered="false" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
+    <eOperations name="createPromotion" ordered="false" lowerBound="1" eType="#//Promotion">
+      <eParameters name="promotion" ordered="false" lowerBound="1" eType="#//Promotion"/>
     </eOperations>
     <eOperations name="removePromotion" ordered="false" lowerBound="1" eType="ecore:EDataType types.ecore#//Boolean">
       <eParameters name="promotion" ordered="false" lowerBound="1" eType="#//Promotion"/>
@@ -260,11 +249,8 @@
     <eOperations name="updatePromotion" ordered="false" lowerBound="1" eType="ecore:EDataType types.ecore#//Boolean">
       <eParameters name="promotion" ordered="false" lowerBound="1" eType="#//Promotion"/>
     </eOperations>
-    <eOperations name="createExpense" ordered="false" lowerBound="1" eType="ecore:EDataType types.ecore#//Boolean">
-      <eParameters name="price" ordered="false" lowerBound="1" eType="ecore:EDataType types.ecore#//Integer"/>
-      <eParameters name="name" ordered="false" lowerBound="1" eType="ecore:EDataType types.ecore#//String"/>
-      <eParameters name="description" ordered="false" lowerBound="1" eType="ecore:EDataType types.ecore#//String"/>
-      <eParameters name="date" ordered="false" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
+    <eOperations name="createExpense" ordered="false" lowerBound="1" eType="#//Expense">
+      <eParameters name="expense" ordered="false" lowerBound="1" eType="#//Expense"/>
     </eOperations>
     <eOperations name="removeExpense" ordered="false" lowerBound="1" eType="ecore:EDataType types.ecore#//Boolean">
       <eParameters name="expense" ordered="false" lowerBound="1" eType="#//Expense"/>

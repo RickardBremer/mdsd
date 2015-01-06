@@ -1052,7 +1052,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ADMIN_INTERFACE___CREATE_ROOM__INT_STRING_STRING_INT_INT = 1;
+	int ADMIN_INTERFACE___CREATE_ROOM__ROOM = 1;
 
 	/**
 	 * The operation id for the '<em>Remove Room</em>' operation.
@@ -1079,7 +1079,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ADMIN_INTERFACE___CREATE_USER__STRING_STRING_STRING_BOOLEAN_BOOLEAN = 4;
+	int ADMIN_INTERFACE___CREATE_USER__USER = 4;
 
 	/**
 	 * The operation id for the '<em>Remove User</em>' operation.
@@ -1106,7 +1106,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ADMIN_INTERFACE___CREATE_PROMOTION__STRING_STRING_INT_DATE = 7;
+	int ADMIN_INTERFACE___CREATE_PROMOTION__PROMOTION = 7;
 
 	/**
 	 * The operation id for the '<em>Remove Promotion</em>' operation.
@@ -1133,7 +1133,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ADMIN_INTERFACE___CREATE_EXPENSE__INT_STRING_STRING_DATE = 10;
+	int ADMIN_INTERFACE___CREATE_EXPENSE__EXPENSE = 10;
 
 	/**
 	 * The operation id for the '<em>Remove Expense</em>' operation.
@@ -2360,7 +2360,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ADMIN_CONTROLLER___CREATE_ROOM__INT_STRING_STRING_INT_INT = ADMIN_INTERFACE___CREATE_ROOM__INT_STRING_STRING_INT_INT;
+	int ADMIN_CONTROLLER___CREATE_ROOM__ROOM = ADMIN_INTERFACE___CREATE_ROOM__ROOM;
 
 	/**
 	 * The operation id for the '<em>Remove Room</em>' operation.
@@ -2387,7 +2387,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ADMIN_CONTROLLER___CREATE_USER__STRING_STRING_STRING_BOOLEAN_BOOLEAN = ADMIN_INTERFACE___CREATE_USER__STRING_STRING_STRING_BOOLEAN_BOOLEAN;
+	int ADMIN_CONTROLLER___CREATE_USER__USER = ADMIN_INTERFACE___CREATE_USER__USER;
 
 	/**
 	 * The operation id for the '<em>Remove User</em>' operation.
@@ -2414,7 +2414,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ADMIN_CONTROLLER___CREATE_PROMOTION__STRING_STRING_INT_DATE = ADMIN_INTERFACE___CREATE_PROMOTION__STRING_STRING_INT_DATE;
+	int ADMIN_CONTROLLER___CREATE_PROMOTION__PROMOTION = ADMIN_INTERFACE___CREATE_PROMOTION__PROMOTION;
 
 	/**
 	 * The operation id for the '<em>Remove Promotion</em>' operation.
@@ -2441,7 +2441,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ADMIN_CONTROLLER___CREATE_EXPENSE__INT_STRING_STRING_DATE = ADMIN_INTERFACE___CREATE_EXPENSE__INT_STRING_STRING_DATE;
+	int ADMIN_CONTROLLER___CREATE_EXPENSE__EXPENSE = ADMIN_INTERFACE___CREATE_EXPENSE__EXPENSE;
 
 	/**
 	 * The operation id for the '<em>Remove Expense</em>' operation.
@@ -3704,14 +3704,14 @@ public interface ModelPackage extends EPackage {
 	EOperation getAdminInterface__Login__String_String();
 
 	/**
-	 * Returns the meta object for the '{@link model.AdminInterface#createRoom(int, java.lang.String, java.lang.String, int, int) <em>Create Room</em>}' operation.
+	 * Returns the meta object for the '{@link model.AdminInterface#createRoom(model.Room) <em>Create Room</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Create Room</em>' operation.
-	 * @see model.AdminInterface#createRoom(int, java.lang.String, java.lang.String, int, int)
+	 * @see model.AdminInterface#createRoom(model.Room)
 	 * @generated
 	 */
-	EOperation getAdminInterface__CreateRoom__int_String_String_int_int();
+	EOperation getAdminInterface__CreateRoom__Room();
 
 	/**
 	 * Returns the meta object for the '{@link model.AdminInterface#removeRoom(model.Room) <em>Remove Room</em>}' operation.
@@ -3734,14 +3734,14 @@ public interface ModelPackage extends EPackage {
 	EOperation getAdminInterface__UpdateRoom__Room();
 
 	/**
-	 * Returns the meta object for the '{@link model.AdminInterface#createUser(java.lang.String, java.lang.String, java.lang.String, boolean, boolean) <em>Create User</em>}' operation.
+	 * Returns the meta object for the '{@link model.AdminInterface#createUser(model.User) <em>Create User</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Create User</em>' operation.
-	 * @see model.AdminInterface#createUser(java.lang.String, java.lang.String, java.lang.String, boolean, boolean)
+	 * @see model.AdminInterface#createUser(model.User)
 	 * @generated
 	 */
-	EOperation getAdminInterface__CreateUser__String_String_String_boolean_boolean();
+	EOperation getAdminInterface__CreateUser__User();
 
 	/**
 	 * Returns the meta object for the '{@link model.AdminInterface#removeUser(model.User) <em>Remove User</em>}' operation.
@@ -3764,14 +3764,14 @@ public interface ModelPackage extends EPackage {
 	EOperation getAdminInterface__UpdateUser__User();
 
 	/**
-	 * Returns the meta object for the '{@link model.AdminInterface#createPromotion(java.lang.String, java.lang.String, int, java.util.Date) <em>Create Promotion</em>}' operation.
+	 * Returns the meta object for the '{@link model.AdminInterface#createPromotion(model.Promotion) <em>Create Promotion</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Create Promotion</em>' operation.
-	 * @see model.AdminInterface#createPromotion(java.lang.String, java.lang.String, int, java.util.Date)
+	 * @see model.AdminInterface#createPromotion(model.Promotion)
 	 * @generated
 	 */
-	EOperation getAdminInterface__CreatePromotion__String_String_int_Date();
+	EOperation getAdminInterface__CreatePromotion__Promotion();
 
 	/**
 	 * Returns the meta object for the '{@link model.AdminInterface#removePromotion(model.Promotion) <em>Remove Promotion</em>}' operation.
@@ -3794,14 +3794,14 @@ public interface ModelPackage extends EPackage {
 	EOperation getAdminInterface__UpdatePromotion__Promotion();
 
 	/**
-	 * Returns the meta object for the '{@link model.AdminInterface#createExpense(int, java.lang.String, java.lang.String, java.util.Date) <em>Create Expense</em>}' operation.
+	 * Returns the meta object for the '{@link model.AdminInterface#createExpense(model.Expense) <em>Create Expense</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Create Expense</em>' operation.
-	 * @see model.AdminInterface#createExpense(int, java.lang.String, java.lang.String, java.util.Date)
+	 * @see model.AdminInterface#createExpense(model.Expense)
 	 * @generated
 	 */
-	EOperation getAdminInterface__CreateExpense__int_String_String_Date();
+	EOperation getAdminInterface__CreateExpense__Expense();
 
 	/**
 	 * Returns the meta object for the '{@link model.AdminInterface#removeExpense(model.Expense) <em>Remove Expense</em>}' operation.
@@ -5576,7 +5576,7 @@ public interface ModelPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation ADMIN_INTERFACE___CREATE_ROOM__INT_STRING_STRING_INT_INT = eINSTANCE.getAdminInterface__CreateRoom__int_String_String_int_int();
+		EOperation ADMIN_INTERFACE___CREATE_ROOM__ROOM = eINSTANCE.getAdminInterface__CreateRoom__Room();
 
 		/**
 		 * The meta object literal for the '<em><b>Remove Room</b></em>' operation.
@@ -5600,7 +5600,7 @@ public interface ModelPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation ADMIN_INTERFACE___CREATE_USER__STRING_STRING_STRING_BOOLEAN_BOOLEAN = eINSTANCE.getAdminInterface__CreateUser__String_String_String_boolean_boolean();
+		EOperation ADMIN_INTERFACE___CREATE_USER__USER = eINSTANCE.getAdminInterface__CreateUser__User();
 
 		/**
 		 * The meta object literal for the '<em><b>Remove User</b></em>' operation.
@@ -5624,7 +5624,7 @@ public interface ModelPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation ADMIN_INTERFACE___CREATE_PROMOTION__STRING_STRING_INT_DATE = eINSTANCE.getAdminInterface__CreatePromotion__String_String_int_Date();
+		EOperation ADMIN_INTERFACE___CREATE_PROMOTION__PROMOTION = eINSTANCE.getAdminInterface__CreatePromotion__Promotion();
 
 		/**
 		 * The meta object literal for the '<em><b>Remove Promotion</b></em>' operation.
@@ -5648,7 +5648,7 @@ public interface ModelPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation ADMIN_INTERFACE___CREATE_EXPENSE__INT_STRING_STRING_DATE = eINSTANCE.getAdminInterface__CreateExpense__int_String_String_Date();
+		EOperation ADMIN_INTERFACE___CREATE_EXPENSE__EXPENSE = eINSTANCE.getAdminInterface__CreateExpense__Expense();
 
 		/**
 		 * The meta object literal for the '<em><b>Remove Expense</b></em>' operation.

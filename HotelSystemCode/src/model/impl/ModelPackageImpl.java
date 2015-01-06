@@ -1105,7 +1105,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getAdminInterface__CreateRoom__int_String_String_int_int() {
+	public EOperation getAdminInterface__CreateRoom__Room() {
 		return adminInterfaceEClass.getEOperations().get(1);
 	}
 
@@ -1132,7 +1132,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getAdminInterface__CreateUser__String_String_String_boolean_boolean() {
+	public EOperation getAdminInterface__CreateUser__User() {
 		return adminInterfaceEClass.getEOperations().get(4);
 	}
 
@@ -1159,7 +1159,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getAdminInterface__CreatePromotion__String_String_int_Date() {
+	public EOperation getAdminInterface__CreatePromotion__Promotion() {
 		return adminInterfaceEClass.getEOperations().get(7);
 	}
 
@@ -1186,7 +1186,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getAdminInterface__CreateExpense__int_String_String_Date() {
+	public EOperation getAdminInterface__CreateExpense__Expense() {
 		return adminInterfaceEClass.getEOperations().get(10);
 	}
 
@@ -2210,16 +2210,16 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 
 		adminInterfaceEClass = createEClass(ADMIN_INTERFACE);
 		createEOperation(adminInterfaceEClass, ADMIN_INTERFACE___LOGIN__STRING_STRING);
-		createEOperation(adminInterfaceEClass, ADMIN_INTERFACE___CREATE_ROOM__INT_STRING_STRING_INT_INT);
+		createEOperation(adminInterfaceEClass, ADMIN_INTERFACE___CREATE_ROOM__ROOM);
 		createEOperation(adminInterfaceEClass, ADMIN_INTERFACE___REMOVE_ROOM__ROOM);
 		createEOperation(adminInterfaceEClass, ADMIN_INTERFACE___UPDATE_ROOM__ROOM);
-		createEOperation(adminInterfaceEClass, ADMIN_INTERFACE___CREATE_USER__STRING_STRING_STRING_BOOLEAN_BOOLEAN);
+		createEOperation(adminInterfaceEClass, ADMIN_INTERFACE___CREATE_USER__USER);
 		createEOperation(adminInterfaceEClass, ADMIN_INTERFACE___REMOVE_USER__USER);
 		createEOperation(adminInterfaceEClass, ADMIN_INTERFACE___UPDATE_USER__USER);
-		createEOperation(adminInterfaceEClass, ADMIN_INTERFACE___CREATE_PROMOTION__STRING_STRING_INT_DATE);
+		createEOperation(adminInterfaceEClass, ADMIN_INTERFACE___CREATE_PROMOTION__PROMOTION);
 		createEOperation(adminInterfaceEClass, ADMIN_INTERFACE___REMOVE_PROMOTION__PROMOTION);
 		createEOperation(adminInterfaceEClass, ADMIN_INTERFACE___UPDATE_PROMOTION__PROMOTION);
-		createEOperation(adminInterfaceEClass, ADMIN_INTERFACE___CREATE_EXPENSE__INT_STRING_STRING_DATE);
+		createEOperation(adminInterfaceEClass, ADMIN_INTERFACE___CREATE_EXPENSE__EXPENSE);
 		createEOperation(adminInterfaceEClass, ADMIN_INTERFACE___REMOVE_EXPENSE__EXPENSE);
 		createEOperation(adminInterfaceEClass, ADMIN_INTERFACE___UPDATE_EXPENSE__EXPENSE);
 		createEOperation(adminInterfaceEClass, ADMIN_INTERFACE___VIEW_ROOMS);
@@ -2572,12 +2572,8 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		addEParameter(op, theTypesPackage.getString(), "name", 1, 1, IS_UNIQUE, !IS_ORDERED);
 		addEParameter(op, theTypesPackage.getString(), "password", 1, 1, IS_UNIQUE, !IS_ORDERED);
 
-		op = initEOperation(getAdminInterface__CreateRoom__int_String_String_int_int(), theTypesPackage.getBoolean(), "createRoom", 1, 1, IS_UNIQUE, !IS_ORDERED);
-		addEParameter(op, theTypesPackage.getInteger(), "roomNo", 1, 1, IS_UNIQUE, !IS_ORDERED);
-		addEParameter(op, theTypesPackage.getString(), "description", 1, 1, IS_UNIQUE, !IS_ORDERED);
-		addEParameter(op, theTypesPackage.getString(), "type", 1, 1, IS_UNIQUE, !IS_ORDERED);
-		addEParameter(op, theTypesPackage.getInteger(), "price", 1, 1, IS_UNIQUE, !IS_ORDERED);
-		addEParameter(op, theTypesPackage.getInteger(), "beds", 1, 1, IS_UNIQUE, !IS_ORDERED);
+		op = initEOperation(getAdminInterface__CreateRoom__Room(), this.getRoom(), "createRoom", 1, 1, IS_UNIQUE, !IS_ORDERED);
+		addEParameter(op, this.getRoom(), "room", 1, 1, IS_UNIQUE, !IS_ORDERED);
 
 		op = initEOperation(getAdminInterface__RemoveRoom__Room(), theTypesPackage.getBoolean(), "removeRoom", 1, 1, IS_UNIQUE, !IS_ORDERED);
 		addEParameter(op, this.getRoom(), "room", 1, 1, IS_UNIQUE, !IS_ORDERED);
@@ -2585,12 +2581,8 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		op = initEOperation(getAdminInterface__UpdateRoom__Room(), ecorePackage.getEBoolean(), "updateRoom", 1, 1, IS_UNIQUE, !IS_ORDERED);
 		addEParameter(op, this.getRoom(), "room", 1, 1, IS_UNIQUE, !IS_ORDERED);
 
-		op = initEOperation(getAdminInterface__CreateUser__String_String_String_boolean_boolean(), theTypesPackage.getBoolean(), "createUser", 1, 1, IS_UNIQUE, !IS_ORDERED);
-		addEParameter(op, theTypesPackage.getString(), "firstName", 1, 1, IS_UNIQUE, !IS_ORDERED);
-		addEParameter(op, theTypesPackage.getString(), "surname", 1, 1, IS_UNIQUE, !IS_ORDERED);
-		addEParameter(op, theTypesPackage.getString(), "password", 1, 1, IS_UNIQUE, !IS_ORDERED);
-		addEParameter(op, theTypesPackage.getBoolean(), "receptionist", 1, 1, IS_UNIQUE, !IS_ORDERED);
-		addEParameter(op, theTypesPackage.getBoolean(), "admin", 1, 1, IS_UNIQUE, !IS_ORDERED);
+		op = initEOperation(getAdminInterface__CreateUser__User(), this.getUser(), "createUser", 1, 1, IS_UNIQUE, !IS_ORDERED);
+		addEParameter(op, this.getUser(), "user", 1, 1, IS_UNIQUE, !IS_ORDERED);
 
 		op = initEOperation(getAdminInterface__RemoveUser__User(), theTypesPackage.getBoolean(), "removeUser", 1, 1, IS_UNIQUE, !IS_ORDERED);
 		addEParameter(op, this.getUser(), "user", 1, 1, IS_UNIQUE, !IS_ORDERED);
@@ -2598,11 +2590,8 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		op = initEOperation(getAdminInterface__UpdateUser__User(), theTypesPackage.getBoolean(), "updateUser", 1, 1, IS_UNIQUE, !IS_ORDERED);
 		addEParameter(op, this.getUser(), "user", 1, 1, IS_UNIQUE, !IS_ORDERED);
 
-		op = initEOperation(getAdminInterface__CreatePromotion__String_String_int_Date(), ecorePackage.getEBoolean(), "createPromotion", 1, 1, IS_UNIQUE, !IS_ORDERED);
-		addEParameter(op, theTypesPackage.getString(), "code", 1, 1, IS_UNIQUE, !IS_ORDERED);
-		addEParameter(op, theTypesPackage.getString(), "description", 1, 1, IS_UNIQUE, !IS_ORDERED);
-		addEParameter(op, theTypesPackage.getInteger(), "percentage", 1, 1, IS_UNIQUE, !IS_ORDERED);
-		addEParameter(op, ecorePackage.getEDate(), "validFrom", 1, 1, IS_UNIQUE, !IS_ORDERED);
+		op = initEOperation(getAdminInterface__CreatePromotion__Promotion(), this.getPromotion(), "createPromotion", 1, 1, IS_UNIQUE, !IS_ORDERED);
+		addEParameter(op, this.getPromotion(), "promotion", 1, 1, IS_UNIQUE, !IS_ORDERED);
 
 		op = initEOperation(getAdminInterface__RemovePromotion__Promotion(), theTypesPackage.getBoolean(), "removePromotion", 1, 1, IS_UNIQUE, !IS_ORDERED);
 		addEParameter(op, this.getPromotion(), "promotion", 1, 1, IS_UNIQUE, !IS_ORDERED);
@@ -2610,11 +2599,8 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		op = initEOperation(getAdminInterface__UpdatePromotion__Promotion(), theTypesPackage.getBoolean(), "updatePromotion", 1, 1, IS_UNIQUE, !IS_ORDERED);
 		addEParameter(op, this.getPromotion(), "promotion", 1, 1, IS_UNIQUE, !IS_ORDERED);
 
-		op = initEOperation(getAdminInterface__CreateExpense__int_String_String_Date(), theTypesPackage.getBoolean(), "createExpense", 1, 1, IS_UNIQUE, !IS_ORDERED);
-		addEParameter(op, theTypesPackage.getInteger(), "price", 1, 1, IS_UNIQUE, !IS_ORDERED);
-		addEParameter(op, theTypesPackage.getString(), "name", 1, 1, IS_UNIQUE, !IS_ORDERED);
-		addEParameter(op, theTypesPackage.getString(), "description", 1, 1, IS_UNIQUE, !IS_ORDERED);
-		addEParameter(op, ecorePackage.getEDate(), "date", 1, 1, IS_UNIQUE, !IS_ORDERED);
+		op = initEOperation(getAdminInterface__CreateExpense__Expense(), this.getExpense(), "createExpense", 1, 1, IS_UNIQUE, !IS_ORDERED);
+		addEParameter(op, this.getExpense(), "expense", 1, 1, IS_UNIQUE, !IS_ORDERED);
 
 		op = initEOperation(getAdminInterface__RemoveExpense__Expense(), theTypesPackage.getBoolean(), "removeExpense", 1, 1, IS_UNIQUE, !IS_ORDERED);
 		addEParameter(op, this.getExpense(), "expense", 1, 1, IS_UNIQUE, !IS_ORDERED);
