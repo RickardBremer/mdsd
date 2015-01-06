@@ -13,6 +13,7 @@ import model.DatabaseInterface;
 import model.Expense;
 import model.ModelPackage;
 import model.Room;
+import model.RoomExpert;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.BasicEList;
@@ -154,12 +155,58 @@ public class BookingExpertImpl extends MinimalEObjectImpl.Container implements B
 	public EList<Booking> getAllBookings(Date dateFrom, Date dateTo) {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
+		EList <String> responseResult; 
+		EList <String> roomType;
+		EList <String> roomId;
+		EList <Room> rooms = null;
+		EList<Booking> returnedBookingList = null; 
+		String customerMail;
+		Calendar cal = Calendar.getInstance();
+		Date convertDateTo;
+		Date convertDateFrom;
 		
-		for(int i; i < getAllBookings.size(); i ++ ) {
-			database.query("SELECT 'BookingID', 'DateFrom', 'DateTo', FROM tblBookings, tblCalender WHERE DateFrom=" + datefrom + ", DateTo=" + dateTo + ";");
-	}
-		
-		throw new UnsupportedOperationException();
+		responseResult = database.query("SELECT 'tblBookings.BookingID','tblBookings.CustomerMail', 'tblBookings.ClientRequest', 'tblBookings.PromotionCode',  'tblCalendar.DateFrom', 'tblCalendar.DateTo'  FROM tblBookings LEFT JOIN tblCalendar"
+				+ "WHERE tblCalendar.DateTo <" + dateTo + "AND tblCalendar.DateFrom >" + dateFrom + ";");
+			
+			for(String booking: responseResult) {
+				
+					
+				
+				String[] newList = booking.split(";", -1);
+				Booking searchBooking = new BookingImpl();
+				
+//				searchBooking.Booking(fromDate, toDate, wishes, customer, roomTypes, promotionCode, id, rooms);
+				customerMail= database.query("SELECT * FROM tblCustomer WHERE tblCustomer.EMail='" + newList[1] + "';").get(0);
+				Customer newCustomer = new CustomerImpl();
+				String[] oneCustomer = customerMail.split(";");
+				
+				newCustomer.Customer(oneCustomer[0], oneCustomer[1], oneCustomer[2], oneCustomer[3], oneCustomer[4], oneCustomer[5], Integer.valueOf(oneCustomer[6]), Integer.valueOf(oneCustomer[7]));
+				roomType = database.query("SELECT 'RoomType' FROM tblCalendar WHERE BookingID=" + newList[0] + ";" );
+				
+				  cal.setTimeInMillis(Long.parseLong(newList[5]));
+				  convertDateTo = cal.getTime();
+				  cal.setTimeInMillis(Long.parseLong(newList[4]));
+				  convertDateFrom =cal.getTime();
+						  
+				roomId = database.query("SELECT 'RoomId FROM tblStays WHERE BookingID=" + newList[0] + ";");
+				
+				
+				
+				for(String resultRoomId:roomId) {
+					
+					RoomExpert newRoom = new RoomExpertImpl();
+					rooms.add(newRoom.getRoom(Integer.valueOf(resultRoomId)));
+				}
+				  
+				
+				searchBooking.Booking(convertDateFrom, convertDateTo, newList[2], newCustomer, roomType, newList[3], Integer.valueOf(newList[0]), rooms);
+				returnedBookingList.add(searchBooking);
+				
+			}
+			
+			
+			return returnedBookingList;
+			
 	}
 
 	/**
@@ -276,14 +323,60 @@ public class BookingExpertImpl extends MinimalEObjectImpl.Container implements B
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
 		
-		for(int i; i < getAllBookings.size(); i ++ ) {
-
-			database.query("SELECT 'BookingID', 'DateFrom', 'DateTo', 'LastName' FROM tblBookings, tblCalender, tblCustomer WHERE DateFrom=" + datefrom + ", DateTo=" + dateTo 
-					+ ", LastName=" + surname + ";" );
+		EList <String> responseResult; 
+		EList <String> roomType;
+		EList <String> roomId;
+		EList <Room> rooms = null;
+		EList<Booking> returnedBookingList = null; 
+		String customerMail;
+		Calendar cal = Calendar.getInstance();
+		Date convertDateTo;
+		Date convertDateFrom;
+		
+		responseResult = database.query("SELECT 'tblBookings.BookingID','tblBookings.CustomerMail', 'tblBookings.ClientRequest', 'tblBookings.PromotionCode',  'tblCalendar.DateFrom', 'tblCalendar.DateTo'  FROM tblBookings LEFT JOIN tblCalendar LEFT JOIN tblCustomer"
+				+ "WHERE tblCalendar.DateTo <" + dateTo + "AND tblCalendar.DateFrom >" + dateFrom + "AND tblCustomer.LastName=" + surname + ";");
+	
+		for(String booking: responseResult) {
+			
+			
+			
+			String[] newList = booking.split(";", -1);
+			Booking searchBooking = new BookingImpl();
+			
+//			searchBooking.Booking(fromDate, toDate, wishes, customer, roomTypes, promotionCode, id, rooms);
+			customerMail= database.query("SELECT * FROM tblCustomer WHERE tblCustomer.EMail='" + newList[1] + "';").get(0);
+			Customer newCustomer = new CustomerImpl();
+			String[] oneCustomer = customerMail.split(";");
+			
+			newCustomer.Customer(oneCustomer[0], oneCustomer[1], oneCustomer[2], oneCustomer[3], oneCustomer[4], oneCustomer[5], Integer.valueOf(oneCustomer[6]), Integer.valueOf(oneCustomer[7]));
+			roomType = database.query("SELECT 'RoomType' FROM tblCalendar WHERE BookingID=" + newList[0] + ";" );
+			
+			  cal.setTimeInMillis(Long.parseLong(newList[5]));
+			  convertDateTo = cal.getTime();
+			  cal.setTimeInMillis(Long.parseLong(newList[4]));
+			  convertDateFrom =cal.getTime();
+					  
+			roomId = database.query("SELECT 'RoomId FROM tblStays WHERE BookingID=" + newList[0] + ";");
+			
+			
+			
+			for(String resultRoomId:roomId) {
+				
+				RoomExpert newRoom = new RoomExpertImpl();
+				rooms.add(newRoom.getRoom(Integer.valueOf(resultRoomId)));
+			}
+			  
+			
+			searchBooking.Booking(convertDateFrom, convertDateTo, newList[2], newCustomer, roomType, newList[3], Integer.valueOf(newList[0]), rooms);
+			returnedBookingList.add(searchBooking);
+			
 		}
 		
-		throw new UnsupportedOperationException();
+		
+		return returnedBookingList;
 	}
+	
+	
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -308,31 +401,37 @@ public class BookingExpertImpl extends MinimalEObjectImpl.Container implements B
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
 		
-		for(int i = 0; i < rooms.size(); i++) {
-			databaseInterface.send("INSERT INTO tblStays(RoomId, BookingID)  VALUES ("+rooms.getNumber() + "," + booking.getBookingID() + ");");
-			String[] Stay = database.query("SELECT 'StayId' FROM tblStays WHERE BookingID=" +booking.getBooking() +" ORDER BY StayId DESC").get(0);
-			dataBaseInterface.send("UPDATE tblRooms SET Status = 'occupied' WHERE roomnumber=" + rooms.get(i).getNumber() + ")");
-//				Add all residents required for booking.
-				for(int j = 0; j < room.get(i).getResidents(); i++) {
-//						Add new people to the database
-
-					
-					databaseInterface.send("INSERT INTO tblResidents(IDNumber, FirstName, LastName) VALUES (" +room.get(i).getResidents.get(j).getId() + ","  +room.get(i).getResidents.get(j).getFirstName() + ","  +room.get(i).getResidents.get(j).getLastName() + ")" );
-						
-				//Add residents to stay
-					databaseInterface.send("IF EXISTS UPDATE tblStayResidents SET ResidentID(" +  room.get(i).getResidents.get(j).getId() + ", WHERE StayID =" + Stay + 
-							"ELSE INSERT INTO tblStayResidents(ResidentID) VALUES ("+ room.get(i).getResidents.get(j).getId() + "WHERE StayID" + Stay + "))" );
-					
-					
-//					copy insert new resident to residentstay, databaseInterface.send("INSERT INTO tblResidents(IDNumber, FirstName, LastName) VALUES (" +room.get(i).getResidents.get(j).getId() + ","  +room.get(i).getResidents.get(j).getFirstName() + ","  +room.get(i).getResidents.get(j).getLastName() + ";" );
-				}
-				
-		}
 		
-		datbaseInterface.send("UPDATE tblBookings SET CheckedIn =true WHERE BookingID=" + booking.getBookingID() + ";");
-		
+	
+	
 		throw new UnsupportedOperationException();
+	
 	}
+//		for(int i = 0; i < rooms.size(); i++) {
+//			databaseInterface.send("INSERT INTO tblStays(RoomId, BookingID)  VALUES ("+rooms.getNumber() + "," + booking.getBookingID() + ");");
+//			String[] Stay = database.query("SELECT 'StayId' FROM tblStays WHERE BookingID=" +booking.getBooking() +" ORDER BY StayId DESC").get(0);
+//			dataBaseInterface.send("UPDATE tblRooms SET Status = 'occupied' WHERE roomnumber=" + rooms.get(i).getNumber() + ")");
+////				Add all residents required for booking.
+//				for(int j = 0; j < room.get(i).getResidents(); i++) {
+////						Add new people to the database
+//
+//					
+//					databaseInterface.send("INSERT INTO tblResidents(IDNumber, FirstName, LastName) VALUES (" +room.get(i).getResidents.get(j).getId() + ","  +room.get(i).getResidents.get(j).getFirstName() + ","  +room.get(i).getResidents.get(j).getLastName() + ")" );
+//						
+//				//Add residents to stay
+//					databaseInterface.send("IF EXISTS UPDATE tblStayResidents SET ResidentID(" +  room.get(i).getResidents.get(j).getId() + ", WHERE StayID =" + Stay + 
+//							"ELSE INSERT INTO tblStayResidents(ResidentID) VALUES ("+ room.get(i).getResidents.get(j).getId() + "WHERE StayID" + Stay + "))" );
+//					
+//					
+////					copy insert new resident to residentstay, databaseInterface.send("INSERT INTO tblResidents(IDNumber, FirstName, LastName) VALUES (" +room.get(i).getResidents.get(j).getId() + ","  +room.get(i).getResidents.get(j).getFirstName() + ","  +room.get(i).getResidents.get(j).getLastName() + ";" );
+//				}
+//				
+//		}
+//		
+//		datbaseInterface.send("UPDATE tblBookings SET CheckedIn =true WHERE BookingID=" + booking.getBookingID() + ";");
+//		
+//		throw new UnsupportedOperationException();
+//	}
 
 	/**
 	 * <!-- begin-user-doc -->
