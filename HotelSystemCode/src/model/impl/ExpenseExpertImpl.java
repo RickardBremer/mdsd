@@ -101,16 +101,16 @@ public class ExpenseExpertImpl extends MinimalEObjectImpl.Container implements
 	 */
 	public Expense getExpense(int ID) {
 		String[] response = database
-				.query("SELECT 'ExpenseID', 'ExpenseName', 'ExpenseDate', 'ExpenseDescription', 'Price', 'IsFixed' "
+				.query("SELECT 'ExpenseID', 'ExpenseName', 'ExpenseDate', 'ExpenseDescription', 'Price', 'IsFixed', 'ReceiptID' "
 						+ "FROM tblExpenses WHERE ExpenseID =" + ID + ";")
-				.get(0).split(";");
+				.get(0).split(";", -1);
 		Calendar cal = Calendar.getInstance();
 		if (response != null) {
 			ExpenseImpl e = new ExpenseImpl();
 			cal.setTimeInMillis(Long.parseLong(response[2]));
 			e.Expense(Integer.parseInt(response[0]), response[1],
 					cal.getTime(), response[3], Double.valueOf(response[4]),
-					Boolean.parseBoolean(response[5]));
+					Boolean.parseBoolean(response[5]), Integer.parseInt(response[6]));
 			return e;
 		}
 		return null;
@@ -123,18 +123,18 @@ public class ExpenseExpertImpl extends MinimalEObjectImpl.Container implements
 	 */
 	public EList<Expense> getAllExpense() {
 		EList<String> strExpenses = database
-				.query("SELECT 'ExpenseID', 'ExpenseName', 'ExpenseDate', 'ExpenseDescription', 'Price', 'IsFixed' FROM tblExpenses WHERE IsFixed=true;");
+				.query("SELECT 'ExpenseID', 'ExpenseName', 'ExpenseDate', 'ExpenseDescription', 'Price', 'IsFixed', ReceiptID FROM tblExpenses WHERE IsFixed=true;");
 		EList<Expense> expenses = new BasicEList<Expense>();
 		Calendar cal = Calendar.getInstance();
 		if (strExpenses != null) {
 			for (String response : strExpenses) {
-				String[] splitResponse = response.split(";");
+				String[] splitResponse = response.split(";", -1);
 				Expense e = new ExpenseImpl();
 				cal.setTimeInMillis(Long.parseLong(splitResponse[2]));
 				e.Expense(Integer.parseInt(splitResponse[0]), splitResponse[1],
 						cal.getTime(), splitResponse[3],
 						Double.parseDouble(splitResponse[4]),
-						Boolean.parseBoolean(splitResponse[5]));
+						Boolean.parseBoolean(splitResponse[5]), Integer.parseInt(splitResponse[6]));
 				expenses.add(e);
 			}
 		}
@@ -144,12 +144,26 @@ public class ExpenseExpertImpl extends MinimalEObjectImpl.Container implements
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public EList<Expense> getAllExpense(int receiptID) {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		EList<String> strExpenses = database
+				.query("SELECT 'ExpenseID', 'ExpenseName', 'ExpenseDate', 'ExpenseDescription', 'Price', 'IsFixed' FROM tblExpenses WHERE ReceiptID= " + receiptID+ ";");
+		EList<Expense> expenses = new BasicEList<Expense>();
+		Calendar cal = Calendar.getInstance();
+		if (strExpenses != null) {
+			for (String response : strExpenses) {
+				String[] splitResponse = response.split(";", -1);
+				Expense e = new ExpenseImpl();
+				cal.setTimeInMillis(Long.parseLong(splitResponse[2]));
+				e.Expense(Integer.parseInt(splitResponse[0]), splitResponse[1],
+						cal.getTime(), splitResponse[3],
+						Double.parseDouble(splitResponse[4]),
+						Boolean.parseBoolean(splitResponse[5]), receiptID);
+				expenses.add(e);
+			}
+		}
+		return expenses;
 	}
 
 	/**
@@ -159,7 +173,7 @@ public class ExpenseExpertImpl extends MinimalEObjectImpl.Container implements
 	 */
 	public Expense addExpense(Expense expense) {
 		boolean check = database
-				.send("INSERT INTO tblExpenses ('ExpenseName', 'ExpenseDate', 'ExpenseDescription', 'Price', 'IsFixed') VALUES("
+				.send("INSERT INTO tblExpenses ('ExpenseName', 'ExpenseDate', 'ExpenseDescription', 'Price', 'IsFixed', ReceiptID) VALUES("
 						+ expense.getName()
 						+ ", '"
 						+ expense.getDate().getTime()
@@ -167,21 +181,16 @@ public class ExpenseExpertImpl extends MinimalEObjectImpl.Container implements
 						+ expense.getDescription()
 						+ "', "
 						+ expense.getPrice()
-						+ "," + expense.isFixed() + ");");
+						+ "," 
+						+ expense.isFixed() 
+						+ ","
+						+ expense.getReceiptId()
+						+");");
 
 		if (check) {
 			String[] response = database
-					.query("SELECT 'ExpenseID' FROM tblExpenses WHERE ExpenseName='"
-							+ expense.getName()
-							+ "' AND ExpenseDate='"
-							+ expense.getDate().getTime()
-							+ "' AND ExpenseDescription='"
-							+ expense.getDescription()
-							+ "' AND Price ="
-							+ expense.getPrice()
-							+ " AND IsFixed="
-							+ expense.isFixed() + "ORDER BY desc;").get(0)
-					.split(";");
+					.query("SELECT max(ExpenseID) FROM tblExpenses").get(0)
+					.split(";", -1);
 
 			if (response != null) {
 				expense.setId(Integer.parseInt(response[0]));
@@ -201,7 +210,7 @@ public class ExpenseExpertImpl extends MinimalEObjectImpl.Container implements
 				+ ";");
 	}
 
-	/**
+	/**s
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated NOT
@@ -209,11 +218,13 @@ public class ExpenseExpertImpl extends MinimalEObjectImpl.Container implements
 
 	public boolean updateExpense(Expense expense) {
 		return database.send("UPDATE tblExpenses SET Price="
-				+ expense.getPrice() + "," + " ExpenseName='"
-				+ expense.getName() + "'," + " ExpenseDescription='"
-				+ expense.getDescription() + "'," + " ExpenseDate='"
-				+ expense.getDate().getTime() + "' WHERE ID ="
-				+ expense.getId() + ";");
+				+ expense.getPrice() + ", ExpenseName='"
+				+ expense.getName() + "', ExpenseDescription='"
+				+ expense.getDescription() + "', ExpenseDate="
+				+ expense.getDate().getTime() + ", IsFixed="
+				+ expense.isFixed() + "ReceiptID="
+				+ expense.getReceiptId() +
+				"' WHERE ID =" + expense.getId() + ";");
 	}
 
 	/**

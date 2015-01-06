@@ -323,24 +323,13 @@ public class ExpenseImpl extends MinimalEObjectImpl.Container implements
 	 * @generated
 	 */
 	public void Expense(int id, String name, Date date, String description, double price, boolean isFixed, int receiptID) {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated NOT
-	 */
-	public void Expense(int id, String name, Date date, String description,
-			double price, boolean isFixed) {
 		this.id = id;
 		this.name = name;
 		this.date = date;
 		this.description = description;
 		this.price = price;
 		this.fixed = isFixed;
+		this.receiptId = receiptID; 
 	}
 
 	/**
