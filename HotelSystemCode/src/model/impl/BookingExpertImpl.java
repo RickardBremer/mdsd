@@ -130,11 +130,17 @@ public class BookingExpertImpl extends MinimalEObjectImpl.Container implements B
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
+//	Michael
 	public EList<Booking> getAllBookings(Date dateFrom, Date dateTo) {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
+		
+		for(int i; i < getAllBookings.size(); i ++ ) {
+			database.query("SELECT 'BookingID', 'DateFrom', 'DateTo', FROM tblBookings, tblCalender WHERE DateFrom=" + datefrom + ", DateTo=" + dateTo + ";");
+	}
+		
 		throw new UnsupportedOperationException();
 	}
 
@@ -245,11 +251,19 @@ public class BookingExpertImpl extends MinimalEObjectImpl.Container implements B
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
+//	Michael
 	public EList<Booking> getAllBookings(Date dateFrom, Date dateTo, String surname) {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
+		
+		for(int i; i < getAllBookings.size(); i ++ ) {
+
+			database.query("SELECT 'BookingID', 'DateFrom', 'DateTo', 'LastName' FROM tblBookings, tblCalender, tblCustomer WHERE DateFrom=" + datefrom + ", DateTo=" + dateTo 
+					+ ", LastName=" + surname + ";" );
+		}
+		
 		throw new UnsupportedOperationException();
 	}
 
@@ -261,28 +275,51 @@ public class BookingExpertImpl extends MinimalEObjectImpl.Container implements B
 	public void BookingExpert(DatabaseInterface database) {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
+		
+		this.database=database;
 		throw new UnsupportedOperationException();
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
+//	Michael
 	public boolean checkIn(Booking booking, EList<Room> rooms) {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
+		
+		for(int i = 0; i < rooms.size(); i++) {
+			databaseInterface.send("INSERT INTO tblStays(RoomId, BookingID)  VALUES ("+rooms.getNumber() + "," + booking.getBookingID() + ");");
+			String[] Stay = database.query("SELECT 'StayId' FROM tblStays WHERE BookingID=" +booking.getBooking() +" ORDER BY StayId DESC").get(0);
+			dataBaseInterface.send("UPDATE tblRooms SET Status = 'occupied' WHERE roomnumber=" + rooms.get(i).getNumber() + ")");
+//				Add all residents required for booking.
+				for(int j = 0; j < room.get(i).getResidents(); i++) {
+					databaseInterface.send("INSERT INTO tblResidents(IDNumber, FirstName, LastName) VALUES (" +room.get(i).getResidents.get(j).getId() + ","  +room.get(i).getResidents.get(j).getFirstName() + ","  +room.get(i).getResidents.get(j).getLastName() + ")" );
+						//	copy insert new resident to residentstay, databaseInterface.send("INSERT INTO tblResidents(IDNumber, FirstName, LastName) VALUES (" +room.get(i).getResidents.get(j).getId() + ","  +room.get(i).getResidents.get(j).getFirstName() + ","  +room.get(i).getResidents.get(j).getLastName() + ";" );
+
+					databaseInterface.send("IF EXISTS UPDATE tblStayResidents SET ResidentID(" +  room.get(i).getResidents.get(j).getId() + ", WHERE StayID =" + Stay + 
+							"ELSE INSERT INTO tblStayResidents(ResidentID) VALUES ("+ room.get(i).getResidents.get(j).getId() + "WHERE StayID" + Stay + "))" );
+				}
+				
+		}
+		
 		throw new UnsupportedOperationException();
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
+//	Michael
 	public boolean checkOut(Booking booking) {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
+		
+		databaseInterface.send("UPDATE tblROOMS SET Status = 'available' WHERE BookingID=" + booking.getBooking() + ";");
+		
 		throw new UnsupportedOperationException();
 	}
 
