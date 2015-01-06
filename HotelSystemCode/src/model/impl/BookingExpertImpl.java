@@ -314,14 +314,22 @@ public class BookingExpertImpl extends MinimalEObjectImpl.Container implements B
 			dataBaseInterface.send("UPDATE tblRooms SET Status = 'occupied' WHERE roomnumber=" + rooms.get(i).getNumber() + ")");
 //				Add all residents required for booking.
 				for(int j = 0; j < room.get(i).getResidents(); i++) {
-					databaseInterface.send("INSERT INTO tblResidents(IDNumber, FirstName, LastName) VALUES (" +room.get(i).getResidents.get(j).getId() + ","  +room.get(i).getResidents.get(j).getFirstName() + ","  +room.get(i).getResidents.get(j).getLastName() + ")" );
-						//	copy insert new resident to residentstay, databaseInterface.send("INSERT INTO tblResidents(IDNumber, FirstName, LastName) VALUES (" +room.get(i).getResidents.get(j).getId() + ","  +room.get(i).getResidents.get(j).getFirstName() + ","  +room.get(i).getResidents.get(j).getLastName() + ";" );
+//						Add new people to the database
 
+					
+					databaseInterface.send("INSERT INTO tblResidents(IDNumber, FirstName, LastName) VALUES (" +room.get(i).getResidents.get(j).getId() + ","  +room.get(i).getResidents.get(j).getFirstName() + ","  +room.get(i).getResidents.get(j).getLastName() + ")" );
+						
+				//Add residents to stay
 					databaseInterface.send("IF EXISTS UPDATE tblStayResidents SET ResidentID(" +  room.get(i).getResidents.get(j).getId() + ", WHERE StayID =" + Stay + 
 							"ELSE INSERT INTO tblStayResidents(ResidentID) VALUES ("+ room.get(i).getResidents.get(j).getId() + "WHERE StayID" + Stay + "))" );
+					
+					
+//					copy insert new resident to residentstay, databaseInterface.send("INSERT INTO tblResidents(IDNumber, FirstName, LastName) VALUES (" +room.get(i).getResidents.get(j).getId() + ","  +room.get(i).getResidents.get(j).getFirstName() + ","  +room.get(i).getResidents.get(j).getLastName() + ";" );
 				}
 				
 		}
+		
+		datbaseInterface.send("UPDATE tblBookings SET CheckedIn =true WHERE BookingID=" + booking.getBookingID() + ";");
 		
 		throw new UnsupportedOperationException();
 	}
@@ -337,6 +345,7 @@ public class BookingExpertImpl extends MinimalEObjectImpl.Container implements B
 		// Ensure that you remove @generated or mark it @generated NOT
 		
 		databaseInterface.send("UPDATE tblROOMS SET Status = 'available' WHERE BookingID=" + booking.getBooking() + ";");
+		datbaseInterface.send("UPDATE tblBookings SET CheckedOut =true AND CheckedIn =false WHERE BookingID=" + booking.getBookingID() + ";");
 		
 		throw new UnsupportedOperationException();
 	}
