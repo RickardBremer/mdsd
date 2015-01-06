@@ -20,6 +20,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link model.Expense#getDate <em>Date</em>}</li>
  *   <li>{@link model.Expense#getId <em>Id</em>}</li>
  *   <li>{@link model.Expense#isFixed <em>Fixed</em>}</li>
+ *   <li>{@link model.Expense#getReceiptId <em>Receipt Id</em>}</li>
  * </ul>
  * </p>
  *
@@ -183,6 +184,32 @@ public interface Expense extends EObject {
 	 * @generated
 	 */
 	void setFixed(boolean value);
+
+	/**
+	 * Returns the value of the '<em><b>Receipt Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Receipt Id</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Receipt Id</em>' attribute.
+	 * @see #setReceiptId(int)
+	 * @see model.ModelPackage#getExpense_ReceiptId()
+	 * @model required="true" ordered="false"
+	 * @generated
+	 */
+	int getReceiptId();
+
+	/**
+	 * Sets the value of the '{@link model.Expense#getReceiptId <em>Receipt Id</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Receipt Id</em>' attribute.
+	 * @see #getReceiptId()
+	 * @generated
+	 */
+	void setReceiptId(int value);
 
 	/**
 	 * <!-- begin-user-doc -->

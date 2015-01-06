@@ -101,6 +101,7 @@
       <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//Expense/date"/>
       <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//Expense/id"/>
       <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//Expense/fixed"/>
+      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//Expense/receiptId"/>
       <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="model.ecore#//Expense/Expense">
         <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="model.ecore#//Expense/Expense/id"/>
         <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="model.ecore#//Expense/Expense/name"/>

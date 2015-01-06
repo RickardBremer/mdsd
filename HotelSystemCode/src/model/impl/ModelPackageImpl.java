@@ -601,6 +601,15 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getExpense_ReceiptId() {
+		return (EAttribute)expenseEClass.getEStructuralFeatures().get(6);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EOperation getExpense__Expense__int_String_Date_String_double_boolean_int() {
 		return expenseEClass.getEOperations().get(0);
 	}
@@ -2165,6 +2174,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		createEAttribute(expenseEClass, EXPENSE__DATE);
 		createEAttribute(expenseEClass, EXPENSE__ID);
 		createEAttribute(expenseEClass, EXPENSE__FIXED);
+		createEAttribute(expenseEClass, EXPENSE__RECEIPT_ID);
 		createEOperation(expenseEClass, EXPENSE___EXPENSE__INT_STRING_DATE_STRING_DOUBLE_BOOLEAN_INT);
 
 		receiptEClass = createEClass(RECEIPT);
@@ -2465,6 +2475,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		initEAttribute(getExpense_Date(), ecorePackage.getEDate(), "date", null, 1, 1, Expense.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEAttribute(getExpense_Id(), ecorePackage.getEInt(), "id", null, 1, 1, Expense.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEAttribute(getExpense_Fixed(), ecorePackage.getEBoolean(), "fixed", null, 1, 1, Expense.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEAttribute(getExpense_ReceiptId(), ecorePackage.getEInt(), "receiptId", null, 1, 1, Expense.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		op = initEOperation(getExpense__Expense__int_String_Date_String_double_boolean_int(), null, "Expense", 1, 1, IS_UNIQUE, !IS_ORDERED);
 		addEParameter(op, ecorePackage.getEInt(), "id", 1, 1, IS_UNIQUE, !IS_ORDERED);
