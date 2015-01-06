@@ -194,6 +194,7 @@
       <eParameters name="roomTypes" ordered="false" upperBound="-1" eType="ecore:EDataType types.ecore#//String"/>
       <eParameters name="promotionCode" ordered="false" lowerBound="1" eType="ecore:EDataType types.ecore#//String"/>
       <eParameters name="id" ordered="false" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+      <eParameters name="rooms" ordered="false" upperBound="-1" eType="#//Room"/>
     </eOperations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="customer" ordered="false"
         lowerBound="1" eType="#//Customer"/>
@@ -213,6 +214,8 @@
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="receipt" ordered="false"
         lowerBound="1" eType="#//Receipt"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="room" ordered="false" upperBound="-1"
+        eType="#//Room"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="AdminInterface" abstract="true" interface="true">
     <eOperations name="login" ordered="false" lowerBound="1" eType="ecore:EDataType types.ecore#//Boolean">
@@ -411,14 +414,11 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="PromotionExpert">
     <eOperations name="getPromotion" ordered="false" lowerBound="1" eType="#//Promotion">
-      <eParameters name="ID" ordered="false" lowerBound="1" eType="ecore:EDataType types.ecore#//Integer"/>
-    </eOperations>
-    <eOperations name="getPromotion" ordered="false" lowerBound="1" eType="#//Promotion">
       <eParameters name="promotionCode" ordered="false" lowerBound="1" eType="ecore:EDataType types.ecore#//String"/>
     </eOperations>
     <eOperations name="getAllPromotions" ordered="false" upperBound="-1" eType="#//Promotion"/>
     <eOperations name="removePromotion" ordered="false" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
-      <eParameters name="ID" ordered="false" lowerBound="1" eType="ecore:EDataType types.ecore#//Integer"/>
+      <eParameters name="code" ordered="false" lowerBound="1" eType="ecore:EDataType types.ecore#//String"/>
     </eOperations>
     <eOperations name="updatePromotion" ordered="false" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
       <eParameters name="promotion" ordered="false" lowerBound="1" eType="#//Promotion"/>

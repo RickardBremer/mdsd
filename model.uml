@@ -466,6 +466,10 @@
         <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_KFSCkZTrEeSK-7NQpyjlhQ" value="1"/>
         <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_KFSCkpTrEeSK-7NQpyjlhQ" value="1"/>
       </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_v1MDkJWSEeSvmq6oBh6iww" name="room" type="_2JcbkIB4EeSIi9xXvYIBqQ" association="_v1PG4JWSEeSvmq6oBh6iww">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_v1MDkZWSEeSvmq6oBh6iww"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_v1MDkpWSEeSvmq6oBh6iww" value="*"/>
+      </ownedAttribute>
       <ownedOperation xmi:type="uml:Operation" xmi:id="_jtnxUIXaEeSa4Ps4qtz0aQ" name="Booking">
         <ownedParameter xmi:type="uml:Parameter" xmi:id="_rTFt4IXaEeSa4Ps4qtz0aQ" name="fromDate">
           <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EDate"/>
@@ -487,6 +491,10 @@
         </ownedParameter>
         <ownedParameter xmi:type="uml:Parameter" xmi:id="_LpQv4JTBEeSK-7NQpyjlhQ" name="id">
           <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+        </ownedParameter>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_2CNmgJWSEeSvmq6oBh6iww" name="rooms" type="_2JcbkIB4EeSIi9xXvYIBqQ">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="__rsEYJWhEeSvmq6oBh6iww"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="__rvHsJWhEeSvmq6oBh6iww" value="*"/>
         </ownedParameter>
       </ownedOperation>
     </packagedElement>
@@ -849,12 +857,6 @@
     </packagedElement>
     <packagedElement xmi:type="uml:Class" xmi:id="_Um74wIB5EeSIi9xXvYIBqQ" name="PromotionExpert">
       <ownedAttribute xmi:type="uml:Property" xmi:id="_9s6h4IX7EeSSWPBCkg2FMw" name="database" visibility="private" type="_5pSK4IBJEeSIi9xXvYIBqQ"/>
-      <ownedOperation xmi:type="uml:Operation" xmi:id="_BgqgUIX8EeSSWPBCkg2FMw" name="getPromotion" visibility="protected">
-        <ownedParameter xmi:type="uml:Parameter" xmi:id="_bwehMIdyEeSzUtUd_ZlEnQ" name="ID">
-          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
-        </ownedParameter>
-        <ownedParameter xmi:type="uml:Parameter" xmi:id="_eXTZgIdyEeSzUtUd_ZlEnQ" type="_DfTCYIB5EeSIi9xXvYIBqQ" direction="return"/>
-      </ownedOperation>
       <ownedOperation xmi:type="uml:Operation" xmi:id="_R_UrIIX8EeSSWPBCkg2FMw" name="getPromotion" visibility="protected">
         <ownedParameter xmi:type="uml:Parameter" xmi:id="_l56PUIdyEeSzUtUd_ZlEnQ" name="promotionCode">
           <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
@@ -868,8 +870,8 @@
         </ownedParameter>
       </ownedOperation>
       <ownedOperation xmi:type="uml:Operation" xmi:id="_ePJeAIX8EeSSWPBCkg2FMw" name="removePromotion" visibility="protected">
-        <ownedParameter xmi:type="uml:Parameter" xmi:id="_y0vHAIdyEeSzUtUd_ZlEnQ" name="ID">
-          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_y0vHAIdyEeSzUtUd_ZlEnQ" name="code">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
         </ownedParameter>
         <ownedParameter xmi:type="uml:Parameter" xmi:id="_01O_IIdyEeSzUtUd_ZlEnQ" direction="return">
           <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#boolean"/>
@@ -1052,16 +1054,6 @@
           <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#boolean"/>
         </ownedParameter>
       </ownedOperation>
-    </packagedElement>
-    <packagedElement xmi:type="uml:Association" xmi:id="_EhmXcIB6EeSIi9xXvYIBqQ" memberEnd="_EhmXcYB6EeSIi9xXvYIBqQ _EhlJUIB6EeSIi9xXvYIBqQ" navigableOwnedEnd="_EhmXcYB6EeSIi9xXvYIBqQ">
-      <ownedEnd xmi:type="uml:Property" xmi:id="_EhmXcYB6EeSIi9xXvYIBqQ" name="room" type="_2JcbkIB4EeSIi9xXvYIBqQ" association="_EhmXcIB6EeSIi9xXvYIBqQ">
-        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_EhmXcoB6EeSIi9xXvYIBqQ"/>
-        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_EhmXc4B6EeSIi9xXvYIBqQ" value="*"/>
-      </ownedEnd>
-      <ownedEnd xmi:type="uml:Property" xmi:id="_EhlJUIB6EeSIi9xXvYIBqQ" name="booking" type="_3KJDkIB4EeSIi9xXvYIBqQ" association="_EhmXcIB6EeSIi9xXvYIBqQ">
-        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_EhlJUYB6EeSIi9xXvYIBqQ" value="1"/>
-        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_EhlJUoB6EeSIi9xXvYIBqQ" value="1"/>
-      </ownedEnd>
     </packagedElement>
     <packagedElement xmi:type="uml:Association" xmi:id="_IOQPYIB6EeSIi9xXvYIBqQ" memberEnd="_IOQPYYB6EeSIi9xXvYIBqQ _IOPoUIB6EeSIi9xXvYIBqQ">
       <ownedEnd xmi:type="uml:Property" xmi:id="_IOQPYYB6EeSIi9xXvYIBqQ" name="room" type="_2JcbkIB4EeSIi9xXvYIBqQ" association="_IOQPYIB6EeSIi9xXvYIBqQ">
@@ -1268,6 +1260,12 @@
       <ownedEnd xmi:type="uml:Property" xmi:id="_ODU6kZTtEeSK-7NQpyjlhQ" name="bookingController" type="__5260IB6EeSIi9xXvYIBqQ" association="_ODU6kJTtEeSK-7NQpyjlhQ">
         <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_ODU6kpTtEeSK-7NQpyjlhQ" value="1"/>
         <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_ODU6k5TtEeSK-7NQpyjlhQ" value="1"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_v1PG4JWSEeSvmq6oBh6iww" memberEnd="_v1PG4ZWSEeSvmq6oBh6iww _v1MDkJWSEeSvmq6oBh6iww">
+      <ownedEnd xmi:type="uml:Property" xmi:id="_v1PG4ZWSEeSvmq6oBh6iww" name="booking" type="_3KJDkIB4EeSIi9xXvYIBqQ" association="_v1PG4JWSEeSvmq6oBh6iww">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_v1PG4pWSEeSvmq6oBh6iww" value="1"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_v1PG45WSEeSvmq6oBh6iww" value="1"/>
       </ownedEnd>
     </packagedElement>
     <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_KZiQMIXVEeSa4Ps4qtz0aQ">

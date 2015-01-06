@@ -9,6 +9,7 @@ import model.Booking;
 import model.Customer;
 import model.ModelPackage;
 import model.Receipt;
+import model.Room;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
@@ -16,6 +17,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
+import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -33,6 +35,7 @@ import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
  *   <li>{@link model.impl.BookingImpl#isCheckedIn <em>Checked In</em>}</li>
  *   <li>{@link model.impl.BookingImpl#getId <em>Id</em>}</li>
  *   <li>{@link model.impl.BookingImpl#getReceipt <em>Receipt</em>}</li>
+ *   <li>{@link model.impl.BookingImpl#getRoom <em>Room</em>}</li>
  * </ul>
  * </p>
  *
@@ -188,6 +191,16 @@ public class BookingImpl extends MinimalEObjectImpl.Container implements Booking
 	 * @ordered
 	 */
 	protected Receipt receipt;
+
+	/**
+	 * The cached value of the '{@link #getRoom() <em>Room</em>}' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getRoom()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Room> room;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -427,7 +440,19 @@ public class BookingImpl extends MinimalEObjectImpl.Container implements Booking
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void Booking(Date fromDate, Date toDate, String wishes, Customer customer, EList<String> roomTypes, String promotionCode, int id) {
+	public EList<Room> getRoom() {
+		if (room == null) {
+			room = new EObjectResolvingEList<Room>(Room.class, this, ModelPackage.BOOKING__ROOM);
+		}
+		return room;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void Booking(Date fromDate, Date toDate, String wishes, Customer customer, EList<String> roomTypes, String promotionCode, int id, EList<Room> rooms) {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();
@@ -461,6 +486,8 @@ public class BookingImpl extends MinimalEObjectImpl.Container implements Booking
 			case ModelPackage.BOOKING__RECEIPT:
 				if (resolve) return getReceipt();
 				return basicGetReceipt();
+			case ModelPackage.BOOKING__ROOM:
+				return getRoom();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -502,6 +529,10 @@ public class BookingImpl extends MinimalEObjectImpl.Container implements Booking
 			case ModelPackage.BOOKING__RECEIPT:
 				setReceipt((Receipt)newValue);
 				return;
+			case ModelPackage.BOOKING__ROOM:
+				getRoom().clear();
+				getRoom().addAll((Collection<? extends Room>)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -541,6 +572,9 @@ public class BookingImpl extends MinimalEObjectImpl.Container implements Booking
 			case ModelPackage.BOOKING__RECEIPT:
 				setReceipt((Receipt)null);
 				return;
+			case ModelPackage.BOOKING__ROOM:
+				getRoom().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -571,6 +605,8 @@ public class BookingImpl extends MinimalEObjectImpl.Container implements Booking
 				return id != ID_EDEFAULT;
 			case ModelPackage.BOOKING__RECEIPT:
 				return receipt != null;
+			case ModelPackage.BOOKING__ROOM:
+				return room != null && !room.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
@@ -584,8 +620,8 @@ public class BookingImpl extends MinimalEObjectImpl.Container implements Booking
 	@SuppressWarnings("unchecked")
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
-			case ModelPackage.BOOKING___BOOKING__DATE_DATE_STRING_CUSTOMER_ELIST_STRING_INT:
-				Booking((Date)arguments.get(0), (Date)arguments.get(1), (String)arguments.get(2), (Customer)arguments.get(3), (EList<String>)arguments.get(4), (String)arguments.get(5), (Integer)arguments.get(6));
+			case ModelPackage.BOOKING___BOOKING__DATE_DATE_STRING_CUSTOMER_ELIST_STRING_INT_ELIST:
+				Booking((Date)arguments.get(0), (Date)arguments.get(1), (String)arguments.get(2), (Customer)arguments.get(3), (EList<String>)arguments.get(4), (String)arguments.get(5), (Integer)arguments.get(6), (EList<Room>)arguments.get(7));
 				return null;
 		}
 		return super.eInvoke(operationID, arguments);

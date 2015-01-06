@@ -201,6 +201,8 @@
       <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//Booking/id"/>
       <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
           propertySortChoices="true" ecoreFeature="ecore:EReference model.ecore#//Booking/receipt"/>
+      <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+          propertySortChoices="true" ecoreFeature="ecore:EReference model.ecore#//Booking/room"/>
       <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="model.ecore#//Booking/Booking">
         <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="model.ecore#//Booking/Booking/fromDate"/>
         <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="model.ecore#//Booking/Booking/toDate"/>
@@ -209,6 +211,7 @@
         <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="model.ecore#//Booking/Booking/roomTypes"/>
         <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="model.ecore#//Booking/Booking/promotionCode"/>
         <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="model.ecore#//Booking/Booking/id"/>
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="model.ecore#//Booking/Booking/rooms"/>
       </genOperations>
     </genClasses>
     <genClasses xsi:type="genmodel:GenClass" image="false" ecoreClass="model.ecore#//AdminInterface">
@@ -397,14 +400,11 @@
       <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
           propertySortChoices="true" ecoreFeature="ecore:EReference model.ecore#//PromotionExpert/database"/>
       <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="model.ecore#//PromotionExpert/getPromotion">
-        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="model.ecore#//PromotionExpert/getPromotion/ID"/>
-      </genOperations>
-      <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="model.ecore#//PromotionExpert/getPromotion.1">
-        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="model.ecore#//PromotionExpert/getPromotion.1/promotionCode"/>
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="model.ecore#//PromotionExpert/getPromotion/promotionCode"/>
       </genOperations>
       <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="model.ecore#//PromotionExpert/getAllPromotions"/>
       <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="model.ecore#//PromotionExpert/removePromotion">
-        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="model.ecore#//PromotionExpert/removePromotion/ID"/>
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="model.ecore#//PromotionExpert/removePromotion/code"/>
       </genOperations>
       <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="model.ecore#//PromotionExpert/updatePromotion">
         <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="model.ecore#//PromotionExpert/updatePromotion/promotion"/>

@@ -496,7 +496,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EXPENSE___EXPENSE__INT_STRING_DATE_STRING_INT_BOOLEAN = 0;
+	int EXPENSE___EXPENSE__INT_STRING_DATE_STRING_DOUBLE_BOOLEAN = 0;
 
 	/**
 	 * The number of operations of the '<em>Expense</em>' class.
@@ -982,13 +982,22 @@ public interface ModelPackage extends EPackage {
 	int BOOKING__RECEIPT = 8;
 
 	/**
+	 * The feature id for the '<em><b>Room</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOOKING__ROOM = 9;
+
+	/**
 	 * The number of structural features of the '<em>Booking</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int BOOKING_FEATURE_COUNT = 9;
+	int BOOKING_FEATURE_COUNT = 10;
 
 	/**
 	 * The operation id for the '<em>Booking</em>' operation.
@@ -997,7 +1006,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BOOKING___BOOKING__DATE_DATE_STRING_CUSTOMER_ELIST_STRING_INT = 0;
+	int BOOKING___BOOKING__DATE_DATE_STRING_CUSTOMER_ELIST_STRING_INT_ELIST = 0;
 
 	/**
 	 * The number of operations of the '<em>Booking</em>' class.
@@ -1769,16 +1778,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROMOTION_EXPERT___GET_PROMOTION__INT = 0;
-
-	/**
-	 * The operation id for the '<em>Get Promotion</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PROMOTION_EXPERT___GET_PROMOTION__STRING = 1;
+	int PROMOTION_EXPERT___GET_PROMOTION__STRING = 0;
 
 	/**
 	 * The operation id for the '<em>Get All Promotions</em>' operation.
@@ -1787,7 +1787,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROMOTION_EXPERT___GET_ALL_PROMOTIONS = 2;
+	int PROMOTION_EXPERT___GET_ALL_PROMOTIONS = 1;
 
 	/**
 	 * The operation id for the '<em>Remove Promotion</em>' operation.
@@ -1796,7 +1796,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROMOTION_EXPERT___REMOVE_PROMOTION__INT = 3;
+	int PROMOTION_EXPERT___REMOVE_PROMOTION__STRING = 2;
 
 	/**
 	 * The operation id for the '<em>Update Promotion</em>' operation.
@@ -1805,7 +1805,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROMOTION_EXPERT___UPDATE_PROMOTION__PROMOTION = 4;
+	int PROMOTION_EXPERT___UPDATE_PROMOTION__PROMOTION = 3;
 
 	/**
 	 * The operation id for the '<em>Promotion Expert</em>' operation.
@@ -1814,7 +1814,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROMOTION_EXPERT___PROMOTION_EXPERT__DATABASEINTERFACE = 5;
+	int PROMOTION_EXPERT___PROMOTION_EXPERT__DATABASEINTERFACE = 4;
 
 	/**
 	 * The operation id for the '<em>Add Promotion</em>' operation.
@@ -1823,7 +1823,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROMOTION_EXPERT___ADD_PROMOTION__PROMOTION = 6;
+	int PROMOTION_EXPERT___ADD_PROMOTION__PROMOTION = 5;
 
 	/**
 	 * The number of operations of the '<em>Promotion Expert</em>' class.
@@ -1832,7 +1832,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROMOTION_EXPERT_OPERATION_COUNT = 7;
+	int PROMOTION_EXPERT_OPERATION_COUNT = 6;
 
 	/**
 	 * The meta object id for the '{@link model.impl.BookingExpertImpl <em>Booking Expert</em>}' class.
@@ -2133,7 +2133,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PAYMENT___MAKE_PAYMENT__CUSTOMER_INT = 0;
+	int PAYMENT___MAKE_PAYMENT__CUSTOMER_DOUBLE = 0;
 
 	/**
 	 * The operation id for the '<em>Is Credit Card Valid</em>' operation.
@@ -3120,7 +3120,7 @@ public interface ModelPackage extends EPackage {
 	 * @see model.Expense#Expense(int, java.lang.String, java.util.Date, java.lang.String, double, boolean)
 	 * @generated
 	 */
-	EOperation getExpense__Expense__int_String_Date_String_int_boolean();
+	EOperation getExpense__Expense__int_String_Date_String_double_boolean();
 
 	/**
 	 * Returns the meta object for class '{@link model.Receipt <em>Receipt</em>}'.
@@ -3663,14 +3663,25 @@ public interface ModelPackage extends EPackage {
 	EReference getBooking_Receipt();
 
 	/**
-	 * Returns the meta object for the '{@link model.Booking#Booking(java.util.Date, java.util.Date, java.lang.String, model.Customer, org.eclipse.emf.common.util.EList, java.lang.String, int) <em>Booking</em>}' operation.
+	 * Returns the meta object for the reference list '{@link model.Booking#getRoom <em>Room</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Room</em>'.
+	 * @see model.Booking#getRoom()
+	 * @see #getBooking()
+	 * @generated
+	 */
+	EReference getBooking_Room();
+
+	/**
+	 * Returns the meta object for the '{@link model.Booking#Booking(java.util.Date, java.util.Date, java.lang.String, model.Customer, org.eclipse.emf.common.util.EList, java.lang.String, int, org.eclipse.emf.common.util.EList) <em>Booking</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Booking</em>' operation.
-	 * @see model.Booking#Booking(java.util.Date, java.util.Date, java.lang.String, model.Customer, org.eclipse.emf.common.util.EList, java.lang.String, int)
+	 * @see model.Booking#Booking(java.util.Date, java.util.Date, java.lang.String, model.Customer, org.eclipse.emf.common.util.EList, java.lang.String, int, org.eclipse.emf.common.util.EList)
 	 * @generated
 	 */
-	EOperation getBooking__Booking__Date_Date_String_Customer_EList_String_int();
+	EOperation getBooking__Booking__Date_Date_String_Customer_EList_String_int_EList();
 
 	/**
 	 * Returns the meta object for class '{@link model.AdminInterface <em>Admin Interface</em>}'.
@@ -4294,16 +4305,6 @@ public interface ModelPackage extends EPackage {
 	EReference getPromotionExpert_Database();
 
 	/**
-	 * Returns the meta object for the '{@link model.PromotionExpert#getPromotion(int) <em>Get Promotion</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Get Promotion</em>' operation.
-	 * @see model.PromotionExpert#getPromotion(int)
-	 * @generated
-	 */
-	EOperation getPromotionExpert__GetPromotion__int();
-
-	/**
 	 * Returns the meta object for the '{@link model.PromotionExpert#getPromotion(java.lang.String) <em>Get Promotion</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4324,14 +4325,14 @@ public interface ModelPackage extends EPackage {
 	EOperation getPromotionExpert__GetAllPromotions();
 
 	/**
-	 * Returns the meta object for the '{@link model.PromotionExpert#removePromotion(int) <em>Remove Promotion</em>}' operation.
+	 * Returns the meta object for the '{@link model.PromotionExpert#removePromotion(java.lang.String) <em>Remove Promotion</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Remove Promotion</em>' operation.
-	 * @see model.PromotionExpert#removePromotion(int)
+	 * @see model.PromotionExpert#removePromotion(java.lang.String)
 	 * @generated
 	 */
-	EOperation getPromotionExpert__RemovePromotion__int();
+	EOperation getPromotionExpert__RemovePromotion__String();
 
 	/**
 	 * Returns the meta object for the '{@link model.PromotionExpert#updatePromotion(model.Promotion) <em>Update Promotion</em>}' operation.
@@ -4623,7 +4624,7 @@ public interface ModelPackage extends EPackage {
 	 * @see model.Payment#makePayment(model.Customer, double)
 	 * @generated
 	 */
-	EOperation getPayment__MakePayment__Customer_int();
+	EOperation getPayment__MakePayment__Customer_double();
 
 	/**
 	 * Returns the meta object for the '{@link model.Payment#isCreditCardValid(model.Customer) <em>Is Credit Card Valid</em>}' operation.
@@ -5113,7 +5114,7 @@ public interface ModelPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation EXPENSE___EXPENSE__INT_STRING_DATE_STRING_INT_BOOLEAN = eINSTANCE.getExpense__Expense__int_String_Date_String_int_boolean();
+		EOperation EXPENSE___EXPENSE__INT_STRING_DATE_STRING_DOUBLE_BOOLEAN = eINSTANCE.getExpense__Expense__int_String_Date_String_double_boolean();
 
 		/**
 		 * The meta object literal for the '{@link model.impl.ReceiptImpl <em>Receipt</em>}' class.
@@ -5536,12 +5537,20 @@ public interface ModelPackage extends EPackage {
 		EReference BOOKING__RECEIPT = eINSTANCE.getBooking_Receipt();
 
 		/**
+		 * The meta object literal for the '<em><b>Room</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference BOOKING__ROOM = eINSTANCE.getBooking_Room();
+
+		/**
 		 * The meta object literal for the '<em><b>Booking</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation BOOKING___BOOKING__DATE_DATE_STRING_CUSTOMER_ELIST_STRING_INT = eINSTANCE.getBooking__Booking__Date_Date_String_Customer_EList_String_int();
+		EOperation BOOKING___BOOKING__DATE_DATE_STRING_CUSTOMER_ELIST_STRING_INT_ELIST = eINSTANCE.getBooking__Booking__Date_Date_String_Customer_EList_String_int_EList();
 
 		/**
 		 * The meta object literal for the '{@link model.AdminInterface <em>Admin Interface</em>}' class.
@@ -6051,14 +6060,6 @@ public interface ModelPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation PROMOTION_EXPERT___GET_PROMOTION__INT = eINSTANCE.getPromotionExpert__GetPromotion__int();
-
-		/**
-		 * The meta object literal for the '<em><b>Get Promotion</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
 		EOperation PROMOTION_EXPERT___GET_PROMOTION__STRING = eINSTANCE.getPromotionExpert__GetPromotion__String();
 
 		/**
@@ -6075,7 +6076,7 @@ public interface ModelPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation PROMOTION_EXPERT___REMOVE_PROMOTION__INT = eINSTANCE.getPromotionExpert__RemovePromotion__int();
+		EOperation PROMOTION_EXPERT___REMOVE_PROMOTION__STRING = eINSTANCE.getPromotionExpert__RemovePromotion__String();
 
 		/**
 		 * The meta object literal for the '<em><b>Update Promotion</b></em>' operation.
@@ -6315,7 +6316,7 @@ public interface ModelPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation PAYMENT___MAKE_PAYMENT__CUSTOMER_INT = eINSTANCE.getPayment__MakePayment__Customer_int();
+		EOperation PAYMENT___MAKE_PAYMENT__CUSTOMER_DOUBLE = eINSTANCE.getPayment__MakePayment__Customer_double();
 
 		/**
 		 * The meta object literal for the '<em><b>Is Credit Card Valid</b></em>' operation.

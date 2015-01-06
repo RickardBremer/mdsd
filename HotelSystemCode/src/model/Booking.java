@@ -25,6 +25,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link model.Booking#isCheckedIn <em>Checked In</em>}</li>
  *   <li>{@link model.Booking#getId <em>Id</em>}</li>
  *   <li>{@link model.Booking#getReceipt <em>Receipt</em>}</li>
+ *   <li>{@link model.Booking#getRoom <em>Room</em>}</li>
  * </ul>
  * </p>
  *
@@ -258,11 +259,27 @@ public interface Booking extends EObject {
 	void setReceipt(Receipt value);
 
 	/**
+	 * Returns the value of the '<em><b>Room</b></em>' reference list.
+	 * The list contents are of type {@link model.Room}.
 	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Room</em>' reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
 	 * <!-- end-user-doc -->
-	 * @model fromDateRequired="true" fromDateOrdered="false" toDateRequired="true" toDateOrdered="false" wishesDataType="org.eclipse.uml2.types.String" wishesRequired="true" wishesOrdered="false" customerRequired="true" customerOrdered="false" roomTypesDataType="org.eclipse.uml2.types.String" roomTypesMany="true" roomTypesOrdered="false" promotionCodeDataType="org.eclipse.uml2.types.String" promotionCodeRequired="true" promotionCodeOrdered="false" idRequired="true" idOrdered="false"
+	 * @return the value of the '<em>Room</em>' reference list.
+	 * @see model.ModelPackage#getBooking_Room()
+	 * @model ordered="false"
 	 * @generated
 	 */
-	void Booking(Date fromDate, Date toDate, String wishes, Customer customer, EList<String> roomTypes, String promotionCode, int id);
+	EList<Room> getRoom();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model fromDateRequired="true" fromDateOrdered="false" toDateRequired="true" toDateOrdered="false" wishesDataType="org.eclipse.uml2.types.String" wishesRequired="true" wishesOrdered="false" customerRequired="true" customerOrdered="false" roomTypesDataType="org.eclipse.uml2.types.String" roomTypesMany="true" roomTypesOrdered="false" promotionCodeDataType="org.eclipse.uml2.types.String" promotionCodeRequired="true" promotionCodeOrdered="false" idRequired="true" idOrdered="false" roomsMany="true" roomsOrdered="false"
+	 * @generated
+	 */
+	void Booking(Date fromDate, Date toDate, String wishes, Customer customer, EList<String> roomTypes, String promotionCode, int id, EList<Room> rooms);
 
 } // Booking

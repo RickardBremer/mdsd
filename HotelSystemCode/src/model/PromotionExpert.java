@@ -52,14 +52,6 @@ public interface PromotionExpert extends EObject {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model required="true" ordered="false" IDDataType="org.eclipse.uml2.types.Integer" IDRequired="true" IDOrdered="false"
-	 * @generated
-	 */
-	Promotion getPromotion(int ID);
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
 	 * @model required="true" ordered="false" promotionCodeDataType="org.eclipse.uml2.types.String" promotionCodeRequired="true" promotionCodeOrdered="false"
 	 * @generated
 	 */
@@ -76,10 +68,10 @@ public interface PromotionExpert extends EObject {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model required="true" ordered="false" IDDataType="org.eclipse.uml2.types.Integer" IDRequired="true" IDOrdered="false"
+	 * @model required="true" ordered="false" codeDataType="org.eclipse.uml2.types.String" codeRequired="true" codeOrdered="false"
 	 * @generated
 	 */
-	boolean removePromotion(int ID);
+	boolean removePromotion(String code);
 
 	/**
 	 * <!-- begin-user-doc -->

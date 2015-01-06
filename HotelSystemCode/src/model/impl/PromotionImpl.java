@@ -351,13 +351,12 @@ public class PromotionImpl extends MinimalEObjectImpl.Container implements Promo
 	 * @generated NOT
 	 */
 	public double calculateDiscount(Room room) {
-		int total = 0;
-		int pr = room.getPrice();
-		total = percentage * pr;
-	
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		double total = 0;
+		if (roomType.equals(room.getType())) {
+			double pr = room.getPrice().getPrice();
+			total = pr / percentage;
+		}
+		return total;
 	}
 
 	/**
@@ -366,17 +365,13 @@ public class PromotionImpl extends MinimalEObjectImpl.Container implements Promo
 	 * @generated NOT
 	 */
 	public void Promotion(String code, String description, int percentage, Date vaildFrom, Date vaildTo, String roomType, Date expirationDate) {
-		this.code ＝ code;
+		this.code = code;
 		this.description = description;
 		this.percentage = percentage;
-		this.validFrom = validFrom;
-		this.validTo = validTo;
+		this.validFrom = vaildFrom;
+		this.validTo = vaildTo;
 		this.roomType = roomType;
 		this.expirationDate = expirationDate;
-		
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
 	}
 
 	/**

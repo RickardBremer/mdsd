@@ -428,9 +428,12 @@ public class RoomImpl extends MinimalEObjectImpl.Container implements Room {
 	 * @generated
 	 */
 	public void Room(int number, String description, String type, Expense price, int beds, String status) {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		this.number = number;
+		this.description = description;
+		this.type = type;
+		this.price = price;
+		this.beds = beds;
+		this.status = status;
 	}
 
 	/**

@@ -601,7 +601,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getExpense__Expense__int_String_Date_String_int_boolean() {
+	public EOperation getExpense__Expense__int_String_Date_String_double_boolean() {
 		return expenseEClass.getEOperations().get(0);
 	}
 
@@ -1069,7 +1069,16 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getBooking__Booking__Date_Date_String_Customer_EList_String_int() {
+	public EReference getBooking_Room() {
+		return (EReference)bookingEClass.getEStructuralFeatures().get(9);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getBooking__Booking__Date_Date_String_Customer_EList_String_int_EList() {
 		return bookingEClass.getEOperations().get(0);
 	}
 
@@ -1627,7 +1636,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getPromotionExpert__GetPromotion__int() {
+	public EOperation getPromotionExpert__GetPromotion__String() {
 		return promotionExpertEClass.getEOperations().get(0);
 	}
 
@@ -1636,7 +1645,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getPromotionExpert__GetPromotion__String() {
+	public EOperation getPromotionExpert__GetAllPromotions() {
 		return promotionExpertEClass.getEOperations().get(1);
 	}
 
@@ -1645,7 +1654,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getPromotionExpert__GetAllPromotions() {
+	public EOperation getPromotionExpert__RemovePromotion__String() {
 		return promotionExpertEClass.getEOperations().get(2);
 	}
 
@@ -1654,7 +1663,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getPromotionExpert__RemovePromotion__int() {
+	public EOperation getPromotionExpert__UpdatePromotion__Promotion() {
 		return promotionExpertEClass.getEOperations().get(3);
 	}
 
@@ -1663,7 +1672,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getPromotionExpert__UpdatePromotion__Promotion() {
+	public EOperation getPromotionExpert__PromotionExpert__DatabaseInterface() {
 		return promotionExpertEClass.getEOperations().get(4);
 	}
 
@@ -1672,17 +1681,8 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getPromotionExpert__PromotionExpert__DatabaseInterface() {
-		return promotionExpertEClass.getEOperations().get(5);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EOperation getPromotionExpert__AddPromotion__Promotion() {
-		return promotionExpertEClass.getEOperations().get(6);
+		return promotionExpertEClass.getEOperations().get(5);
 	}
 
 	/**
@@ -1915,7 +1915,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getPayment__MakePayment__Customer_int() {
+	public EOperation getPayment__MakePayment__Customer_double() {
 		return paymentEClass.getEOperations().get(0);
 	}
 
@@ -2156,7 +2156,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		createEAttribute(expenseEClass, EXPENSE__DATE);
 		createEAttribute(expenseEClass, EXPENSE__ID);
 		createEAttribute(expenseEClass, EXPENSE__FIXED);
-		createEOperation(expenseEClass, EXPENSE___EXPENSE__INT_STRING_DATE_STRING_INT_BOOLEAN);
+		createEOperation(expenseEClass, EXPENSE___EXPENSE__INT_STRING_DATE_STRING_DOUBLE_BOOLEAN);
 
 		receiptEClass = createEClass(RECEIPT);
 		createEReference(receiptEClass, RECEIPT__EXPENSES);
@@ -2205,7 +2205,8 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		createEAttribute(bookingEClass, BOOKING__CHECKED_IN);
 		createEAttribute(bookingEClass, BOOKING__ID);
 		createEReference(bookingEClass, BOOKING__RECEIPT);
-		createEOperation(bookingEClass, BOOKING___BOOKING__DATE_DATE_STRING_CUSTOMER_ELIST_STRING_INT);
+		createEReference(bookingEClass, BOOKING__ROOM);
+		createEOperation(bookingEClass, BOOKING___BOOKING__DATE_DATE_STRING_CUSTOMER_ELIST_STRING_INT_ELIST);
 
 		adminInterfaceEClass = createEClass(ADMIN_INTERFACE);
 		createEOperation(adminInterfaceEClass, ADMIN_INTERFACE___LOGIN__STRING_STRING);
@@ -2283,10 +2284,9 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 
 		promotionExpertEClass = createEClass(PROMOTION_EXPERT);
 		createEReference(promotionExpertEClass, PROMOTION_EXPERT__DATABASE);
-		createEOperation(promotionExpertEClass, PROMOTION_EXPERT___GET_PROMOTION__INT);
 		createEOperation(promotionExpertEClass, PROMOTION_EXPERT___GET_PROMOTION__STRING);
 		createEOperation(promotionExpertEClass, PROMOTION_EXPERT___GET_ALL_PROMOTIONS);
-		createEOperation(promotionExpertEClass, PROMOTION_EXPERT___REMOVE_PROMOTION__INT);
+		createEOperation(promotionExpertEClass, PROMOTION_EXPERT___REMOVE_PROMOTION__STRING);
 		createEOperation(promotionExpertEClass, PROMOTION_EXPERT___UPDATE_PROMOTION__PROMOTION);
 		createEOperation(promotionExpertEClass, PROMOTION_EXPERT___PROMOTION_EXPERT__DATABASEINTERFACE);
 		createEOperation(promotionExpertEClass, PROMOTION_EXPERT___ADD_PROMOTION__PROMOTION);
@@ -2319,7 +2319,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		createEOperation(emailSenderEClass, EMAIL_SENDER___SEND__BOOKING);
 
 		paymentEClass = createEClass(PAYMENT);
-		createEOperation(paymentEClass, PAYMENT___MAKE_PAYMENT__CUSTOMER_INT);
+		createEOperation(paymentEClass, PAYMENT___MAKE_PAYMENT__CUSTOMER_DOUBLE);
 		createEOperation(paymentEClass, PAYMENT___IS_CREDIT_CARD_VALID__CUSTOMER);
 
 		bookingControllerEClass = createEClass(BOOKING_CONTROLLER);
@@ -2456,7 +2456,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		initEAttribute(getExpense_Id(), ecorePackage.getEInt(), "id", null, 1, 1, Expense.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEAttribute(getExpense_Fixed(), ecorePackage.getEBoolean(), "fixed", null, 1, 1, Expense.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
-		op = initEOperation(getExpense__Expense__int_String_Date_String_int_boolean(), null, "Expense", 1, 1, IS_UNIQUE, !IS_ORDERED);
+		op = initEOperation(getExpense__Expense__int_String_Date_String_double_boolean(), null, "Expense", 1, 1, IS_UNIQUE, !IS_ORDERED);
 		addEParameter(op, ecorePackage.getEInt(), "id", 1, 1, IS_UNIQUE, !IS_ORDERED);
 		addEParameter(op, theTypesPackage.getString(), "name", 1, 1, IS_UNIQUE, !IS_ORDERED);
 		addEParameter(op, ecorePackage.getEDate(), "date", 1, 1, IS_UNIQUE, !IS_ORDERED);
@@ -2554,8 +2554,9 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		initEAttribute(getBooking_CheckedIn(), theTypesPackage.getBoolean(), "checkedIn", null, 1, 1, Booking.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEAttribute(getBooking_Id(), ecorePackage.getEInt(), "id", null, 1, 1, Booking.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEReference(getBooking_Receipt(), this.getReceipt(), null, "receipt", null, 1, 1, Booking.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getBooking_Room(), this.getRoom(), null, "room", null, 0, -1, Booking.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
-		op = initEOperation(getBooking__Booking__Date_Date_String_Customer_EList_String_int(), null, "Booking", 1, 1, IS_UNIQUE, !IS_ORDERED);
+		op = initEOperation(getBooking__Booking__Date_Date_String_Customer_EList_String_int_EList(), null, "Booking", 1, 1, IS_UNIQUE, !IS_ORDERED);
 		addEParameter(op, ecorePackage.getEDate(), "fromDate", 1, 1, IS_UNIQUE, !IS_ORDERED);
 		addEParameter(op, ecorePackage.getEDate(), "toDate", 1, 1, IS_UNIQUE, !IS_ORDERED);
 		addEParameter(op, theTypesPackage.getString(), "wishes", 1, 1, IS_UNIQUE, !IS_ORDERED);
@@ -2563,6 +2564,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		addEParameter(op, theTypesPackage.getString(), "roomTypes", 0, -1, IS_UNIQUE, !IS_ORDERED);
 		addEParameter(op, theTypesPackage.getString(), "promotionCode", 1, 1, IS_UNIQUE, !IS_ORDERED);
 		addEParameter(op, ecorePackage.getEInt(), "id", 1, 1, IS_UNIQUE, !IS_ORDERED);
+		addEParameter(op, this.getRoom(), "rooms", 0, -1, IS_UNIQUE, !IS_ORDERED);
 
 		initEClass(adminInterfaceEClass, AdminInterface.class, "AdminInterface", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -2754,16 +2756,13 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		initEClass(promotionExpertEClass, PromotionExpert.class, "PromotionExpert", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getPromotionExpert_Database(), this.getDatabaseInterface(), null, "database", null, 1, 1, PromotionExpert.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
-		op = initEOperation(getPromotionExpert__GetPromotion__int(), this.getPromotion(), "getPromotion", 1, 1, IS_UNIQUE, !IS_ORDERED);
-		addEParameter(op, theTypesPackage.getInteger(), "ID", 1, 1, IS_UNIQUE, !IS_ORDERED);
-
 		op = initEOperation(getPromotionExpert__GetPromotion__String(), this.getPromotion(), "getPromotion", 1, 1, IS_UNIQUE, !IS_ORDERED);
 		addEParameter(op, theTypesPackage.getString(), "promotionCode", 1, 1, IS_UNIQUE, !IS_ORDERED);
 
 		initEOperation(getPromotionExpert__GetAllPromotions(), this.getPromotion(), "getAllPromotions", 0, -1, IS_UNIQUE, !IS_ORDERED);
 
-		op = initEOperation(getPromotionExpert__RemovePromotion__int(), ecorePackage.getEBoolean(), "removePromotion", 1, 1, IS_UNIQUE, !IS_ORDERED);
-		addEParameter(op, theTypesPackage.getInteger(), "ID", 1, 1, IS_UNIQUE, !IS_ORDERED);
+		op = initEOperation(getPromotionExpert__RemovePromotion__String(), ecorePackage.getEBoolean(), "removePromotion", 1, 1, IS_UNIQUE, !IS_ORDERED);
+		addEParameter(op, theTypesPackage.getString(), "code", 1, 1, IS_UNIQUE, !IS_ORDERED);
 
 		op = initEOperation(getPromotionExpert__UpdatePromotion__Promotion(), ecorePackage.getEBoolean(), "updatePromotion", 1, 1, IS_UNIQUE, !IS_ORDERED);
 		addEParameter(op, this.getPromotion(), "promotion", 1, 1, IS_UNIQUE, !IS_ORDERED);
@@ -2844,7 +2843,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 
 		initEClass(paymentEClass, Payment.class, "Payment", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		op = initEOperation(getPayment__MakePayment__Customer_int(), ecorePackage.getEBoolean(), "makePayment", 1, 1, IS_UNIQUE, !IS_ORDERED);
+		op = initEOperation(getPayment__MakePayment__Customer_double(), ecorePackage.getEBoolean(), "makePayment", 1, 1, IS_UNIQUE, !IS_ORDERED);
 		addEParameter(op, this.getCustomer(), "customer", 1, 1, IS_UNIQUE, !IS_ORDERED);
 		addEParameter(op, ecorePackage.getEDouble(), "amount", 1, 1, IS_UNIQUE, !IS_ORDERED);
 
