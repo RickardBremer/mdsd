@@ -112,9 +112,9 @@ public class BookingExpertImpl extends MinimalEObjectImpl.Container implements B
 	public Booking getBooking(int ID) {
 		// Rickard
 		// Ensure that you remove @generated or mark it @generated NOT
-		String[] response = database.query("SELECT 'BookingID', 'DateFrom', 'DateTo', 'ClientRequests', 'CustomerMail', 'PromotionCode' FROM tblBookings WHERE BookingID =" + ID + ";").get(0).split(";");
-		String[] roomtype = database.query("SELECT 'RoomType' FROM tblCalender, tblBookings WHERE tblBookings.BookingID = tblCalender.BookingID AND tblBookings.BookingID = " + ID  + ";").get(0).split(";");
-		String[] customer = database.query("SELECT 'FirstName' , 'EMail', 'LastName' , 'Address', 'CCNumber' , 'CCV' , 'ExpiringMonth' , 'ExpiringYear' FROM tblCostumer WHERE Email = " + response[4] + ";").get(0).split(";");
+		String[] response = database.query("SELECT 'BookingID', 'DateFrom', 'DateTo', 'ClientRequests', 'CustomerMail', 'PromotionCode' FROM tblBookings WHERE BookingID =" + ID + ";").get(0).split(";",-1);
+		String[] roomtype = database.query("SELECT 'RoomType' FROM tblCalender, tblBookings WHERE tblBookings.BookingID = tblCalender.BookingID AND tblBookings.BookingID = " + ID  + ";").get(0).split(";",-1);
+		String[] customer = database.query("SELECT 'FirstName' , 'EMail', 'LastName' , 'Address', 'CCNumber' , 'CCV' , 'ExpiringMonth' , 'ExpiringYear' FROM tblCostumer WHERE Email = " + response[4] + ";").get(0).split(";",-1);
 				
 		if(response != null && roomtype != null && customer != null){
 			
@@ -135,7 +135,7 @@ public class BookingExpertImpl extends MinimalEObjectImpl.Container implements B
 			cal.setTimeInMillis(Long.parseLong(response[1]));
 			Date e = cal.getTime();
 					
-			b.Booking( d, e, response[2], c, rooms, response[4], Integer.parseInt(response[5]));
+			b.Booking( d, e, response[2], c, rooms, response[4], Integer.parseInt(response[5]), null);
 			
 			return b; 
 			
@@ -234,7 +234,7 @@ public class BookingExpertImpl extends MinimalEObjectImpl.Container implements B
 		if(value){
 			ID = database.query("SELECT BookingID FROM tblBookings WHERE DateFrom = " + booking.getFromDate().getTime() + " AND DateTo = "
 		    + booking.getToDate().getTime() + " AND CustomerEmail = " + booking.getCustomer().getEmail() + 
-		    " AND ClientRequests = " + booking.getWishes() + ";").get(0).split(";");
+		    " AND ClientRequests = " + booking.getWishes() + ";").get(0).split(";",-1);
 		}
 		
 		int BookingID = Integer.valueOf(ID[0]);
@@ -272,37 +272,36 @@ public class BookingExpertImpl extends MinimalEObjectImpl.Container implements B
 	public boolean updateBooking(Booking booking) {
 		// Rickard
 		// Ensure that you remove @generated or mark it @generated NOT
-		String Mail[] = database.query("SELECT CustomerMail FROM tblBookings WHERE BookingID =" + booking.getId() + ";").get(0).split(";");
+		String Mail[] = database.query("SELECT CustomerMail FROM tblBookings WHERE BookingID =" + booking.getId() + ";").get(0).split(";",-1);
 		
 		
-		boolean updateTblCustomer = database.send("UPDATE tblBookins SET 'FirstName'=" + booking.getCustomer().getFirstName() + 
-				", 'LastName'=" + booking.getCustomer().getSurname() + ", 'Adress'=" + booking.getCustomer().getAdress() + ", 'CCNumber'=" 
-				+ booking.getCustomer().getCcNumber() + ", 'CCV'=" + booking.getCustomer().getCcv() + ", 'ExpiringMonth'=" 
-				+ booking.getCustomer().getExpiringMonth() + ", 'ExpiringYear'=" + booking.getCustomer().getExpiringYear() + " WHERE 'Email'=" + Mail[0] + ";");
-		
+		boolean updateTblCustomer = database.send("UPDATE tblBookins SET 'FirstName'=" + booking.getCustomer().getFirstName() 
+			+ ", 'LastName'=" + booking.getCustomer().getSurname() + ", 'Adress'=" + booking.getCustomer().getAdress() + ", 'CCNumber'=" 
+			+ booking.getCustomer().getCcNumber() + ", 'CCV'=" + booking.getCustomer().getCcv() + ", 'ExpiringMonth'=" 
+			+ booking.getCustomer().getExpiringMonth() + ", 'ExpiringYear'=" + booking.getCustomer().getExpiringYear() + " WHERE 'Email'=" + Mail[0] + ";");
 		
 		boolean updateTblBookings = database.send("UPDATE tblBookings SET customerMail=" + booking.getCustomer().getEmail()
-				+ "clientRequests='" + booking.getWishes() + " , PromotionCode='"
-		+ booking.getPromotion() + " , CheckedIn='" + booking.isCheckedIn() + " , ReceiptID='" 
-		+ booking.getReceipt().getId() + "' WHERE BookingID =" + booking.getId() + ";");
+			+ "clientRequests='" + booking.getWishes() + " , PromotionCode='"
+			+ booking.getPromotion() + " , CheckedIn='" + booking.isCheckedIn() + " , ReceiptID='" 
+			+ booking.getReceipt().getId() + "' WHERE BookingID =" + booking.getId() + ";");
 		
-		String[] CalenderID =  database.query("SELECT CalenderID FROM tblCalender WHERE BookingID =" + booking.getId() + ";").get(0).split(";");
+		String[] CalenderID =  database.query("SELECT CalenderID FROM tblCalender WHERE BookingID =" + booking.getId() + ";").get(0).split(";",-1);
 		
 		boolean updateTblCalender = false;
 		
 		for(int i = 0; i < CalenderID.length; i++){
-		updateTblCalender = database.send("UPDATE tblCalender SET RoomType=" + booking.getRoomTypes().get(i) + " DateFrom=" + booking.getFromDate() 
-					+ "DateTo=" + booking.getToDate() + "WHERE CalenderID=" + CalenderID[i] + ";" );
+			updateTblCalender = database.send("UPDATE tblCalender SET RoomType=" + booking.getRoomTypes().get(i) + " DateFrom=" + booking.getFromDate() 
+			+ "DateTo=" + booking.getToDate() + "WHERE CalenderID=" + CalenderID[i] + ";" );
 			if(!updateTblCalender){
 				i = CalenderID.length;
 			}
 		}
+		
 		if(updateTblCustomer){
 			if(updateTblBookings){
 				if(updateTblCalender){
 					return true;
-				}
-				
+				}		
 			}
 		}
 		
