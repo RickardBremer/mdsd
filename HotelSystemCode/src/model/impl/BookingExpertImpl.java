@@ -201,7 +201,8 @@ public class BookingExpertImpl extends MinimalEObjectImpl.Container implements B
 	public boolean updateBooking(Booking booking) {
 		// Rickard
 		// Ensure that you remove @generated or mark it @generated NOT
-		String Mail[] = NULL;
+		String Mail[] = database.query("SELECT CustomerMail FROM tblBookings WHERE BookingID =" + booking.getId() + ";").get(0).split(";");
+		
 		
 		boolean updateTblCustomer = database.send("UPDATE tblBookins SET 'FirstName'=" + booking.getCustomer().getFirstName() + 
 				", 'LastName'=" + booking.getCustomer().getSurname() + ", 'Adress'=" + booking.getCustomer().getAdress() + ", 'CCNumber'=" 
@@ -216,15 +217,25 @@ public class BookingExpertImpl extends MinimalEObjectImpl.Container implements B
 		
 		String[] CalenderID =  database.query("SELECT CalenderID FROM tblCalender WHERE BookingID =" + booking.getId() + ";").get(0).split(";");
 		
+		boolean updateTblCalender;
+		
 		for(int i = 0; i < CalenderID.length; i++){
-			boolean update = database.send("UPDATE tblCalender SET RoomType=" + booking.getRoomTypes().get(i) + " DateFrom=" + booking.getFromDate() 
+		updateTblCalender = database.send("UPDATE tblCalender SET RoomType=" + booking.getRoomTypes().get(i) + " DateFrom=" + booking.getFromDate() 
 					+ "DateTo=" + booking.getToDate() + "WHERE CalenderID=" + CalenderID[i] + ";" );
-			if(!update){
+			if(!updateTbleupdate){
 				i = CalenderID.length;
 			}
 		}
+		if(updateTblCustomer){
+			if(updateTblBookings){
+				if(updateTblCalender){
+					return true;
+				}
+				
+			}
+		}
 		
-		return true;
+		return false;
 		//throw new UnsupportedOperationException();		
 	
 	/*	CheckedOut */
