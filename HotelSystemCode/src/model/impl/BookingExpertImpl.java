@@ -183,7 +183,7 @@ public class BookingExpertImpl extends MinimalEObjectImpl.Container implements B
 		// Rickard
 		// Ensure that you remove @generated or mark it @generated NOT
 		boolean removeTblBookings = database.send("DELETE FROM tblBookings Where BookingID=" + booking.getId() + ";");
-		boolean removeTblCalender = database.send("DELETE FROM tblCalender WHERE BookingID="+ booking.getId() + ";" );
+		boolean removeTblCalender = database.send("DELETE FROM tblCalender WHERE BookingID=" + booking.getId() + ";" );
 		if(removeTblBookings && removeTblCalender){
 			return true;
 		}
@@ -201,8 +201,34 @@ public class BookingExpertImpl extends MinimalEObjectImpl.Container implements B
 	public boolean updateBooking(Booking booking) {
 		// Rickard
 		// Ensure that you remove @generated or mark it @generated NOT
-		return database.send("UPDATE tblBookings SET DateFrom=" + booking.getFromDate() + ", DateTo='" + booking.getToDate() + "' WHERE BookingID =" + booking.getId() + ";");
-		//throw new UnsupportedOperationException();
+		String Mail[] = NULL;
+		
+		boolean updateTblCustomer = database.send("UPDATE tblBookins SET 'FirstName'=" + booking.getCustomer().getFirstName() + 
+				", 'LastName'=" + booking.getCustomer().getSurname() + ", 'Adress'=" + booking.getCustomer().getAdress() + ", 'CCNumber'=" 
+				+ booking.getCustomer().getCcNumber() + ", 'CCV'=" + booking.getCustomer().getCcv() + ", 'ExpiringMonth'=" 
+				+ booking.getCustomer().getExpiringMonth() + ", 'ExpiringYear'=" + booking.getCustomer().getExpiringYear() + " WHERE 'Email'=" + Mail[0] + ";");
+		
+		
+		boolean updateTblBookings = database.send("UPDATE tblBookings SET customerMail=" + booking.getCustomer().getEmail()
+				+ "clientRequests='" + booking.getWishes() + " , PromotionCode='"
+		+ booking.getPromotion() + " , CheckedIn='" + booking.isCheckedIn() + " , ReceiptID='" 
+		+ booking.getReceipt().getId() + "' WHERE BookingID =" + booking.getId() + ";");
+		
+		String[] CalenderID =  database.query("SELECT CalenderID FROM tblCalender WHERE BookingID =" + booking.getId() + ";").get(0).split(";");
+		
+		for(int i = 0; i < CalenderID.length; i++){
+			boolean update = database.send("UPDATE tblCalender SET RoomType=" + booking.getRoomTypes().get(i) + " DateFrom=" + booking.getFromDate() 
+					+ "DateTo=" + booking.getToDate() + "WHERE CalenderID=" + CalenderID[i] + ";" );
+			if(!update){
+				i = CalenderID.length;
+			}
+		}
+		
+		return true;
+		//throw new UnsupportedOperationException();		
+	
+	/*	CheckedOut */
+		
 	}
 
 	/**
