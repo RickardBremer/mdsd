@@ -112,7 +112,7 @@ public class RoomExpertImpl extends MinimalEObjectImpl.Container implements Room
 		EList<String> queryResult = database.query("SELECT RoomNumber, RoomDescription, RoomType, ExpenseID, Beds, Status FROM tblRooms");
 		if (queryResult != null) {
 			for (String rowFull : queryResult) {
-				String[] row = rowFull.split(";");
+				String[] row = rowFull.split(";", -1);
 				Room room = new RoomImpl();
 				ExpenseExpert ee = new ExpenseExpertImpl();
 				ee.ExpenseExpert(database);
@@ -127,7 +127,7 @@ public class RoomExpertImpl extends MinimalEObjectImpl.Container implements Room
 						    + "SELECT MAX(StayID) FROM tblStays WHERE tblStays.RoomID=" + room.getNumber() + ") "
 						    + "GROUP BY tblResidents.IDNumber");
 					for (String residentFull : queryResult2) {
-						String[] resident = residentFull.split(";");
+						String[] resident = residentFull.split(";", -1);
 						Resident res = new ResidentImpl();
 						res.Resident(resident[1], resident[2], resident[0]);
 						room.getResidents().add(res);
@@ -160,7 +160,7 @@ public class RoomExpertImpl extends MinimalEObjectImpl.Container implements Room
 				+ "GROUP BY RoomType");
 		if (queryResult != null) {
 			for (String rowFull : queryResult) {
-				String[] row = rowFull.split(";");
+				String[] row = rowFull.split(";", -1);
 				bookedTypes.put(row[0], Integer.parseInt(row[1]));
 			}
 		}
@@ -168,7 +168,7 @@ public class RoomExpertImpl extends MinimalEObjectImpl.Container implements Room
 		queryResult = database.query("SELECT RoomType, COUNT(RoomType) FROM tblRooms WHERE Beds >= " + numberOfGuests + " GROUP BY RoomType");
 		if (queryResult != null) {
 			for (String rowFull : queryResult) {
-				String[] row = rowFull.split(";");
+				String[] row = rowFull.split(";", -1);
 				totalTypes.put(row[0], Integer.parseInt(row[1]));
 			}
 		}
@@ -179,7 +179,7 @@ public class RoomExpertImpl extends MinimalEObjectImpl.Container implements Room
 			if (numAvailable >= numberOfRooms) {
 				EList<String> queryResult2 = database.query("SELECT RoomNumber, RoomDescription, RoomType, ExpenseID, Beds, Status FROM tblRooms WHERE RoonType=" + type + " LIMIT 0,1");
 				if (queryResult2 != null) {
-					String[] roomSpec = queryResult2.get(0).split(";");
+					String[] roomSpec = queryResult2.get(0).split(";", -1);
 					Room room = new RoomImpl();
 					ExpenseExpert ee = new ExpenseExpertImpl();
 					ee.ExpenseExpert(database);
@@ -203,7 +203,7 @@ public class RoomExpertImpl extends MinimalEObjectImpl.Container implements Room
 		EList<String> queryResult = database.query("SELECT RoomNumber, RoomDescription, RoomType, ExpenseID, Beds, Status FROM tblRooms WHERE Status='unoccupied'");
 		if (queryResult != null) {
 			for (String roomSpecFull : queryResult) {
-				String[] roomSpec = roomSpecFull.split(";");
+				String[] roomSpec = roomSpecFull.split(";", -1);
 				Room room = new RoomImpl();
 				ExpenseExpert ee = new ExpenseExpertImpl();
 				ee.ExpenseExpert(database);
@@ -274,7 +274,7 @@ public class RoomExpertImpl extends MinimalEObjectImpl.Container implements Room
 		 EList<String> queryResult = database.query("SELECT * FROM tblRooms WHERE RoomNumber=" + roomNumber + " LIMIT 0,1");
 		 if (queryResult != null) {
 			 result = new RoomImpl();
-			 String[] roomSpec = queryResult.get(0).split(";");
+			 String[] roomSpec = queryResult.get(0).split(";", -1);
 			 ExpenseExpert ee = new ExpenseExpertImpl();
 			 ee.ExpenseExpert(database);
 			 Expense price = ee.getExpense(Integer.parseInt(roomSpec[7]));

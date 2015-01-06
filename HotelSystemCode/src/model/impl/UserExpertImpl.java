@@ -105,7 +105,7 @@ public class UserExpertImpl extends MinimalEObjectImpl.Container implements User
 	 */
 	public User getUser(int ID) {
 		String myResult = database.query("SELECT FROM user WHERE ID = "+ ID).get(0);
-		String[] MyArray = myResult.split(";");
+		String[] MyArray = myResult.split(";", -1);
 		if(MyArray != null){
 				User u = new UserImpl();
 				u.User(MyArray[0], MyArray[1], MyArray[2], Boolean.parseBoolean(MyArray[3]), Boolean.parseBoolean(MyArray[4]), Integer.parseInt(MyArray[5]));
@@ -126,7 +126,7 @@ public class UserExpertImpl extends MinimalEObjectImpl.Container implements User
 		
 		if(userResult != null){
 	 for(String e: userResult){
-		 String[] MyArray = e.split(";");
+		 String[] MyArray = e.split(";", -1);
 	
 				User u = new UserImpl();
 				u.User(MyArray[0],MyArray[1],MyArray[2],Boolean.parseBoolean(MyArray[3]), Boolean.parseBoolean(MyArray[4]),  Integer.parseInt(MyArray[5]));
@@ -157,7 +157,7 @@ public class UserExpertImpl extends MinimalEObjectImpl.Container implements User
 	"ORDER BY DESC");
 	 
 	 String newUser = addedUser.get(0);
-	 String[] MyArray = newUser.split(";");
+	 String[] MyArray = newUser.split(";", -1);
 	 
 	 if(MyArray != null){
 			User u = new UserImpl();
