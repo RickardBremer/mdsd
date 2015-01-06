@@ -118,8 +118,8 @@ public class ExpenseExpertImpl extends MinimalEObjectImpl.Container implements
 		if (response != null) {
 			ExpenseImpl e = new ExpenseImpl();
 			cal.setTimeInMillis(Long.parseLong(response[2]));
-			e.Expense(Integer.parseInt(response[0]), response[1], cal.getTime(),
-					response[3], Double.valueOf(response[4]),
+			e.Expense(Integer.parseInt(response[0]), response[1],
+					cal.getTime(), response[3], Double.valueOf(response[4]),
 					Boolean.parseBoolean(response[5]));
 			return e;
 		}
@@ -133,7 +133,7 @@ public class ExpenseExpertImpl extends MinimalEObjectImpl.Container implements
 	 */
 	public EList<Expense> getAllExpense() {
 		EList<String> strExpenses = database
-				.query("SELECT 'ExpenseID', 'ExpenseName', 'ExpenseDate', 'ExpenseDescription', 'Price', 'IsFixed' FROM tblExpenses;");
+				.query("SELECT 'ExpenseID', 'ExpenseName', 'ExpenseDate', 'ExpenseDescription', 'Price', 'IsFixed' FROM tblExpenses WHERE IsFixed=true;");
 		EList<Expense> expenses = new BasicEList<Expense>();
 		Calendar cal = Calendar.getInstance();
 		if (strExpenses != null) {
@@ -196,7 +196,7 @@ public class ExpenseExpertImpl extends MinimalEObjectImpl.Container implements
 	 * @generated NOT
 	 */
 	public boolean removeExpense(int ID) {
-		return database.send("DELETTE FROM tblExpenses Where ExpenseID=" + ID
+		return database.send("DELETTE FROM tblExpenses WHERE ExpenseID=" + ID
 				+ ";");
 	}
 
