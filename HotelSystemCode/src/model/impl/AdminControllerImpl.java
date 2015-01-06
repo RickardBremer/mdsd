@@ -257,7 +257,6 @@ public class AdminControllerImpl extends MinimalEObjectImpl.Container implements
 	public boolean login(String name, String password) {
 		// Rickard
 		// Ensure that you remove @generated or mark it @generated NOT
-		
 		return userExpert.login(name, password);
 		
 	}
@@ -271,8 +270,7 @@ public class AdminControllerImpl extends MinimalEObjectImpl.Container implements
 	public Room createRoom(Room room) {
 		// Rickard
 		// Ensure that you remove @generated or mark it @generated NOT
-		RoomExpertImpl r = new RoomExpertImpl();
-		return r.addRoom(room);
+		return roomExpert.addRoom(room);
 	}
 
 	/**
@@ -283,8 +281,8 @@ public class AdminControllerImpl extends MinimalEObjectImpl.Container implements
 	public boolean removeRoom(Room room) {
 		// Rickard
 		// Ensure that you remove @generated or mark it @generated NOT
-		RoomExpertImpl r = new RoomExpertImpl();
-		return r.removeRoom(room);
+		
+		return roomExpert.removeRoom(room);
 	}
 
 	/**
@@ -296,8 +294,7 @@ public class AdminControllerImpl extends MinimalEObjectImpl.Container implements
 		// Rickard
 		// Ensure that you remove @generated or mark it @generated NOT
 		
-		RoomExpertImpl r = new RoomExpertImpl();
-		return r.updateRoom(room);
+		return roomExpert.updateRoom(room);
 	}
 
 	/**
@@ -319,7 +316,6 @@ public class AdminControllerImpl extends MinimalEObjectImpl.Container implements
 	public boolean removeUser(User user) {
 		// Rickard
 		// Ensure that you remove @generated or mark it @generated NOT
-	
 		return userExpert.removeUser(user.getId());
 	}
 
@@ -332,7 +328,6 @@ public class AdminControllerImpl extends MinimalEObjectImpl.Container implements
 	public boolean updateUser(User user) {
 		// Rickard
 		// Ensure that you remove @generated or mark it @generated NOT
-		
 		return userExpert.updateUser(user);
 	}
 
@@ -410,9 +405,8 @@ public class AdminControllerImpl extends MinimalEObjectImpl.Container implements
 	public EList<Room> viewRooms() {
 		// Rickard
 		// Ensure that you remove @generated or mark it @generated NOT
-		RoomExpertImpl r = new RoomExpertImpl();
 		
-		return r.getAllRooms();
+		return roomExpert.getAllRooms();
 	}
 
 	/**
@@ -451,14 +445,17 @@ public class AdminControllerImpl extends MinimalEObjectImpl.Container implements
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
+/*
 	public void AdminController(RoomExpert roomExpert, ExpenseExpert expenseExpert, UserExpert userExpert, PromotionExpert promotionExpert) {
-		// 
+		// Rickard
 		// Ensure that you remove @generated or mark it @generated NOT
-		// throw new UnsupportedOperationException();
+		this.expenseExpert = expenseExpert;
+		this.userExpert = userExpert;
+		this.promoExpert = promotionExpert;
 	}
-
+*/
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -466,9 +463,13 @@ public class AdminControllerImpl extends MinimalEObjectImpl.Container implements
 	 */
 
 	public void AdminController(ExpenseExpert expenseExpert, PromotionExpert promotionExpert, UserExpert userExpert, RoomExpert roomExpert) {
-		// TODO: implement this method
+		// Rickard
 		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		//throw new UnsupportedOperationException();
+		this.roomExpert = roomExpert;
+		this.expenseExpert = expenseExpert;
+		this.userExpert = userExpert;
+		this.promoExpert = promotionExpert;
 	}
 
 	/**
