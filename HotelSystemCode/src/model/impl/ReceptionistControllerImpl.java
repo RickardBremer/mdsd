@@ -20,6 +20,7 @@ import model.RoomExpert;
 import model.UserExpert;
 
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
@@ -221,7 +222,7 @@ public class ReceptionistControllerImpl extends BookingControllerImpl implements
 	public EList<Room> viewUnOccupiedRooms(String roomType) {
 		// Done - Fetches all unoccupied rooms and filters the rooms which fit the roomType into a new list
 		EList<Room> roomlist = room.getUnoccupiedRooms();
-		EList<Room> resultlist = null;
+		EList<Room> resultlist = new BasicEList<Room>();
 		for (Room r : roomlist) {
 			if (r.getType().matches(roomType)) {
 				resultlist.add(r);
@@ -249,7 +250,7 @@ public class ReceptionistControllerImpl extends BookingControllerImpl implements
 	public boolean checkOut(Booking booking) {
 		// Done - Checks out a booking
 		boolean checkedout = bookingExpert.checkOut(booking);
-		EList<Receipt> receiptList = null; 
+		EList<Receipt> receiptList = new BasicEList<Receipt>(); 
 		receiptList.add(booking.getReceipt());
 		for (Room r : booking.getRoom()) {
 			receiptList.add(r.getReceipt());
