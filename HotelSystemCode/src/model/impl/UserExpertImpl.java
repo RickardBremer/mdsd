@@ -143,25 +143,24 @@ public class UserExpertImpl extends MinimalEObjectImpl.Container implements User
 	 * @generated NOT
 	 */
 	public User addUser(User user) {
-		database.send("INSERT INTO tblUsers ('FirstName', 'LastName', 'Password', Receptionist', 'Administrator'), VALUES("+ user.getFirstName() + ",'" + user.getSurname()
-				+ ",'"
+		database.send("INSERT INTO tblUsers (FirstName, LastName, Password, Receptionist, Administrator) VALUES('"+ user.getFirstName() + "','" + user.getSurname()
+				+ "','"
 				+ user.getPassword()
-				+ ",'"
+				+ "',"
 				+ user.isReceptionist() 
-				+ ",'"
+				+ ","
 				+ user.isAdministrator()
 				+ ");");
 
-	 EList<String> addedUser = database.query("SELECT * FROM tblUsers WHERE FirstName = " + user.getFirstName() + ", LastName = "
-	+ user.getSurname() + ", Password = " + user.getPassword() +", Receptionist = "+ user.isReceptionist() + ", Adiministrator = "+ user.isAdministrator() + 
-	"ORDER BY DESC");
+	 EList<String> addedUser = database.query("SELECT * FROM tblUsers WHERE FirstName = '" + user.getFirstName() + "' AND LastName = '"
+	+ user.getSurname() + "' AND Password = '" + user.getPassword() +"' AND Receptionist = "+ user.isReceptionist() + " AND Administrator = "+ user.isAdministrator() + 
+	" ORDER BY UserID DESC");
 	 
 	 String newUser = addedUser.get(0);
 	 String[] MyArray = newUser.split(";", -1);
-	 
 	 if(MyArray != null){
 			User u = new UserImpl();
-			u.User(MyArray[0], MyArray[1], MyArray[2], Boolean.parseBoolean(MyArray[3]), Boolean.parseBoolean(MyArray[4]), Integer.parseInt(MyArray[5]));
+			u.User(MyArray[1], MyArray[2], MyArray[3], Boolean.parseBoolean(MyArray[4]), Boolean.parseBoolean(MyArray[5]), Integer.parseInt(MyArray[0]));
 	return  u;
 	}
 	return null;

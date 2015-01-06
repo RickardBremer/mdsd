@@ -237,9 +237,9 @@ public class RoomExpertImpl extends MinimalEObjectImpl.Container implements Room
 		
 		Expense newExpense = ee.addExpense(room.getPrice());
 		
-		result = database.send("INSERT into tblRooms('RoomNumber', 'RoomDescription', 'Maintenance', 'RoomIsClean', 'RoomType', 'Status', 'Beds', 'ExpenseID') "
-				+ "VALUES(" + room.getNumber() + ", " + room.getDescription() + ", " + false +", " + false + ", " + room.getType() + ", "
-						+ room.getStatus() + ", " + room.getBeds() + ", " + newExpense.getId() + ")");
+		result = database.send("INSERT into tblRooms(RoomNumber, RoomDescription, Maintenance, RoomIsClean, RoomType, Status, Beds, ExpenseID) "
+				+ "VALUES(" + room.getNumber() + ", '" + room.getDescription() + "', " + false +", " + false + ", '" + room.getType() + "', '"
+						+ room.getStatus() + "', " + room.getBeds() + ", " + newExpense.getId() + ")");
 		if (!result) {
 			return null;
 		}

@@ -19,6 +19,8 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
+import com.sun.mail.handlers.text_html;
+
 /**
  * <!-- begin-user-doc --> An implementation of the model object '
  * <em><b>Expense Expert</b></em>'. <!-- end-user-doc -->
@@ -101,7 +103,7 @@ public class ExpenseExpertImpl extends MinimalEObjectImpl.Container implements
 	 */
 	public Expense getExpense(int ID) {
 		String[] response = database
-				.query("SELECT 'ExpenseID', 'ExpenseName', 'ExpenseDate', 'ExpenseDescription', 'Price', 'IsFixed', 'ReceiptID' "
+				.query("SELECT ExpenseID, ExpenseName, ExpenseDate, ExpenseDescription, Price, IsFixed, ReceiptID "
 						+ "FROM tblExpenses WHERE ExpenseID =" + ID + ";")
 				.get(0).split(";", -1);
 		Calendar cal = Calendar.getInstance();
@@ -148,7 +150,7 @@ public class ExpenseExpertImpl extends MinimalEObjectImpl.Container implements
 	 */
 	public EList<Expense> getAllExpense(int receiptID) {
 		EList<String> strExpenses = database
-				.query("SELECT 'ExpenseID', 'ExpenseName', 'ExpenseDate', 'ExpenseDescription', 'Price', 'IsFixed' FROM tblExpenses WHERE ReceiptID= " + receiptID+ ";");
+				.query("SELECT ExpenseID, ExpenseName, ExpenseDate, ExpenseDescription, Price, IsFixed FROM tblExpenses WHERE ReceiptID= " + receiptID+ ";");
 		EList<Expense> expenses = new BasicEList<Expense>();
 		Calendar cal = Calendar.getInstance();
 		if (strExpenses != null) {
@@ -172,20 +174,28 @@ public class ExpenseExpertImpl extends MinimalEObjectImpl.Container implements
 	 * @generated NOT
 	 */
 	public Expense addExpense(Expense expense) {
-		boolean check = database
-				.send("INSERT INTO tblExpenses ('ExpenseName', 'ExpenseDate', 'ExpenseDescription', 'Price', 'IsFixed', ReceiptID) VALUES("
-						+ expense.getName()
-						+ ", '"
-						+ expense.getDate().getTime()
-						+ "', '"
-						+ expense.getDescription()
-						+ "', "
-						+ expense.getPrice()
-						+ "," 
-						+ expense.isFixed() 
-						+ ","
-						+ expense.getReceiptId()
-						+");");
+		
+		String receiptID = "";
+		String receiptValue = "";
+		if (expense.getReceiptId() != -1){
+			receiptID = ", ReceiptID";
+			receiptValue = ", " + expense.getReceiptId();
+		}
+		
+		String sql = "INSERT INTO tblExpenses (ExpenseName, ExpenseDate, ExpenseDescription, Price, IsFixed" + receiptID + ") VALUES('"
+				+ expense.getName()
+				+ "', "
+				+ expense.getDate().getTime()
+				+ ", '"
+				+ expense.getDescription()
+				+ "', "
+				+ expense.getPrice()
+				+ "," 
+				+ expense.isFixed() 
+				+ receiptValue
+				+")";
+		boolean check = database.send(sql);
+		System.out.println(sql);
 
 		if (check) {
 			String[] response = database
