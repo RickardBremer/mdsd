@@ -158,8 +158,8 @@ public class BookingExpertImpl extends MinimalEObjectImpl.Container implements B
 		EList <String> responseResult; 
 		EList <String> roomType;
 		EList <String> roomId;
-		EList <Room> rooms = null;
-		EList<Booking> returnedBookingList = null; 
+		EList <Room> rooms = new BasicEList<Room>();
+		EList<Booking> returnedBookingList = new BasicEList<Booking>(); 
 		String customerMail;
 		Calendar cal = Calendar.getInstance();
 		Date convertDateTo;
@@ -325,8 +325,8 @@ public class BookingExpertImpl extends MinimalEObjectImpl.Container implements B
 		EList <String> responseResult; 
 		EList <String> roomType;
 		EList <String> roomId;
-		EList <Room> rooms = null;
-		EList<Booking> returnedBookingList = null; 
+		EList <Room> rooms = new BasicEList <Room>();
+		EList<Booking> returnedBookingList = new BasicEList <Booking>(); 
 		String customerMail;
 		Calendar cal = Calendar.getInstance();
 		Date convertDateTo;
@@ -399,38 +399,34 @@ public class BookingExpertImpl extends MinimalEObjectImpl.Container implements B
 	public boolean checkIn(Booking booking, EList<Room> rooms) {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
+		EList <String> newResident;
 		
+		for(int i = 0; i < rooms.size(); i++) {
+			database.send("INSERT INTO tblStays(RoomId, BookingID)  VALUES ("+rooms.get(i).getNumber() + "," + booking.getId() + ");");
+			String Stay = database.query("SELECT 'StayId' FROM tblStays WHERE BookingID=" +booking.getId() +" ORDER BY StayId DESC").get(0);
+			database.send("UPDATE tblRooms SET Status = 'occupied' WHERE roomnumber=" + rooms.get(i).getNumber() + ")");
+//				Add all residents required for booking.
+				
+			for(int j = 0; j < rooms.get(i).getResidents().size(); i++) {
+//						Add new people to the database
+				
+//					String resident = database.query("SELECT ResidentID FROM tblStaysResident WHERE StayId=" + Stay + ";").get(0);
+					newResident= database.query("SELECT IDNumber FROM tblResident WHERE IDNumber=" + rooms.get(i).getResidents().get(j).getId() + ";");
+					
+					if(newResident.size() < 1 ) {
+						database.send("INSERT INTO tblResidents(IDNumber, FirstName, LastName) VALUES (" +rooms.get(i).getResidents().get(j).getId() + ","  +rooms.get(i).getResidents().get(j).getFirstName() + ","  +rooms.get(i).getResidents().get(j).getSurname() + ")" );
+						
+					}
+						
+					database.send("INSERT INTO tblStayResidents( StayID,  ResidentID) VALUES  (" + Stay + ","  +  rooms.get(i).getResidents().get(j).getId() +  ")");
+					}
+			
+					}
 		
-	
-	
-		throw new UnsupportedOperationException();
-	
-	}
-//		for(int i = 0; i < rooms.size(); i++) {
-//			databaseInterface.send("INSERT INTO tblStays(RoomId, BookingID)  VALUES ("+rooms.getNumber() + "," + booking.getBookingID() + ");");
-//			String[] Stay = database.query("SELECT 'StayId' FROM tblStays WHERE BookingID=" +booking.getBooking() +" ORDER BY StayId DESC").get(0);
-//			dataBaseInterface.send("UPDATE tblRooms SET Status = 'occupied' WHERE roomnumber=" + rooms.get(i).getNumber() + ")");
-////				Add all residents required for booking.
-//				for(int j = 0; j < room.get(i).getResidents(); i++) {
-////						Add new people to the database
-//
-//					
-//					databaseInterface.send("INSERT INTO tblResidents(IDNumber, FirstName, LastName) VALUES (" +room.get(i).getResidents.get(j).getId() + ","  +room.get(i).getResidents.get(j).getFirstName() + ","  +room.get(i).getResidents.get(j).getLastName() + ")" );
-//						
-//				//Add residents to stay
-//					databaseInterface.send("IF EXISTS UPDATE tblStayResidents SET ResidentID(" +  room.get(i).getResidents.get(j).getId() + ", WHERE StayID =" + Stay + 
-//							"ELSE INSERT INTO tblStayResidents(ResidentID) VALUES ("+ room.get(i).getResidents.get(j).getId() + "WHERE StayID" + Stay + "))" );
-//					
-//					
-////					copy insert new resident to residentstay, databaseInterface.send("INSERT INTO tblResidents(IDNumber, FirstName, LastName) VALUES (" +room.get(i).getResidents.get(j).getId() + ","  +room.get(i).getResidents.get(j).getFirstName() + ","  +room.get(i).getResidents.get(j).getLastName() + ";" );
-//				}
-//				
-//		}
-//		
-//		datbaseInterface.send("UPDATE tblBookings SET CheckedIn =true WHERE BookingID=" + booking.getBookingID() + ";");
-//		
+	return	database.send("UPDATE tblBookings SET CheckedIn =true AND CheckedOut = false WHERE BookingID=" + booking.getId() + ";");
+		
 //		throw new UnsupportedOperationException();
-//	}
+	}
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -441,11 +437,20 @@ public class BookingExpertImpl extends MinimalEObjectImpl.Container implements B
 	public boolean checkOut(Booking booking) {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
+		EList<String> currentRooms;
 		
-		database.send("UPDATE tblROOMS SET Status = 'available' WHERE BookingID=" + booking.getId() + ";");
-		database.send("UPDATE tblBookings SET CheckedOut =true AND CheckedIn =false WHERE BookingID=" + booking.getId() + ";");
+		currentRooms = database.query("SELECT 'RoomID' FROM tblStays WHERE BookingID=" +booking.getId() + ";");
 		
-		throw new UnsupportedOperationException();
+		for(String loop: currentRooms) {
+			database.query("UPDATE tblRooms SET RoomIsClean=false AND Status='Unoccopied' WHERE RoomNumber=" + Integer.parseInt(loop) + ";" );
+			}
+		
+		return database.send("UPDATE tblBookings SET CheckedOut=true AND CheckedIn=false WHERE BookingID=" + booking.getId()+";");
+		
+
+
+		
+//		throw new UnsupportedOperationException();
 	}
 
 	/**
