@@ -727,14 +727,6 @@
         </ownedParameter>
         <ownedParameter xmi:type="uml:Parameter" xmi:id="_2MJVcId3EeSzUtUd_ZlEnQ" type="_6dx-kIB4EeSIi9xXvYIBqQ" direction="return"/>
       </ownedOperation>
-      <ownedOperation xmi:type="uml:Operation" xmi:id="_4e8IgIX4EeSSWPBCkg2FMw" name="getReceipt" visibility="protected">
-        <ownedParameter xmi:type="uml:Parameter" xmi:id="_nwknQId4EeSzUtUd_ZlEnQ" name="booking" type="_3KJDkIB4EeSIi9xXvYIBqQ"/>
-        <ownedParameter xmi:type="uml:Parameter" xmi:id="_pHG8YId4EeSzUtUd_ZlEnQ" type="_6dx-kIB4EeSIi9xXvYIBqQ" direction="return"/>
-      </ownedOperation>
-      <ownedOperation xmi:type="uml:Operation" xmi:id="_J6n8cJTEEeSK-7NQpyjlhQ" name="getReceipt" visibility="protected">
-        <ownedParameter xmi:type="uml:Parameter" xmi:id="_QHd5MJTEEeSK-7NQpyjlhQ" name="room" type="_2JcbkIB4EeSIi9xXvYIBqQ"/>
-        <ownedParameter xmi:type="uml:Parameter" xmi:id="_U53RMJTEEeSK-7NQpyjlhQ" name="returnValue" type="_6dx-kIB4EeSIi9xXvYIBqQ" direction="return"/>
-      </ownedOperation>
       <ownedOperation xmi:type="uml:Operation" xmi:id="_L_JYwIX5EeSSWPBCkg2FMw" name="getAllReceipt" visibility="protected">
         <ownedParameter xmi:type="uml:Parameter" xmi:id="_6p224Id3EeSzUtUd_ZlEnQ" type="_6dx-kIB4EeSIi9xXvYIBqQ" direction="return">
           <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_n2QrMIp7EeSCo51zhpbIKg"/>
@@ -1072,6 +1064,10 @@
         <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_G5-HUoEaEeSIi9xXvYIBqQ" value="1"/>
       </ownedAttribute>
       <ownedAttribute xmi:type="uml:Property" xmi:id="_0d4skIdmEeSzUtUd_ZlEnQ" name="databaseInterface" visibility="private" type="_5pSK4IBJEeSIi9xXvYIBqQ"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_stErMJXWEeSvmq6oBh6iww" name="roomExpert" visibility="private" type="_FOiycIB5EeSIi9xXvYIBqQ" association="_stF5UJXWEeSvmq6oBh6iww">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_stErMZXWEeSvmq6oBh6iww" value="1"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_stErMpXWEeSvmq6oBh6iww" value="1"/>
+      </ownedAttribute>
       <interfaceRealization xmi:type="uml:InterfaceRealization" xmi:id="_P9UwEIqPEeSCo51zhpbIKg" client="_MM4ysIB7EeSIi9xXvYIBqQ" supplier="_3vNWIH4gEeSissZ6Et6fRA" contract="_3vNWIH4gEeSissZ6Et6fRA"/>
       <ownedOperation xmi:type="uml:Operation" xmi:id="_kMqekIqMEeSCo51zhpbIKg" name="AdminController">
         <ownedParameter xmi:type="uml:Parameter" xmi:id="_pLYbUIqMEeSCo51zhpbIKg" name="expenseExpert" type="_RVmD0IB5EeSIi9xXvYIBqQ"/>
@@ -1172,6 +1168,12 @@
     </packagedElement>
     <packagedElement xmi:type="uml:Class" xmi:id="_neGJcInkEeSH0aSvdd46GA" name="MSAccessDB">
       <interfaceRealization xmi:type="uml:InterfaceRealization" xmi:id="_JpW_wJTkEeSK-7NQpyjlhQ" client="_neGJcInkEeSH0aSvdd46GA" supplier="_5pSK4IBJEeSIi9xXvYIBqQ" contract="_5pSK4IBJEeSIi9xXvYIBqQ"/>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_-s6U4JXWEeSvmq6oBh6iww" name="openConnection">
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_CUrFwJXXEeSvmq6oBh6iww" name="returnValue" direction="return">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#boolean"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_CqRiUJXXEeSvmq6oBh6iww" name="closeConnection"/>
     </packagedElement>
     <packagedElement xmi:type="uml:Dependency" xmi:id="_OdDAMIp7EeSCo51zhpbIKg" name="RoomExpert uses Room" client="_FOiycIB5EeSIi9xXvYIBqQ" supplier="_2JcbkIB4EeSIi9xXvYIBqQ"/>
     <packagedElement xmi:type="uml:Dependency" xmi:id="_R8Oc0Ip7EeSCo51zhpbIKg" name="BookingExpert uses Booking" client="_JKAicIB5EeSIi9xXvYIBqQ" supplier="_3KJDkIB4EeSIi9xXvYIBqQ"/>
@@ -1180,16 +1182,6 @@
     <packagedElement xmi:type="uml:Dependency" xmi:id="_6ZdZQIp-EeSCo51zhpbIKg" name="UserExpert uses User" client="_nKQqAIB5EeSIi9xXvYIBqQ" supplier="_l81NkIB5EeSIi9xXvYIBqQ"/>
     <packagedElement xmi:type="uml:Dependency" xmi:id="_D1lVcIp_EeSCo51zhpbIKg" name="ExpenseExpert uses Expense" client="_RVmD0IB5EeSIi9xXvYIBqQ" supplier="_8x26AIB4EeSIi9xXvYIBqQ"/>
     <packagedElement xmi:type="uml:Dependency" xmi:id="_ICQxQIp_EeSCo51zhpbIKg" name="ReceiptExpert uses Receipt" client="_LKi20IB5EeSIi9xXvYIBqQ" supplier="_6dx-kIB4EeSIi9xXvYIBqQ"/>
-    <packagedElement xmi:type="uml:Association" xmi:id="_0iA8YIqMEeSCo51zhpbIKg" memberEnd="_0iA8YYqMEeSCo51zhpbIKg _0h_uQIqMEeSCo51zhpbIKg" navigableOwnedEnd="_0h_uQIqMEeSCo51zhpbIKg">
-      <ownedEnd xmi:type="uml:Property" xmi:id="_0iA8YYqMEeSCo51zhpbIKg" name="adminController" type="_MM4ysIB7EeSIi9xXvYIBqQ" association="_0iA8YIqMEeSCo51zhpbIKg">
-        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_0iA8YoqMEeSCo51zhpbIKg" value="1"/>
-        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_0iA8Y4qMEeSCo51zhpbIKg" value="1"/>
-      </ownedEnd>
-      <ownedEnd xmi:type="uml:Property" xmi:id="_0h_uQIqMEeSCo51zhpbIKg" name="roomExpert" type="_FOiycIB5EeSIi9xXvYIBqQ" association="_0iA8YIqMEeSCo51zhpbIKg">
-        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_0h_uQYqMEeSCo51zhpbIKg" value="1"/>
-        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_0h_uQoqMEeSCo51zhpbIKg" value="1"/>
-      </ownedEnd>
-    </packagedElement>
     <packagedElement xmi:type="uml:Association" xmi:id="_B1pVoIqNEeSCo51zhpbIKg" memberEnd="_B1pVoYqNEeSCo51zhpbIKg _B1oukIqNEeSCo51zhpbIKg">
       <name xsi:nil="true"/>
       <ownedEnd xmi:type="uml:Property" xmi:id="_B1pVoYqNEeSCo51zhpbIKg" name="receptionistController" type="_IGSwwIB7EeSIi9xXvYIBqQ" association="_B1pVoIqNEeSCo51zhpbIKg">
@@ -1224,6 +1216,13 @@
       <ownedEnd xmi:type="uml:Property" xmi:id="_v1PG4ZWSEeSvmq6oBh6iww" name="booking" type="_3KJDkIB4EeSIi9xXvYIBqQ" association="_v1PG4JWSEeSvmq6oBh6iww">
         <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_v1PG4pWSEeSvmq6oBh6iww" value="1"/>
         <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_v1PG45WSEeSvmq6oBh6iww" value="1"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_stF5UJXWEeSvmq6oBh6iww" memberEnd="_stF5UZXWEeSvmq6oBh6iww _stErMJXWEeSvmq6oBh6iww">
+      <name xsi:nil="true"/>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_stF5UZXWEeSvmq6oBh6iww" name="adminController" type="_MM4ysIB7EeSIi9xXvYIBqQ" association="_stF5UJXWEeSvmq6oBh6iww">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_stF5UpXWEeSvmq6oBh6iww" value="1"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_stF5U5XWEeSvmq6oBh6iww" value="1"/>
       </ownedEnd>
     </packagedElement>
     <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_KZiQMIXVEeSa4Ps4qtz0aQ">

@@ -449,12 +449,6 @@
       <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="model.ecore#//ReceiptExpert/getReceipt">
         <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="model.ecore#//ReceiptExpert/getReceipt/ID"/>
       </genOperations>
-      <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="model.ecore#//ReceiptExpert/getReceipt.1">
-        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="model.ecore#//ReceiptExpert/getReceipt.1/booking"/>
-      </genOperations>
-      <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="model.ecore#//ReceiptExpert/getReceipt.2">
-        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="model.ecore#//ReceiptExpert/getReceipt.2/room"/>
-      </genOperations>
       <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="model.ecore#//ReceiptExpert/getAllReceipt"/>
       <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="model.ecore#//ReceiptExpert/combine">
         <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="model.ecore#//ReceiptExpert/combine/receiptList"/>
@@ -514,6 +508,8 @@
           propertySortChoices="true" ecoreFeature="ecore:EReference model.ecore#//AdminController/promoExpert"/>
       <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
           propertySortChoices="true" ecoreFeature="ecore:EReference model.ecore#//AdminController/databaseInterface"/>
+      <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+          propertySortChoices="true" ecoreFeature="ecore:EReference model.ecore#//AdminController/roomExpert"/>
       <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="model.ecore#//AdminController/AdminController">
         <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="model.ecore#//AdminController/AdminController/expenseExpert"/>
         <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="model.ecore#//AdminController/AdminController/promotionExpert"/>
@@ -533,7 +529,10 @@
         <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="model.ecore#//ReceptionistController/ReceptionistController/userExpert"/>
       </genOperations>
     </genClasses>
-    <genClasses xsi:type="genmodel:GenClass" ecoreClass="model.ecore#//MSAccessDB"/>
+    <genClasses xsi:type="genmodel:GenClass" ecoreClass="model.ecore#//MSAccessDB">
+      <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="model.ecore#//MSAccessDB/openConnection"/>
+      <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="model.ecore#//MSAccessDB/closeConnection"/>
+    </genClasses>
   </genPackages>
   <genPackages xsi:type="genmodel:GenPackage" prefix="Types" basePackage="org.eclipse.uml2"
       disposableProviderFactory="true" ecorePackage="types.ecore#/">

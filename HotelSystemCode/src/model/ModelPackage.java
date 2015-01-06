@@ -2008,31 +2008,13 @@ public interface ModelPackage extends EPackage {
 	int RECEIPT_EXPERT___GET_RECEIPT__INT = 0;
 
 	/**
-	 * The operation id for the '<em>Get Receipt</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RECEIPT_EXPERT___GET_RECEIPT__BOOKING = 1;
-
-	/**
-	 * The operation id for the '<em>Get Receipt</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RECEIPT_EXPERT___GET_RECEIPT__ROOM = 2;
-
-	/**
 	 * The operation id for the '<em>Get All Receipt</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int RECEIPT_EXPERT___GET_ALL_RECEIPT = 3;
+	int RECEIPT_EXPERT___GET_ALL_RECEIPT = 1;
 
 	/**
 	 * The operation id for the '<em>Combine</em>' operation.
@@ -2041,7 +2023,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RECEIPT_EXPERT___COMBINE__ELIST = 4;
+	int RECEIPT_EXPERT___COMBINE__ELIST = 2;
 
 	/**
 	 * The operation id for the '<em>Add Receipt</em>' operation.
@@ -2050,7 +2032,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RECEIPT_EXPERT___ADD_RECEIPT__RECEIPT = 5;
+	int RECEIPT_EXPERT___ADD_RECEIPT__RECEIPT = 3;
 
 	/**
 	 * The operation id for the '<em>Remove Receipt</em>' operation.
@@ -2059,7 +2041,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RECEIPT_EXPERT___REMOVE_RECEIPT__RECEIPT = 6;
+	int RECEIPT_EXPERT___REMOVE_RECEIPT__RECEIPT = 4;
 
 	/**
 	 * The operation id for the '<em>Update Receipt</em>' operation.
@@ -2068,7 +2050,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RECEIPT_EXPERT___UPDATE_RECEIPT__RECEIPT = 7;
+	int RECEIPT_EXPERT___UPDATE_RECEIPT__RECEIPT = 5;
 
 	/**
 	 * The operation id for the '<em>Receipt Expert</em>' operation.
@@ -2077,7 +2059,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RECEIPT_EXPERT___RECEIPT_EXPERT__DATABASEINTERFACE = 8;
+	int RECEIPT_EXPERT___RECEIPT_EXPERT__DATABASEINTERFACE = 6;
 
 	/**
 	 * The number of operations of the '<em>Receipt Expert</em>' class.
@@ -2086,7 +2068,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RECEIPT_EXPERT_OPERATION_COUNT = 9;
+	int RECEIPT_EXPERT_OPERATION_COUNT = 7;
 
 	/**
 	 * The meta object id for the '{@link model.impl.EmailSenderImpl <em>Email Sender</em>}' class.
@@ -2354,13 +2336,22 @@ public interface ModelPackage extends EPackage {
 	int ADMIN_CONTROLLER__DATABASE_INTERFACE = ADMIN_INTERFACE_FEATURE_COUNT + 3;
 
 	/**
+	 * The feature id for the '<em><b>Room Expert</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ADMIN_CONTROLLER__ROOM_EXPERT = ADMIN_INTERFACE_FEATURE_COUNT + 4;
+
+	/**
 	 * The number of structural features of the '<em>Admin Controller</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ADMIN_CONTROLLER_FEATURE_COUNT = ADMIN_INTERFACE_FEATURE_COUNT + 4;
+	int ADMIN_CONTROLLER_FEATURE_COUNT = ADMIN_INTERFACE_FEATURE_COUNT + 5;
 
 	/**
 	 * The operation id for the '<em>Login</em>' operation.
@@ -2806,13 +2797,31 @@ public interface ModelPackage extends EPackage {
 	int MS_ACCESS_DB___SEND__STRING = DATABASE_INTERFACE___SEND__STRING;
 
 	/**
+	 * The operation id for the '<em>Open Connection</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MS_ACCESS_DB___OPEN_CONNECTION = DATABASE_INTERFACE_OPERATION_COUNT + 0;
+
+	/**
+	 * The operation id for the '<em>Close Connection</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MS_ACCESS_DB___CLOSE_CONNECTION = DATABASE_INTERFACE_OPERATION_COUNT + 1;
+
+	/**
 	 * The number of operations of the '<em>MS Access DB</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MS_ACCESS_DB_OPERATION_COUNT = DATABASE_INTERFACE_OPERATION_COUNT + 0;
+	int MS_ACCESS_DB_OPERATION_COUNT = DATABASE_INTERFACE_OPERATION_COUNT + 2;
 
 
 	/**
@@ -4546,26 +4555,6 @@ public interface ModelPackage extends EPackage {
 	EOperation getReceiptExpert__GetReceipt__int();
 
 	/**
-	 * Returns the meta object for the '{@link model.ReceiptExpert#getReceipt(model.Booking) <em>Get Receipt</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Get Receipt</em>' operation.
-	 * @see model.ReceiptExpert#getReceipt(model.Booking)
-	 * @generated
-	 */
-	EOperation getReceiptExpert__GetReceipt__Booking();
-
-	/**
-	 * Returns the meta object for the '{@link model.ReceiptExpert#getReceipt(model.Room) <em>Get Receipt</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Get Receipt</em>' operation.
-	 * @see model.ReceiptExpert#getReceipt(model.Room)
-	 * @generated
-	 */
-	EOperation getReceiptExpert__GetReceipt__Room();
-
-	/**
 	 * Returns the meta object for the '{@link model.ReceiptExpert#getAllReceipt() <em>Get All Receipt</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4816,6 +4805,17 @@ public interface ModelPackage extends EPackage {
 	EReference getAdminController_DatabaseInterface();
 
 	/**
+	 * Returns the meta object for the reference '{@link model.AdminController#getRoomExpert <em>Room Expert</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Room Expert</em>'.
+	 * @see model.AdminController#getRoomExpert()
+	 * @see #getAdminController()
+	 * @generated
+	 */
+	EReference getAdminController_RoomExpert();
+
+	/**
 	 * Returns the meta object for the '{@link model.AdminController#AdminController(model.ExpenseExpert, model.PromotionExpert, model.UserExpert, model.RoomExpert) <em>Admin Controller</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4865,6 +4865,26 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getMSAccessDB();
+
+	/**
+	 * Returns the meta object for the '{@link model.MSAccessDB#openConnection() <em>Open Connection</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Open Connection</em>' operation.
+	 * @see model.MSAccessDB#openConnection()
+	 * @generated
+	 */
+	EOperation getMSAccessDB__OpenConnection();
+
+	/**
+	 * Returns the meta object for the '{@link model.MSAccessDB#closeConnection() <em>Close Connection</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Close Connection</em>' operation.
+	 * @see model.MSAccessDB#closeConnection()
+	 * @generated
+	 */
+	EOperation getMSAccessDB__CloseConnection();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -6274,22 +6294,6 @@ public interface ModelPackage extends EPackage {
 		EOperation RECEIPT_EXPERT___GET_RECEIPT__INT = eINSTANCE.getReceiptExpert__GetReceipt__int();
 
 		/**
-		 * The meta object literal for the '<em><b>Get Receipt</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation RECEIPT_EXPERT___GET_RECEIPT__BOOKING = eINSTANCE.getReceiptExpert__GetReceipt__Booking();
-
-		/**
-		 * The meta object literal for the '<em><b>Get Receipt</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation RECEIPT_EXPERT___GET_RECEIPT__ROOM = eINSTANCE.getReceiptExpert__GetReceipt__Room();
-
-		/**
 		 * The meta object literal for the '<em><b>Get All Receipt</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -6490,6 +6494,14 @@ public interface ModelPackage extends EPackage {
 		EReference ADMIN_CONTROLLER__DATABASE_INTERFACE = eINSTANCE.getAdminController_DatabaseInterface();
 
 		/**
+		 * The meta object literal for the '<em><b>Room Expert</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference ADMIN_CONTROLLER__ROOM_EXPERT = eINSTANCE.getAdminController_RoomExpert();
+
+		/**
 		 * The meta object literal for the '<em><b>Admin Controller</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -6532,6 +6544,22 @@ public interface ModelPackage extends EPackage {
 		 * @generated
 		 */
 		EClass MS_ACCESS_DB = eINSTANCE.getMSAccessDB();
+
+		/**
+		 * The meta object literal for the '<em><b>Open Connection</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation MS_ACCESS_DB___OPEN_CONNECTION = eINSTANCE.getMSAccessDB__OpenConnection();
+
+		/**
+		 * The meta object literal for the '<em><b>Close Connection</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation MS_ACCESS_DB___CLOSE_CONNECTION = eINSTANCE.getMSAccessDB__CloseConnection();
 
 	}
 

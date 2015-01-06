@@ -60,22 +60,6 @@ public interface ReceiptExpert extends EObject {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model required="true" ordered="false" bookingRequired="true" bookingOrdered="false"
-	 * @generated
-	 */
-	Receipt getReceipt(Booking booking);
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model required="true" ordered="false" roomRequired="true" roomOrdered="false"
-	 * @generated
-	 */
-	Receipt getReceipt(Room room);
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
 	 * @model kind="operation" ordered="false"
 	 * @generated
 	 */

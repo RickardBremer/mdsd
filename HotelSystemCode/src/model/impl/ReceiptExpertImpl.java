@@ -4,8 +4,6 @@ package model.impl;
 
 import java.lang.reflect.InvocationTargetException;
 import java.util.Calendar;
-import java.util.Date;
-
 import model.Booking;
 import model.DatabaseInterface;
 import model.Expense;
@@ -14,7 +12,6 @@ import model.ModelPackage;
 import model.Receipt;
 import model.ReceiptExpert;
 import model.Room;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
@@ -378,10 +375,6 @@ public class ReceiptExpertImpl extends MinimalEObjectImpl.Container implements R
 		switch (operationID) {
 			case ModelPackage.RECEIPT_EXPERT___GET_RECEIPT__INT:
 				return getReceipt((Integer)arguments.get(0));
-			case ModelPackage.RECEIPT_EXPERT___GET_RECEIPT__BOOKING:
-				return getReceipt((Booking)arguments.get(0));
-			case ModelPackage.RECEIPT_EXPERT___GET_RECEIPT__ROOM:
-				return getReceipt((Room)arguments.get(0));
 			case ModelPackage.RECEIPT_EXPERT___GET_ALL_RECEIPT:
 				return getAllReceipt();
 			case ModelPackage.RECEIPT_EXPERT___COMBINE__ELIST:

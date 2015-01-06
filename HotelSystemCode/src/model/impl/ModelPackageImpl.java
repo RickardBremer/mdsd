@@ -1834,7 +1834,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getReceiptExpert__GetReceipt__Booking() {
+	public EOperation getReceiptExpert__GetAllReceipt() {
 		return receiptExpertEClass.getEOperations().get(1);
 	}
 
@@ -1843,7 +1843,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getReceiptExpert__GetReceipt__Room() {
+	public EOperation getReceiptExpert__Combine__EList() {
 		return receiptExpertEClass.getEOperations().get(2);
 	}
 
@@ -1852,7 +1852,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getReceiptExpert__GetAllReceipt() {
+	public EOperation getReceiptExpert__AddReceipt__Receipt() {
 		return receiptExpertEClass.getEOperations().get(3);
 	}
 
@@ -1861,7 +1861,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getReceiptExpert__Combine__EList() {
+	public EOperation getReceiptExpert__RemoveReceipt__Receipt() {
 		return receiptExpertEClass.getEOperations().get(4);
 	}
 
@@ -1870,7 +1870,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getReceiptExpert__AddReceipt__Receipt() {
+	public EOperation getReceiptExpert__UpdateReceipt__Receipt() {
 		return receiptExpertEClass.getEOperations().get(5);
 	}
 
@@ -1879,26 +1879,8 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getReceiptExpert__RemoveReceipt__Receipt() {
-		return receiptExpertEClass.getEOperations().get(6);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getReceiptExpert__UpdateReceipt__Receipt() {
-		return receiptExpertEClass.getEOperations().get(7);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EOperation getReceiptExpert__ReceiptExpert__DatabaseInterface() {
-		return receiptExpertEClass.getEOperations().get(8);
+		return receiptExpertEClass.getEOperations().get(6);
 	}
 
 	/**
@@ -2068,6 +2050,15 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getAdminController_RoomExpert() {
+		return (EReference)adminControllerEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EOperation getAdminController__AdminController__ExpenseExpert_PromotionExpert_UserExpert_RoomExpert() {
 		return adminControllerEClass.getEOperations().get(0);
 	}
@@ -2106,6 +2097,24 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 */
 	public EClass getMSAccessDB() {
 		return msAccessDBEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getMSAccessDB__OpenConnection() {
+		return msAccessDBEClass.getEOperations().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getMSAccessDB__CloseConnection() {
+		return msAccessDBEClass.getEOperations().get(1);
 	}
 
 	/**
@@ -2326,8 +2335,6 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		receiptExpertEClass = createEClass(RECEIPT_EXPERT);
 		createEReference(receiptExpertEClass, RECEIPT_EXPERT__DATABASE);
 		createEOperation(receiptExpertEClass, RECEIPT_EXPERT___GET_RECEIPT__INT);
-		createEOperation(receiptExpertEClass, RECEIPT_EXPERT___GET_RECEIPT__BOOKING);
-		createEOperation(receiptExpertEClass, RECEIPT_EXPERT___GET_RECEIPT__ROOM);
 		createEOperation(receiptExpertEClass, RECEIPT_EXPERT___GET_ALL_RECEIPT);
 		createEOperation(receiptExpertEClass, RECEIPT_EXPERT___COMBINE__ELIST);
 		createEOperation(receiptExpertEClass, RECEIPT_EXPERT___ADD_RECEIPT__RECEIPT);
@@ -2356,6 +2363,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		createEReference(adminControllerEClass, ADMIN_CONTROLLER__EXPENSE_EXPERT);
 		createEReference(adminControllerEClass, ADMIN_CONTROLLER__PROMO_EXPERT);
 		createEReference(adminControllerEClass, ADMIN_CONTROLLER__DATABASE_INTERFACE);
+		createEReference(adminControllerEClass, ADMIN_CONTROLLER__ROOM_EXPERT);
 		createEOperation(adminControllerEClass, ADMIN_CONTROLLER___ADMIN_CONTROLLER__EXPENSEEXPERT_PROMOTIONEXPERT_USEREXPERT_ROOMEXPERT);
 
 		receptionistControllerEClass = createEClass(RECEPTIONIST_CONTROLLER);
@@ -2363,6 +2371,8 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		createEOperation(receptionistControllerEClass, RECEPTIONIST_CONTROLLER___RECEPTIONIST_CONTROLLER__RECEIPTEXPERT_EXPENSEEXPERT_ROOMEXPERT_BOOKINGEXPERT_PROMOTIONEXPERT_USEREXPERT);
 
 		msAccessDBEClass = createEClass(MS_ACCESS_DB);
+		createEOperation(msAccessDBEClass, MS_ACCESS_DB___OPEN_CONNECTION);
+		createEOperation(msAccessDBEClass, MS_ACCESS_DB___CLOSE_CONNECTION);
 	}
 
 	/**
@@ -2825,12 +2835,6 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		op = initEOperation(getReceiptExpert__GetReceipt__int(), this.getReceipt(), "getReceipt", 1, 1, IS_UNIQUE, !IS_ORDERED);
 		addEParameter(op, theTypesPackage.getInteger(), "ID", 1, 1, IS_UNIQUE, !IS_ORDERED);
 
-		op = initEOperation(getReceiptExpert__GetReceipt__Booking(), this.getReceipt(), "getReceipt", 1, 1, IS_UNIQUE, !IS_ORDERED);
-		addEParameter(op, this.getBooking(), "booking", 1, 1, IS_UNIQUE, !IS_ORDERED);
-
-		op = initEOperation(getReceiptExpert__GetReceipt__Room(), this.getReceipt(), "getReceipt", 1, 1, IS_UNIQUE, !IS_ORDERED);
-		addEParameter(op, this.getRoom(), "room", 1, 1, IS_UNIQUE, !IS_ORDERED);
-
 		initEOperation(getReceiptExpert__GetAllReceipt(), this.getReceipt(), "getAllReceipt", 0, -1, IS_UNIQUE, !IS_ORDERED);
 
 		op = initEOperation(getReceiptExpert__Combine__EList(), this.getReceipt(), "combine", 1, 1, IS_UNIQUE, !IS_ORDERED);
@@ -2880,6 +2884,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		initEReference(getAdminController_ExpenseExpert(), this.getExpenseExpert(), null, "expenseExpert", null, 1, 1, AdminController.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEReference(getAdminController_PromoExpert(), this.getPromotionExpert(), null, "promoExpert", null, 1, 1, AdminController.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEReference(getAdminController_DatabaseInterface(), this.getDatabaseInterface(), null, "databaseInterface", null, 1, 1, AdminController.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getAdminController_RoomExpert(), this.getRoomExpert(), null, "roomExpert", null, 1, 1, AdminController.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		op = initEOperation(getAdminController__AdminController__ExpenseExpert_PromotionExpert_UserExpert_RoomExpert(), null, "AdminController", 1, 1, IS_UNIQUE, !IS_ORDERED);
 		addEParameter(op, this.getExpenseExpert(), "expenseExpert", 1, 1, IS_UNIQUE, !IS_ORDERED);
@@ -2899,6 +2904,10 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		addEParameter(op, this.getUserExpert(), "userExpert", 1, 1, IS_UNIQUE, !IS_ORDERED);
 
 		initEClass(msAccessDBEClass, MSAccessDB.class, "MSAccessDB", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEOperation(getMSAccessDB__OpenConnection(), ecorePackage.getEBoolean(), "openConnection", 1, 1, IS_UNIQUE, !IS_ORDERED);
+
+		initEOperation(getMSAccessDB__CloseConnection(), null, "closeConnection", 1, 1, IS_UNIQUE, !IS_ORDERED);
 
 		// Create resource
 		createResource(eNS_URI);

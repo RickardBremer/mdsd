@@ -8,15 +8,8 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
 import java.sql.Statement;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Iterator;
-import java.util.List;
-import java.util.ListIterator;
-
 import model.MSAccessDB;
 import model.ModelPackage;
-
 import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
@@ -181,6 +174,28 @@ public class MSAccessDBImpl extends MinimalEObjectImpl.Container implements MSAc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public boolean openConnection() {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void closeConnection() {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
@@ -188,6 +203,11 @@ public class MSAccessDBImpl extends MinimalEObjectImpl.Container implements MSAc
 				return query((String)arguments.get(0));
 			case ModelPackage.MS_ACCESS_DB___SEND__STRING:
 				return send((String)arguments.get(0));
+			case ModelPackage.MS_ACCESS_DB___OPEN_CONNECTION:
+				return openConnection();
+			case ModelPackage.MS_ACCESS_DB___CLOSE_CONNECTION:
+				closeConnection();
+				return null;
 		}
 		return super.eInvoke(operationID, arguments);
 	}

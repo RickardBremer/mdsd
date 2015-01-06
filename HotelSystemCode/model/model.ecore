@@ -464,12 +464,6 @@
     <eOperations name="getReceipt" ordered="false" lowerBound="1" eType="#//Receipt">
       <eParameters name="ID" ordered="false" lowerBound="1" eType="ecore:EDataType types.ecore#//Integer"/>
     </eOperations>
-    <eOperations name="getReceipt" ordered="false" lowerBound="1" eType="#//Receipt">
-      <eParameters name="booking" ordered="false" lowerBound="1" eType="#//Booking"/>
-    </eOperations>
-    <eOperations name="getReceipt" ordered="false" lowerBound="1" eType="#//Receipt">
-      <eParameters name="room" ordered="false" lowerBound="1" eType="#//Room"/>
-    </eOperations>
     <eOperations name="getAllReceipt" ordered="false" upperBound="-1" eType="#//Receipt"/>
     <eOperations name="combine" ordered="false" lowerBound="1" eType="#//Receipt">
       <eParameters name="receiptList" ordered="false" upperBound="-1" eType="#//Receipt"/>
@@ -537,6 +531,8 @@
         lowerBound="1" eType="#//PromotionExpert"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="databaseInterface" ordered="false"
         lowerBound="1" eType="#//DatabaseInterface"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="roomExpert" ordered="false"
+        lowerBound="1" eType="#//RoomExpert"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ReceptionistController" eSuperTypes="#//BookingController #//ReceptionistInterface">
     <eOperations name="ReceptionistController" ordered="false" lowerBound="1">
@@ -550,5 +546,8 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="userExpert" ordered="false"
         lowerBound="1" eType="#//UserExpert"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="MSAccessDB" eSuperTypes="#//DatabaseInterface"/>
+  <eClassifiers xsi:type="ecore:EClass" name="MSAccessDB" eSuperTypes="#//DatabaseInterface">
+    <eOperations name="openConnection" ordered="false" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eOperations name="closeConnection" ordered="false" lowerBound="1"/>
+  </eClassifiers>
 </ecore:EPackage>

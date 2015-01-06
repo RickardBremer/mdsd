@@ -15,6 +15,7 @@ package model;
  *   <li>{@link model.AdminController#getExpenseExpert <em>Expense Expert</em>}</li>
  *   <li>{@link model.AdminController#getPromoExpert <em>Promo Expert</em>}</li>
  *   <li>{@link model.AdminController#getDatabaseInterface <em>Database Interface</em>}</li>
+ *   <li>{@link model.AdminController#getRoomExpert <em>Room Expert</em>}</li>
  * </ul>
  * </p>
  *
@@ -126,6 +127,32 @@ public interface AdminController extends AdminInterface {
 	 * @generated
 	 */
 	void setDatabaseInterface(DatabaseInterface value);
+
+	/**
+	 * Returns the value of the '<em><b>Room Expert</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Room Expert</em>' reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Room Expert</em>' reference.
+	 * @see #setRoomExpert(RoomExpert)
+	 * @see model.ModelPackage#getAdminController_RoomExpert()
+	 * @model required="true" ordered="false"
+	 * @generated
+	 */
+	RoomExpert getRoomExpert();
+
+	/**
+	 * Sets the value of the '{@link model.AdminController#getRoomExpert <em>Room Expert</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Room Expert</em>' reference.
+	 * @see #getRoomExpert()
+	 * @generated
+	 */
+	void setRoomExpert(RoomExpert value);
 
 	/**
 	 * <!-- begin-user-doc -->

@@ -14,4 +14,20 @@ package model;
  * @generated
  */
 public interface MSAccessDB extends DatabaseInterface {
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model required="true" ordered="false"
+	 * @generated
+	 */
+	boolean openConnection();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	void closeConnection();
 } // MSAccessDB

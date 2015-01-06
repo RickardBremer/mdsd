@@ -32,6 +32,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  *   <li>{@link model.impl.AdminControllerImpl#getExpenseExpert <em>Expense Expert</em>}</li>
  *   <li>{@link model.impl.AdminControllerImpl#getPromoExpert <em>Promo Expert</em>}</li>
  *   <li>{@link model.impl.AdminControllerImpl#getDatabaseInterface <em>Database Interface</em>}</li>
+ *   <li>{@link model.impl.AdminControllerImpl#getRoomExpert <em>Room Expert</em>}</li>
  * </ul>
  * </p>
  *
@@ -77,6 +78,16 @@ public class AdminControllerImpl extends MinimalEObjectImpl.Container implements
 	 * @ordered
 	 */
 	protected DatabaseInterface databaseInterface;
+
+	/**
+	 * The cached value of the '{@link #getRoomExpert() <em>Room Expert</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getRoomExpert()
+	 * @generated
+	 * @ordered
+	 */
+	protected RoomExpert roomExpert;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -252,6 +263,44 @@ public class AdminControllerImpl extends MinimalEObjectImpl.Container implements
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public RoomExpert getRoomExpert() {
+		if (roomExpert != null && roomExpert.eIsProxy()) {
+			InternalEObject oldRoomExpert = (InternalEObject)roomExpert;
+			roomExpert = (RoomExpert)eResolveProxy(oldRoomExpert);
+			if (roomExpert != oldRoomExpert) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, ModelPackage.ADMIN_CONTROLLER__ROOM_EXPERT, oldRoomExpert, roomExpert));
+			}
+		}
+		return roomExpert;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public RoomExpert basicGetRoomExpert() {
+		return roomExpert;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setRoomExpert(RoomExpert newRoomExpert) {
+		RoomExpert oldRoomExpert = roomExpert;
+		roomExpert = newRoomExpert;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.ADMIN_CONTROLLER__ROOM_EXPERT, oldRoomExpert, roomExpert));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
 	public boolean login(String name, String password) {
@@ -337,9 +386,9 @@ public class AdminControllerImpl extends MinimalEObjectImpl.Container implements
 	 * @generated
 	 */
 	public Promotion createPromotion(Promotion promotion) {
-		// Rickard NOT
+		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
-		return promoExpert.addPromotion(promotion);
+		throw new UnsupportedOperationException();
 	}
 
 	/**
@@ -359,9 +408,9 @@ public class AdminControllerImpl extends MinimalEObjectImpl.Container implements
 	 * @generated
 	 */
 	public boolean updatePromotion(Promotion promotion) {
-		// Rickard
+		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
-		return promoExpert.updatePromotion(promotion);
+		throw new UnsupportedOperationException();
 	}
 
 	/**
@@ -445,6 +494,17 @@ public class AdminControllerImpl extends MinimalEObjectImpl.Container implements
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void AdminController(RoomExpert roomExpert, ExpenseExpert expenseExpert, UserExpert userExpert, PromotionExpert promotionExpert) {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
 /*
@@ -492,6 +552,9 @@ public class AdminControllerImpl extends MinimalEObjectImpl.Container implements
 			case ModelPackage.ADMIN_CONTROLLER__DATABASE_INTERFACE:
 				if (resolve) return getDatabaseInterface();
 				return basicGetDatabaseInterface();
+			case ModelPackage.ADMIN_CONTROLLER__ROOM_EXPERT:
+				if (resolve) return getRoomExpert();
+				return basicGetRoomExpert();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -515,6 +578,9 @@ public class AdminControllerImpl extends MinimalEObjectImpl.Container implements
 				return;
 			case ModelPackage.ADMIN_CONTROLLER__DATABASE_INTERFACE:
 				setDatabaseInterface((DatabaseInterface)newValue);
+				return;
+			case ModelPackage.ADMIN_CONTROLLER__ROOM_EXPERT:
+				setRoomExpert((RoomExpert)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -540,6 +606,9 @@ public class AdminControllerImpl extends MinimalEObjectImpl.Container implements
 			case ModelPackage.ADMIN_CONTROLLER__DATABASE_INTERFACE:
 				setDatabaseInterface((DatabaseInterface)null);
 				return;
+			case ModelPackage.ADMIN_CONTROLLER__ROOM_EXPERT:
+				setRoomExpert((RoomExpert)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -560,6 +629,8 @@ public class AdminControllerImpl extends MinimalEObjectImpl.Container implements
 				return promoExpert != null;
 			case ModelPackage.ADMIN_CONTROLLER__DATABASE_INTERFACE:
 				return databaseInterface != null;
+			case ModelPackage.ADMIN_CONTROLLER__ROOM_EXPERT:
+				return roomExpert != null;
 		}
 		return super.eIsSet(featureID);
 	}
