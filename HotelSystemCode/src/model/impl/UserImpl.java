@@ -8,11 +8,8 @@ import model.ModelPackage;
 import model.User;
 
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EClass;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
@@ -316,15 +313,14 @@ public class UserImpl extends MinimalEObjectImpl.Container implements User {
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
-	public void User(String firstName, String surname, String password, boolean receptionist, boolean administrator) {
-		// TODO: implement this method
-				this.firstName = firstName;
-				this.surname = surname;
-				this.password = password;
-				this.receptionist = receptionist;
-				this.administrator = administrator;
+	public void User(String firstName, String surname, String password, boolean receptionist, boolean administrator, int id) {
+		this.firstName = firstName;
+		this.surname = surname;
+		this.password = password;
+		this.receptionist = receptionist;
+		this.administrator = administrator;
+		this.id =  id;
 	}
-
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

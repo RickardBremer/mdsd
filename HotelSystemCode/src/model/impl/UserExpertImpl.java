@@ -8,7 +8,6 @@ import model.DatabaseInterface;
 import model.ModelPackage;
 import model.User;
 import model.UserExpert;
-import model.impl.UserImpl;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.BasicEList;
@@ -105,18 +104,14 @@ public class UserExpertImpl extends MinimalEObjectImpl.Container implements User
 	 * @generated NOT
 	 */
 	public User getUser(int ID) {
-		// TODO: implement this method
-				// Ensure that you remove @generated or mark it @generated NO
-				//EList<String[]> result = database.Query("SELECT FROM user WHERE ID = "+ ID).get(0);
-				
-				String[] myResult = database.query("SELECT FROM user WHERE ID = "+ ID).get(0);
-			
-				if(myResult != null){
-						User u = new UserImpl();
-						u.User(myResult[0], myResult[1], myResult[2], Boolean.parseBoolean(myResult[3]), Boolean.parseBoolean(myResult[4]));
-				return  u;
-				}
-				return null;
+		String myResult = database.query("SELECT FROM user WHERE ID = "+ ID).get(0);
+		String[] MyArray = myResult.split(";");
+		if(MyArray != null){
+				User u = new UserImpl();
+				u.User(MyArray[0], MyArray[1], MyArray[2], Boolean.parseBoolean(MyArray[3]), Boolean.parseBoolean(MyArray[4]), Integer.parseInt(MyArray[5]));
+		return  u;
+		}
+		return null;
 	}
 
 	/**
@@ -125,18 +120,21 @@ public class UserExpertImpl extends MinimalEObjectImpl.Container implements User
 	 * @generated NOT
 	 */
 	public EList<User> getAllUsers() {
-		// TODO: implement this method
-				// Ensure that you remove @generated or mark it @generated NOT
-				EList<String[]> userResult = database.query("SELECT * FROM tblUser;");// selects all users from the user table
-				EList<User> myUser = new BasicEList<User>(); // create a basic list(since we cannot use ArrayList)
-				if(userResult != null){
-					for(String[] st : userResult){
-						User u = new UserImpl();
-						u.User(st[0],st[1],st[2],Boolean.parseBoolean(st[3]), Boolean.parseBoolean(st[4]));
-					myUser.add(u);
-					}
-				}
-				return  myUser;
+		
+		EList<String> userResult = database.query("SELECT * FROM tblUser;");// selects all users from the user table
+		EList<User> myUser = new BasicEList<User>(); // create a basic list(since we cannot use ArrayList)
+		
+		if(userResult != null){
+	 for(String e: userResult){
+		 String[] MyArray = e.split(";");
+	
+				User u = new UserImpl();
+				u.User(MyArray[0],MyArray[1],MyArray[2],Boolean.parseBoolean(MyArray[3]), Boolean.parseBoolean(MyArray[4]),  Integer.parseInt(MyArray[5]));
+			myUser.add(u);
+			}
+		}
+	
+		return  myUser;
 	}
 
 	/**
@@ -144,48 +142,48 @@ public class UserExpertImpl extends MinimalEObjectImpl.Container implements User
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
-	public User addUser(User user){
-		
-		 database.send("INSERT INTO tblUsers SET FirstName = " + user.getFirstName() + ", LastName = " + user.getSurname() + ", Password = " + 
-					user.getPassword() +", Receptionist = "+ user.isReceptionist() + ", Adiministrator = "+ user.isAdministrator());
-		
-		 
-		 EList<String[]> addedUser = database.query("SELECT * FROM tblUsers WHERE FirstName = " + user.getFirstName() + ", LastName = "
-		+ user.getSurname() + ", Password = " + user.getPassword() +", Receptionist = "+ user.isReceptionist() + ", Adiministrator = "+ user.isAdministrator() + 
-		"ORDER BY DESC");
-		 
-		 String[] newUser = addedUser.get(0);
-		 
-		 if(newUser != null){
-				User u = new UserImpl();
-				u.User(newUser[0], newUser[1], newUser[2], Boolean.parseBoolean(newUser[3]), Boolean.parseBoolean(newUser[4]));
-		return  u;
-		}
-		return null;
-			
-		}
-		/**
+	public User addUser(User user) {
+		database.send("INSERT INTO tblUsers ('FirstName', 'LastName', 'Password', Receptionist', 'Administrator'), VALUES("+ user.getFirstName() + ",'" + user.getSurname()
+				+ ",'"
+				+ user.getPassword()
+				+ ",'"
+				+ user.isReceptionist() 
+				+ ",'"
+				+ user.isAdministrator()
+				+ ");");
+
+	 EList<String> addedUser = database.query("SELECT * FROM tblUsers WHERE FirstName = " + user.getFirstName() + ", LastName = "
+	+ user.getSurname() + ", Password = " + user.getPassword() +", Receptionist = "+ user.isReceptionist() + ", Adiministrator = "+ user.isAdministrator() + 
+	"ORDER BY DESC");
+	 
+	 String newUser = addedUser.get(0);
+	 String[] MyArray = newUser.split(";");
+	 
+	 if(MyArray != null){
+			User u = new UserImpl();
+			u.User(MyArray[0], MyArray[1], MyArray[2], Boolean.parseBoolean(MyArray[3]), Boolean.parseBoolean(MyArray[4]), Integer.parseInt(MyArray[5]));
+	return  u;
+	}
+	return null;
+	}
+
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
 	public boolean removeUser(int ID) {
-		// TODO: implement this method
-				// Ensure that you remove @generated or mark it @generated NOT
-				return database.remove("DELETE FROM tblUsers WHERE ID = " + ID);
+		return database.send("DELETE FROM tblUsers WHERE ID = " + ID);
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated NOT
+	 * @generated
 	 */
 	public boolean updateUser(User user) {
-		// TODO: implement this method
-				// Ensure that you remove @generated or mark it @generated NOT
-				return database.update("Update tblUsers SET FirstName = " + user.getFirstName() + ", LastName = " + user.getSurname() + ", Password = " + 
-						user.getPassword() +", Receptionist = "+ user.isReceptionist() + ", Adiministrator = "+ user.isAdministrator());
-							
+		return database.send("Update tblUsers SET FirstName = " + user.getFirstName() + ", LastName = " + user.getSurname() + ", Password = " + 
+				user.getPassword() +", Receptionist = "+ user.isReceptionist() + ", Adiministrator = "+ user.isAdministrator());
 	}
 
 	/**
@@ -194,16 +192,9 @@ public class UserExpertImpl extends MinimalEObjectImpl.Container implements User
 	 * @generated NOT
 	 */
 	public boolean login(String name, String password) {
-		// TODO: implement this method
-				// Ensure that you remove @generated or mark it @generated NOT
-				/**
-				 * Strings n and p for testing purposes only. name and password attributes must be fetched from storage
-				 */
+		return database.query("SELECT FROM tblUsers WHERE name =" + name + " && password =" + password) != null;	
 
-				/** Query database to get name and password
-				 * login = true
-				 */
-				return database.query("SELECT FROM tblUsers WHERE name =" + name + " && password =" + password) != null;	}
+	}
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -211,8 +202,6 @@ public class UserExpertImpl extends MinimalEObjectImpl.Container implements User
 	 * @generated NOT
 	 */
 	public void UserExpert(DatabaseInterface database) {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
 		this.database =  database;
 	}
 
