@@ -10,6 +10,7 @@ import model.BookingExpert;
 import model.ExpenseExpert;
 import model.ModelPackage;
 import model.PromotionExpert;
+import model.Receipt;
 import model.ReceiptExpert;
 import model.ReceptionistController;
 import model.ReceptionistInterface;
@@ -248,6 +249,14 @@ public class ReceptionistControllerImpl extends BookingControllerImpl implements
 	public boolean checkOut(Booking booking) {
 		// Done - Checks out a booking
 		boolean checkedout = bookingExpert.checkOut(booking);
+		EList<Receipt> receiptList = null; 
+		receiptList.add(booking.getReceipt());
+		for (Room r : booking.getRoom()) {
+			receiptList.add(r.getReceipt());
+		}
+		Receipt combinedreceipt = getReceiptExpert().combine(receiptList);
+		pay(booking.getCustomer(), combinedreceipt);
+//		receiptExpert.combine(receiptList);
 		return checkedout;
 	}
 
@@ -259,6 +268,7 @@ public class ReceptionistControllerImpl extends BookingControllerImpl implements
 	public void ReceptionistController(ReceiptExpert receiptExpert, ExpenseExpert expenseExpert, RoomExpert roomExpert, BookingExpert bookingExpert, PromotionExpert promotionExpert, UserExpert userExpert) {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
+		this.receiptExpert = receiptExpert;
 		throw new UnsupportedOperationException();
 	}
 
