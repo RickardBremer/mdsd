@@ -48,20 +48,9 @@ public class PaymentImpl extends MinimalEObjectImpl.Container implements Payment
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean makePayment(Customer customer, double amount) {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
-	public boolean makePayment(Customer customer, int amount) {
+	public boolean makePayment(Customer customer, double amount) {
 		CustomerRequires cr;
 		try {
 			cr = CustomerRequires.instance();
@@ -103,7 +92,7 @@ public class PaymentImpl extends MinimalEObjectImpl.Container implements Payment
 	@Override
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
-			case ModelPackage.PAYMENT___MAKE_PAYMENT__CUSTOMER_INT:
+			case ModelPackage.PAYMENT___MAKE_PAYMENT__CUSTOMER_DOUBLE:
 				return makePayment((Customer)arguments.get(0), (Double)arguments.get(1));
 			case ModelPackage.PAYMENT___IS_CREDIT_CARD_VALID__CUSTOMER:
 				return isCreditCardValid((Customer)arguments.get(0));

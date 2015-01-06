@@ -21,12 +21,12 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * <p>
  * The following features are implemented:
  * <ul>
- * <li>{@link model.impl.ExpenseImpl#getPrice <em>Price</em>}</li>
- * <li>{@link model.impl.ExpenseImpl#getName <em>Name</em>}</li>
- * <li>{@link model.impl.ExpenseImpl#getDescription <em>Description</em>}</li>
- * <li>{@link model.impl.ExpenseImpl#getDate <em>Date</em>}</li>
- * <li>{@link model.impl.ExpenseImpl#getId <em>Id</em>}</li>
- * <li>{@link model.impl.ExpenseImpl#isFixed <em>Fixed</em>}</li>
+ *   <li>{@link model.impl.ExpenseImpl#getPrice <em>Price</em>}</li>
+ *   <li>{@link model.impl.ExpenseImpl#getName <em>Name</em>}</li>
+ *   <li>{@link model.impl.ExpenseImpl#getDescription <em>Description</em>}</li>
+ *   <li>{@link model.impl.ExpenseImpl#getDate <em>Date</em>}</li>
+ *   <li>{@link model.impl.ExpenseImpl#getId <em>Id</em>}</li>
+ *   <li>{@link model.impl.ExpenseImpl#isFixed <em>Fixed</em>}</li>
  * </ul>
  * </p>
  *
@@ -37,7 +37,6 @@ public class ExpenseImpl extends MinimalEObjectImpl.Container implements
 	/**
 	 * The default value of the '{@link #getPrice() <em>Price</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @see #getPrice()
 	 * @generated
 	 * @ordered
@@ -47,7 +46,6 @@ public class ExpenseImpl extends MinimalEObjectImpl.Container implements
 	/**
 	 * The cached value of the '{@link #getPrice() <em>Price</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @see #getPrice()
 	 * @generated
 	 * @ordered
@@ -57,7 +55,6 @@ public class ExpenseImpl extends MinimalEObjectImpl.Container implements
 	/**
 	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @see #getName()
 	 * @generated
 	 * @ordered
@@ -67,7 +64,6 @@ public class ExpenseImpl extends MinimalEObjectImpl.Container implements
 	/**
 	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @see #getName()
 	 * @generated
 	 * @ordered
@@ -75,9 +71,8 @@ public class ExpenseImpl extends MinimalEObjectImpl.Container implements
 	protected String name = NAME_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getDescription() <em>Description</em>}'
-	 * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * The default value of the '{@link #getDescription() <em>Description</em>}' attribute.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getDescription()
 	 * @generated
 	 * @ordered
@@ -85,9 +80,8 @@ public class ExpenseImpl extends MinimalEObjectImpl.Container implements
 	protected static final String DESCRIPTION_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getDescription() <em>Description</em>}'
-	 * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * The cached value of the '{@link #getDescription() <em>Description</em>}' attribute.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getDescription()
 	 * @generated
 	 * @ordered
@@ -97,7 +91,6 @@ public class ExpenseImpl extends MinimalEObjectImpl.Container implements
 	/**
 	 * The default value of the '{@link #getDate() <em>Date</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @see #getDate()
 	 * @generated
 	 * @ordered
@@ -107,7 +100,6 @@ public class ExpenseImpl extends MinimalEObjectImpl.Container implements
 	/**
 	 * The cached value of the '{@link #getDate() <em>Date</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @see #getDate()
 	 * @generated
 	 * @ordered
@@ -137,7 +129,6 @@ public class ExpenseImpl extends MinimalEObjectImpl.Container implements
 	/**
 	 * The default value of the '{@link #isFixed() <em>Fixed</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @see #isFixed()
 	 * @generated
 	 * @ordered
@@ -147,7 +138,6 @@ public class ExpenseImpl extends MinimalEObjectImpl.Container implements
 	/**
 	 * The cached value of the '{@link #isFixed() <em>Fixed</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @see #isFixed()
 	 * @generated
 	 * @ordered
@@ -156,7 +146,6 @@ public class ExpenseImpl extends MinimalEObjectImpl.Container implements
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	protected ExpenseImpl() {
@@ -165,7 +154,6 @@ public class ExpenseImpl extends MinimalEObjectImpl.Container implements
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -175,7 +163,6 @@ public class ExpenseImpl extends MinimalEObjectImpl.Container implements
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public double getPrice() {
@@ -184,20 +171,17 @@ public class ExpenseImpl extends MinimalEObjectImpl.Container implements
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public void setPrice(double newPrice) {
 		double oldPrice = price;
 		price = newPrice;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET,
-					ModelPackage.EXPENSE__PRICE, oldPrice, price));
+			eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.EXPENSE__PRICE, oldPrice, price));
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public String getName() {
@@ -206,20 +190,17 @@ public class ExpenseImpl extends MinimalEObjectImpl.Container implements
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public void setName(String newName) {
 		String oldName = name;
 		name = newName;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET,
-					ModelPackage.EXPENSE__NAME, oldName, name));
+			eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.EXPENSE__NAME, oldName, name));
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public String getDescription() {
@@ -228,21 +209,17 @@ public class ExpenseImpl extends MinimalEObjectImpl.Container implements
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public void setDescription(String newDescription) {
 		String oldDescription = description;
 		description = newDescription;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET,
-					ModelPackage.EXPENSE__DESCRIPTION, oldDescription,
-					description));
+			eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.EXPENSE__DESCRIPTION, oldDescription, description));
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public Date getDate() {
@@ -251,20 +228,17 @@ public class ExpenseImpl extends MinimalEObjectImpl.Container implements
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public void setDate(Date newDate) {
 		Date oldDate = date;
 		date = newDate;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET,
-					ModelPackage.EXPENSE__DATE, oldDate, date));
+			eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.EXPENSE__DATE, oldDate, date));
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public int getId() {
@@ -273,20 +247,17 @@ public class ExpenseImpl extends MinimalEObjectImpl.Container implements
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public void setId(int newId) {
 		int oldId = id;
 		id = newId;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET,
-					ModelPackage.EXPENSE__ID, oldId, id));
+			eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.EXPENSE__ID, oldId, id));
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public boolean isFixed() {
@@ -295,15 +266,13 @@ public class ExpenseImpl extends MinimalEObjectImpl.Container implements
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public void setFixed(boolean newFixed) {
 		boolean oldFixed = fixed;
 		fixed = newFixed;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET,
-					ModelPackage.EXPENSE__FIXED, oldFixed, fixed));
+			eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.EXPENSE__FIXED, oldFixed, fixed));
 	}
 
 	/**
@@ -323,142 +292,130 @@ public class ExpenseImpl extends MinimalEObjectImpl.Container implements
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-		case ModelPackage.EXPENSE__PRICE:
-			return getPrice();
-		case ModelPackage.EXPENSE__NAME:
-			return getName();
-		case ModelPackage.EXPENSE__DESCRIPTION:
-			return getDescription();
-		case ModelPackage.EXPENSE__DATE:
-			return getDate();
-		case ModelPackage.EXPENSE__ID:
-			return getId();
-		case ModelPackage.EXPENSE__FIXED:
-			return isFixed();
+			case ModelPackage.EXPENSE__PRICE:
+				return getPrice();
+			case ModelPackage.EXPENSE__NAME:
+				return getName();
+			case ModelPackage.EXPENSE__DESCRIPTION:
+				return getDescription();
+			case ModelPackage.EXPENSE__DATE:
+				return getDate();
+			case ModelPackage.EXPENSE__ID:
+				return getId();
+			case ModelPackage.EXPENSE__FIXED:
+				return isFixed();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-		case ModelPackage.EXPENSE__PRICE:
-			setPrice((Double) newValue);
-			return;
-		case ModelPackage.EXPENSE__NAME:
-			setName((String) newValue);
-			return;
-		case ModelPackage.EXPENSE__DESCRIPTION:
-			setDescription((String) newValue);
-			return;
-		case ModelPackage.EXPENSE__DATE:
-			setDate((Date) newValue);
-			return;
-		case ModelPackage.EXPENSE__ID:
-			setId((Integer) newValue);
-			return;
-		case ModelPackage.EXPENSE__FIXED:
-			setFixed((Boolean) newValue);
-			return;
+			case ModelPackage.EXPENSE__PRICE:
+				setPrice((Double)newValue);
+				return;
+			case ModelPackage.EXPENSE__NAME:
+				setName((String)newValue);
+				return;
+			case ModelPackage.EXPENSE__DESCRIPTION:
+				setDescription((String)newValue);
+				return;
+			case ModelPackage.EXPENSE__DATE:
+				setDate((Date)newValue);
+				return;
+			case ModelPackage.EXPENSE__ID:
+				setId((Integer)newValue);
+				return;
+			case ModelPackage.EXPENSE__FIXED:
+				setFixed((Boolean)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-		case ModelPackage.EXPENSE__PRICE:
-			setPrice(PRICE_EDEFAULT);
-			return;
-		case ModelPackage.EXPENSE__NAME:
-			setName(NAME_EDEFAULT);
-			return;
-		case ModelPackage.EXPENSE__DESCRIPTION:
-			setDescription(DESCRIPTION_EDEFAULT);
-			return;
-		case ModelPackage.EXPENSE__DATE:
-			setDate(DATE_EDEFAULT);
-			return;
-		case ModelPackage.EXPENSE__ID:
-			setId(ID_EDEFAULT);
-			return;
-		case ModelPackage.EXPENSE__FIXED:
-			setFixed(FIXED_EDEFAULT);
-			return;
+			case ModelPackage.EXPENSE__PRICE:
+				setPrice(PRICE_EDEFAULT);
+				return;
+			case ModelPackage.EXPENSE__NAME:
+				setName(NAME_EDEFAULT);
+				return;
+			case ModelPackage.EXPENSE__DESCRIPTION:
+				setDescription(DESCRIPTION_EDEFAULT);
+				return;
+			case ModelPackage.EXPENSE__DATE:
+				setDate(DATE_EDEFAULT);
+				return;
+			case ModelPackage.EXPENSE__ID:
+				setId(ID_EDEFAULT);
+				return;
+			case ModelPackage.EXPENSE__FIXED:
+				setFixed(FIXED_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-		case ModelPackage.EXPENSE__PRICE:
-			return price != PRICE_EDEFAULT;
-		case ModelPackage.EXPENSE__NAME:
-			return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT
-					.equals(name);
-		case ModelPackage.EXPENSE__DESCRIPTION:
-			return DESCRIPTION_EDEFAULT == null ? description != null
-					: !DESCRIPTION_EDEFAULT.equals(description);
-		case ModelPackage.EXPENSE__DATE:
-			return DATE_EDEFAULT == null ? date != null : !DATE_EDEFAULT
-					.equals(date);
-		case ModelPackage.EXPENSE__ID:
-			return id != ID_EDEFAULT;
-		case ModelPackage.EXPENSE__FIXED:
-			return fixed != FIXED_EDEFAULT;
+			case ModelPackage.EXPENSE__PRICE:
+				return price != PRICE_EDEFAULT;
+			case ModelPackage.EXPENSE__NAME:
+				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+			case ModelPackage.EXPENSE__DESCRIPTION:
+				return DESCRIPTION_EDEFAULT == null ? description != null : !DESCRIPTION_EDEFAULT.equals(description);
+			case ModelPackage.EXPENSE__DATE:
+				return DATE_EDEFAULT == null ? date != null : !DATE_EDEFAULT.equals(date);
+			case ModelPackage.EXPENSE__ID:
+				return id != ID_EDEFAULT;
+			case ModelPackage.EXPENSE__FIXED:
+				return fixed != FIXED_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public Object eInvoke(int operationID, EList<?> arguments)
 			throws InvocationTargetException {
 		switch (operationID) {
-		case ModelPackage.EXPENSE___EXPENSE__INT_STRING_DATE_STRING_INT_BOOLEAN:
-			Expense((Integer) arguments.get(0), (String) arguments.get(1),
-					(Date) arguments.get(2), (String) arguments.get(3),
-					(Double) arguments.get(4), (Boolean) arguments.get(5));
-			return null;
+			case ModelPackage.EXPENSE___EXPENSE__INT_STRING_DATE_STRING_DOUBLE_BOOLEAN:
+				Expense((Integer)arguments.get(0), (String)arguments.get(1), (Date)arguments.get(2), (String)arguments.get(3), (Double)arguments.get(4), (Boolean)arguments.get(5));
+				return null;
 		}
 		return super.eInvoke(operationID, arguments);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public String toString() {
-		if (eIsProxy())
-			return super.toString();
+		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (price: ");

@@ -15,6 +15,7 @@ import model.Expense;
 import model.ExpenseExpert;
 import model.ModelPackage;
 import model.Payment;
+import model.Promotion;
 import model.PromotionExpert;
 import model.Receipt;
 import model.ReceiptExpert;
@@ -22,6 +23,7 @@ import model.Room;
 import model.RoomExpert;
 
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
@@ -405,9 +407,29 @@ public class BookingControllerImpl extends MinimalEObjectImpl.Container implemen
 			return false;
 		}
 		Booking booking = new BookingImpl();
-		booking.Booking(fromDate, toDate, wishes, customer, roomTypes, promotion, -1);
+		booking.Booking(fromDate, toDate, wishes, customer, roomTypes, promotion, -1, new BasicEList<Room>());
 		booking = bookingExpert.addBooking(booking);
 		Receipt rec = booking.getReceipt();
+		//TODO: Get expenses for all rooms, get promotions
+		EList<Expense> fixed = expenseExpert.getAllExpense();
+		for (Expense temp : fixed) {
+			for (String type : roomTypes) {
+				if (temp.getName().equals(type)) {
+					for (int i = 0; i < (toDate.getTime() - fromDate.getTime()) % (60*60*24); i++); {
+						Expense e = expenseExpert.addExpense(temp);
+						rec.addExpense(e);
+						Promotion p = promotionExpert.getPromotion(promotion);
+						if (p != null) {
+							if (p.getRoomType().equals(type)) {
+								Expense pe = new ExpenseImpl();
+								pe.Expense(-1, "Promotion Discount", new Date(), p.getDescription(), -(e.getPrice() / p.getPercentage()), false);
+								rec.addExpense(pe);
+							}
+						}
+					}
+				}
+			}
+		}
 		double total = rec.getTotalCost();
 		double fee = total * -0.1;
 		Expense ex = new ExpenseImpl();
