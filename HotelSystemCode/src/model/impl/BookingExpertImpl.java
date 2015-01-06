@@ -143,22 +143,34 @@ public class BookingExpertImpl extends MinimalEObjectImpl.Container implements B
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
-	public boolean addBooking(Booking booking) {
+	public Booking addBooking(Booking booking) {
 		// Rickard
 		// Ensure that you remove @generated or mark it @generated NOT
-		return database.send("INSERT INTO tblBookings ('BookingID', 'DateFrom', 'DateTo', 'CustomerMail', 'ClientRequests', 'CheckedIn') VALUES("
-						+ booking.getBookingID()
-						+ ", "
-						+ booking.getFromDate().getTime()
-						+ ","
-						+ booking.getToDate().getTime()
-						+ ",'"
-						+ booking.getCustomer().getEmail() 
-						+ "','"
-						+ booking.getWishes()
-						+ "',"
-						+ booking.isCheckedIn()
-						+ ");");
+		
+		boolean value = database.send("INSERT INTO tblBookings ('DateFrom', 'DateTo', 'CustomerMail', 'ClientRequests', 'CheckedIn') VALUES("
+				+ booking.getFromDate().getTime()
+				+ ","
+				+ booking.getToDate().getTime()
+				+ ",'"
+				+ booking.getCustomer().getEmail() 
+				+ "','"
+				+ booking.getWishes()
+				+ "',"
+				+ booking.isCheckedIn()
+				+ ");");
+		
+		String[] ID = null;
+		if(value){
+			ID = database.query("SELECT BookingID FROM tblBookings WHERE DateFrom = " + booking.getFromDate().getTime() + " AND DateTo = "
+		    + booking.getToDate().getTime() + " AND CustomerEmail = " + booking.getCustomer().getEmail() + 
+		    " AND ClientRequests = " + booking.getWishes() + ";").get(0).split(";");
+		}
+		
+		int BookingID = Integer.valueOf(ID[0]);
+		
+		booking.setId(BookingID);
+		
+		return booking;
 		//throw new UnsupportedOperationException();
 	}
 
