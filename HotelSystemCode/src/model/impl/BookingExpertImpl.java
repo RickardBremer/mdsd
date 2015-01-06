@@ -217,12 +217,12 @@ public class BookingExpertImpl extends MinimalEObjectImpl.Container implements B
 		
 		String[] CalenderID =  database.query("SELECT CalenderID FROM tblCalender WHERE BookingID =" + booking.getId() + ";").get(0).split(";");
 		
-		boolean updateTblCalender;
+		boolean updateTblCalender = false;
 		
 		for(int i = 0; i < CalenderID.length; i++){
 		updateTblCalender = database.send("UPDATE tblCalender SET RoomType=" + booking.getRoomTypes().get(i) + " DateFrom=" + booking.getFromDate() 
 					+ "DateTo=" + booking.getToDate() + "WHERE CalenderID=" + CalenderID[i] + ";" );
-			if(!updateTbleupdate){
+			if(!updateTblCalender){
 				i = CalenderID.length;
 			}
 		}
