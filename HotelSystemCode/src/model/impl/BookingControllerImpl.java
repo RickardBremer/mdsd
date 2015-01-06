@@ -422,7 +422,7 @@ public class BookingControllerImpl extends MinimalEObjectImpl.Container implemen
 						if (p != null) {
 							if (p.getRoomType().equals(type)) {
 								Expense pe = new ExpenseImpl();
-								pe.Expense(-1, "Promotion Discount", new Date(), p.getDescription(), -(e.getPrice() / p.getPercentage()), false);
+								pe.Expense(-1, "Promotion Discount", new Date(), p.getDescription(), -(e.getPrice() / p.getPercentage()), false, rec.getId());
 								rec.addExpense(pe);
 							}
 						}
@@ -433,7 +433,7 @@ public class BookingControllerImpl extends MinimalEObjectImpl.Container implemen
 		double total = rec.getTotalCost();
 		double fee = total * -0.1;
 		Expense ex = new ExpenseImpl();
-		ex.Expense(-1, "Booking-fee", new Date(), "" + fee, fee, false);
+		ex.Expense(-1, "Booking-fee", new Date(), "" + fee, fee, false, rec.getId());
 		ex = expenseExpert.addExpense(ex);
 		rec.addExpense(ex);
 		receiptExpert.updateReceipt(rec);

@@ -103,7 +103,7 @@ PromotionExpert {
 	public Promotion getPromotion(String promotionCode) {
 		EList<String> list = database.query("Select * from tblPromotions where Code = " + promotionCode + ";");
 		if (list != null) {
-			String[] promoCode = list.get(0).split(";");
+			String[] promoCode = list.get(0).split(";", -1);
 			Promotion promot = new PromotionImpl();
 			Calendar cal = Calendar.getInstance();
 			cal.setTimeInMillis(Long.parseLong(promoCode[4]));
@@ -127,7 +127,7 @@ PromotionExpert {
 		EList<Promotion> newProInfo = new BasicEList<Promotion>();
 		EList<String> promotionInfo = database.query("Select * from tblPromotion;");//get all the information from database
 		for(String pr : promotionInfo) {
-			String[] promoCode = pr.split(";");
+			String[] promoCode = pr.split(";", -1);
 			Promotion p = new PromotionImpl();
 			Calendar cal = Calendar.getInstance();
 			cal.setTimeInMillis(Long.parseLong(promoCode[4]));

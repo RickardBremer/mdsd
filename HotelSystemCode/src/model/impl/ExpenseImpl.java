@@ -27,6 +27,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  *   <li>{@link model.impl.ExpenseImpl#getDate <em>Date</em>}</li>
  *   <li>{@link model.impl.ExpenseImpl#getId <em>Id</em>}</li>
  *   <li>{@link model.impl.ExpenseImpl#isFixed <em>Fixed</em>}</li>
+ *   <li>{@link model.impl.ExpenseImpl#getReceiptId <em>Receipt Id</em>}</li>
  * </ul>
  * </p>
  *
@@ -143,6 +144,26 @@ public class ExpenseImpl extends MinimalEObjectImpl.Container implements
 	 * @ordered
 	 */
 	protected boolean fixed = FIXED_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getReceiptId() <em>Receipt Id</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getReceiptId()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final int RECEIPT_ID_EDEFAULT = 0;
+
+	/**
+	 * The cached value of the '{@link #getReceiptId() <em>Receipt Id</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getReceiptId()
+	 * @generated
+	 * @ordered
+	 */
+	protected int receiptId = RECEIPT_ID_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -280,25 +301,35 @@ public class ExpenseImpl extends MinimalEObjectImpl.Container implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void Expense(int id, String name, Date date, String description, double price, boolean isFixed, int receiptID) {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+	public int getReceiptId() {
+		return receiptId;
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated NOT
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
 	 */
-	public void Expense(int id, String name, Date date, String description,
-			double price, boolean isFixed) {
+	public void setReceiptId(int newReceiptId) {
+		int oldReceiptId = receiptId;
+		receiptId = newReceiptId;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.EXPENSE__RECEIPT_ID, oldReceiptId, receiptId));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void Expense(int id, String name, Date date, String description, double price, boolean isFixed, int receiptID) {
 		this.id = id;
 		this.name = name;
 		this.date = date;
 		this.description = description;
 		this.price = price;
 		this.fixed = isFixed;
+		this.receiptId = receiptID; 
 	}
 
 	/**
@@ -320,6 +351,8 @@ public class ExpenseImpl extends MinimalEObjectImpl.Container implements
 				return getId();
 			case ModelPackage.EXPENSE__FIXED:
 				return isFixed();
+			case ModelPackage.EXPENSE__RECEIPT_ID:
+				return getReceiptId();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -348,6 +381,9 @@ public class ExpenseImpl extends MinimalEObjectImpl.Container implements
 				return;
 			case ModelPackage.EXPENSE__FIXED:
 				setFixed((Boolean)newValue);
+				return;
+			case ModelPackage.EXPENSE__RECEIPT_ID:
+				setReceiptId((Integer)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -378,6 +414,9 @@ public class ExpenseImpl extends MinimalEObjectImpl.Container implements
 			case ModelPackage.EXPENSE__FIXED:
 				setFixed(FIXED_EDEFAULT);
 				return;
+			case ModelPackage.EXPENSE__RECEIPT_ID:
+				setReceiptId(RECEIPT_ID_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -401,6 +440,8 @@ public class ExpenseImpl extends MinimalEObjectImpl.Container implements
 				return id != ID_EDEFAULT;
 			case ModelPackage.EXPENSE__FIXED:
 				return fixed != FIXED_EDEFAULT;
+			case ModelPackage.EXPENSE__RECEIPT_ID:
+				return receiptId != RECEIPT_ID_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -441,6 +482,8 @@ public class ExpenseImpl extends MinimalEObjectImpl.Container implements
 		result.append(id);
 		result.append(", fixed: ");
 		result.append(fixed);
+		result.append(", receiptId: ");
+		result.append(receiptId);
 		result.append(')');
 		return result.toString();
 	}

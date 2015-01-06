@@ -481,13 +481,22 @@ public interface ModelPackage extends EPackage {
 	int EXPENSE__FIXED = 5;
 
 	/**
+	 * The feature id for the '<em><b>Receipt Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXPENSE__RECEIPT_ID = 6;
+
+	/**
 	 * The number of structural features of the '<em>Expense</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int EXPENSE_FEATURE_COUNT = 6;
+	int EXPENSE_FEATURE_COUNT = 7;
 
 	/**
 	 * The operation id for the '<em>Expense</em>' operation.
@@ -3122,6 +3131,17 @@ public interface ModelPackage extends EPackage {
 	EAttribute getExpense_Fixed();
 
 	/**
+	 * Returns the meta object for the attribute '{@link model.Expense#getReceiptId <em>Receipt Id</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Receipt Id</em>'.
+	 * @see model.Expense#getReceiptId()
+	 * @see #getExpense()
+	 * @generated
+	 */
+	EAttribute getExpense_ReceiptId();
+
+	/**
 	 * Returns the meta object for the '{@link model.Expense#Expense(int, java.lang.String, java.util.Date, java.lang.String, double, boolean, int) <em>Expense</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5126,6 +5146,14 @@ public interface ModelPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute EXPENSE__FIXED = eINSTANCE.getExpense_Fixed();
+
+		/**
+		 * The meta object literal for the '<em><b>Receipt Id</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute EXPENSE__RECEIPT_ID = eINSTANCE.getExpense_ReceiptId();
 
 		/**
 		 * The meta object literal for the '<em><b>Expense</b></em>' operation.
