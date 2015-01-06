@@ -49,6 +49,7 @@
       <eParameters name="price" ordered="false" lowerBound="1" eType="#//Expense"/>
       <eParameters name="beds" ordered="false" lowerBound="1" eType="ecore:EDataType types.ecore#//Integer"/>
       <eParameters name="status" ordered="false" lowerBound="1" eType="ecore:EDataType types.ecore#//String"/>
+      <eParameters name="receipt" ordered="false" lowerBound="1" eType="#//Receipt"/>
     </eOperations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="price" ordered="false"
         lowerBound="1" eType="#//Expense"/>

@@ -92,6 +92,7 @@
         <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="model.ecore#//Room/Room/price"/>
         <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="model.ecore#//Room/Room/beds"/>
         <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="model.ecore#//Room/Room/status"/>
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="model.ecore#//Room/Room/receipt"/>
       </genOperations>
     </genClasses>
     <genClasses xsi:type="genmodel:GenClass" ecoreClass="model.ecore#//Expense">

@@ -3,13 +3,14 @@
 package model.impl;
 
 import java.lang.reflect.InvocationTargetException;
-import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
 import model.DatabaseInterface;
 import model.Expense;
 import model.ExpenseExpert;
 import model.ModelPackage;
+import model.Receipt;
+import model.ReceiptExpert;
 import model.Resident;
 import model.Room;
 import model.RoomExpert;
@@ -113,11 +114,19 @@ public class RoomExpertImpl extends MinimalEObjectImpl.Container implements Room
 		if (queryResult != null) {
 			for (String rowFull : queryResult) {
 				String[] row = rowFull.split(";", -1);
+				String receiptID = database.query("SELECT tblStays.ReceiptID FROM tblRooms LEFT JOIN tblStays ON "
+				 		+ "tblRooms.RoomNumber=tblStays.RoomID WHERE RoomNumber=" + row[0] + " ORDER BY tblStays.StayID DESC LIMIT 0,1").get(0).split(";", -1)[0];
 				Room room = new RoomImpl();
 				ExpenseExpert ee = new ExpenseExpertImpl();
 				ee.ExpenseExpert(database);
 				Expense price = ee.getExpense(Integer.parseInt(row[3]));
-				room.Room(Integer.parseInt(row[0]), row[1], row[2], price, Integer.parseInt(row[4]), row[5]);
+				ReceiptExpert re = new ReceiptExpertImpl();
+				re.ReceiptExpert(database);
+				Receipt receipt = re.getReceipt(Integer.parseInt(receiptID));
+				if (receipt == null) {
+					receipt = new ReceiptImpl();
+				}
+				room.Room(Integer.parseInt(row[0]), row[1], row[2], price, Integer.parseInt(row[4]), row[5], receipt);
 				//Get the residents if there is someone occupying the room at the moment
 				if (room.getStatus().equals("occupied")) {
 					EList<String> queryResult2 = database.query("SELECT tblResidents.IDNumber, tblResidents.FirstName, tblResidents.LastName FROM tblStays "
@@ -184,7 +193,7 @@ public class RoomExpertImpl extends MinimalEObjectImpl.Container implements Room
 					ExpenseExpert ee = new ExpenseExpertImpl();
 					ee.ExpenseExpert(database);
 					Expense price = ee.getExpense(Integer.parseInt(roomSpec[7]));
-					room.Room(Integer.parseInt(roomSpec[0]), roomSpec[1], roomSpec[2], price, Integer.parseInt(roomSpec[4]), roomSpec[5]);
+					room.Room(Integer.parseInt(roomSpec[0]), roomSpec[1], roomSpec[2], price, Integer.parseInt(roomSpec[4]), roomSpec[5], new ReceiptImpl());
 					availableTypes.add(room);
 				}
 			}
@@ -208,7 +217,7 @@ public class RoomExpertImpl extends MinimalEObjectImpl.Container implements Room
 				ExpenseExpert ee = new ExpenseExpertImpl();
 				ee.ExpenseExpert(database);
 				Expense price = ee.getExpense(Integer.parseInt(roomSpec[7]));
-				room.Room(Integer.parseInt(roomSpec[0]), roomSpec[1], roomSpec[2], price, Integer.parseInt(roomSpec[4]), roomSpec[5]);
+				room.Room(Integer.parseInt(roomSpec[0]), roomSpec[1], roomSpec[2], price, Integer.parseInt(roomSpec[4]), roomSpec[5], new ReceiptImpl());
 				result.add(room);
 			}
 		}
@@ -271,14 +280,18 @@ public class RoomExpertImpl extends MinimalEObjectImpl.Container implements Room
 	public Room getRoom(int roomNumber) {
 		 Room result = null;
 		 
-		 EList<String> queryResult = database.query("SELECT * FROM tblRooms WHERE RoomNumber=" + roomNumber + " LIMIT 0,1");
+		 EList<String> queryResult = database.query("SELECT RoomNumber, RoomDescription, Maintenance, RoomIsClean, RoomType, Status, Beds, ExpenseID, tblStays.ReceiptID FROM tblRooms LEFT JOIN tblStays ON "
+		 		+ "tblRooms.RoomNumber=tblStays.RoomID WHERE RoomNumber=" + roomNumber + " ORDER BY tblStays.StayID DESC LIMIT 0,1");
 		 if (queryResult != null) {
 			 result = new RoomImpl();
 			 String[] roomSpec = queryResult.get(0).split(";", -1);
 			 ExpenseExpert ee = new ExpenseExpertImpl();
 			 ee.ExpenseExpert(database);
 			 Expense price = ee.getExpense(Integer.parseInt(roomSpec[7]));
-			 result.Room(Integer.parseInt(roomSpec[0]), roomSpec[1], roomSpec[2], price, Integer.parseInt(roomSpec[4]), roomSpec[5]);
+			 ReceiptExpert re = new ReceiptExpertImpl();
+			 re.ReceiptExpert(database);
+			 Receipt receipt = re.getReceipt(Integer.parseInt(roomSpec[8]));
+			 result.Room(Integer.parseInt(roomSpec[0]), roomSpec[1], roomSpec[2], price, Integer.parseInt(roomSpec[4]), roomSpec[5], receipt);
 		 }
 		 return result;
 	}

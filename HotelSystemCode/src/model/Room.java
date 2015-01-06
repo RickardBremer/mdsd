@@ -258,9 +258,9 @@ public interface Room extends EObject {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model numberDataType="org.eclipse.uml2.types.Integer" numberRequired="true" numberOrdered="false" descriptionDataType="org.eclipse.uml2.types.String" descriptionRequired="true" descriptionOrdered="false" typeDataType="org.eclipse.uml2.types.String" typeRequired="true" typeOrdered="false" priceRequired="true" priceOrdered="false" bedsDataType="org.eclipse.uml2.types.Integer" bedsRequired="true" bedsOrdered="false" statusDataType="org.eclipse.uml2.types.String" statusRequired="true" statusOrdered="false"
+	 * @model numberDataType="org.eclipse.uml2.types.Integer" numberRequired="true" numberOrdered="false" descriptionDataType="org.eclipse.uml2.types.String" descriptionRequired="true" descriptionOrdered="false" typeDataType="org.eclipse.uml2.types.String" typeRequired="true" typeOrdered="false" priceRequired="true" priceOrdered="false" bedsDataType="org.eclipse.uml2.types.Integer" bedsRequired="true" bedsOrdered="false" statusDataType="org.eclipse.uml2.types.String" statusRequired="true" statusOrdered="false" receiptRequired="true" receiptOrdered="false"
 	 * @generated
 	 */
-	void Room(int number, String description, String type, Expense price, int beds, String status);
+	void Room(int number, String description, String type, Expense price, int beds, String status, Receipt receipt);
 
 } // Room

@@ -405,7 +405,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ROOM___ROOM__INT_STRING_STRING_EXPENSE_INT_STRING = 0;
+	int ROOM___ROOM__INT_STRING_STRING_EXPENSE_INT_STRING_RECEIPT = 0;
 
 	/**
 	 * The number of operations of the '<em>Room</em>' class.
@@ -3045,14 +3045,14 @@ public interface ModelPackage extends EPackage {
 	EAttribute getRoom_Status();
 
 	/**
-	 * Returns the meta object for the '{@link model.Room#Room(int, java.lang.String, java.lang.String, model.Expense, int, java.lang.String) <em>Room</em>}' operation.
+	 * Returns the meta object for the '{@link model.Room#Room(int, java.lang.String, java.lang.String, model.Expense, int, java.lang.String, model.Receipt) <em>Room</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Room</em>' operation.
-	 * @see model.Room#Room(int, java.lang.String, java.lang.String, model.Expense, int, java.lang.String)
+	 * @see model.Room#Room(int, java.lang.String, java.lang.String, model.Expense, int, java.lang.String, model.Receipt)
 	 * @generated
 	 */
-	EOperation getRoom__Room__int_String_String_Expense_int_String();
+	EOperation getRoom__Room__int_String_String_Expense_int_String_Receipt();
 
 	/**
 	 * Returns the meta object for class '{@link model.Expense <em>Expense</em>}'.
@@ -5087,7 +5087,7 @@ public interface ModelPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation ROOM___ROOM__INT_STRING_STRING_EXPENSE_INT_STRING = eINSTANCE.getRoom__Room__int_String_String_Expense_int_String();
+		EOperation ROOM___ROOM__INT_STRING_STRING_EXPENSE_INT_STRING_RECEIPT = eINSTANCE.getRoom__Room__int_String_String_Expense_int_String_Receipt();
 
 		/**
 		 * The meta object literal for the '{@link model.impl.ExpenseImpl <em>Expense</em>}' class.

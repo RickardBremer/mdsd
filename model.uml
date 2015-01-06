@@ -374,6 +374,7 @@
         <ownedParameter xmi:type="uml:Parameter" xmi:id="_KS9ysJS-EeSK-7NQpyjlhQ" name="status">
           <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
         </ownedParameter>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_ynegAJXJEeSvmq6oBh6iww" name="receipt" type="_6dx-kIB4EeSIi9xXvYIBqQ"/>
       </ownedOperation>
     </packagedElement>
     <packagedElement xmi:type="uml:Class" xmi:id="_3KJDkIB4EeSIi9xXvYIBqQ" name="Booking">

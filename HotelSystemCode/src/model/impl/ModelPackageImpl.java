@@ -529,7 +529,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getRoom__Room__int_String_String_Expense_int_String() {
+	public EOperation getRoom__Room__int_String_String_Expense_int_String_Receipt() {
 		return roomEClass.getEOperations().get(0);
 	}
 
@@ -2165,7 +2165,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		createEReference(roomEClass, ROOM__RECEIPT);
 		createEReference(roomEClass, ROOM__RESIDENTS);
 		createEAttribute(roomEClass, ROOM__STATUS);
-		createEOperation(roomEClass, ROOM___ROOM__INT_STRING_STRING_EXPENSE_INT_STRING);
+		createEOperation(roomEClass, ROOM___ROOM__INT_STRING_STRING_EXPENSE_INT_STRING_RECEIPT);
 
 		expenseEClass = createEClass(EXPENSE);
 		createEAttribute(expenseEClass, EXPENSE__PRICE);
@@ -2460,13 +2460,14 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		initEReference(getRoom_Residents(), this.getResident(), null, "residents", null, 0, -1, Room.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEAttribute(getRoom_Status(), theTypesPackage.getString(), "status", null, 1, 1, Room.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
-		op = initEOperation(getRoom__Room__int_String_String_Expense_int_String(), null, "Room", 1, 1, IS_UNIQUE, !IS_ORDERED);
+		op = initEOperation(getRoom__Room__int_String_String_Expense_int_String_Receipt(), null, "Room", 1, 1, IS_UNIQUE, !IS_ORDERED);
 		addEParameter(op, theTypesPackage.getInteger(), "number", 1, 1, IS_UNIQUE, !IS_ORDERED);
 		addEParameter(op, theTypesPackage.getString(), "description", 1, 1, IS_UNIQUE, !IS_ORDERED);
 		addEParameter(op, theTypesPackage.getString(), "type", 1, 1, IS_UNIQUE, !IS_ORDERED);
 		addEParameter(op, this.getExpense(), "price", 1, 1, IS_UNIQUE, !IS_ORDERED);
 		addEParameter(op, theTypesPackage.getInteger(), "beds", 1, 1, IS_UNIQUE, !IS_ORDERED);
 		addEParameter(op, theTypesPackage.getString(), "status", 1, 1, IS_UNIQUE, !IS_ORDERED);
+		addEParameter(op, this.getReceipt(), "receipt", 1, 1, IS_UNIQUE, !IS_ORDERED);
 
 		initEClass(expenseEClass, Expense.class, "Expense", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getExpense_Price(), ecorePackage.getEDouble(), "price", null, 1, 1, Expense.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
