@@ -3,7 +3,6 @@
 package model.impl;
 
 import java.lang.reflect.InvocationTargetException;
-import java.util.Calendar;
 import java.util.Collection;
 import java.util.Date;
 
@@ -13,7 +12,6 @@ import model.ModelPackage;
 import model.Receipt;
 
 import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
@@ -207,25 +205,18 @@ public class ReceiptImpl extends MinimalEObjectImpl.Container implements Receipt
 	 * @generated
 	 */
 	public boolean addExpense(Expense expense) {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		//Calculate TotalCost!!!!! ******************
-		//throw new UnsupportedOperationException();
 		//double total = 0;
 		ExpenseExpert e = new ExpenseExpertImpl();
+		e.ExpenseExpert(new MSAccessDBImpl());
 		boolean added = false;
 		if (expense != null){
-			expenses.add(expense);
-			
+			expenses.add(expense);			
 			e.addExpense(expense);
 			totalCost =+ expense.getPrice();
 			added = true;
 		} else{
 			added = false;
-		}
-		
-	
-		
+		}		
 		return added;
 	}
 
@@ -235,9 +226,6 @@ public class ReceiptImpl extends MinimalEObjectImpl.Container implements Receipt
 	 * @generated NOT
 	 */
 	public boolean removeExpense(Expense expense) {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		//throw new UnsupportedOperationException();
 		boolean removed = false;
 		if (expense != null){
 			for (int i = 0; i < expenses.size(); i++){
@@ -272,9 +260,6 @@ public class ReceiptImpl extends MinimalEObjectImpl.Container implements Receipt
 	 * @generated NOT
 	 */
 	public void Receipt(int id, Date date, EList<Expense> expenses) {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		//throw new UnsupportedOperationException();
 		this.id = id;
 		this.date = date;
 		this.expenses = expenses;

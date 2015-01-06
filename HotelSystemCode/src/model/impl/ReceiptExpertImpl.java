@@ -9,6 +9,7 @@ import java.util.Date;
 import model.Booking;
 import model.DatabaseInterface;
 import model.Expense;
+import model.ExpenseExpert;
 import model.ModelPackage;
 import model.Receipt;
 import model.ReceiptExpert;
@@ -109,39 +110,24 @@ public class ReceiptExpertImpl extends MinimalEObjectImpl.Container implements R
 	 * @generated NOT
 	 */
 	public Receipt getReceipt(int ID) {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		//throw new UnsupportedOperationException();
+		ExpenseExpert eExpert = new ExpenseExpertImpl(); 
+		eExpert.ExpenseExpert(database);
 		EList<String> result =  database.query("SELECT * FROM tlbReceipts WHERE ReceiptID = " + ID);
-		EList<String> expenses = database.query("SELECT * FROM tblExpenses WHERE ReceiptID = " + ID);
-		EList<Expense> mylist = new BasicEList<Expense>();
-		Calendar date = Calendar.getInstance();
-		Receipt r1 = new ReceiptImpl();
-		Expense ex = new ExpenseImpl();
-		
-		if (result != null){
-			for (String exp : expenses){
-				String[] arr = exp.split(";");
-				date.setTimeInMillis(Long.parseLong(arr[2]));
-				ex.Expense(Integer.parseInt(arr[0]), arr[1],
-						date.getTime(), arr[3], Double.parseDouble(arr[4]), 
-						Boolean.parseBoolean(arr[5]));
-				mylist.add(ex);
-				
-			}
+		if(result != null){
+			EList<Expense> expenses = eExpert.getAllExpense(ID); 
+			Calendar date = Calendar.getInstance();
+			Receipt r1 = new ReceiptImpl();
+			Expense ex = new ExpenseImpl();
 
 			for (String e: result){
-				String[] s = e.split(";");
+				String[] s = e.split(";", -1);
 				date.setTimeInMillis(Long.parseLong(s[3]));
-				r1.Receipt(Integer.parseInt(s[0]), date.getTime(), mylist );
+				r1.Receipt(Integer.parseInt(s[0]), date.getTime(), expenses);
 			}
 			
 			return r1;
-		//throw new UnsupportedOperationException();
-		}else{
-			return null;
 		}
-		// What about TotalCost??
+		return null; 
 	}
 
 	/**
@@ -150,9 +136,7 @@ public class ReceiptExpertImpl extends MinimalEObjectImpl.Container implements R
 	 * @generated NOT
 	 */
 	public Receipt getReceipt(Booking booking) {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		//throw new UnsupportedOperationException();
+		//getReceipt(booking.getReceipt().getId());
 		EList<String> rp = database.query("SELECT * FROM tblReceipts WHERE ReceiptID = "
 				+ "(SELECT ReceiptID FROM tlbBooking WHERE BookingID = " + booking.getId());
 		EList<String> expenses = database.query("SELECT * FROM tblExpenses WHERE ReceiptID = " + booking.getReceipt().getId());
@@ -167,7 +151,7 @@ public class ReceiptExpertImpl extends MinimalEObjectImpl.Container implements R
 				date.setTimeInMillis(Long.parseLong(arr[2]));
 				ex.Expense(Integer.parseInt(arr[0]), arr[1],
 						date.getTime(), arr[3], Double.parseDouble(arr[4]), 
-						Boolean.parseBoolean(arr[5]));
+						Boolean.parseBoolean(arr[5]), 0);
 				mylist.add(ex);
 				
 			}
@@ -209,7 +193,7 @@ public class ReceiptExpertImpl extends MinimalEObjectImpl.Container implements R
 				date.setTimeInMillis(Long.parseLong(arr[2]));
 				ex.Expense(Integer.parseInt(arr[0]), arr[1],
 						date.getTime(), arr[3], Double.parseDouble(arr[4]), 
-						Boolean.parseBoolean(arr[5]));
+						Boolean.parseBoolean(arr[5]), 0);
 				mylist.add(ex);
 				
 			}
@@ -233,34 +217,24 @@ public class ReceiptExpertImpl extends MinimalEObjectImpl.Container implements R
 	 * @generated NOT
 	 */
 	public EList<Receipt> getAllReceipt() {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		//throw new UnsupportedOperationException();
 		EList<String> receipt = database.query("SELECT * FROM tblReceipts");
-		EList<Receipt> mylist = new BasicEList<Receipt>();
-		EList<Expense> mylistEx = new BasicEList<Expense>();
-		Calendar date = Calendar.getInstance();
-		for(String r : receipt){
-			String[] s = r.split(";");
-			EList<String> expenses = database.query("SELECT * FROM tblExpenses WHERE ReceiptID = " + s[0]);
-			for(String e: expenses){
-				String[] a = e.split(";");
-				Expense exp = new ExpenseImpl();
-				date.setTimeInMillis(Long.parseLong(a[2]));
-				exp.Expense(Integer.parseInt(a[0]), a[1], date.getTime(), a[3], Double.parseDouble(a[5]), Boolean.parseBoolean(a[6]));
-				mylistEx.add(exp);
+		if(receipt != null){
+			ExpenseExpert eExpert = new ExpenseExpertImpl();
+			eExpert.ExpenseExpert(database);
+			EList<Receipt> mylist = new BasicEList<Receipt>();
+			Calendar date = Calendar.getInstance();
+			for(String r : receipt){
+				String[] s = r.split(";", -1);
+				EList<Expense> expenses = eExpert.getAllExpense(Integer.parseInt(s[0])); 
+				Receipt rp = new ReceiptImpl();
+				date.setTimeInMillis(Long.parseLong(s[3]));
+				rp.Receipt(Integer.parseInt(s[0]), date.getTime(), expenses);
+				mylist.add(rp);
 			}
 			
-			Receipt rp = new ReceiptImpl();
-			date.setTimeInMillis(Long.parseLong(s[3]));
-			rp.Receipt(Integer.parseInt(s[0]), date.getTime(), mylistEx);
-			mylist.add(rp);
+			return mylist;
 		}
-		
-		
-		
-		//throw new UnsupportedOperationException();
-		return mylist;
+		return null; 
 	}
 
 	/**
@@ -269,9 +243,6 @@ public class ReceiptExpertImpl extends MinimalEObjectImpl.Container implements R
 	 * @generated NOT
 	 */
 	public Receipt combine(EList<Receipt> receiptList) {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		//throw new UnsupportedOperationException();
 		// id, Date date, EList<Expense> expenses
 		Receipt r = new ReceiptImpl();
 		EList<Expense> exp = new BasicEList<Expense>();
@@ -296,16 +267,13 @@ public class ReceiptExpertImpl extends MinimalEObjectImpl.Container implements R
 	 * @generated NOT
 	 */
 	public Receipt addReceipt(Receipt receipt) {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		//throw new UnsupportedOperationException();
 		Receipt r = receipt;
 		
 		database.send("INSERT INTO tblReceipts (ReceiptID, ReceiptDescription, "
 					+ "TotalCost, ReceiptDate)  VALUES (" + r.getId() + ", " + 
 					r.getExpenses() + ", " + r.getTotalCost() + ", " + 
 					r.getDate());
-		 
+		 r.setId(Integer.parseInt(database.query("SELECT max(ReceiptID) FROM tblReceipt").get(0)));
 		 
 		return r;
 	}
@@ -316,10 +284,6 @@ public class ReceiptExpertImpl extends MinimalEObjectImpl.Container implements R
 	 * @generated NOT
 	 */
 	public boolean removeReceipt(Receipt receipt) {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		//throw new UnsupportedOperationException();
-	 
 		return database.send("DELETE * FROM tblReceipts WHERE ReceiptID = " 
 				+ receipt.getId());
 	}
@@ -330,15 +294,9 @@ public class ReceiptExpertImpl extends MinimalEObjectImpl.Container implements R
 	 * @generated NOT
 	 */
 	public boolean updateReceipt(Receipt receipt) {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		
 		return database.send("UPDATE tblReceipts WHERE ReceiptID = " + receipt.getId() + 
 				"SET ReceiptDescription = " + receipt.getExpenses() + "TotalCost = " +
-				receipt.getTotalCost() + "ReceiptDate" + receipt.getDate());
-		//throw new UnsupportedOperationException();
-		
-		
+				receipt.getTotalCost() + "ReceiptDate" + receipt.getDate());	
 	}
 
 	/**
@@ -347,9 +305,6 @@ public class ReceiptExpertImpl extends MinimalEObjectImpl.Container implements R
 	 * @generated NOT
 	 */
 	public void ReceiptExpert(DatabaseInterface database) {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		//throw new UnsupportedOperationException();
 		this.database = database; 
 	}
 
