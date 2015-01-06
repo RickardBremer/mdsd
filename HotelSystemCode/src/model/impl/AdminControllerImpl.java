@@ -252,12 +252,14 @@ public class AdminControllerImpl extends MinimalEObjectImpl.Container implements
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public boolean login(String name, String password) {
-		// TODO: implement this method
+		// Rickard
 		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		
+		return userExpert.login(name, password);
+		
 	}
 
 	/**
@@ -265,10 +267,12 @@ public class AdminControllerImpl extends MinimalEObjectImpl.Container implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	
 	public Room createRoom(Room room) {
-		// TODO: implement this method
+		// Rickard
 		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		
+		return Room;
 	}
 
 	/**
@@ -277,9 +281,10 @@ public class AdminControllerImpl extends MinimalEObjectImpl.Container implements
 	 * @generated
 	 */
 	public boolean removeRoom(Room room) {
-		// TODO: implement this method
+		// Rickard
 		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		RoomExpertImpl r = new RoomExpertImpl();
+		return r.removeRoom(room);
 	}
 
 	/**
@@ -288,9 +293,11 @@ public class AdminControllerImpl extends MinimalEObjectImpl.Container implements
 	 * @generated
 	 */
 	public boolean updateRoom(Room room) {
-		// TODO: implement this method
+		// Rickard
 		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		
+		RoomExpertImpl r = new RoomExpertImpl();
+		return r.updateRoom(room);
 	}
 
 	/**
@@ -299,7 +306,7 @@ public class AdminControllerImpl extends MinimalEObjectImpl.Container implements
 	 * @generated
 	 */
 	public User createUser(User user) {
-		// TODO: implement this method
+		// 
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();
 	}
@@ -307,23 +314,26 @@ public class AdminControllerImpl extends MinimalEObjectImpl.Container implements
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public boolean removeUser(User user) {
-		// TODO: implement this method
+		// Rickard
 		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+	
+		return userExpert.removeUser(user.getId());
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
+	
 	public boolean updateUser(User user) {
-		// TODO: implement this method
+		// Rickard
 		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		
+		return userExpert.updateUser(user);
 	}
 
 	/**
@@ -340,12 +350,12 @@ public class AdminControllerImpl extends MinimalEObjectImpl.Container implements
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public boolean removePromotion(Promotion promotion) {
-		// TODO: implement this method
+		// Rickard
 		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		return promoExpert.removePromotion(promotion.getCode());
 	}
 
 	/**
@@ -354,9 +364,9 @@ public class AdminControllerImpl extends MinimalEObjectImpl.Container implements
 	 * @generated
 	 */
 	public boolean updatePromotion(Promotion promotion) {
-		// TODO: implement this method
+		// Rickard
 		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		return promoExpert.updatePromotion(promotion);
 	}
 
 	/**
@@ -373,23 +383,23 @@ public class AdminControllerImpl extends MinimalEObjectImpl.Container implements
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public boolean removeExpense(Expense expense) {
-		// TODO: implement this method
+		// Rickard
 		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		return expenseExpert.removeExpense(expense.getId());
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public boolean updateExpense(Expense expense) {
-		// TODO: implement this method
+		// Rickard
 		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		return expenseExpert.updateExpense(expense);
 	}
 
 	/**
@@ -442,16 +452,17 @@ public class AdminControllerImpl extends MinimalEObjectImpl.Container implements
 	 * @generated
 	 */
 	public void AdminController(RoomExpert roomExpert, ExpenseExpert expenseExpert, UserExpert userExpert, PromotionExpert promotionExpert) {
-		// TODO: implement this method
+		// 
 		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		// throw new UnsupportedOperationException();
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
+
 	public void AdminController(ExpenseExpert expenseExpert, PromotionExpert promotionExpert, UserExpert userExpert, RoomExpert roomExpert) {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
