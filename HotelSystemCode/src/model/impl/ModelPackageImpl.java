@@ -1501,7 +1501,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getExpenseExpert__AddExpense__Expense() {
+	public EOperation getExpenseExpert__GetAllExpense__int() {
 		return expenseExpertEClass.getEOperations().get(2);
 	}
 
@@ -1510,7 +1510,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getExpenseExpert__RemoveExpense__int() {
+	public EOperation getExpenseExpert__AddExpense__Expense() {
 		return expenseExpertEClass.getEOperations().get(3);
 	}
 
@@ -1519,7 +1519,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getExpenseExpert__UpdateExpense__Expense() {
+	public EOperation getExpenseExpert__RemoveExpense__int() {
 		return expenseExpertEClass.getEOperations().get(4);
 	}
 
@@ -1528,8 +1528,17 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getExpenseExpert__ExpenseExpert__DatabaseInterface() {
+	public EOperation getExpenseExpert__UpdateExpense__Expense() {
 		return expenseExpertEClass.getEOperations().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getExpenseExpert__ExpenseExpert__DatabaseInterface() {
+		return expenseExpertEClass.getEOperations().get(6);
 	}
 
 	/**
@@ -2267,6 +2276,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		createEReference(expenseExpertEClass, EXPENSE_EXPERT__DATABASE);
 		createEOperation(expenseExpertEClass, EXPENSE_EXPERT___GET_EXPENSE__INT);
 		createEOperation(expenseExpertEClass, EXPENSE_EXPERT___GET_ALL_EXPENSE);
+		createEOperation(expenseExpertEClass, EXPENSE_EXPERT___GET_ALL_EXPENSE__INT);
 		createEOperation(expenseExpertEClass, EXPENSE_EXPERT___ADD_EXPENSE__EXPENSE);
 		createEOperation(expenseExpertEClass, EXPENSE_EXPERT___REMOVE_EXPENSE__INT);
 		createEOperation(expenseExpertEClass, EXPENSE_EXPERT___UPDATE_EXPENSE__EXPENSE);
@@ -2702,6 +2712,9 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		addEParameter(op, theTypesPackage.getInteger(), "ID", 1, 1, IS_UNIQUE, !IS_ORDERED);
 
 		initEOperation(getExpenseExpert__GetAllExpense(), this.getExpense(), "getAllExpense", 0, -1, IS_UNIQUE, !IS_ORDERED);
+
+		op = initEOperation(getExpenseExpert__GetAllExpense__int(), this.getExpense(), "getAllExpense", 0, -1, IS_UNIQUE, !IS_ORDERED);
+		addEParameter(op, ecorePackage.getEInt(), "receiptID", 1, 1, IS_UNIQUE, !IS_ORDERED);
 
 		op = initEOperation(getExpenseExpert__AddExpense__Expense(), this.getExpense(), "addExpense", 1, 1, IS_UNIQUE, !IS_ORDERED);
 		addEParameter(op, this.getExpense(), "expense", 1, 1, IS_UNIQUE, !IS_ORDERED);

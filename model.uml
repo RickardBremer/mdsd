@@ -775,6 +775,15 @@
           <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_OWa9kId3EeSzUtUd_ZlEnQ" value="*"/>
         </ownedParameter>
       </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_gMroYJW4EeSvmq6oBh6iww" name="getAllExpense" visibility="protected">
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_gMroYZW4EeSvmq6oBh6iww" name="receiptID">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+        </ownedParameter>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_gMroYpW4EeSvmq6oBh6iww" name="returnValue" type="_8x26AIB4EeSIi9xXvYIBqQ" direction="return">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_kvo2MJW4EeSvmq6oBh6iww"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_kvqEUJW4EeSvmq6oBh6iww" value="*"/>
+        </ownedParameter>
+      </ownedOperation>
       <ownedOperation xmi:type="uml:Operation" xmi:id="_WOa7EIX3EeSSWPBCkg2FMw" name="addExpense" visibility="protected">
         <ownedParameter xmi:type="uml:Parameter" xmi:id="_R6Re0Id3EeSzUtUd_ZlEnQ" name="expense" type="_8x26AIB4EeSIi9xXvYIBqQ"/>
         <ownedParameter xmi:type="uml:Parameter" xmi:id="_TrouwId3EeSzUtUd_ZlEnQ" type="_8x26AIB4EeSIi9xXvYIBqQ" direction="return"/>

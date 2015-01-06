@@ -345,6 +345,9 @@
         <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="model.ecore#//ExpenseExpert/getExpense/ID"/>
       </genOperations>
       <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="model.ecore#//ExpenseExpert/getAllExpense"/>
+      <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="model.ecore#//ExpenseExpert/getAllExpense.1">
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="model.ecore#//ExpenseExpert/getAllExpense.1/receiptID"/>
+      </genOperations>
       <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="model.ecore#//ExpenseExpert/addExpense">
         <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="model.ecore#//ExpenseExpert/addExpense/expense"/>
       </genOperations>

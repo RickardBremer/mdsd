@@ -68,6 +68,14 @@ public interface ExpenseExpert extends EObject {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @model ordered="false" receiptIDRequired="true" receiptIDOrdered="false"
+	 * @generated
+	 */
+	EList<Expense> getAllExpense(int receiptID);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @model required="true" ordered="false" expenseRequired="true" expenseOrdered="false"
 	 * @generated
 	 */

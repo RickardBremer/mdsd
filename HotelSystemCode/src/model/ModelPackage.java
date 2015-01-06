@@ -1599,13 +1599,22 @@ public interface ModelPackage extends EPackage {
 	int EXPENSE_EXPERT___GET_ALL_EXPENSE = 1;
 
 	/**
+	 * The operation id for the '<em>Get All Expense</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXPENSE_EXPERT___GET_ALL_EXPENSE__INT = 2;
+
+	/**
 	 * The operation id for the '<em>Add Expense</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int EXPENSE_EXPERT___ADD_EXPENSE__EXPENSE = 2;
+	int EXPENSE_EXPERT___ADD_EXPENSE__EXPENSE = 3;
 
 	/**
 	 * The operation id for the '<em>Remove Expense</em>' operation.
@@ -1614,7 +1623,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EXPENSE_EXPERT___REMOVE_EXPENSE__INT = 3;
+	int EXPENSE_EXPERT___REMOVE_EXPENSE__INT = 4;
 
 	/**
 	 * The operation id for the '<em>Update Expense</em>' operation.
@@ -1623,7 +1632,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EXPENSE_EXPERT___UPDATE_EXPENSE__EXPENSE = 4;
+	int EXPENSE_EXPERT___UPDATE_EXPENSE__EXPENSE = 5;
 
 	/**
 	 * The operation id for the '<em>Expense Expert</em>' operation.
@@ -1632,7 +1641,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EXPENSE_EXPERT___EXPENSE_EXPERT__DATABASEINTERFACE = 5;
+	int EXPENSE_EXPERT___EXPENSE_EXPERT__DATABASEINTERFACE = 6;
 
 	/**
 	 * The number of operations of the '<em>Expense Expert</em>' class.
@@ -1641,7 +1650,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EXPENSE_EXPERT_OPERATION_COUNT = 6;
+	int EXPENSE_EXPERT_OPERATION_COUNT = 7;
 
 	/**
 	 * The meta object id for the '{@link model.impl.UserExpertImpl <em>User Expert</em>}' class.
@@ -4153,6 +4162,16 @@ public interface ModelPackage extends EPackage {
 	EOperation getExpenseExpert__GetAllExpense();
 
 	/**
+	 * Returns the meta object for the '{@link model.ExpenseExpert#getAllExpense(int) <em>Get All Expense</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get All Expense</em>' operation.
+	 * @see model.ExpenseExpert#getAllExpense(int)
+	 * @generated
+	 */
+	EOperation getExpenseExpert__GetAllExpense__int();
+
+	/**
 	 * Returns the meta object for the '{@link model.ExpenseExpert#addExpense(model.Expense) <em>Add Expense</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5929,6 +5948,14 @@ public interface ModelPackage extends EPackage {
 		 * @generated
 		 */
 		EOperation EXPENSE_EXPERT___GET_ALL_EXPENSE = eINSTANCE.getExpenseExpert__GetAllExpense();
+
+		/**
+		 * The meta object literal for the '<em><b>Get All Expense</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation EXPENSE_EXPERT___GET_ALL_EXPENSE__INT = eINSTANCE.getExpenseExpert__GetAllExpense__int();
 
 		/**
 		 * The meta object literal for the '<em><b>Add Expense</b></em>' operation.
