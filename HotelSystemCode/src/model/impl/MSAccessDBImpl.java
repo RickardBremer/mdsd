@@ -54,7 +54,7 @@ public class MSAccessDBImpl extends MinimalEObjectImpl.Container implements MSAc
 		// Ensure that you remove @generated or mark it @generated NOT
 		Connection conn = null;
 		Statement s = null;
-		String url = "jdbc:ucanaccess://C:\\Access\\HotelBooking.accdb";
+		String url = "jdbc:ucanaccess://Database/HotelBooking.accdb";
 		EList<String> results = new BasicEList<String>();
 		String result = "";
 		try{
@@ -110,7 +110,7 @@ public class MSAccessDBImpl extends MinimalEObjectImpl.Container implements MSAc
 		boolean dbResult = false;
 		Connection conn = null;
 		Statement s = null;
-		String url = "jdbc:ucanaccess://C:\\Access\\HotelBooking.accdb";
+		String url = "jdbc:ucanaccess://Database/HotelBooking.accdb";
 		boolean receiptResult;
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
