@@ -4,12 +4,16 @@ package model.impl;
 
 import java.lang.reflect.InvocationTargetException;
 import java.util.Date;
+
 import model.Booking;
 import model.BookingExpert;
 import model.DatabaseInterface;
+import model.Expense;
 import model.ModelPackage;
 import model.Room;
+
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
@@ -105,11 +109,16 @@ public class BookingExpertImpl extends MinimalEObjectImpl.Container implements B
 	public Booking getBooking(int ID) {
 		// Rickard
 		// Ensure that you remove @generated or mark it @generated NOT
-		String[] response = database.query("SELECT 'BookingID', 'DateFrom', 'DateTo', 'ClientRequests', 'CustomerMail', 'PromotionCode' " + "FROM tblBookings WHERE BookingID =" + ID + ";").get(0);
-		String[] roomtype = database.query("SELECT 'RoomType' FROM tblStays, tblRooms, tblBookins WHERE tblBookings.BookingID = tblStays.BookingID AND tblStays.RoomID = tblRooms.RoomNumber").get(0);
-				if(response != null){
+		String[] response = database.query("SELECT 'BookingID', 'DateFrom', 'DateTo', 'ClientRequests', 'CustomerMail', 'PromotionCode' FROM tblBookings WHERE BookingID =" + ID + ";").get(0).split(";");
+		String[] roomtype = database.query("SELECT 'RoomType' FROM tblCalender, tblBookings WHERE tblBookings.BookingID = tblCalender.BookingID AND tblBookings.BookingID = " + ID  + ";").get(0).split(";");
+		String[] Customer = database.query("SELECT 'FirstName' , 'LastName' , 'Address', 'CCNumber' , 'CCV' , 'ExpiringMonth' , 'ExpiringYear' FROM tblCostumer WHERE Email = " + response[4] + ";").get(0).split(";");
+				if(response != null && roomtype != null){
+					EList<String> rooms = new BasicEList<String>();
+					for(int i = 0; i < roomtype.length; i++){
+						rooms.add(roomtype[i]);
+					}
 					Booking b = new BookingImpl();
-					b.Booking(response[0], response[1], response[2], response[3], response[4], roomtype, response[5]);
+					b.Booking(response[0], response[1], response[2], response[3], response[4], rooms, response[5]);
 					return b; 
 				}
 				return null;
@@ -161,8 +170,14 @@ public class BookingExpertImpl extends MinimalEObjectImpl.Container implements B
 	public boolean removeBooking(Booking booking) {
 		// Rickard
 		// Ensure that you remove @generated or mark it @generated NOT
-		return database.send("DELETTE FROM tblBookings Where BookingID=" + booking.getBookingID()
-				+ ";");
+		boolean removeTblBookings = database.send("DELETE FROM tblBookings Where BookingID=" + booking.getId() + ";");
+		boolean removeTblCalender = database.send("DELETE FROM tblCalender WHERE BookingID="+ booking.getId() + ";" );
+		if(removeTblBookings && removeTblCalender){
+			return true;
+		}
+		else{
+			return false;
+		}
 		//throw new UnsupportedOperationException();
 	}
 
@@ -174,10 +189,7 @@ public class BookingExpertImpl extends MinimalEObjectImpl.Container implements B
 	public boolean updateBooking(Booking booking) {
 		// Rickard
 		// Ensure that you remove @generated or mark it @generated NOT
-		return database.send("UPDATE tblBookings SET DateFrom="
-				+ booking.getFromDate() + ", DateTo='" + booking.getToDate()
-				+ "' WHERE BookingID =" + booking.getBookingID() + ";");
-		
+		return database.send("UPDATE tblBookings SET DateFrom=" + booking.getFromDate() + ", DateTo='" + booking.getToDate() + "' WHERE BookingID =" + booking.getId() + ";");
 		//throw new UnsupportedOperationException();
 	}
 
