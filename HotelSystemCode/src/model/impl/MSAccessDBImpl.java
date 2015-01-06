@@ -8,8 +8,11 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
 import java.sql.Statement;
+import java.util.ArrayList;
+
 import model.MSAccessDB;
 import model.ModelPackage;
+
 import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
@@ -58,28 +61,29 @@ public class MSAccessDBImpl extends MinimalEObjectImpl.Container implements MSAc
 		EList<String> results = new BasicEList<String>();
 		String result = "";
 		try{
+			
 			conn = DriverManager.getConnection(url);
 			s = conn.createStatement();
 			
 			ResultSet rs = s.executeQuery(query);
 			ResultSetMetaData metadata = rs.getMetaData();
 			int numberOfColumns = metadata.getColumnCount();
+			//Print columns
 			while(rs.next()){
 				result = "";
 				int i = 1;
-				
 				while(i <= numberOfColumns){
-					
+
 					if (rs.getObject(i) != null){
-						result.concat(rs.getObject(i).toString());
+						result += rs.getObject(i).toString();
 					}
-					if (i < numberOfColumns){
-						result.concat(";");
+					if(i < numberOfColumns){
+						result += ";";
 					}
 					i++;
 				}
 				results.add(result);
-			}
+			} 
 			
 			s.close();
 			conn.close();
@@ -138,13 +142,13 @@ public class MSAccessDBImpl extends MinimalEObjectImpl.Container implements MSAc
 					//Get receipt id for last record
 					EList<String> recordList = query("SELECT TOP 1 * FROM [" + targetTable + "] ORDER BY [" + targetID + "] DESC");
 					if(recordList.size() > 0){
-						String[] lastRecord = recordList.get(0).split(";");
+						String[] lastRecord = recordList.get(0).split(";", -1);
 						String recordReceipt = lastRecord[lastRecord.length-1];
 						//Check if receipt id is empty
-						if (recordReceipt == ""){
+						if (recordReceipt.toLowerCase().equals("")){
 							//Get latest receipt
 							EList<String> receiptList = query("SELECT LAST (ReceiptID) FROM tblReceipts");
-							String[] receipt = receiptList.get(0).split(";");
+							String[] receipt = receiptList.get(0).split(";",-1);
 							//Link receipt to new record
 							dbResult = (!send("UPDATE " + targetTable + " SET ReceiptID=" 
 									+ receipt[0] + " WHERE " + targetID + "=(SELECT MAX(" + targetID + ") FROM " + targetTable + ")"));
