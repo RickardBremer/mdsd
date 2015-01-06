@@ -496,7 +496,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EXPENSE___EXPENSE__INT_STRING_DATE_STRING_DOUBLE_BOOLEAN = 0;
+	int EXPENSE___EXPENSE__INT_STRING_DATE_STRING_DOUBLE_BOOLEAN_INT = 0;
 
 	/**
 	 * The number of operations of the '<em>Expense</em>' class.
@@ -3122,14 +3122,14 @@ public interface ModelPackage extends EPackage {
 	EAttribute getExpense_Fixed();
 
 	/**
-	 * Returns the meta object for the '{@link model.Expense#Expense(int, java.lang.String, java.util.Date, java.lang.String, double, boolean) <em>Expense</em>}' operation.
+	 * Returns the meta object for the '{@link model.Expense#Expense(int, java.lang.String, java.util.Date, java.lang.String, double, boolean, int) <em>Expense</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Expense</em>' operation.
-	 * @see model.Expense#Expense(int, java.lang.String, java.util.Date, java.lang.String, double, boolean)
+	 * @see model.Expense#Expense(int, java.lang.String, java.util.Date, java.lang.String, double, boolean, int)
 	 * @generated
 	 */
-	EOperation getExpense__Expense__int_String_Date_String_double_boolean();
+	EOperation getExpense__Expense__int_String_Date_String_double_boolean_int();
 
 	/**
 	 * Returns the meta object for class '{@link model.Receipt <em>Receipt</em>}'.
@@ -5133,7 +5133,7 @@ public interface ModelPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation EXPENSE___EXPENSE__INT_STRING_DATE_STRING_DOUBLE_BOOLEAN = eINSTANCE.getExpense__Expense__int_String_Date_String_double_boolean();
+		EOperation EXPENSE___EXPENSE__INT_STRING_DATE_STRING_DOUBLE_BOOLEAN_INT = eINSTANCE.getExpense__Expense__int_String_Date_String_double_boolean_int();
 
 		/**
 		 * The meta object literal for the '{@link model.impl.ReceiptImpl <em>Receipt</em>}' class.

@@ -523,6 +523,9 @@
         <ownedParameter xmi:type="uml:Parameter" xmi:id="_9A2sUJTREeSK-7NQpyjlhQ" name="isFixed">
           <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#boolean"/>
         </ownedParameter>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_fPg4sJW8EeSvmq6oBh6iww" name="receiptID">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+        </ownedParameter>
       </ownedOperation>
     </packagedElement>
     <packagedElement xmi:type="uml:Class" xmi:id="_DfTCYIB5EeSIi9xXvYIBqQ" name="Promotion">
@@ -1128,7 +1131,7 @@
       </ownedEnd>
     </packagedElement>
     <packagedElement xmi:type="uml:InterfaceRealization" xmi:id="_6aYkoIHeEeSvj9UCIohxDw" name="Realization4" client="_xZTZcH4fEeSissZ6Et6fRA" supplier="_x4FxwH4gEeSissZ6Et6fRA" contract="_x4FxwH4gEeSissZ6Et6fRA"/>
-    <packagedElement xmi:type="uml:Association" xmi:id="_FfsOkIXkEeSa4Ps4qtz0aQ" memberEnd="_FfsOkYXkEeSa4Ps4qtz0aQ _FfrAcIXkEeSa4Ps4qtz0aQ">
+    <packagedElement xmi:type="uml:Association" xmi:id="_FfsOkIXkEeSa4Ps4qtz0aQ" memberEnd="_FfsOkYXkEeSa4Ps4qtz0aQ _FfrAcIXkEeSa4Ps4qtz0aQ" navigableOwnedEnd="_FfsOkYXkEeSa4Ps4qtz0aQ">
       <ownedEnd xmi:type="uml:Property" xmi:id="_FfsOkYXkEeSa4Ps4qtz0aQ" name="receipt" type="_6dx-kIB4EeSIi9xXvYIBqQ" association="_FfsOkIXkEeSa4Ps4qtz0aQ">
         <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_FfsOkoXkEeSa4Ps4qtz0aQ" value="1"/>
         <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_FfsOk4XkEeSa4Ps4qtz0aQ" value="1"/>

@@ -601,7 +601,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getExpense__Expense__int_String_Date_String_double_boolean() {
+	public EOperation getExpense__Expense__int_String_Date_String_double_boolean_int() {
 		return expenseEClass.getEOperations().get(0);
 	}
 
@@ -2165,7 +2165,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		createEAttribute(expenseEClass, EXPENSE__DATE);
 		createEAttribute(expenseEClass, EXPENSE__ID);
 		createEAttribute(expenseEClass, EXPENSE__FIXED);
-		createEOperation(expenseEClass, EXPENSE___EXPENSE__INT_STRING_DATE_STRING_DOUBLE_BOOLEAN);
+		createEOperation(expenseEClass, EXPENSE___EXPENSE__INT_STRING_DATE_STRING_DOUBLE_BOOLEAN_INT);
 
 		receiptEClass = createEClass(RECEIPT);
 		createEReference(receiptEClass, RECEIPT__EXPENSES);
@@ -2466,13 +2466,14 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		initEAttribute(getExpense_Id(), ecorePackage.getEInt(), "id", null, 1, 1, Expense.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEAttribute(getExpense_Fixed(), ecorePackage.getEBoolean(), "fixed", null, 1, 1, Expense.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
-		op = initEOperation(getExpense__Expense__int_String_Date_String_double_boolean(), null, "Expense", 1, 1, IS_UNIQUE, !IS_ORDERED);
+		op = initEOperation(getExpense__Expense__int_String_Date_String_double_boolean_int(), null, "Expense", 1, 1, IS_UNIQUE, !IS_ORDERED);
 		addEParameter(op, ecorePackage.getEInt(), "id", 1, 1, IS_UNIQUE, !IS_ORDERED);
 		addEParameter(op, theTypesPackage.getString(), "name", 1, 1, IS_UNIQUE, !IS_ORDERED);
 		addEParameter(op, ecorePackage.getEDate(), "date", 1, 1, IS_UNIQUE, !IS_ORDERED);
 		addEParameter(op, theTypesPackage.getString(), "description", 1, 1, IS_UNIQUE, !IS_ORDERED);
 		addEParameter(op, ecorePackage.getEDouble(), "price", 1, 1, IS_UNIQUE, !IS_ORDERED);
 		addEParameter(op, ecorePackage.getEBoolean(), "isFixed", 1, 1, IS_UNIQUE, !IS_ORDERED);
+		addEParameter(op, ecorePackage.getEInt(), "receiptID", 1, 1, IS_UNIQUE, !IS_ORDERED);
 
 		initEClass(receiptEClass, Receipt.class, "Receipt", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getReceipt_Expenses(), this.getExpense(), null, "expenses", null, 0, -1, Receipt.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);

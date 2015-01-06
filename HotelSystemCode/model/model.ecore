@@ -77,6 +77,7 @@
       <eParameters name="description" ordered="false" lowerBound="1" eType="ecore:EDataType types.ecore#//String"/>
       <eParameters name="price" ordered="false" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
       <eParameters name="isFixed" ordered="false" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+      <eParameters name="receiptID" ordered="false" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
     </eOperations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="price" ordered="false"
         lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>

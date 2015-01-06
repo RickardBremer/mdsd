@@ -108,6 +108,7 @@
         <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="model.ecore#//Expense/Expense/description"/>
         <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="model.ecore#//Expense/Expense/price"/>
         <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="model.ecore#//Expense/Expense/isFixed"/>
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="model.ecore#//Expense/Expense/receiptID"/>
       </genOperations>
     </genClasses>
     <genClasses xsi:type="genmodel:GenClass" ecoreClass="model.ecore#//Receipt">
