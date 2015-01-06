@@ -3,10 +3,12 @@
 package model.impl;
 
 import java.lang.reflect.InvocationTargetException;
+import java.util.Calendar;
 import java.util.Date;
 
 import model.Booking;
 import model.BookingExpert;
+import model.Customer;
 import model.DatabaseInterface;
 import model.Expense;
 import model.ModelPackage;
@@ -111,20 +113,36 @@ public class BookingExpertImpl extends MinimalEObjectImpl.Container implements B
 		// Ensure that you remove @generated or mark it @generated NOT
 		String[] response = database.query("SELECT 'BookingID', 'DateFrom', 'DateTo', 'ClientRequests', 'CustomerMail', 'PromotionCode' FROM tblBookings WHERE BookingID =" + ID + ";").get(0).split(";");
 		String[] roomtype = database.query("SELECT 'RoomType' FROM tblCalender, tblBookings WHERE tblBookings.BookingID = tblCalender.BookingID AND tblBookings.BookingID = " + ID  + ";").get(0).split(";");
-		String[] Customer = database.query("SELECT 'FirstName' , 'LastName' , 'Address', 'CCNumber' , 'CCV' , 'ExpiringMonth' , 'ExpiringYear' FROM tblCostumer WHERE Email = " + response[4] + ";").get(0).split(";");
-				if(response != null && roomtype != null){
-					EList<String> rooms = new BasicEList<String>();
-					for(int i = 0; i < roomtype.length; i++){
-						rooms.add(roomtype[i]);
-					}
-					Booking b = new BookingImpl();
-					b.Booking(response[0], response[1], response[2], response[3], response[4], rooms, response[5]);
-					return b; 
+		String[] customer = database.query("SELECT 'FirstName' , 'EMail', 'LastName' , 'Address', 'CCNumber' , 'CCV' , 'ExpiringMonth' , 'ExpiringYear' FROM tblCostumer WHERE Email = " + response[4] + ";").get(0).split(";");
+				
+		if(response != null && roomtype != null && customer != null){
+			
+			EList<String> rooms = new BasicEList<String>();
+					
+			for(int i = 0; i < roomtype.length; i++){
+					rooms.add(roomtype[i]);
 				}
+			
+			Customer c = new CustomerImpl();
+			c.Customer(customer[0], customer[1], customer[2], customer[3], customer[4], customer[5], Integer.parseInt(customer[5]), Integer.parseInt(customer[6]));
+			
+			Booking b = new BookingImpl();
+			
+			Calendar cal = Calendar.getInstance();
+			cal.setTimeInMillis(Long.parseLong(response[0]));
+			Date d = cal.getTime();
+			cal.setTimeInMillis(Long.parseLong(response[1]));
+			Date e = cal.getTime();
+					
+			b.Booking( d, e, response[2], c, rooms, response[4], Integer.parseInt(response[5]));
+			
+			return b; 
+			
+		}
 				return null;
 		
 		
-		throw new UnsupportedOperationException();
+	//	throw new UnsupportedOperationException();
 	}
 
 	/**
