@@ -25,7 +25,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * <p>
  * The following features are implemented:
  * <ul>
- * <li>{@link model.impl.ExpenseExpertImpl#getDatabase <em>Database</em>}</li>
+ *   <li>{@link model.impl.ExpenseExpertImpl#getDatabase <em>Database</em>}</li>
  * </ul>
  * </p>
  *
@@ -34,9 +34,8 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 public class ExpenseExpertImpl extends MinimalEObjectImpl.Container implements
 		ExpenseExpert {
 	/**
-	 * The cached value of the '{@link #getDatabase() <em>Database</em>}'
-	 * reference. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * The cached value of the '{@link #getDatabase() <em>Database</em>}' reference.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getDatabase()
 	 * @generated
 	 * @ordered
@@ -45,7 +44,6 @@ public class ExpenseExpertImpl extends MinimalEObjectImpl.Container implements
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	protected ExpenseExpertImpl() {
@@ -54,7 +52,6 @@ public class ExpenseExpertImpl extends MinimalEObjectImpl.Container implements
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -64,18 +61,15 @@ public class ExpenseExpertImpl extends MinimalEObjectImpl.Container implements
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public DatabaseInterface getDatabase() {
 		if (database != null && database.eIsProxy()) {
-			InternalEObject oldDatabase = (InternalEObject) database;
-			database = (DatabaseInterface) eResolveProxy(oldDatabase);
+			InternalEObject oldDatabase = (InternalEObject)database;
+			database = (DatabaseInterface)eResolveProxy(oldDatabase);
 			if (database != oldDatabase) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE,
-							ModelPackage.EXPENSE_EXPERT__DATABASE, oldDatabase,
-							database));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, ModelPackage.EXPENSE_EXPERT__DATABASE, oldDatabase, database));
 			}
 		}
 		return database;
@@ -83,7 +77,6 @@ public class ExpenseExpertImpl extends MinimalEObjectImpl.Container implements
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public DatabaseInterface basicGetDatabase() {
@@ -92,16 +85,13 @@ public class ExpenseExpertImpl extends MinimalEObjectImpl.Container implements
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public void setDatabase(DatabaseInterface newDatabase) {
 		DatabaseInterface oldDatabase = database;
 		database = newDatabase;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET,
-					ModelPackage.EXPENSE_EXPERT__DATABASE, oldDatabase,
-					database));
+			eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.EXPENSE_EXPERT__DATABASE, oldDatabase, database));
 	}
 
 	/**
@@ -149,6 +139,17 @@ public class ExpenseExpertImpl extends MinimalEObjectImpl.Container implements
 			}
 		}
 		return expenses;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<Expense> getAllExpense(int receiptID) {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
 	}
 
 	/**
@@ -217,86 +218,82 @@ public class ExpenseExpertImpl extends MinimalEObjectImpl.Container implements
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-		case ModelPackage.EXPENSE_EXPERT__DATABASE:
-			if (resolve)
-				return getDatabase();
-			return basicGetDatabase();
+			case ModelPackage.EXPENSE_EXPERT__DATABASE:
+				if (resolve) return getDatabase();
+				return basicGetDatabase();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-		case ModelPackage.EXPENSE_EXPERT__DATABASE:
-			setDatabase((DatabaseInterface) newValue);
-			return;
+			case ModelPackage.EXPENSE_EXPERT__DATABASE:
+				setDatabase((DatabaseInterface)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-		case ModelPackage.EXPENSE_EXPERT__DATABASE:
-			setDatabase((DatabaseInterface) null);
-			return;
+			case ModelPackage.EXPENSE_EXPERT__DATABASE:
+				setDatabase((DatabaseInterface)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-		case ModelPackage.EXPENSE_EXPERT__DATABASE:
-			return database != null;
+			case ModelPackage.EXPENSE_EXPERT__DATABASE:
+				return database != null;
 		}
 		return super.eIsSet(featureID);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public Object eInvoke(int operationID, EList<?> arguments)
 			throws InvocationTargetException {
 		switch (operationID) {
-		case ModelPackage.EXPENSE_EXPERT___GET_EXPENSE__INT:
-			return getExpense((Integer) arguments.get(0));
-		case ModelPackage.EXPENSE_EXPERT___GET_ALL_EXPENSE:
-			return getAllExpense();
-		case ModelPackage.EXPENSE_EXPERT___ADD_EXPENSE__EXPENSE:
-			return addExpense((Expense) arguments.get(0));
-		case ModelPackage.EXPENSE_EXPERT___REMOVE_EXPENSE__INT:
-			return removeExpense((Integer) arguments.get(0));
-		case ModelPackage.EXPENSE_EXPERT___UPDATE_EXPENSE__EXPENSE:
-			return updateExpense((Expense) arguments.get(0));
-		case ModelPackage.EXPENSE_EXPERT___EXPENSE_EXPERT__DATABASEINTERFACE:
-			ExpenseExpert((DatabaseInterface) arguments.get(0));
-			return null;
+			case ModelPackage.EXPENSE_EXPERT___GET_EXPENSE__INT:
+				return getExpense((Integer)arguments.get(0));
+			case ModelPackage.EXPENSE_EXPERT___GET_ALL_EXPENSE:
+				return getAllExpense();
+			case ModelPackage.EXPENSE_EXPERT___GET_ALL_EXPENSE__INT:
+				return getAllExpense((Integer)arguments.get(0));
+			case ModelPackage.EXPENSE_EXPERT___ADD_EXPENSE__EXPENSE:
+				return addExpense((Expense)arguments.get(0));
+			case ModelPackage.EXPENSE_EXPERT___REMOVE_EXPENSE__INT:
+				return removeExpense((Integer)arguments.get(0));
+			case ModelPackage.EXPENSE_EXPERT___UPDATE_EXPENSE__EXPENSE:
+				return updateExpense((Expense)arguments.get(0));
+			case ModelPackage.EXPENSE_EXPERT___EXPENSE_EXPERT__DATABASEINTERFACE:
+				ExpenseExpert((DatabaseInterface)arguments.get(0));
+				return null;
 		}
 		return super.eInvoke(operationID, arguments);
 	}

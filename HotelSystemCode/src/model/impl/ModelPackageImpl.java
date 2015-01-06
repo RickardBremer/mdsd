@@ -601,7 +601,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getExpense__Expense__int_String_Date_String_double_boolean() {
+	public EOperation getExpense__Expense__int_String_Date_String_double_boolean_int() {
 		return expenseEClass.getEOperations().get(0);
 	}
 
@@ -1501,7 +1501,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getExpenseExpert__AddExpense__Expense() {
+	public EOperation getExpenseExpert__GetAllExpense__int() {
 		return expenseExpertEClass.getEOperations().get(2);
 	}
 
@@ -1510,7 +1510,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getExpenseExpert__RemoveExpense__int() {
+	public EOperation getExpenseExpert__AddExpense__Expense() {
 		return expenseExpertEClass.getEOperations().get(3);
 	}
 
@@ -1519,7 +1519,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getExpenseExpert__UpdateExpense__Expense() {
+	public EOperation getExpenseExpert__RemoveExpense__int() {
 		return expenseExpertEClass.getEOperations().get(4);
 	}
 
@@ -1528,8 +1528,17 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getExpenseExpert__ExpenseExpert__DatabaseInterface() {
+	public EOperation getExpenseExpert__UpdateExpense__Expense() {
 		return expenseExpertEClass.getEOperations().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getExpenseExpert__ExpenseExpert__DatabaseInterface() {
+		return expenseExpertEClass.getEOperations().get(6);
 	}
 
 	/**
@@ -2156,7 +2165,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		createEAttribute(expenseEClass, EXPENSE__DATE);
 		createEAttribute(expenseEClass, EXPENSE__ID);
 		createEAttribute(expenseEClass, EXPENSE__FIXED);
-		createEOperation(expenseEClass, EXPENSE___EXPENSE__INT_STRING_DATE_STRING_DOUBLE_BOOLEAN);
+		createEOperation(expenseEClass, EXPENSE___EXPENSE__INT_STRING_DATE_STRING_DOUBLE_BOOLEAN_INT);
 
 		receiptEClass = createEClass(RECEIPT);
 		createEReference(receiptEClass, RECEIPT__EXPENSES);
@@ -2267,6 +2276,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		createEReference(expenseExpertEClass, EXPENSE_EXPERT__DATABASE);
 		createEOperation(expenseExpertEClass, EXPENSE_EXPERT___GET_EXPENSE__INT);
 		createEOperation(expenseExpertEClass, EXPENSE_EXPERT___GET_ALL_EXPENSE);
+		createEOperation(expenseExpertEClass, EXPENSE_EXPERT___GET_ALL_EXPENSE__INT);
 		createEOperation(expenseExpertEClass, EXPENSE_EXPERT___ADD_EXPENSE__EXPENSE);
 		createEOperation(expenseExpertEClass, EXPENSE_EXPERT___REMOVE_EXPENSE__INT);
 		createEOperation(expenseExpertEClass, EXPENSE_EXPERT___UPDATE_EXPENSE__EXPENSE);
@@ -2456,13 +2466,14 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		initEAttribute(getExpense_Id(), ecorePackage.getEInt(), "id", null, 1, 1, Expense.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEAttribute(getExpense_Fixed(), ecorePackage.getEBoolean(), "fixed", null, 1, 1, Expense.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
-		op = initEOperation(getExpense__Expense__int_String_Date_String_double_boolean(), null, "Expense", 1, 1, IS_UNIQUE, !IS_ORDERED);
+		op = initEOperation(getExpense__Expense__int_String_Date_String_double_boolean_int(), null, "Expense", 1, 1, IS_UNIQUE, !IS_ORDERED);
 		addEParameter(op, ecorePackage.getEInt(), "id", 1, 1, IS_UNIQUE, !IS_ORDERED);
 		addEParameter(op, theTypesPackage.getString(), "name", 1, 1, IS_UNIQUE, !IS_ORDERED);
 		addEParameter(op, ecorePackage.getEDate(), "date", 1, 1, IS_UNIQUE, !IS_ORDERED);
 		addEParameter(op, theTypesPackage.getString(), "description", 1, 1, IS_UNIQUE, !IS_ORDERED);
 		addEParameter(op, ecorePackage.getEDouble(), "price", 1, 1, IS_UNIQUE, !IS_ORDERED);
 		addEParameter(op, ecorePackage.getEBoolean(), "isFixed", 1, 1, IS_UNIQUE, !IS_ORDERED);
+		addEParameter(op, ecorePackage.getEInt(), "receiptID", 1, 1, IS_UNIQUE, !IS_ORDERED);
 
 		initEClass(receiptEClass, Receipt.class, "Receipt", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getReceipt_Expenses(), this.getExpense(), null, "expenses", null, 0, -1, Receipt.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
@@ -2702,6 +2713,9 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		addEParameter(op, theTypesPackage.getInteger(), "ID", 1, 1, IS_UNIQUE, !IS_ORDERED);
 
 		initEOperation(getExpenseExpert__GetAllExpense(), this.getExpense(), "getAllExpense", 0, -1, IS_UNIQUE, !IS_ORDERED);
+
+		op = initEOperation(getExpenseExpert__GetAllExpense__int(), this.getExpense(), "getAllExpense", 0, -1, IS_UNIQUE, !IS_ORDERED);
+		addEParameter(op, ecorePackage.getEInt(), "receiptID", 1, 1, IS_UNIQUE, !IS_ORDERED);
 
 		op = initEOperation(getExpenseExpert__AddExpense__Expense(), this.getExpense(), "addExpense", 1, 1, IS_UNIQUE, !IS_ORDERED);
 		addEParameter(op, this.getExpense(), "expense", 1, 1, IS_UNIQUE, !IS_ORDERED);
