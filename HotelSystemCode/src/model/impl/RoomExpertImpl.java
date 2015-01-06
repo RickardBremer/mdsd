@@ -232,9 +232,14 @@ public class RoomExpertImpl extends MinimalEObjectImpl.Container implements Room
 	public Room addRoom(Room room) {
 		boolean result = false;
 		
+		ExpenseExpert ee = new ExpenseExpertImpl();
+		ee.ExpenseExpert(database);
+		
+		Expense newExpense = ee.addExpense(room.getPrice());
+		
 		result = database.send("INSERT into tblRooms('RoomNumber', 'RoomDescription', 'Maintenance', 'RoomIsClean', 'RoomType', 'Status', 'Beds', 'ExpenseID') "
 				+ "VALUES(" + room.getNumber() + ", " + room.getDescription() + ", " + false +", " + false + ", " + room.getType() + ", "
-						+ room.getStatus() + ", " + room.getBeds() + ", " + room.getPrice().getId() + ")");
+						+ room.getStatus() + ", " + room.getBeds() + ", " + newExpense.getId() + ")");
 		if (!result) {
 			return null;
 		}
