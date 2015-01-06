@@ -442,8 +442,8 @@ public class BookingExpertImpl extends MinimalEObjectImpl.Container implements B
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
 		
-		databaseInterface.send("UPDATE tblROOMS SET Status = 'available' WHERE BookingID=" + booking.getBooking() + ";");
-		datbaseInterface.send("UPDATE tblBookings SET CheckedOut =true AND CheckedIn =false WHERE BookingID=" + booking.getBookingID() + ";");
+		database.send("UPDATE tblROOMS SET Status = 'available' WHERE BookingID=" + booking.getId() + ";");
+		database.send("UPDATE tblBookings SET CheckedOut =true AND CheckedIn =false WHERE BookingID=" + booking.getId() + ";");
 		
 		throw new UnsupportedOperationException();
 	}
