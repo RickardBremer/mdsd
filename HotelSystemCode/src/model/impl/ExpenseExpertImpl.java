@@ -117,8 +117,8 @@ public class ExpenseExpertImpl extends MinimalEObjectImpl.Container implements
 		Calendar cal = Calendar.getInstance();
 		if (response != null) {
 			ExpenseImpl e = new ExpenseImpl();
-			cal.setTimeInMillis(Long.valueOf(response[2]));
-			e.Expense(Integer.valueOf(response[0]), response[1], cal.getTime(),
+			cal.setTimeInMillis(Long.parseLong(response[2]));
+			e.Expense(Integer.parseInt(response[0]), response[1], cal.getTime(),
 					response[3], Double.valueOf(response[4]),
 					Boolean.parseBoolean(response[5]));
 			return e;
@@ -140,10 +140,10 @@ public class ExpenseExpertImpl extends MinimalEObjectImpl.Container implements
 			for (String response : strExpenses) {
 				String[] splitResponse = response.split(";");
 				Expense e = new ExpenseImpl();
-				cal.setTimeInMillis(Long.valueOf(splitResponse[2]));
-				e.Expense(Integer.valueOf(splitResponse[0]), splitResponse[1],
+				cal.setTimeInMillis(Long.parseLong(splitResponse[2]));
+				e.Expense(Integer.parseInt(splitResponse[0]), splitResponse[1],
 						cal.getTime(), splitResponse[3],
-						Double.valueOf(splitResponse[4]),
+						Double.parseDouble(splitResponse[4]),
 						Boolean.parseBoolean(splitResponse[5]));
 				expenses.add(e);
 			}
@@ -183,7 +183,7 @@ public class ExpenseExpertImpl extends MinimalEObjectImpl.Container implements
 					.split(";");
 
 			if (response != null) {
-				expense.setId(Integer.valueOf(response[0]));
+				expense.setId(Integer.parseInt(response[0]));
 				return expense;
 			}
 		}
