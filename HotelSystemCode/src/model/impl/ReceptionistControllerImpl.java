@@ -173,12 +173,14 @@ public class ReceptionistControllerImpl extends BookingControllerImpl implements
 	 */
 	public EList<Room> viewUnOccupiedRooms(String roomType) {
 		EList<Room> roomlist = room.getUnoccupiedRooms();
+		System.out.println("UnoccupiedRooms " + roomlist.size());
 		EList<Room> resultlist = new BasicEList<Room>();
 		for (Room r : roomlist) {
-			if (r.getType().matches(roomType)) {
+			if (r.getType().toLowerCase().matches(roomType.toLowerCase())) {
 				resultlist.add(r);
 			}
 		}
+		System.out.println("UnoccupiedRooms " + resultlist.size());
 		return resultlist;
 	}
 

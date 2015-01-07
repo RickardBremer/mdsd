@@ -82,12 +82,12 @@ public class CustomerChecksIn {
 			}
 		}
 		//Get available rooms 
-		boolean isfirst = true;
+
 		for (Map.Entry<String, Integer> entry : freq.entrySet()) {
 			System.out.println(entry.getKey());
-			if (isfirst == false) {
+			 
 			EList<Room> room = receptionistController.viewUnOccupiedRooms(entry.getKey());
-			System.out.println(room.size());
+			System.out.println(room.size() +" value " +entry.getValue());
 			for (int i = 0; i<entry.getValue();i++) {
 				System.out.println(entry.getValue());
 				bookedrooms.add(room.get(i));
@@ -98,11 +98,11 @@ public class CustomerChecksIn {
 				}
 			}
 			}
-			isfirst = false;
-		}
+			
+		
 		
 		//Check in booking
-		System.out.println("Room size " +booking.getRoomTypes().size());
+		System.out.println("Room size " +bookedrooms.size());
 		System.out.println(receptionistController.checkIn(booking, bookedrooms));
 	}
 }
