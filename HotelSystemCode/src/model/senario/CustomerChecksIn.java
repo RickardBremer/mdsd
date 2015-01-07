@@ -53,9 +53,6 @@ public class CustomerChecksIn {
 		BookingController bookingController = mf.createBookingController();
 		
 		//Receptionist Login
-		
-		
-		
 		//Get booking, searches for all bookings made today, under the surname "Greenman"
 		//Calendar morning = Calendar.getInstance();
 		//Calendar night = Calendar.getInstance();
@@ -68,10 +65,8 @@ public class CustomerChecksIn {
 //		night.set(Calendar.HOUR_OF_DAY, 24);
 		
 		Booking booking = receptionistController.viewAllBookings("Greenman", morning, night).get(0);
-	
-		int iterator = 0;
+
 		EList<Room> bookedrooms = new BasicEList<Room>();
-		String previousRoomType;
 		EList<Resident> resList = new BasicEList<Resident>();
 		Resident resOne = receptionistController.createResident("Magne" , "Herne", "8918286545");
 		Resident resTwo = receptionistController.createResident("Alex" , "Herne", "8314286545");
@@ -90,7 +85,9 @@ public class CustomerChecksIn {
 		//Get available rooms 
 		for (Map.Entry<String, Integer> entry : freq.entrySet()) {
 			EList<Room> room =receptionistController.viewUnOccupiedRooms(entry.getKey());
+			System.out.println(room.size());
 			for (int i = 0; i<entry.getValue();i++) {
+				System.out.println(entry.getValue());
 				bookedrooms.add(room.get(i));
 				booking.getRoom().add(bookedrooms.get(i));
 				//Fill rooms with residents
@@ -99,11 +96,7 @@ public class CustomerChecksIn {
 				}
 			}
 		}
-		
-	
-		
 		//Check in booking
 		System.out.println(receptionistController.checkIn(booking, bookedrooms));
 	}
-
 }

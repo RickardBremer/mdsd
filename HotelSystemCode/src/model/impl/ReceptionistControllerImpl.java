@@ -117,7 +117,7 @@ public class ReceptionistControllerImpl extends BookingControllerImpl implements
 		// Done - Creates a new resident object
 		Resident r = new ResidentImpl();
 		r.Resident(firstName, surname, passportNumber);
-		throw new UnsupportedOperationException();
+		return r;
 	}
 
 	/**
@@ -169,12 +169,17 @@ public class ReceptionistControllerImpl extends BookingControllerImpl implements
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public EList<Room> viewUnOccupiedRooms(String roomType) {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		EList<Room> roomlist = room.getUnoccupiedRooms();
+		EList<Room> resultlist = new BasicEList<Room>();
+		for (Room r : roomlist) {
+			if (r.getType().matches(roomType)) {
+				resultlist.add(r);
+			}
+		}
+		return resultlist;
 	}
 
 	/**
