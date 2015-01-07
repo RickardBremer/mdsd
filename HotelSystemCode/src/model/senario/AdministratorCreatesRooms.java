@@ -77,7 +77,7 @@ public class AdministratorCreatesRooms {
 		floor = 2;
 		for (int i = 0; i < amountDoubleRooms; i++) {
 			Room room = mf.createRoom();
-			room.Room(Integer.parseInt("" + floor + "" + i), "HUGE room with double room", doubleRoomExpense.getName(), doubleRoomExpense, 1, "unouccupied", mf.createReceipt());
+			room.Room(Integer.parseInt("" + floor + "" + i), "HUGE room with double room", doubleRoomExpense.getName(), doubleRoomExpense, 2, "unouccupied", mf.createReceipt());
 			roomExpert.removeRoom(room);
 			roomExpert.addRoom(room);
 		}
