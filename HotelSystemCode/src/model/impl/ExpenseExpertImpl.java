@@ -110,7 +110,8 @@ public class ExpenseExpertImpl extends MinimalEObjectImpl.Container implements
 		Calendar cal = Calendar.getInstance();
 		if (response != null) {
 			ExpenseImpl e = new ExpenseImpl();
-			cal.setTimeInMillis(Long.parseLong(response[2]));
+			String[] splitArr = response[2].substring(0, 10).split("-");
+			cal.set(Integer.parseInt(splitArr[0]), Integer.parseInt(splitArr[1])-1, Integer.parseInt(splitArr[2]));
 			e.Expense(Integer.parseInt(response[0]), response[1],
 					cal.getTime(), response[3], Double.valueOf(response[4]),
 					Boolean.parseBoolean(response[5]), Integer.parseInt(response[6]));
@@ -133,7 +134,8 @@ public class ExpenseExpertImpl extends MinimalEObjectImpl.Container implements
 			for (String response : strExpenses) {
 				String[] splitResponse = response.split(";", -1);
 				Expense e = new ExpenseImpl();
-				cal.setTimeInMillis(Long.parseLong(splitResponse[2]));
+				String[] splitArr = splitResponse[2].substring(0, 10).split("-");
+				cal.set(Integer.parseInt(splitArr[0]), Integer.parseInt(splitArr[1])-1, Integer.parseInt(splitArr[2]));
 				e.Expense(Integer.parseInt(splitResponse[0]), splitResponse[1],
 						cal.getTime(), splitResponse[3],
 						Double.parseDouble(splitResponse[4]),
@@ -158,7 +160,8 @@ public class ExpenseExpertImpl extends MinimalEObjectImpl.Container implements
 			for (String response : strExpenses) {
 				String[] splitResponse = response.split(";", -1);
 				Expense e = new ExpenseImpl();
-				cal.setTimeInMillis(Long.parseLong(splitResponse[2]));
+				String[] splitArr = splitResponse[2].substring(0, 10).split("-");
+				cal.set(Integer.parseInt(splitArr[0]), Integer.parseInt(splitArr[1])-1, Integer.parseInt(splitArr[2]));
 				e.Expense(Integer.parseInt(splitResponse[0]), splitResponse[1],
 						cal.getTime(), splitResponse[3],
 						Double.parseDouble(splitResponse[4]),
@@ -175,7 +178,7 @@ public class ExpenseExpertImpl extends MinimalEObjectImpl.Container implements
 	 * @generated NOT
 	 */
 	public Expense addExpense(Expense expense) {
-		SimpleDateFormat sdf = new SimpleDateFormat("#DD/MM/YYYY#");
+		SimpleDateFormat sdf = new SimpleDateFormat("#MM/DD/YYYY#");
 		String receiptID = "";
 		String receiptValue = "";
 		if (expense.getReceiptId() != -1){
@@ -227,7 +230,7 @@ public class ExpenseExpertImpl extends MinimalEObjectImpl.Container implements
 	 */
 
 	public boolean updateExpense(Expense expense) {
-		SimpleDateFormat sdf = new SimpleDateFormat("#DD/MM/YYYY#"); 
+		SimpleDateFormat sdf = new SimpleDateFormat("#MM/DD/YYYY#"); 
 		return database.send("UPDATE tblExpenses SET Price="
 				+ expense.getPrice() + ", ExpenseName='"
 				+ expense.getName() + "', ExpenseDescription='"

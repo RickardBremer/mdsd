@@ -107,12 +107,20 @@ PromotionExpert {
 			String[] promoCode = list.get(0).split(";", -1);
 			Promotion promot = new PromotionImpl();
 			Calendar cal = Calendar.getInstance();
-			cal.setTimeInMillis(Long.parseLong(promoCode[4]));
+			
+			String[] splitArr = promoCode[4].substring(0, 10).split("-");
+			cal.set(Integer.parseInt(splitArr[0]), Integer.parseInt(splitArr[1])-1, Integer.parseInt(splitArr[2]));
 			Date vaildFrom = cal.getTime();
-			cal.setTimeInMillis(Long.parseLong(promoCode[5]));
+			
+			
+			splitArr = promoCode[5].substring(0, 10).split("-");
+			cal.set(Integer.parseInt(splitArr[0]), Integer.parseInt(splitArr[1])-1, Integer.parseInt(splitArr[2]));
 			Date vaildTo = cal.getTime();
-			cal.setTimeInMillis(Long.parseLong(promoCode[6]));
+			
+			splitArr = promoCode[6].substring(0, 10).split("-");
+			cal.set(Integer.parseInt(splitArr[0]), Integer.parseInt(splitArr[1])-1, Integer.parseInt(splitArr[2]));
 			Date expire = cal.getTime();
+			
 			promot.Promotion(promoCode[0], promoCode[1], Integer.parseInt(promoCode[2]), vaildFrom, vaildTo, promoCode[3], expire);
 			return promot;
 		}
@@ -131,12 +139,19 @@ PromotionExpert {
 			String[] promoCode = pr.split(";", -1);
 			Promotion p = new PromotionImpl();
 			Calendar cal = Calendar.getInstance();
-			cal.setTimeInMillis(Long.parseLong(promoCode[4]));
-			Date vaildFrom = cal.getTime();
-			cal.setTimeInMillis(Long.parseLong(promoCode[5]));
+			
+			String[] splitArr = promoCode[4].substring(0, 10).split("-");
+			cal.set(Integer.parseInt(splitArr[0]), Integer.parseInt(splitArr[1])-1, Integer.parseInt(splitArr[2]));
+			Date vaildFrom = cal.getTime();			
+			
+			splitArr = promoCode[5].substring(0, 10).split("-");
+			cal.set(Integer.parseInt(splitArr[0]), Integer.parseInt(splitArr[1])-1, Integer.parseInt(splitArr[2]));
 			Date vaildTo = cal.getTime();
-			cal.setTimeInMillis(Long.parseLong(promoCode[6]));
+			
+			splitArr = promoCode[6].substring(0, 10).split("-");
+			cal.set(Integer.parseInt(splitArr[0]), Integer.parseInt(splitArr[1])-1, Integer.parseInt(splitArr[2]));
 			Date expire = cal.getTime();
+			
 			p.Promotion(promoCode[0], promoCode[1], Integer.parseInt(promoCode[2]), vaildFrom, vaildTo, promoCode[3], expire);
 
 			newProInfo.add(p);
@@ -188,13 +203,14 @@ PromotionExpert {
 	 * @generated NOT
 	 */
 	public Promotion addPromotion(Promotion promotion) {
+		SimpleDateFormat std = new SimpleDateFormat("#MM/DD/YYYY#");
 		boolean result = database.send("INSERT INTO tblPromotions VALUES('"
 				+ promotion.getCode() +"', '"
 				+ promotion.getDescription() + "', "
 				+ promotion.getPercentage() + ", '"
 				+ promotion.getRoomType() + "', "
-				+ promotion.getValidFrom().getTime() + ", "
-				+ promotion.getValidTo().getTime() + ", "
+				+ std.format(promotion.getValidFrom()) + ", "
+				+ std.format(promotion.getValidTo()) + ", "
 				+ promotion.getExpirationDate().getTime());
 		if (result) {
 			return promotion;

@@ -3,7 +3,9 @@
 package model.impl;
 
 import java.lang.reflect.InvocationTargetException;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
+
 import model.Booking;
 import model.DatabaseInterface;
 import model.Expense;
@@ -12,6 +14,7 @@ import model.ModelPackage;
 import model.Receipt;
 import model.ReceiptExpert;
 import model.Room;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
@@ -119,7 +122,8 @@ public class ReceiptExpertImpl extends MinimalEObjectImpl.Container implements R
 
 			for (String e: result){
 				String[] s = e.split(";", -1);
-				date.setTimeInMillis(Long.parseLong(s[3]));
+				String[] splitArr = s[3].substring(0, 10).split("-");
+				date.set(Integer.parseInt(splitArr[0]), Integer.parseInt(splitArr[1])-1, Integer.parseInt(splitArr[2]));
 				r1.Receipt(Integer.parseInt(s[0]), date.getTime(), expenses);
 			}
 			
@@ -145,7 +149,10 @@ public class ReceiptExpertImpl extends MinimalEObjectImpl.Container implements R
 				String[] s = r.split(";", -1);
 				EList<Expense> expenses = eExpert.getAllExpense(Integer.parseInt(s[0])); 
 				Receipt rp = new ReceiptImpl();
-				date.setTimeInMillis(Long.parseLong(s[3]));
+				
+				String[] splitArr = s[3].substring(0, 10).split("-");
+				date.set(Integer.parseInt(splitArr[0]), Integer.parseInt(splitArr[1])-1, Integer.parseInt(splitArr[2]));
+				
 				rp.Receipt(Integer.parseInt(s[0]), date.getTime(), expenses);
 				mylist.add(rp);
 			}
@@ -188,11 +195,11 @@ public class ReceiptExpertImpl extends MinimalEObjectImpl.Container implements R
 	//Stefania
 	public Receipt addReceipt(Receipt receipt) {
 		Receipt r = receipt;
-		
+		SimpleDateFormat dateFormat = new SimpleDateFormat("#MM/DD/YYYY#"); 
 		database.send("INSERT INTO tblReceipts (ReceiptID, ReceiptDescription, "
 					+ "TotalCost, ReceiptDate)  VALUES (" + r.getId() + ", " + 
 					r.getExpenses() + ", " + r.getTotalCost() + ", " + 
-					r.getDate());
+					dateFormat.format(r.getDate()));
 		 r.setId(Integer.parseInt(database.query("SELECT max(ReceiptID) FROM tblReceipt").get(0)));
 		 
 		return r;
@@ -216,9 +223,10 @@ public class ReceiptExpertImpl extends MinimalEObjectImpl.Container implements R
 	 */
 	//Stefania
 	public boolean updateReceipt(Receipt receipt) {
+		SimpleDateFormat dateFormat = new SimpleDateFormat("#MM/DD/YYYY#");
 		return database.send("UPDATE tblReceipts WHERE ReceiptID = " + receipt.getId() + 
 				"SET ReceiptDescription = " + receipt.getExpenses() + "TotalCost = " +
-				receipt.getTotalCost() + "ReceiptDate" + receipt.getDate());	
+				receipt.getTotalCost() + "ReceiptDate" + dateFormat.format(receipt.getDate()));	
 	}
 
 	/**
