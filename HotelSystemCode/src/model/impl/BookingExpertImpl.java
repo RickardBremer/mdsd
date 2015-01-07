@@ -262,7 +262,6 @@ public class BookingExpertImpl extends MinimalEObjectImpl.Container implements B
 		    + ";").get(0).split(";",-1);
 			ReceiptExpert re = new ReceiptExpertImpl();
 			re.ReceiptExpert(database);
-			System.out.println("Length " +ID[1]);
 			booking.setReceipt(re.getReceipt(Integer.valueOf(ID[1])));
 			
 		int BookingID = Integer.valueOf(ID[0]);
@@ -399,7 +398,7 @@ public class BookingExpertImpl extends MinimalEObjectImpl.Container implements B
 			String[] oneCustomer = customerMail.split(";");
 			
 			newCustomer.Customer(oneCustomer[0], oneCustomer[1], oneCustomer[2], oneCustomer[3], oneCustomer[4], oneCustomer[5], Integer.valueOf(oneCustomer[6]), Integer.valueOf(oneCustomer[7]));
-			roomType = database.query("SELECT 'RoomType' FROM tblCalendar WHERE BookingID=" + newList[0] + ";" );
+			roomType = database.query("SELECT RoomType FROM tblCalendar WHERE BookingID=" + newList[0] + ";" );
 			
 			
 			  
@@ -417,6 +416,7 @@ public class BookingExpertImpl extends MinimalEObjectImpl.Container implements B
 			for(String resultRoomId:roomId) {
 				
 				RoomExpert newRoom = new RoomExpertImpl();
+				newRoom.RoomExpert(database);
 				rooms.add(newRoom.getRoom(Integer.valueOf(resultRoomId)));
 			}
 			
@@ -461,22 +461,23 @@ public class BookingExpertImpl extends MinimalEObjectImpl.Container implements B
 		System.out.println("Room size " +rooms.size());
 		for(int i = 0; i < rooms.size(); i++) {
 			database.send("INSERT INTO tblStays(RoomId, BookingID)  VALUES ("+rooms.get(i).getNumber() + "," + booking.getId() + ");");
-			String Stay = database.query("SELECT 'StayId' FROM tblStays WHERE BookingID=" +booking.getId() +" ORDER BY StayId DESC").get(0);
-			database.send("UPDATE tblRooms SET Status = 'occupied' WHERE roomnumber=" + rooms.get(i).getNumber() + ")");
+			String Stay = database.query("SELECT StayId FROM tblStays WHERE BookingID=" +booking.getId() +" ORDER BY StayId DESC").get(0);
+			database.send("UPDATE tblRooms SET Status = 'occupied' WHERE roomnumber=" + rooms.get(i).getNumber() );
 //				Add all residents required for booking.
 				
 			for(int j = 0; j < rooms.get(i).getResidents().size(); i++) {
 //						Add new people to the database
 				
 //					String resident = database.query("SELECT ResidentID FROM tblStaysResident WHERE StayId=" + Stay + ";").get(0);
-					newResident= database.query("SELECT IDNumber FROM tblResident WHERE IDNumber=" + rooms.get(i).getResidents().get(j).getId() + ";");
+					System.out.println("Testing id print \n " + "SELECT IDNumber FROM tblResidents WHERE IDNumber='" + rooms.get(i).getResidents().get(j).getId() + "';");
+					newResident= database.query("SELECT IDNumber FROM tblResidents WHERE IDNumber='" + rooms.get(i).getResidents().get(j).getId() + "';");
 					
 					if(newResident.size() < 1 ) {
-						database.send("INSERT INTO tblResidents(IDNumber, FirstName, LastName) VALUES (" +rooms.get(i).getResidents().get(j).getId() + ","  +rooms.get(i).getResidents().get(j).getFirstName() + ","  +rooms.get(i).getResidents().get(j).getSurname() + ")" );
+						database.send("INSERT INTO tblResidents(IDNumber, FirstName, LastName) VALUES ('" +rooms.get(i).getResidents().get(j).getId() + "','"  +rooms.get(i).getResidents().get(j).getFirstName() + "','"  +rooms.get(i).getResidents().get(j).getSurname() + "')" );
 						
 					}
 						
-					database.send("INSERT INTO tblStayResidents( StayID,  ResidentID) VALUES  (" + Stay + ","  +  rooms.get(i).getResidents().get(j).getId() +  ")");
+					database.send("INSERT INTO tblStayResidents(StayID,ResidentID) VALUES  (" + Stay + ",'"  +  rooms.get(i).getResidents().get(j).getId() +  "')");
 					}
 			
 					}
