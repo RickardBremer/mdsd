@@ -206,6 +206,7 @@ public class UserExpertImpl extends MinimalEObjectImpl.Container implements User
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
+	//Helen
 	public void UserExpert(DatabaseInterface database) {
 		this.database =  database;
 	}
