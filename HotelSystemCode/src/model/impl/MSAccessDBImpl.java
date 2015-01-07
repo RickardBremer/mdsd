@@ -8,7 +8,9 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
 import java.sql.Statement;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 
 import model.MSAccessDB;
 import model.ModelPackage;
@@ -135,8 +137,11 @@ public class MSAccessDBImpl extends MinimalEObjectImpl.Container implements MSAc
 					targetTable = "tblStays";
 					targetID = "StayID";
 				}
+				//Create date variables
+				SimpleDateFormat sdf = new SimpleDateFormat("#MM/dd/yyyy#");
+				Calendar cal = Calendar.getInstance();
 				//Create new receipt record
-				receiptResult = (!send("INSERT INTO [tblReceipts] (ReceiptDescription) VALUES ('')"));
+				receiptResult = (!send("INSERT INTO [tblReceipts] (ReceiptDate) VALUES (" + sdf.format(cal.getTime()) + ")"));
 				//Continue if the receipt was successfully created
 				if (!receiptResult){
 					//Get receipt id for last record
