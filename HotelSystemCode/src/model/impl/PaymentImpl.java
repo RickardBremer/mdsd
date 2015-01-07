@@ -54,15 +54,11 @@ public class PaymentImpl extends MinimalEObjectImpl.Container implements Payment
 		CustomerRequires cr;
 		try {
 			cr = CustomerRequires.instance();
+			return cr.makePayment(customer.getCcNumber(), customer.getCcv(), customer.getExpiringMonth(), customer.getExpiringYear(), customer.getFirstName(), customer.getSurname(), amount);
 		} catch (SOAPException e) {
 			return false;
 		}
-		
-		try {
-			return cr.makePayment(customer.getCcNumber(), customer.getCcv(), customer.getExpiringMonth(), customer.getExpiringYear(), customer.getFirstName(), customer.getFirstName(), amount);
-		} catch (SOAPException e) {
-			return false;
-		}
+
 	}
 
 	/**

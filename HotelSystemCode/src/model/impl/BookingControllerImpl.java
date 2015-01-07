@@ -442,6 +442,7 @@ public class BookingControllerImpl extends MinimalEObjectImpl.Container implemen
 		receiptExpert.updateReceipt(rec);
 		
 		if (!pay.makePayment(customer, -fee)) {
+			System.out.println("The fee is " +-fee);
 			bookingExpert.removeBooking(booking);
 			return false;
 		};
