@@ -14,6 +14,7 @@ import model.ExpenseExpert;
 import model.ModelFactory;
 import model.PromotionExpert;
 import model.Receipt;
+import model.ReceiptExpert;
 import model.Room;
 import model.RoomExpert;
 import model.UserExpert;
@@ -39,6 +40,9 @@ public class CustomerMakesBooking {
 	
 	PromotionExpert promotionExpert = mf.createPromotionExpert();
 	promotionExpert.PromotionExpert(db);
+	
+	ReceiptExpert receiptExpert = mf.createReceiptExpert();
+	receiptExpert.ReceiptExpert(db);
 	
 	// create a customer
 	Customer customer = mf.createCustomer();
@@ -77,10 +81,10 @@ public class CustomerMakesBooking {
 //	System.out.println("Booking succeded, booking id: " + booking.getId());
 	
 	BookingController bookingController = mf.createBookingController();
-	bookingController.BookingController(roomExpert, bookingExpert, promotionExpert, expenseExpert);
+	bookingController.BookingController(roomExpert, bookingExpert, promotionExpert, expenseExpert, receiptExpert);
 	Receipt r = mf.createReceipt();
 	
-	customer = bookingController.createCustomer("Hulken", "Greenman", "nlarsson0@gmail.com", "Hisingen", "2100 0000 0000 0000", "000", 12, 17);
+	customer = bookingController.createCustomer("Hulken", "Greenman", "nlarsson1@gmail.com", "Hisingen", "2100 0000 0000 0000", "000", 12, 17);
 	boolean success = bookingController.createBooking(fDate.getTime(), tDate.getTime(), "Extra peanuts", customer, promotion, r, roomTypes);
 	
 	System.out.println(success); 
