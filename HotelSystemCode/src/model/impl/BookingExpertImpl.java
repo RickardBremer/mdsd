@@ -532,22 +532,16 @@ public class BookingExpertImpl extends MinimalEObjectImpl.Container implements B
 	 */
 //	Michael
 	public boolean checkOut(Booking booking) {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		EList<String> currentRooms;
-		
-		currentRooms = database.query("SELECT 'RoomID' FROM tblStays WHERE BookingID=" +booking.getId() + ";");
+		System.out.println("BOOKING ID: "+ booking.getId());
+		EList<String> currentRooms = database.query("SELECT RoomID FROM tblStays WHERE BookingID=" +booking.getId() + ";");
 		
 		for(String loop: currentRooms) {
-			database.query("UPDATE tblRooms SET RoomIsClean=false AND Status='unoccupied' WHERE RoomNumber=" + Integer.parseInt(loop) + ";" );
-			}
+			System.out.println("ROOMID: "+ Integer.parseInt(loop));
+			database.send("UPDATE tblRooms SET RoomIsClean=false, Status='unoccupied' WHERE RoomNumber=" + Integer.parseInt(loop) + ";" );
+		}
 		
-		return database.send("UPDATE tblBookings SET CheckedOut=true AND CheckedIn=false WHERE BookingID=" + booking.getId()+";");
-		
+		return database.send("UPDATE tblBookings SET CheckedOut=true, CheckedIn=false WHERE BookingID=" + booking.getId()+";");
 
-
-		
-//		throw new UnsupportedOperationException();
 	}
 
 	/**
