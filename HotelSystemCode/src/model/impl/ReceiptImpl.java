@@ -202,7 +202,7 @@ public class ReceiptImpl extends MinimalEObjectImpl.Container implements Receipt
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public boolean addExpense(Expense expense) {
 		//double total = 0;
