@@ -176,7 +176,7 @@ PromotionExpert {
 	 */
 
 	public boolean updatePromotion(Promotion promotion) {
-		SimpleDateFormat std = new SimpleDateFormat("#MM/DD/YYYY#");
+		SimpleDateFormat std = new SimpleDateFormat("#MM/DD/yyyy#");
 		return database.send("Update tblPromotion SET Code = "
 				+ promotion.getCode() + "," + "Description = "
 				+ promotion.getDescription() + "," + "Percentage = "
@@ -203,7 +203,7 @@ PromotionExpert {
 	 * @generated NOT
 	 */
 	public Promotion addPromotion(Promotion promotion) {
-		SimpleDateFormat std = new SimpleDateFormat("#MM/DD/YYYY#");
+		SimpleDateFormat std = new SimpleDateFormat("#MM/DD/yyyy#");
 		boolean result = database.send("INSERT INTO tblPromotions VALUES('"
 				+ promotion.getCode() +"', '"
 				+ promotion.getDescription() + "', "

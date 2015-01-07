@@ -178,7 +178,7 @@ public class ExpenseExpertImpl extends MinimalEObjectImpl.Container implements
 	 * @generated NOT
 	 */
 	public Expense addExpense(Expense expense) {
-		SimpleDateFormat sdf = new SimpleDateFormat("#MM/DD/YYYY#");
+		SimpleDateFormat sdf = new SimpleDateFormat("#MM/DD/yyyy#");
 		String receiptID = "";
 		String receiptValue = "";
 		if (expense.getReceiptId() != -1){
@@ -230,7 +230,7 @@ public class ExpenseExpertImpl extends MinimalEObjectImpl.Container implements
 	 */
 
 	public boolean updateExpense(Expense expense) {
-		SimpleDateFormat sdf = new SimpleDateFormat("#MM/DD/YYYY#"); 
+		SimpleDateFormat sdf = new SimpleDateFormat("#MM/DD/yyyy#"); 
 		return database.send("UPDATE tblExpenses SET Price="
 				+ expense.getPrice() + ", ExpenseName='"
 				+ expense.getName() + "', ExpenseDescription='"

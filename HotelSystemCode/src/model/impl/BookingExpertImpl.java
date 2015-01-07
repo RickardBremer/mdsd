@@ -167,7 +167,7 @@ public class BookingExpertImpl extends MinimalEObjectImpl.Container implements B
 		Calendar cal = Calendar.getInstance();
 		Date convertDateTo;
 		Date convertDateFrom;
-		SimpleDateFormat dateFormat = new SimpleDateFormat("#MM/DD/YYYY#");
+		SimpleDateFormat dateFormat = new SimpleDateFormat("#MM/DD/yyyy#");
 		
 		responseResult = database.query("SELECT 'tblBookings.BookingID','tblBookings.CustomerMail', 'tblBookings.ClientRequest', 'tblBookings.PromotionCode',  'tblCalendar.DateFrom', 'tblCalendar.DateTo'  FROM tblBookings LEFT JOIN tblCalendar"
 				+ "WHERE tblCalendar.DateTo <" + dateFormat.format(dateTo) + "AND tblCalendar.DateFrom >" + dateFormat.format(dateFrom) + ";");
@@ -221,7 +221,7 @@ public class BookingExpertImpl extends MinimalEObjectImpl.Container implements B
 	public Booking addBooking(Booking booking) {
 		// Rickard
 		// Ensure that you remove @generated or mark it @generated NOT
-		SimpleDateFormat dateFormat = new SimpleDateFormat("#MM/DD/YYYY#");
+		SimpleDateFormat dateFormat = new SimpleDateFormat("#MM/DD/yyyy#");
 	
 		boolean customer = database.send("INSERT INTO tblCustomers (FirstName, LastName, EMail, Address, CCNumber, CCV, ExpiringMonth, ExpiringYear) VALUES('"
 				+ booking.getCustomer().getFirstName()
@@ -315,7 +315,7 @@ public class BookingExpertImpl extends MinimalEObjectImpl.Container implements B
 	public boolean updateBooking(Booking booking) {
 		// Rickard
 		// Ensure that you remove @generated or mark it @generated NOT
-		SimpleDateFormat dateFormat = new SimpleDateFormat("#MM/DD/YYYY#");
+		SimpleDateFormat dateFormat = new SimpleDateFormat("#MM/DD/yyyy#");
 		String Mail[] = database.query("SELECT CustomerMail FROM tblBookings WHERE BookingID =" + booking.getId() + ";").get(0).split(";",-1);
 		
 		
