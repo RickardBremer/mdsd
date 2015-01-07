@@ -1,7 +1,5 @@
 package model.senario;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
@@ -9,7 +7,6 @@ import java.util.GregorianCalendar;
 import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
 
-import model.Booking;
 import model.BookingController;
 import model.BookingExpert;
 import model.Customer;
@@ -21,7 +18,6 @@ import model.Receipt;
 import model.ReceiptExpert;
 import model.Room;
 import model.RoomExpert;
-import model.UserExpert;
 import model.impl.ModelFactoryImpl;
 
 public class CustomerMakesBooking {
@@ -50,7 +46,6 @@ public class CustomerMakesBooking {
 	
 	// create a customer for booking.
 	Customer customer = mf.createCustomer();
-	customer.Customer("Hulken", "Greenman", "nlarsson0@gmail.com", "Hisingen", "2100000000000000", "000", 12, 17);
 	
 	// create a list of roomTypes
 	EList<String> roomTypes = new BasicEList<String>(); 
@@ -83,10 +78,9 @@ public class CustomerMakesBooking {
 		}
 	}
 	
-	// Create a booking.
-	customer = bookingController.createCustomer("Hulken", "Greenman", "nlarsson10@gmail.com", "Hisingen", "2100 0000 0000 0000", "000", 12, 17);
-	
-	// Perform Booking.
+	// Create a customer.
+	customer = bookingController.createCustomer("Hulken", "Greenman", "nlarsson10@gmail.com", "Hisingen", "2100000000000000", "000", 12, 17);
+	// Create a booking
 	boolean success = bookingController.createBooking(fDate.getTime(), tDate, "Extra peanuts", customer, promotion, r, roomTypes);
 	
 	// Print if the booking was a success or not.

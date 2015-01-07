@@ -79,9 +79,7 @@ public class AdministratorCreatesRooms {
 		receptionist.User("Morgan", "Freeman", receptionistPassword, true, true, -1);
 		receptionist = adminController.createUser(receptionist);
 		
-		//show users in the database
 		EList<User> listOfUsers = adminController.viewUsers();
-		EList<String> usersAsStrings = new BasicEList<String>();
 		
 		//remove the last added user
 		receptionist = listOfUsers.get(1);
@@ -92,6 +90,8 @@ public class AdministratorCreatesRooms {
 		receptionist.setAdministrator(false);
 		listOfUsers = adminController.viewUsers();
 		
+		//show users in the database
+		EList<String> usersAsStrings = new BasicEList<String>();
 		System.out.println("Number of users: " + listOfUsers.size());
 		for (User user : listOfUsers) {
 			usersAsStrings.add(
@@ -122,8 +122,12 @@ public class AdministratorCreatesRooms {
 		doubleRoomExpense = adminController.createExpense(doubleRoomExpense);
 		doubleRoomExpense.setFixed(false);
 		
-		//Create the rooms. Removes them first if they exists
-		int amountSingleRooms = 3;
+		Expense tripleRoomExpense = mf.createExpense();
+		tripleRoomExpense.Expense(-1, "triple", new Date(), "Triple Room", 500, true, -1);
+		tripleRoomExpense = adminController.createExpense(tripleRoomExpense);
+		
+		//Create the rooms
+		int amountSingleRooms = 4;
 		int floor = 1;
 		for (int i = 0; i < amountSingleRooms; i++) {
 			Room room = mf.createRoom();
@@ -142,8 +146,18 @@ public class AdministratorCreatesRooms {
 			roomExpert.removeRoom(room);
 			roomExpert.addRoom(room);
 		}
-		//show rooms
+
 		EList<Room> listOfRooms = adminController.viewRooms();
+		//Update the first room in the list
+		Room updateRoom = listOfRooms.get(0);
+		updateRoom.setDescription(updateRoom.getDescription() + " UPDATED");
+		adminController.updateRoom(updateRoom);
+		
+		//remove the fourth room
+		adminController.removeRoom(listOfRooms.get(3));
+		listOfRooms = adminController.viewRooms();
+		
+		//show rooms
 		EList<String> roomsAsStrings = new BasicEList<String>();
 		System.out.println("Number of rooms: " + listOfRooms.size());
 		for (Room room : listOfRooms) {
@@ -159,8 +173,17 @@ public class AdministratorCreatesRooms {
 		displayDatabaseResult(roomsAsStrings);
 		System.out.println();
 		
-		//show expenses, these are just the ones that are fixed
 		EList<Expense> listOfExpenses = adminController.viewExpenses();
+		//update the single room expense
+		singleRoomExpense = listOfExpenses.get(0);
+		singleRoomExpense.setDescription(singleRoomExpense.getDescription() + " UPDATED");
+		adminController.updateExpense(singleRoomExpense);
+		
+		//remove the triple room 
+		adminController.removeExpense(tripleRoomExpense);
+		
+		//show expenses, these are just the ones that are fixed
+		listOfExpenses = adminController.viewExpenses();
 		EList<String> ExpensesAsStrings = new BasicEList<String>();
 		System.out.println("Number of Expenses: " + listOfExpenses.size());
 		for (Expense Expense : listOfExpenses) {

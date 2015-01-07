@@ -70,9 +70,11 @@ public class CustomerChecksIn {
 		Resident resOne = receptionistController.createResident("Magne" , "Herne", "8918286545");
 		Resident resTwo = receptionistController.createResident("Alex" , "Herne", "8314286545");
 		Resident resThree = receptionistController.createResident("Joel" , "Herne", "8518286545");
+		Resident resFour = receptionistController.createResident("Niklers" , "Bjirne", "8228286545");
 		resList.add(resOne);
 		resList.add(resTwo);
 		resList.add(resThree);
+		resList.add(resFour);
 		Map<String, Integer> freq = new HashMap<String, Integer>();
 		for (String roomType : booking.getRoomTypes()) {
 			if (freq.containsKey(roomType)) {
@@ -98,6 +100,7 @@ public class CustomerChecksIn {
 		for (Room r : bookedrooms) {
 			 for (int i = 0; i < r.getBeds();i++) {
 				r.getResidents().add(resList.get(i));
+				resList.remove(i);
 			 }
 			 booking.getRoom().add(r);
 		}

@@ -237,15 +237,17 @@ public class ExpenseExpertImpl extends MinimalEObjectImpl.Container implements
 	 */
 
 	public boolean updateExpense(Expense expense) {
-		SimpleDateFormat sdf = new SimpleDateFormat("#MM/dd/yyyy#"); 
+		SimpleDateFormat sdf = new SimpleDateFormat("#MM/dd/yyyy#");
+		
+		String receiptIdFix = (expense.getReceiptId() == -1) ? "" : ", ReceiptID=" + expense.getReceiptId();
 		return database.send("UPDATE tblExpenses SET Price="
 				+ expense.getPrice() + ", ExpenseName='"
 				+ expense.getName() + "', ExpenseDescription='"
 				+ expense.getDescription() + "', ExpenseDate="
 				+ sdf.format(expense.getDate()) + ", IsFixed="
-				+ expense.isFixed() + "ReceiptID="
-				+ expense.getReceiptId() +
-				"' WHERE ID =" + expense.getId() + ";");
+				+ expense.isFixed()
+				+ receiptIdFix
+				+ " WHERE ExpenseID =" + expense.getId() + ";");
 	}
 
 	/**
