@@ -172,7 +172,7 @@ public class BookingExpertImpl extends MinimalEObjectImpl.Container implements B
 		SimpleDateFormat dateFormat = new SimpleDateFormat("#MM/dd/yyyy#");
 		
 		responseResult = database.query("SELECT 'tblBookings.BookingID','tblBookings.CustomerMail', 'tblBookings.ClientRequest', 'tblBookings.PromotionCode',  'tblCalendar.DateFrom', 'tblCalendar.DateTo'  FROM tblBookings LEFT JOIN tblCalendar"
-				+ "WHERE tblCalendar.DateTo <" + dateFormat.format(dateTo) + "AND tblCalendar.DateFrom >" + dateFormat.format(dateFrom) + ";");
+				+ "WHERE tblCalendar.DateTo<=" + dateFormat.format(dateTo) + "AND tblCalendar.DateFrom>=" + dateFormat.format(dateFrom) + ";");
 			
 			for(String booking: responseResult) {
 				
@@ -407,13 +407,6 @@ public class BookingExpertImpl extends MinimalEObjectImpl.Container implements B
 		Date convertDateFrom; 
 		Date convertDateTo; 
 		Calendar cal = Calendar.getInstance();
-		System.out.println("SELECT tblBookings.BookingID,tblBookings.CustomerMail, tblBookings.ClientRequests, tblBookings.PromotionCode,  tblCalendar.DateFrom, tblCalendar.DateTo  FROM tblBookings"
-			    + " INNER JOIN tblCalendar ON tblBookings.BookingID=tblCalendar.BookingID INNER JOIN tblCustomers ON tblBookings.CustomerMail = tblCustomers.EMail "
-			    + "WHERE "
-			    + "tblCalendar.DateTo<" + sdf.format(dateTo) 
-//			    + " AND tblCalendar.DateFrom>" + sdf.format(dateFrom) 
-			    + " AND "
-			    + "tblCustomers.LastName='" + surname + "';");
 		responseResult = database.query("SELECT tblBookings.BookingID,tblBookings.CustomerMail, tblBookings.ClientRequests, tblBookings.PromotionCode,  tblCalendar.DateFrom, tblCalendar.DateTo  FROM tblBookings"
 			    + " INNER JOIN tblCalendar ON tblBookings.BookingID=tblCalendar.BookingID INNER JOIN tblCustomers ON tblBookings.CustomerMail = tblCustomers.EMail "
 			    + "WHERE "
