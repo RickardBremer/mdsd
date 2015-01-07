@@ -63,11 +63,18 @@ public class AdministratorCreatesRooms {
 		AdminController adminController = mf.createAdminController();
 		adminController.AdminController(roomExpert, expenseExpert, userExpert, promotionExpert);
 		
-		//Delete all users, rooms, expenses, and promotions
+		//Clear all tables
+		db.send("DELETE FROM tblStayResidents");
+		db.send("DELETE FROM tblResidents");
+		db.send("DELETE FROM tblStays");
+		db.send("DELETE FROM tblCalendar");
+		db.send("DELETE FROM tblBookings");
+		db.send("DELETE FROM tblCustomers");
 		db.send("DELETE FROM tblUsers");
 		db.send("DELETE FROM tblRooms");
 		db.send("DELETE FROM tblExpenses");
 		db.send("DELETE FROM tblPromotions");
+		db.send("DELETE FROM tblReceipts");
 		
 		//Create an administrator
 		User admin = mf.createUser();
