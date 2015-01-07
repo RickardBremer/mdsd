@@ -195,7 +195,6 @@ public class ExpenseExpertImpl extends MinimalEObjectImpl.Container implements
 				+ receiptValue
 				+")";
 		boolean check = database.send(sql);
-		System.out.println(sql);
 
 		if (check) {
 			String[] response = database
