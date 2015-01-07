@@ -450,6 +450,7 @@
           <lowerValue xmi:type="uml:LiteralInteger" xmi:id="__rsEYJWhEeSvmq6oBh6iww"/>
           <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="__rvHsJWhEeSvmq6oBh6iww" value="*"/>
         </ownedParameter>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_z9gVMJaBEeSvmq6oBh6iww" name="receipt" type="_6dx-kIB4EeSIi9xXvYIBqQ"/>
       </ownedOperation>
     </packagedElement>
     <packagedElement xmi:type="uml:Class" xmi:id="_6dx-kIB4EeSIi9xXvYIBqQ" name="Receipt">
@@ -1059,6 +1060,7 @@
         <ownedParameter xmi:type="uml:Parameter" xmi:id="_Y1724IqMEeSCo51zhpbIKg" name="roomExpert" type="_FOiycIB5EeSIi9xXvYIBqQ"/>
         <ownedParameter xmi:type="uml:Parameter" xmi:id="_bagFYIqMEeSCo51zhpbIKg" name="bookingExpert" type="_JKAicIB5EeSIi9xXvYIBqQ"/>
         <ownedParameter xmi:type="uml:Parameter" xmi:id="_dOHYEIqMEeSCo51zhpbIKg" name="promotionExpert" type="_Um74wIB5EeSIi9xXvYIBqQ"/>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_wZzhwJZ9EeSvmq6oBh6iww" name="expenseExpert" type="_RVmD0IB5EeSIi9xXvYIBqQ"/>
       </ownedOperation>
     </packagedElement>
     <packagedElement xmi:type="uml:Class" xmi:id="_MM4ysIB7EeSIi9xXvYIBqQ" name="AdminController">

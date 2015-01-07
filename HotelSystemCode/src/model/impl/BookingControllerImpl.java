@@ -402,14 +402,17 @@ public class BookingControllerImpl extends MinimalEObjectImpl.Container implemen
 	 * @generated NOT
 	 */
 	public boolean createBooking(Date fromDate, Date toDate, String wishes, Customer customer, String promotion, Receipt receipt, EList<String> roomTypes) {
-		Payment pay = new PaymentImpl();
-		if (!pay.isCreditCardValid(customer)) {
-			return false;
-		}
+	//	Payment pay = new PaymentImpl();
+	//	if (!pay.isCreditCardValid(customer)) {
+	//		return false;
+	//	}
 		Booking booking = new BookingImpl();
-		booking.Booking(fromDate, toDate, wishes, customer, roomTypes, promotion, -1, new BasicEList<Room>());
+		booking.Booking(fromDate, toDate, wishes, customer, roomTypes, promotion, 0, new BasicEList<Room>(), receipt);
 		booking = bookingExpert.addBooking(booking);
 		Receipt rec = booking.getReceipt();
+		if(rec == null){
+			System.out.println("Test");
+		}
 		//TODO: Get expenses for all rooms, get promotions
 		EList<Expense> fixed = expenseExpert.getAllExpense();
 		for (Expense temp : fixed) {
@@ -438,10 +441,10 @@ public class BookingControllerImpl extends MinimalEObjectImpl.Container implemen
 		rec.addExpense(ex);
 		receiptExpert.updateReceipt(rec);
 		
-		if (!pay.makePayment(customer, -fee)) {
-			bookingExpert.removeBooking(booking);
-			return false;
-		};
+		//if (!pay.makePayment(customer, -fee)) {
+		//	bookingExpert.removeBooking(booking);
+		//	return false;
+		//};
 		EmailSender email = new EmailSenderImpl();
 		email.send(booking);
 		return true;
@@ -452,10 +455,11 @@ public class BookingControllerImpl extends MinimalEObjectImpl.Container implemen
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
-	public void BookingController(RoomExpert roomExpert, BookingExpert bookingExpert, PromotionExpert promotionExpert) {
+	public void BookingController(RoomExpert roomExpert, BookingExpert bookingExpert, PromotionExpert promotionExpert, ExpenseExpert expenseExpert) {
 		this.room = roomExpert;
 		this.bookingExpert = bookingExpert;
 		this.promotionExpert = promotionExpert;
+		this.expenseExpert = expenseExpert;
 	}
 
 	/**
@@ -591,8 +595,8 @@ public class BookingControllerImpl extends MinimalEObjectImpl.Container implemen
 				return validateCard((Customer)arguments.get(0));
 			case ModelPackage.BOOKING_CONTROLLER___CREATE_BOOKING__DATE_DATE_STRING_CUSTOMER_STRING_RECEIPT_ELIST:
 				return createBooking((Date)arguments.get(0), (Date)arguments.get(1), (String)arguments.get(2), (Customer)arguments.get(3), (String)arguments.get(4), (Receipt)arguments.get(5), (EList<String>)arguments.get(6));
-			case ModelPackage.BOOKING_CONTROLLER___BOOKING_CONTROLLER__ROOMEXPERT_BOOKINGEXPERT_PROMOTIONEXPERT:
-				BookingController((RoomExpert)arguments.get(0), (BookingExpert)arguments.get(1), (PromotionExpert)arguments.get(2));
+			case ModelPackage.BOOKING_CONTROLLER___BOOKING_CONTROLLER__ROOMEXPERT_BOOKINGEXPERT_PROMOTIONEXPERT_EXPENSEEXPERT:
+				BookingController((RoomExpert)arguments.get(0), (BookingExpert)arguments.get(1), (PromotionExpert)arguments.get(2), (ExpenseExpert)arguments.get(3));
 				return null;
 		}
 		return super.eInvoke(operationID, arguments);

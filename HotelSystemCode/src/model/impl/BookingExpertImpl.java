@@ -15,6 +15,7 @@ import model.Customer;
 import model.DatabaseInterface;
 import model.Expense;
 import model.ModelPackage;
+import model.ReceiptExpert;
 import model.Room;
 import model.RoomExpert;
 
@@ -115,7 +116,7 @@ public class BookingExpertImpl extends MinimalEObjectImpl.Container implements B
 	public Booking getBooking(int ID) {
 		// Rickard
 		// Ensure that you remove @generated or mark it @generated NOT
-		String[] response = database.query("SELECT 'BookingID', 'DateFrom', 'DateTo', 'ClientRequests', 'CustomerMail', 'PromotionCode' FROM tblBookings WHERE BookingID =" + ID + ";").get(0).split(";",-1);
+		String[] response = database.query("SELECT 'BookingID', 'DateFrom', 'DateTo', 'ClientRequests', 'CustomerMail', 'PromotionCode' , 'ReceiptID' FROM tblBookings WHERE BookingID =" + ID + ";").get(0).split(";",-1);
 		String[] roomtype = database.query("SELECT 'RoomType' FROM tblCalender, tblBookings WHERE tblBookings.BookingID = tblCalender.BookingID AND tblBookings.BookingID = " + ID  + ";").get(0).split(";",-1);
 		String[] customer = database.query("SELECT 'FirstName' , 'EMail', 'LastName' , 'Address', 'CCNumber' , 'CCV' , 'ExpiringMonth' , 'ExpiringYear' FROM tblCostumer WHERE Email = " + response[4] + ";").get(0).split(";",-1);
 				
@@ -138,7 +139,10 @@ public class BookingExpertImpl extends MinimalEObjectImpl.Container implements B
 			cal.setTimeInMillis(Long.parseLong(response[1]));
 			Date e = cal.getTime();
 					
-			b.Booking( d, e, response[2], c, rooms, response[4], Integer.parseInt(response[5]), null);
+			ReceiptExpert r = new ReceiptExpertImpl();
+			r.ReceiptExpert(database);
+			
+			b.Booking( d, e, response[2], c, rooms, response[4], Integer.parseInt(response[5]), null, r.getReceipt(Integer.parseInt(response[6])));
 			
 			return b; 
 			
@@ -201,9 +205,11 @@ public class BookingExpertImpl extends MinimalEObjectImpl.Container implements B
 					RoomExpert newRoom = new RoomExpertImpl();
 					rooms.add(newRoom.getRoom(Integer.valueOf(resultRoomId)));
 				}
-				  
+				 
+				ReceiptExpert r = new ReceiptExpertImpl();
+				r.ReceiptExpert(database);
 				
-				searchBooking.Booking(convertDateFrom, convertDateTo, newList[2], newCustomer, roomType, newList[3], Integer.valueOf(newList[0]), rooms);
+				searchBooking.Booking(convertDateFrom, convertDateTo, newList[2], newCustomer, roomType, newList[3], Integer.valueOf(newList[0]), rooms, r.getReceipt(0));
 				returnedBookingList.add(searchBooking);
 				
 			}
@@ -241,7 +247,6 @@ public class BookingExpertImpl extends MinimalEObjectImpl.Container implements B
 				+ booking.getCustomer().getExpiringYear()
 				+ ");");
 		
-		
 		boolean value = database.send("INSERT INTO tblBookings (CustomerMail, ClientRequests, PromotionCode) VALUES('"
 				+ booking.getCustomer().getEmail()
 				+ "','"
@@ -250,41 +255,36 @@ public class BookingExpertImpl extends MinimalEObjectImpl.Container implements B
 				+ booking.getPromotion()
 				+ "');");
 
-		
 		if(value){
-			System.out.println("SELECT BookingID FROM tblBookings WHERE CustomerMail = '" + booking.getCustomer().getEmail() + "' AND ClientRequests = '"
-		    + booking.getWishes() + "' AND PromotionCode = '" + booking.getPromotion() + "' ORDER BY BookingID DESC"
-		    + ";");
 			
 			String ID = database.query("SELECT BookingID FROM tblBookings WHERE CustomerMail = '" + booking.getCustomer().getEmail() + "' AND ClientRequests = '"
 		    + booking.getWishes() + "' AND PromotionCode = '" + booking.getPromotion() + "' ORDER BY BookingID DESC"
 		    + ";").get(0);
-		
-		
+			
 		int BookingID = Integer.valueOf(ID);
 		booking.setId(BookingID);
 		
 		boolean value1 = false;
 		for(int i = 0; i < booking.getRoomTypes().size(); i++){
-		value1 = database.send("INSERT INTO tblCalendar (RoomType, DateFrom, DateTo, CustomerMail, BookingID) VALUES("
+		value1 = database.send("INSERT INTO tblCalendar (RoomType, DateFrom, DateTo, BookingID) VALUES('"
 				+ booking.getRoomTypes().get(i)
-				+ ","
+				+ "',"
 				+ dateFormat.format(booking.getFromDate().getTime())
 				+ ","
 				+ dateFormat.format(booking.getToDate().getTime())
-				+ ",'"
-				+ booking.getCustomer().getEmail() 
-				+ "',"
+				+ ","
 				+ booking.getId()
 				+ ");");
-		}
+	}
 		
 		if(value1)
 			System.out.println("True\n");
+	 
 		return booking;
 		}
 		
 		return null;
+		
 		//throw new UnsupportedOperationException();
 	}
 
@@ -365,19 +365,21 @@ public class BookingExpertImpl extends MinimalEObjectImpl.Container implements B
 	public EList<Booking> getAllBookings(Date dateFrom, Date dateTo, String surname) {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
-		
+		SimpleDateFormat sdf = new SimpleDateFormat("#MM/dd/yyyy#");
 		EList <String> responseResult; 
 		EList <String> roomType;
 		EList <String> roomId;
 		EList <Room> rooms = new BasicEList <Room>();
 		EList<Booking> returnedBookingList = new BasicEList <Booking>(); 
 		String customerMail;
+		Date convertDateFrom; 
+		Date convertDateTo; 
 		Calendar cal = Calendar.getInstance();
-		Date convertDateTo;
-		Date convertDateFrom;
-		
-		responseResult = database.query("SELECT 'tblBookings.BookingID','tblBookings.CustomerMail', 'tblBookings.ClientRequest', 'tblBookings.PromotionCode',  'tblCalendar.DateFrom', 'tblCalendar.DateTo'  FROM tblBookings LEFT JOIN tblCalendar LEFT JOIN tblCustomer"
-				+ "WHERE tblCalendar.DateTo <" + dateTo + "AND tblCalendar.DateFrom >" + dateFrom + "AND tblCustomer.LastName=" + surname + ";");
+		responseResult = database.query("SELECT tblBookings.BookingID,tblBookings.CustomerMail, tblBookings.ClientRequests, tblBookings.PromotionCode,  tblCalendar.DateFrom, tblCalendar.DateTo  FROM tblBookings"
+			    + " INNER JOIN tblCalendar ON tblBookings.BookingID=tblCalendar.BookingID INNER JOIN tblCustomers ON tblBookings.CustomerMail = tblCustomers.EMail "
+			    + "WHERE "
+//			    + "tblCalendar.DateTo <" + sdf.format(dateTo) + " AND tblCalendar.DateFrom >" + sdf.format(dateFrom) + " AND "
+			    		+ "tblCustomers.LastName='" + surname + "';");
 	
 		for(String booking: responseResult) {
 			
@@ -387,19 +389,23 @@ public class BookingExpertImpl extends MinimalEObjectImpl.Container implements B
 			Booking searchBooking = new BookingImpl();
 			
 //			searchBooking.Booking(fromDate, toDate, wishes, customer, roomTypes, promotionCode, id, rooms);
-			customerMail= database.query("SELECT * FROM tblCustomer WHERE tblCustomer.EMail='" + newList[1] + "';").get(0);
+			customerMail= database.query("SELECT * FROM tblCustomers WHERE tblCustomers.EMail='" + newList[1] + "';").get(0);
 			Customer newCustomer = new CustomerImpl();
 			String[] oneCustomer = customerMail.split(";");
 			
 			newCustomer.Customer(oneCustomer[0], oneCustomer[1], oneCustomer[2], oneCustomer[3], oneCustomer[4], oneCustomer[5], Integer.valueOf(oneCustomer[6]), Integer.valueOf(oneCustomer[7]));
 			roomType = database.query("SELECT 'RoomType' FROM tblCalendar WHERE BookingID=" + newList[0] + ";" );
 			
-			  cal.setTimeInMillis(Long.parseLong(newList[5]));
+			
+			  
+			  String[] splitArr = newList[5].substring(0, 10).split("-", -1);
+			  cal.set(Integer.parseInt(splitArr[0]), Integer.parseInt(splitArr[1])-1, Integer.parseInt(splitArr[2]));
 			  convertDateTo = cal.getTime();
-			  cal.setTimeInMillis(Long.parseLong(newList[4]));
-			  convertDateFrom =cal.getTime();
+			  String[] splitArr2 = newList[4].substring(0, 10).split("-", -1);
+			  cal.set(Integer.parseInt(splitArr[0]), Integer.parseInt(splitArr[1])-1, Integer.parseInt(splitArr[2]));
+			   convertDateFrom = cal.getTime();
 					  
-			roomId = database.query("SELECT 'RoomId FROM tblStays WHERE BookingID=" + newList[0] + ";");
+			roomId = database.query("SELECT RoomId FROM tblStays WHERE BookingID=" + Integer.valueOf(newList[0]) + ";");
 			
 			
 			
@@ -408,9 +414,11 @@ public class BookingExpertImpl extends MinimalEObjectImpl.Container implements B
 				RoomExpert newRoom = new RoomExpertImpl();
 				rooms.add(newRoom.getRoom(Integer.valueOf(resultRoomId)));
 			}
-			  
 			
-			searchBooking.Booking(convertDateFrom, convertDateTo, newList[2], newCustomer, roomType, newList[3], Integer.valueOf(newList[0]), rooms);
+			ReceiptExpert r = new ReceiptExpertImpl();
+			r.ReceiptExpert(database);
+			
+			searchBooking.Booking(convertDateFrom, convertDateTo, newList[2], newCustomer, roomType, newList[3], Integer.valueOf(newList[0]), rooms, r.getReceipt(0));
 			returnedBookingList.add(searchBooking);
 			
 		}
@@ -486,7 +494,7 @@ public class BookingExpertImpl extends MinimalEObjectImpl.Container implements B
 		currentRooms = database.query("SELECT 'RoomID' FROM tblStays WHERE BookingID=" +booking.getId() + ";");
 		
 		for(String loop: currentRooms) {
-			database.query("UPDATE tblRooms SET RoomIsClean=false AND Status='Unoccopied' WHERE RoomNumber=" + Integer.parseInt(loop) + ";" );
+			database.query("UPDATE tblRooms SET RoomIsClean=false AND Status='unoccupied' WHERE RoomNumber=" + Integer.parseInt(loop) + ";" );
 			}
 		
 		return database.send("UPDATE tblBookings SET CheckedOut=true AND CheckedIn=false WHERE BookingID=" + booking.getId()+";");

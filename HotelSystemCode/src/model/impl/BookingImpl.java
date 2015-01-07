@@ -452,6 +452,26 @@ public class BookingImpl extends MinimalEObjectImpl.Container implements Booking
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
+	public void Booking(Date fromDate, Date toDate, String wishes, Customer customer, EList<String> roomTypes, String promotionCode, int id, EList<Room> rooms, Receipt receipt) {
+		// Rickard
+		// Ensure that you remove @generated or mark it @generated NOT
+		// throw new UnsupportedOperationException();
+		this.fromDate = fromDate;
+		this.toDate = toDate;
+		this.wishes = wishes;
+		this.customer = customer;
+		this.roomTypes = roomTypes;
+		this.promotion = promotionCode;
+		this.id = id;
+		this.room = rooms;
+		this.receipt = receipt;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
 	public void Booking(Date fromDate, Date toDate, String wishes, Customer customer, EList<String> roomTypes, String promotionCode, int id, EList<Room> rooms) {
 		// Rickard
 		// Ensure that you remove @generated or mark it @generated NOT
@@ -629,8 +649,8 @@ public class BookingImpl extends MinimalEObjectImpl.Container implements Booking
 	@SuppressWarnings("unchecked")
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
-			case ModelPackage.BOOKING___BOOKING__DATE_DATE_STRING_CUSTOMER_ELIST_STRING_INT_ELIST:
-				Booking((Date)arguments.get(0), (Date)arguments.get(1), (String)arguments.get(2), (Customer)arguments.get(3), (EList<String>)arguments.get(4), (String)arguments.get(5), (Integer)arguments.get(6), (EList<Room>)arguments.get(7));
+			case ModelPackage.BOOKING___BOOKING__DATE_DATE_STRING_CUSTOMER_ELIST_STRING_INT_ELIST_RECEIPT:
+				Booking((Date)arguments.get(0), (Date)arguments.get(1), (String)arguments.get(2), (Customer)arguments.get(3), (EList<String>)arguments.get(4), (String)arguments.get(5), (Integer)arguments.get(6), (EList<Room>)arguments.get(7), (Receipt)arguments.get(8));
 				return null;
 		}
 		return super.eInvoke(operationID, arguments);

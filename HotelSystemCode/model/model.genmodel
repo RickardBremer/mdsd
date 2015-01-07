@@ -219,6 +219,7 @@
         <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="model.ecore#//Booking/Booking/promotionCode"/>
         <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="model.ecore#//Booking/Booking/id"/>
         <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="model.ecore#//Booking/Booking/rooms"/>
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="model.ecore#//Booking/Booking/receipt"/>
       </genOperations>
     </genClasses>
     <genClasses xsi:type="genmodel:GenClass" image="false" ecoreClass="model.ecore#//AdminInterface">
@@ -501,6 +502,7 @@
         <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="model.ecore#//BookingController/BookingController/roomExpert"/>
         <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="model.ecore#//BookingController/BookingController/bookingExpert"/>
         <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="model.ecore#//BookingController/BookingController/promotionExpert"/>
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="model.ecore#//BookingController/BookingController/expenseExpert"/>
       </genOperations>
     </genClasses>
     <genClasses xsi:type="genmodel:GenClass" ecoreClass="model.ecore#//AdminController">

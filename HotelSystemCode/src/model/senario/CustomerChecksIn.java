@@ -3,16 +3,20 @@ package model.senario;
 import java.awt.image.RescaleOp;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 
 import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
 
 import model.Booking;
 import model.BookingController;
+import model.BookingExpert;
 import model.DatabaseInterface;
 import model.ExpenseExpert;
 import model.ModelFactory;
 import model.PromotionExpert;
+import model.ReceiptExpert;
 import model.ReceptionistController;
 import model.Resident;
 import model.Room;
@@ -37,12 +41,18 @@ public class CustomerChecksIn {
 		PromotionExpert promotionExpert = mf.createPromotionExpert();
 		promotionExpert.PromotionExpert(db);
 		
+		ReceiptExpert receiptExpert = mf.createReceiptExpert();
+		receiptExpert.ReceiptExpert(db);
+		
+		BookingExpert bookingExpert = mf.createBookingExpert();
+		bookingExpert.BookingExpert(db);
+		
 		ReceptionistController receptionistController = mf.createReceptionistController();
+		receptionistController.ReceptionistController(receiptExpert, expenseExpert, roomExpert, bookingExpert, promotionExpert, userExpert);
 		
 		BookingController bookingController = mf.createBookingController();
 		
 		//Receptionist Login
-		
 		//Get booking, searches for all bookings made today, under the surname "Greenman"
 		//Calendar morning = Calendar.getInstance();
 		//Calendar night = Calendar.getInstance();
@@ -55,25 +65,44 @@ public class CustomerChecksIn {
 //		night.set(Calendar.HOUR_OF_DAY, 24);
 		
 		Booking booking = receptionistController.viewAllBookings("Greenman", morning, night).get(0);
-		
-		int iterator = 0;
-		EList<Room> rooms = new BasicEList<Room>();
-		for (String rtype : booking.getRoomTypes()) {
-			EList<Room> room = receptionistController.viewUnOccupiedRooms(rtype);
-			
-		}
-		
+		EList<Room> bookedrooms = new BasicEList<Room>();
+		EList<Resident> resList = new BasicEList<Resident>();
 		Resident resOne = receptionistController.createResident("Magne" , "Herne", "8918286545");
 		Resident resTwo = receptionistController.createResident("Alex" , "Herne", "8314286545");
-		Resident resThree = receptionistController.createResident("Magne" , "Herne", "8918286545");
-		
+		Resident resThree = receptionistController.createResident("Joel" , "Herne", "8518286545");
+		resList.add(resOne);
+		resList.add(resTwo);
+		resList.add(resThree);
+		Map<String, Integer> freq = new HashMap<String, Integer>();
+		for (String roomType : booking.getRoomTypes()) {
+			if (freq.containsKey(roomType)) {
+				freq.put(roomType, freq.get(roomType) + 1);
+			} else {
+				freq.put(roomType, 1);
+			}
+		}
 		//Get available rooms 
-		
-		//Fill rooms with residents
+		boolean isfirst = true;
+		for (Map.Entry<String, Integer> entry : freq.entrySet()) {
+			System.out.println(entry.getKey());
+			if (isfirst == false) {
+			EList<Room> room = receptionistController.viewUnOccupiedRooms(entry.getKey());
+			System.out.println(room.size());
+			for (int i = 0; i<entry.getValue();i++) {
+				System.out.println(entry.getValue());
+				bookedrooms.add(room.get(i));
+				booking.getRoom().add(bookedrooms.get(i));
+				//Fill rooms with residents
+				for (int j = 0; j < bookedrooms.get(i).getBeds();j++) {
+					bookedrooms.get(i).getResidents().add(resList.get(i));
+				}
+			}
+			}
+			isfirst = false;
+		}
 		
 		//Check in booking
-		
-		
+		System.out.println("Room size " +booking.getRoomTypes().size());
+		System.out.println(receptionistController.checkIn(booking, bookedrooms));
 	}
-
 }

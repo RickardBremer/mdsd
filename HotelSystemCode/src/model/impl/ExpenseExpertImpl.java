@@ -114,7 +114,10 @@ public class ExpenseExpertImpl extends MinimalEObjectImpl.Container implements
 			cal.set(Integer.parseInt(splitArr[0]), Integer.parseInt(splitArr[1])-1, Integer.parseInt(splitArr[2]));
 			e.Expense(Integer.parseInt(response[0]), response[1],
 					cal.getTime(), response[3], Double.valueOf(response[4]),
-					Boolean.parseBoolean(response[5]), Integer.parseInt(response[6]));
+					Boolean.parseBoolean(response[5]),-1);
+			if(!response[6].matches("")){
+				e.setReceiptId( Integer.parseInt(response[6]));
+			}
 			return e;
 		}
 		return null;
@@ -139,7 +142,11 @@ public class ExpenseExpertImpl extends MinimalEObjectImpl.Container implements
 				e.Expense(Integer.parseInt(splitResponse[0]), splitResponse[1],
 						cal.getTime(), splitResponse[3],
 						Double.parseDouble(splitResponse[4]),
-						Boolean.parseBoolean(splitResponse[5]), Integer.parseInt(splitResponse[6]));
+						Boolean.parseBoolean(splitResponse[5]), -1);
+				
+				if(!splitResponse[6].matches("")){
+					e.setReceiptId( Integer.parseInt(splitResponse[6]));
+				}
 				expenses.add(e);
 			}
 		}

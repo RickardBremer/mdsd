@@ -1024,7 +1024,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BOOKING___BOOKING__DATE_DATE_STRING_CUSTOMER_ELIST_STRING_INT_ELIST = 0;
+	int BOOKING___BOOKING__DATE_DATE_STRING_CUSTOMER_ELIST_STRING_INT_ELIST_RECEIPT = 0;
 
 	/**
 	 * The number of operations of the '<em>Booking</em>' class.
@@ -2287,7 +2287,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BOOKING_CONTROLLER___BOOKING_CONTROLLER__ROOMEXPERT_BOOKINGEXPERT_PROMOTIONEXPERT = CUSTOMER_INTERFACE_OPERATION_COUNT + 0;
+	int BOOKING_CONTROLLER___BOOKING_CONTROLLER__ROOMEXPERT_BOOKINGEXPERT_PROMOTIONEXPERT_EXPENSEEXPERT = CUSTOMER_INTERFACE_OPERATION_COUNT + 0;
 
 	/**
 	 * The number of operations of the '<em>Booking Controller</em>' class.
@@ -2676,7 +2676,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RECEPTIONIST_CONTROLLER___BOOKING_CONTROLLER__ROOMEXPERT_BOOKINGEXPERT_PROMOTIONEXPERT = BOOKING_CONTROLLER___BOOKING_CONTROLLER__ROOMEXPERT_BOOKINGEXPERT_PROMOTIONEXPERT;
+	int RECEPTIONIST_CONTROLLER___BOOKING_CONTROLLER__ROOMEXPERT_BOOKINGEXPERT_PROMOTIONEXPERT_EXPENSEEXPERT = BOOKING_CONTROLLER___BOOKING_CONTROLLER__ROOMEXPERT_BOOKINGEXPERT_PROMOTIONEXPERT_EXPENSEEXPERT;
 
 	/**
 	 * The operation id for the '<em>Create Resident</em>' operation.
@@ -3740,14 +3740,14 @@ public interface ModelPackage extends EPackage {
 	EReference getBooking_Room();
 
 	/**
-	 * Returns the meta object for the '{@link model.Booking#Booking(java.util.Date, java.util.Date, java.lang.String, model.Customer, org.eclipse.emf.common.util.EList, java.lang.String, int, org.eclipse.emf.common.util.EList) <em>Booking</em>}' operation.
+	 * Returns the meta object for the '{@link model.Booking#Booking(java.util.Date, java.util.Date, java.lang.String, model.Customer, org.eclipse.emf.common.util.EList, java.lang.String, int, org.eclipse.emf.common.util.EList, model.Receipt) <em>Booking</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Booking</em>' operation.
-	 * @see model.Booking#Booking(java.util.Date, java.util.Date, java.lang.String, model.Customer, org.eclipse.emf.common.util.EList, java.lang.String, int, org.eclipse.emf.common.util.EList)
+	 * @see model.Booking#Booking(java.util.Date, java.util.Date, java.lang.String, model.Customer, org.eclipse.emf.common.util.EList, java.lang.String, int, org.eclipse.emf.common.util.EList, model.Receipt)
 	 * @generated
 	 */
-	EOperation getBooking__Booking__Date_Date_String_Customer_EList_String_int_EList();
+	EOperation getBooking__Booking__Date_Date_String_Customer_EList_String_int_EList_Receipt();
 
 	/**
 	 * Returns the meta object for class '{@link model.AdminInterface <em>Admin Interface</em>}'.
@@ -4769,14 +4769,14 @@ public interface ModelPackage extends EPackage {
 	EReference getBookingController_ReceiptExpert();
 
 	/**
-	 * Returns the meta object for the '{@link model.BookingController#BookingController(model.RoomExpert, model.BookingExpert, model.PromotionExpert) <em>Booking Controller</em>}' operation.
+	 * Returns the meta object for the '{@link model.BookingController#BookingController(model.RoomExpert, model.BookingExpert, model.PromotionExpert, model.ExpenseExpert) <em>Booking Controller</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Booking Controller</em>' operation.
-	 * @see model.BookingController#BookingController(model.RoomExpert, model.BookingExpert, model.PromotionExpert)
+	 * @see model.BookingController#BookingController(model.RoomExpert, model.BookingExpert, model.PromotionExpert, model.ExpenseExpert)
 	 * @generated
 	 */
-	EOperation getBookingController__BookingController__RoomExpert_BookingExpert_PromotionExpert();
+	EOperation getBookingController__BookingController__RoomExpert_BookingExpert_PromotionExpert_ExpenseExpert();
 
 	/**
 	 * Returns the meta object for class '{@link model.AdminController <em>Admin Controller</em>}'.
@@ -5653,7 +5653,7 @@ public interface ModelPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation BOOKING___BOOKING__DATE_DATE_STRING_CUSTOMER_ELIST_STRING_INT_ELIST = eINSTANCE.getBooking__Booking__Date_Date_String_Customer_EList_String_int_EList();
+		EOperation BOOKING___BOOKING__DATE_DATE_STRING_CUSTOMER_ELIST_STRING_INT_ELIST_RECEIPT = eINSTANCE.getBooking__Booking__Date_Date_String_Customer_EList_String_int_EList_Receipt();
 
 		/**
 		 * The meta object literal for the '{@link model.AdminInterface <em>Admin Interface</em>}' class.
@@ -6485,7 +6485,7 @@ public interface ModelPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation BOOKING_CONTROLLER___BOOKING_CONTROLLER__ROOMEXPERT_BOOKINGEXPERT_PROMOTIONEXPERT = eINSTANCE.getBookingController__BookingController__RoomExpert_BookingExpert_PromotionExpert();
+		EOperation BOOKING_CONTROLLER___BOOKING_CONTROLLER__ROOMEXPERT_BOOKINGEXPERT_PROMOTIONEXPERT_EXPENSEEXPERT = eINSTANCE.getBookingController__BookingController__RoomExpert_BookingExpert_PromotionExpert_ExpenseExpert();
 
 		/**
 		 * The meta object literal for the '{@link model.impl.AdminControllerImpl <em>Admin Controller</em>}' class.
