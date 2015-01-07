@@ -323,19 +323,42 @@ public class BookingExpertImpl extends MinimalEObjectImpl.Container implements B
 	public boolean updateBooking(Booking booking) {
 		// Rickard
 		// Ensure that you remove @generated or mark it @generated NOT
-		SimpleDateFormat dateFormat = new SimpleDateFormat("#MM/dd/yyyy#");
+		Booking oldBooking = getBooking(booking.getId());
+		removeBooking(oldBooking);
+		
+		if(addBooking(booking) == null){
+			addBooking(oldBooking);
+			return false;
+		}
+		return true;
+		
+		
+/*		SimpleDateFormat dateFormat = new SimpleDateFormat("#MM/dd/yyyy#");
 		String Mail[] = database.query("SELECT CustomerMail FROM tblBookings WHERE BookingID =" + booking.getId() + ";").get(0).split(";",-1);
 		
 		
-		boolean updateTblCustomer = database.send("UPDATE tblBookins SET 'FirstName'=" + booking.getCustomer().getFirstName() 
-			+ ", 'LastName'=" + booking.getCustomer().getSurname() + ", 'Adress'=" + booking.getCustomer().getAdress() + ", 'CCNumber'=" 
-			+ booking.getCustomer().getCcNumber() + ", 'CCV'=" + booking.getCustomer().getCcv() + ", 'ExpiringMonth'=" 
-			+ booking.getCustomer().getExpiringMonth() + ", 'ExpiringYear'=" + booking.getCustomer().getExpiringYear() + " WHERE 'Email'=" + Mail[0] + ";");
+		boolean updateTblCustomer = database.send("UPDATE tblBookins SET 'FirstName'=" 
+			+ booking.getCustomer().getFirstName() 
+			+ ", 'LastName'=" + booking.getCustomer().getSurname() 
+			+ ", 'Adress'=" + booking.getCustomer().getAdress() 
+			+ ", 'CCNumber'=" + booking.getCustomer().getCcNumber() 
+			+ ", 'CCV'=" + booking.getCustomer().getCcv() 
+			+ ", 'ExpiringMonth'=" + booking.getCustomer().getExpiringMonth() 
+			+ ", 'ExpiringYear'=" + booking.getCustomer().getExpiringYear() 
+			+ " WHERE 'Email'=" + Mail[0] + ";");
 		
-		boolean updateTblBookings = database.send("UPDATE tblBookings SET customerMail=" + booking.getCustomer().getEmail()
-			+ "clientRequests='" + booking.getWishes() + " , PromotionCode='"
-			+ booking.getPromotion() + " , CheckedIn='" + booking.isCheckedIn() + " , ReceiptID='" 
-			+ booking.getReceipt().getId() + "' WHERE BookingID =" + booking.getId() + ";");
+		boolean updateTblBookings = database.send("UPDATE tblBookings SET customerMail=" 
+			+ booking.getCustomer().getEmail()
+			+ "clientRequests='" 
+			+ booking.getWishes() 
+			+ " , PromotionCode='"
+			+ booking.getPromotion() 
+			+ " , CheckedIn='" 
+			+ booking.isCheckedIn() 
+			+ " , ReceiptID='" 
+			+ booking.getReceipt().getId() 
+			+ "' WHERE BookingID =" 
+			+ booking.getId() + ";");
 		
 		String[] CalenderID =  database.query("SELECT CalenderID FROM tblCalender WHERE BookingID =" + booking.getId() + ";").get(0).split(";",-1);
 		
@@ -359,8 +382,9 @@ public class BookingExpertImpl extends MinimalEObjectImpl.Container implements B
 		
 		return false;
 		//throw new UnsupportedOperationException();		
-	
-	/*	CheckedOut */
+	*/
+		
+	/*	CheckedOut */ 
 		
 	}
 
