@@ -6,16 +6,24 @@ import java.lang.reflect.InvocationTargetException;
 import java.util.Collection;
 import java.util.Date;
 
+import model.DatabaseInterface;
 import model.Expense;
 import model.ExpenseExpert;
 import model.ModelPackage;
 import model.Receipt;
 
+import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.common.util.TreeIterator;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.EOperation;
+import org.eclipse.emf.ecore.EReference;
+import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 
 /**
@@ -252,6 +260,7 @@ public class ReceiptImpl extends MinimalEObjectImpl.Container implements Receipt
 	public EList<Expense> getAllExpenses() {
 		if(expenses.isEmpty()){
 			ExpenseExpert e = new ExpenseExpertImpl();
+			e.ExpenseExpert(new MSAccessDBImpl());
 			expenses = e.getAllExpense(id);
 		}		
 		return expenses;

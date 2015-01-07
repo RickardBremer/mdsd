@@ -177,14 +177,13 @@ PromotionExpert {
 
 	public boolean updatePromotion(Promotion promotion) {
 		SimpleDateFormat std = new SimpleDateFormat("#MM/dd/yyyy#");
-		return database.send("Update tblPromotion SET Code = "
-				+ promotion.getCode() + "," + "Description = "
-				+ promotion.getDescription() + "," + "Percentage = "
+		return database.send("Update tblPromotions SET Description = '"
+				+ promotion.getDescription() + "'," + "Percentage = "
 				+ promotion.getPercentage() + "," + "validFrom = "
 				+ std.format(promotion.getValidFrom()) + "," + "validTo = "
-				+ std.format(promotion.getValidTo()) + ";" + "roomType = "
-				+ promotion.getRoomType() + ";" + "expirationDate = "
-				+ std.format(promotion.getExpirationDate()) + ";");
+				+ std.format(promotion.getValidTo()) + "," + "RoomType = '"
+				+ promotion.getRoomType() + "'," + "expirationDate = "
+				+ std.format(promotion.getExpirationDate()) + " WHERE Code = '" + promotion.getCode() + "'");
 	}
 
 	/**
