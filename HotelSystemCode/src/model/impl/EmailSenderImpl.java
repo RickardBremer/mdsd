@@ -65,7 +65,7 @@ public class EmailSenderImpl extends MinimalEObjectImpl.Container implements
 		final String username = "mddhotelbooking@gmail.com";
 		final String password = "mercury<3";
 		final String SSL_FACTORY = "javax.net.ssl.SSLSocketFactory";
-		final String port = "465";
+		final String port = "465"; 
 		final String host = "smtp.gmail.com";
 
 		Properties props = System.getProperties();
@@ -89,7 +89,7 @@ public class EmailSenderImpl extends MinimalEObjectImpl.Container implements
 			String text = "Congratulation "
 					+ booking.getCustomer().getFirstName() + " "
 					+ booking.getCustomer().getSurname()
-					+ "! You have successfully booked a stay at our hotell \n"
+					+ "! You have successfully booked a stay at our hotel \n"
 					+ "From: " + booking.getFromDate() + " \n" + "to: "
 					+ booking.getToDate() + "\n" + "Your booking ID is: "
 					+ booking.getId() + "\n" + "You have booked: "
