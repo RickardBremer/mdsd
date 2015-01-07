@@ -215,7 +215,10 @@ public class ReceiptImpl extends MinimalEObjectImpl.Container implements Receipt
 	//Stefania
 	public boolean addExpense(Expense expense) {
 		//double total = 0;
-		ExpenseExpert e = new ExpenseExpertImpl();
+		expenses.add(expense);
+		totalCost += expense.getPrice();
+		return true;
+		/*ExpenseExpert e = new ExpenseExpertImpl();
 		e.ExpenseExpert(new MSAccessDBImpl());
 		boolean added = false;
 		if (expense != null){
@@ -226,7 +229,7 @@ public class ReceiptImpl extends MinimalEObjectImpl.Container implements Receipt
 		} else{
 			added = false;
 		}		
-		return added;
+		return added;*/
 	}
 
 	/**

@@ -4,6 +4,7 @@ package model.impl;
 
 import java.lang.reflect.InvocationTargetException;
 import java.util.Date;
+import java.util.HashMap;
 
 import model.Booking;
 import model.BookingController;
@@ -413,23 +414,41 @@ public class BookingControllerImpl extends MinimalEObjectImpl.Container implemen
 		if(rec == null){
 			System.out.println("Test");
 		}
-		//TODO: Get expenses for all rooms, get promotions
+		//Get expenses for all rooms, get promotions
 		EList<Expense> fixed = expenseExpert.getAllExpense();
+		HashMap<String, Double> bunt = new HashMap<String, Double>();
+		HashMap<String, Integer> numRooms = new HashMap<String, Integer>();
+		int days = (int)((toDate.getTime() - fromDate.getTime()) / (60*60*24) / 1000);
+		for (String type : roomTypes) {
+			bunt.put(type, 0.0);
+			if (numRooms.containsKey(type)) {
+				numRooms.put(type, numRooms.get(type) + 1);
+			} else {
+				numRooms.put(type, 1);
+			}
+		}
 		for (Expense temp : fixed) {
 			for (String type : roomTypes) {
 				if (temp.getName().equals(type)) {
-					for (int i = 0; i < (toDate.getTime() - fromDate.getTime()) % (60*60*24); i++); {
-						Expense e = expenseExpert.addExpense(temp);
-						rec.addExpense(e);
-						Promotion p = promotionExpert.getPromotion(promotion);
-						if (p != null) {
-							if (p.getRoomType().equals(type)) {
-								Expense pe = new ExpenseImpl();
-								pe.Expense(-1, "Promotion Discount", new Date(), p.getDescription(), -(e.getPrice() / p.getPercentage()), false, rec.getId());
-								rec.addExpense(pe);
-							}
-						}
-					}
+					bunt.put(type, bunt.get(type) + temp.getPrice());
+				}
+			}
+		}
+		for (String type : bunt.keySet()) {
+			bunt.put(type, bunt.get(type) * days);
+			Expense e = new ExpenseImpl();
+			e.Expense(-1, type + " room", new Date(), numRooms.get(type) + " " + type + " room, " + days + " days", bunt.get(type), false, rec.getId());
+			e = expenseExpert.addExpense(e);
+			rec.addExpense(e);
+			
+			Promotion promo = promotionExpert.getPromotion(promotion);
+			if (promo != null) {
+				if (type.equals(promo.getRoomType())) {
+					Expense pe = new ExpenseImpl();
+					double discount = bunt.get(type) / promo.getPercentage();
+					pe.Expense(-1, "Promotion Discount", new Date(), promo.getPercentage() + " on " + type + " rooms", -discount, false, rec.getId());
+					pe = expenseExpert.addExpense(pe);
+					rec.addExpense(pe);
 				}
 			}
 		}
