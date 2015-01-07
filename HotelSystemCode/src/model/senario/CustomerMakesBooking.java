@@ -27,6 +27,9 @@ import model.impl.ModelFactoryImpl;
 public class CustomerMakesBooking {
 	public static void main(String[] args){
 	
+	// Create a Database interface and
+	// all experts.
+		
 	ModelFactory mf = ModelFactoryImpl.init();
 	DatabaseInterface db = mf.createMSAccessDB();
 	
@@ -35,9 +38,6 @@ public class CustomerMakesBooking {
 	
 	RoomExpert roomExpert = mf.createRoomExpert();
 	roomExpert.RoomExpert(db);
-	
-	//UserExpert userExpert = mf.createUserExpert();
-	//userExpert.UserExpert(db);
 	
 	BookingExpert bookingExpert = mf.createBookingExpert();
 	bookingExpert.BookingExpert(db);
@@ -48,66 +48,48 @@ public class CustomerMakesBooking {
 	ReceiptExpert receiptExpert = mf.createReceiptExpert();
 	receiptExpert.ReceiptExpert(db);
 	
-	// create a customer
+	// create a customer for booking.
 	Customer customer = mf.createCustomer();
-	customer.Customer("Hulken", "Greenman", "nlarsson0@gmail.com", "Hisingen", "2100 0000 0000 0000", "000", 12, 17);
+	customer.Customer("Hulken", "Greenman", "nlarsson0@gmail.com", "Hisingen", "2100000000000000", "000", 12, 17);
 	
-	// create roomTypes
+	// create a list of roomTypes
 	EList<String> roomTypes = new BasicEList<String>(); 
-	
-	
+	// create a list of Rooms
+	EList<Room> rooms = new BasicEList<Room>();
 	// promotionCode
 	String promotion = "";
-	
-	// id
+	// BookingId , will not be used after booking has been created.
 	int id = 1;
 	
-	// rooms
-	EList<Room> rooms = new BasicEList<Room>();
-	
-	// bookings
-	Booking booking = mf.createBooking();
-	
-	Calendar fDate = Calendar.getInstance();
-//  Calendar tDate = Calendar.getInstance();
-	
+	// Create calendar objects to know between which dates a booking shall be valid.
+	Calendar fDate = Calendar.getInstance();	
 	Calendar myCalendar = new GregorianCalendar(2015, 1, 20);
 	Date tDate = myCalendar.getTime();
 	
-//	BookingExpert bookingExpert = mf.createBookingExpert();
-//	bookingExpert.BookingExpert(db);
-//	System.out.println(tDate.getTime());
-//	booking.Booking(fDate.getTime(), tDate.getTime(), "Extra peanuts", customer, roomTypes, promotion, id, rooms);
-//	booking = bookingExpert.addBooking(booking);
-//	System.out.println("Booking succeded, booking id: " + booking.getId());
-	
+	// Create booking controller and initialize.
 	BookingController bookingController = mf.createBookingController();
 	bookingController.BookingController(roomExpert, bookingExpert, promotionExpert, expenseExpert, receiptExpert);
+	// Create receipt.
 	Receipt r = mf.createReceipt();
 	
+	// Search for rooms and place available rooms in a list of rooms.
 	rooms = bookingController.searchRooms(fDate.getTime(), tDate, 1, 1);
 	for(int i = 0; i < rooms.size(); i++){
-		System.out.println(rooms.get(i).getType());
+		System.out.println(rooms.get(i).getType()); // Debug code
 		if(rooms.get(i).getType().matches("single")){
 			roomTypes.add(rooms.get(i).getType());
-			System.out.println(roomTypes.get(i));
+			System.out.println(roomTypes.get(i)); // Debug code
 			i = rooms.size();
 		}
 	}
 	
-//	rooms = roomExpert.getAllRooms();
-	System.out.println("rooms : " + rooms.size());
-	for(int i = 0; i < rooms.size(); i++){
-		System.out.println(rooms.get(i).getStatus());
-	}
+	// Create a booking.
+	customer = bookingController.createCustomer("Hulken", "Greenman", "nlarsson10@gmail.com", "Hisingen", "2100 0000 0000 0000", "000", 12, 17);
 	
-	customer = bookingController.createCustomer("Hulken", "Greenman", "nlarsson0@gmail.com", "Hisingen", "2100 0000 0000 0000", "000", 12, 17);
+	// Perform Booking.
 	boolean success = bookingController.createBooking(fDate.getTime(), tDate, "Extra peanuts", customer, promotion, r, roomTypes);
 	
-//	for(int i = 0; i < roomTypes.size(); i++){
-//		System.out.println(roomTypes.get(i));
-//	}
-	
+	// Print if the booking was a success or not.
 	System.out.println(success); 
 	
 	}
