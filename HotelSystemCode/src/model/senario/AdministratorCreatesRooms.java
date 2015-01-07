@@ -1,12 +1,17 @@
 package model.senario;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
+
+import org.eclipse.emf.common.util.EList;
 
 import model.AdminController;
 import model.DatabaseInterface;
 import model.Expense;
 import model.ExpenseExpert;
 import model.ModelFactory;
+import model.Promotion;
 import model.PromotionExpert;
 import model.Room;
 import model.RoomExpert;
@@ -54,13 +59,17 @@ public class AdministratorCreatesRooms {
 		doubleRoomExpense.Expense(-1, "Double", new Date(), "Double Room", 350, true, -1);
 		doubleRoomExpense = adminController.createExpense(doubleRoomExpense);
 		doubleRoomExpense.setFixed(false);
+		//Test admin login
+		System.out.println("Admin tries to login: " + adminController.login("John", adminPassword));
+		System.out.println("Receiptionist tries to login: " + adminController.login("Morgan", receptionistPassword));
 		
-		//Create the rooms
+		//Create the rooms. Removes them first if they exists
 		int amountSingleRooms = 3;
 		int floor = 1;
 		for (int i = 0; i < amountSingleRooms; i++) {
 			Room room = mf.createRoom();
 			room.Room(Integer.parseInt("" + floor + "" + i), "Nice single bed room", singleRoomExpense.getName(), singleRoomExpense, 1, "unouccupied", mf.createReceipt());
+			roomExpert.removeRoom(room);
 			roomExpert.addRoom(room);
 		}
 		
@@ -69,9 +78,33 @@ public class AdministratorCreatesRooms {
 		for (int i = 0; i < amountDoubleRooms; i++) {
 			Room room = mf.createRoom();
 			room.Room(Integer.parseInt("" + floor + "" + i), "HUGE room with double room", doubleRoomExpense.getName(), doubleRoomExpense, 1, "unouccupied", mf.createReceipt());
+			roomExpert.removeRoom(room);
 			roomExpert.addRoom(room);
 		}
 		
-		System.out.println("Total unused rooms in database: " + roomExpert.getAllRooms().size());
+		System.out.println("Total unused rooms in database: " + roomExpert.getUnoccupiedRooms().size());
+		
+		//Create a promotion. Removes the promotion if it already exists
+		Promotion promotion = mf.createPromotion();
+		Calendar cal = Calendar.getInstance();
+		cal.set(2015, 04, 01);
+		Date vaildFrom = cal.getTime();
+		cal.set(2015, 04, 30);
+		Date vaildTo = cal.getTime();
+		cal.set(2015, 01, 31);
+		Date expirationDate = cal.getTime();
+		promotion.Promotion("VinterSales", "10 percent off on single rooms", 10, vaildFrom, vaildTo, "Single", expirationDate);
+		promotionExpert.removePromotion(promotion.getCode());
+		promotionExpert.addPromotion(promotion);
+	}
+	
+	private void displayDatabaseResult(EList<String> input) {
+		for (String rowFull : input) {
+			String[] row = rowFull.split(";", -1);
+			for (int i = 0; i < row.length; i++) {
+				System.out.print(row[i] + "\t");
+			}
+			System.out.println();
+		}
 	}
 }

@@ -169,6 +169,17 @@
           <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#boolean"/>
         </ownedParameter>
       </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_RhvqcJZnEeSvmq6oBh6iww" name="login">
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_WUfAsJZnEeSvmq6oBh6iww" name="name">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        </ownedParameter>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_Y_oYUJZnEeSvmq6oBh6iww" name="password">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        </ownedParameter>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_bZkEIJZnEeSvmq6oBh6iww" name="returnValue" direction="return">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#boolean"/>
+        </ownedParameter>
+      </ownedOperation>
     </packagedElement>
     <packagedElement xmi:type="uml:Interface" xmi:id="_3vNWIH4gEeSissZ6Et6fRA" name="AdminInterface">
       <ownedOperation xmi:type="uml:Operation" xmi:id="_DWE3kIdhEeSzUtUd_ZlEnQ" name="login" visibility="public">

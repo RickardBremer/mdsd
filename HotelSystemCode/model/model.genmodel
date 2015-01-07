@@ -191,6 +191,10 @@
       <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="model.ecore#//ReceptionistInterface/checkOut">
         <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="model.ecore#//ReceptionistInterface/checkOut/booking"/>
       </genOperations>
+      <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="model.ecore#//ReceptionistInterface/login">
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="model.ecore#//ReceptionistInterface/login/name"/>
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="model.ecore#//ReceptionistInterface/login/password"/>
+      </genOperations>
     </genClasses>
     <genClasses xsi:type="genmodel:GenClass" ecoreClass="model.ecore#//Booking">
       <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"

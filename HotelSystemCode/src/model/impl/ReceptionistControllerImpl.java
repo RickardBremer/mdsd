@@ -33,7 +33,6 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link model.impl.ReceptionistControllerImpl#getExpenseExpert <em>Expense Expert</em>}</li>
  *   <li>{@link model.impl.ReceptionistControllerImpl#getUserExpert <em>User Expert</em>}</li>
  * </ul>
  * </p>
@@ -41,16 +40,6 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * @generated
  */
 public class ReceptionistControllerImpl extends BookingControllerImpl implements ReceptionistController {
-	/**
-	 * The cached value of the '{@link #getExpenseExpert() <em>Expense Expert</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getExpenseExpert()
-	 * @generated
-	 * @ordered
-	 */
-	protected ExpenseExpert expenseExpert;
-
 	/**
 	 * The cached value of the '{@link #getUserExpert() <em>User Expert</em>}' reference.
 	 * <!-- begin-user-doc -->
@@ -78,44 +67,6 @@ public class ReceptionistControllerImpl extends BookingControllerImpl implements
 	@Override
 	protected EClass eStaticClass() {
 		return ModelPackage.Literals.RECEPTIONIST_CONTROLLER;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public ExpenseExpert getExpenseExpert() {
-		if (expenseExpert != null && expenseExpert.eIsProxy()) {
-			InternalEObject oldExpenseExpert = (InternalEObject)expenseExpert;
-			expenseExpert = (ExpenseExpert)eResolveProxy(oldExpenseExpert);
-			if (expenseExpert != oldExpenseExpert) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, ModelPackage.RECEPTIONIST_CONTROLLER__EXPENSE_EXPERT, oldExpenseExpert, expenseExpert));
-			}
-		}
-		return expenseExpert;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public ExpenseExpert basicGetExpenseExpert() {
-		return expenseExpert;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setExpenseExpert(ExpenseExpert newExpenseExpert) {
-		ExpenseExpert oldExpenseExpert = expenseExpert;
-		expenseExpert = newExpenseExpert;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.RECEPTIONIST_CONTROLLER__EXPENSE_EXPERT, oldExpenseExpert, expenseExpert));
 	}
 
 	/**
@@ -220,15 +171,9 @@ public class ReceptionistControllerImpl extends BookingControllerImpl implements
 	 * @generated
 	 */
 	public EList<Room> viewUnOccupiedRooms(String roomType) {
-		// Done - Fetches all unoccupied rooms and filters the rooms which fit the roomType into a new list
-		EList<Room> roomlist = room.getUnoccupiedRooms();
-		EList<Room> resultlist = new BasicEList<Room>();
-		for (Room r : roomlist) {
-			if (r.getType().matches(roomType)) {
-				resultlist.add(r);
-			}
-		}
-		return resultlist;
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
 	}
 
 	/**
@@ -266,11 +211,22 @@ public class ReceptionistControllerImpl extends BookingControllerImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void ReceptionistController(ReceiptExpert receiptExpert, ExpenseExpert expenseExpert, RoomExpert roomExpert, BookingExpert bookingExpert, PromotionExpert promotionExpert, UserExpert userExpert) {
+	public boolean login(String name, String password) {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
-		this.receiptExpert = receiptExpert;
 		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void ReceptionistController(ReceiptExpert receiptExpert, ExpenseExpert expenseExpert, RoomExpert roomExpert, BookingExpert bookingExpert, PromotionExpert promotionExpert, UserExpert userExpert) {
+		this.receiptExpert = receiptExpert;
+		this.expenseExpert = expenseExpert;
+		this.room = roomExpert;
+		this.bookingExpert = bookingExpert;
 	}
 
 	/**
@@ -281,9 +237,6 @@ public class ReceptionistControllerImpl extends BookingControllerImpl implements
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case ModelPackage.RECEPTIONIST_CONTROLLER__EXPENSE_EXPERT:
-				if (resolve) return getExpenseExpert();
-				return basicGetExpenseExpert();
 			case ModelPackage.RECEPTIONIST_CONTROLLER__USER_EXPERT:
 				if (resolve) return getUserExpert();
 				return basicGetUserExpert();
@@ -299,9 +252,6 @@ public class ReceptionistControllerImpl extends BookingControllerImpl implements
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case ModelPackage.RECEPTIONIST_CONTROLLER__EXPENSE_EXPERT:
-				setExpenseExpert((ExpenseExpert)newValue);
-				return;
 			case ModelPackage.RECEPTIONIST_CONTROLLER__USER_EXPERT:
 				setUserExpert((UserExpert)newValue);
 				return;
@@ -317,9 +267,6 @@ public class ReceptionistControllerImpl extends BookingControllerImpl implements
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case ModelPackage.RECEPTIONIST_CONTROLLER__EXPENSE_EXPERT:
-				setExpenseExpert((ExpenseExpert)null);
-				return;
 			case ModelPackage.RECEPTIONIST_CONTROLLER__USER_EXPERT:
 				setUserExpert((UserExpert)null);
 				return;
@@ -335,8 +282,6 @@ public class ReceptionistControllerImpl extends BookingControllerImpl implements
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case ModelPackage.RECEPTIONIST_CONTROLLER__EXPENSE_EXPERT:
-				return expenseExpert != null;
 			case ModelPackage.RECEPTIONIST_CONTROLLER__USER_EXPERT:
 				return userExpert != null;
 		}
@@ -360,6 +305,7 @@ public class ReceptionistControllerImpl extends BookingControllerImpl implements
 				case ModelPackage.RECEPTIONIST_INTERFACE___VIEW_UN_OCCUPIED_ROOMS__STRING: return ModelPackage.RECEPTIONIST_CONTROLLER___VIEW_UN_OCCUPIED_ROOMS__STRING;
 				case ModelPackage.RECEPTIONIST_INTERFACE___CHECK_IN__BOOKING_ELIST: return ModelPackage.RECEPTIONIST_CONTROLLER___CHECK_IN__BOOKING_ELIST;
 				case ModelPackage.RECEPTIONIST_INTERFACE___CHECK_OUT__BOOKING: return ModelPackage.RECEPTIONIST_CONTROLLER___CHECK_OUT__BOOKING;
+				case ModelPackage.RECEPTIONIST_INTERFACE___LOGIN__STRING_STRING: return ModelPackage.RECEPTIONIST_CONTROLLER___LOGIN__STRING_STRING;
 				default: return -1;
 			}
 		}
@@ -391,6 +337,8 @@ public class ReceptionistControllerImpl extends BookingControllerImpl implements
 				return checkIn((Booking)arguments.get(0), (EList<Room>)arguments.get(1));
 			case ModelPackage.RECEPTIONIST_CONTROLLER___CHECK_OUT__BOOKING:
 				return checkOut((Booking)arguments.get(0));
+			case ModelPackage.RECEPTIONIST_CONTROLLER___LOGIN__STRING_STRING:
+				return login((String)arguments.get(0), (String)arguments.get(1));
 			case ModelPackage.RECEPTIONIST_CONTROLLER___RECEPTIONIST_CONTROLLER__RECEIPTEXPERT_EXPENSEEXPERT_ROOMEXPERT_BOOKINGEXPERT_PROMOTIONEXPERT_USEREXPERT:
 				ReceptionistController((ReceiptExpert)arguments.get(0), (ExpenseExpert)arguments.get(1), (RoomExpert)arguments.get(2), (BookingExpert)arguments.get(3), (PromotionExpert)arguments.get(4), (UserExpert)arguments.get(5));
 				return null;

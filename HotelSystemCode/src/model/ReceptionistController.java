@@ -11,7 +11,6 @@ package model;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link model.ReceptionistController#getExpenseExpert <em>Expense Expert</em>}</li>
  *   <li>{@link model.ReceptionistController#getUserExpert <em>User Expert</em>}</li>
  * </ul>
  * </p>
@@ -21,32 +20,6 @@ package model;
  * @generated
  */
 public interface ReceptionistController extends BookingController, ReceptionistInterface {
-	/**
-	 * Returns the value of the '<em><b>Expense Expert</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Expense Expert</em>' reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Expense Expert</em>' reference.
-	 * @see #setExpenseExpert(ExpenseExpert)
-	 * @see model.ModelPackage#getReceptionistController_ExpenseExpert()
-	 * @model required="true" ordered="false"
-	 * @generated
-	 */
-	ExpenseExpert getExpenseExpert();
-
-	/**
-	 * Sets the value of the '{@link model.ReceptionistController#getExpenseExpert <em>Expense Expert</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Expense Expert</em>' reference.
-	 * @see #getExpenseExpert()
-	 * @generated
-	 */
-	void setExpenseExpert(ExpenseExpert value);
-
 	/**
 	 * Returns the value of the '<em><b>User Expert</b></em>' reference.
 	 * <!-- begin-user-doc -->

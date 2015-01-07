@@ -988,6 +988,15 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EOperation getReceptionistInterface__Login__String_String() {
+		return receptionistInterfaceEClass.getEOperations().get(8);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getBooking() {
 		return bookingEClass;
 	}
@@ -2222,6 +2231,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		createEOperation(receptionistInterfaceEClass, RECEPTIONIST_INTERFACE___VIEW_UN_OCCUPIED_ROOMS__STRING);
 		createEOperation(receptionistInterfaceEClass, RECEPTIONIST_INTERFACE___CHECK_IN__BOOKING_ELIST);
 		createEOperation(receptionistInterfaceEClass, RECEPTIONIST_INTERFACE___CHECK_OUT__BOOKING);
+		createEOperation(receptionistInterfaceEClass, RECEPTIONIST_INTERFACE___LOGIN__STRING_STRING);
 
 		bookingEClass = createEClass(BOOKING);
 		createEReference(bookingEClass, BOOKING__CUSTOMER);
@@ -2576,6 +2586,10 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 
 		op = initEOperation(getReceptionistInterface__CheckOut__Booking(), ecorePackage.getEBoolean(), "checkOut", 1, 1, IS_UNIQUE, !IS_ORDERED);
 		addEParameter(op, this.getBooking(), "booking", 1, 1, IS_UNIQUE, !IS_ORDERED);
+
+		op = initEOperation(getReceptionistInterface__Login__String_String(), ecorePackage.getEBoolean(), "login", 1, 1, IS_UNIQUE, !IS_ORDERED);
+		addEParameter(op, theTypesPackage.getString(), "name", 1, 1, IS_UNIQUE, !IS_ORDERED);
+		addEParameter(op, theTypesPackage.getString(), "password", 1, 1, IS_UNIQUE, !IS_ORDERED);
 
 		initEClass(bookingEClass, Booking.class, "Booking", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getBooking_Customer(), this.getCustomer(), null, "customer", null, 1, 1, Booking.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);

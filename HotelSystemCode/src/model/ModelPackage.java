@@ -891,13 +891,22 @@ public interface ModelPackage extends EPackage {
 	int RECEPTIONIST_INTERFACE___CHECK_OUT__BOOKING = 7;
 
 	/**
+	 * The operation id for the '<em>Login</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RECEPTIONIST_INTERFACE___LOGIN__STRING_STRING = 8;
+
+	/**
 	 * The number of operations of the '<em>Receptionist Interface</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int RECEPTIONIST_INTERFACE_OPERATION_COUNT = 8;
+	int RECEPTIONIST_INTERFACE_OPERATION_COUNT = 9;
 
 	/**
 	 * The meta object id for the '{@link model.impl.BookingImpl <em>Booking</em>}' class.
@@ -2742,13 +2751,22 @@ public interface ModelPackage extends EPackage {
 	int RECEPTIONIST_CONTROLLER___CHECK_OUT__BOOKING = BOOKING_CONTROLLER_OPERATION_COUNT + 7;
 
 	/**
+	 * The operation id for the '<em>Login</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RECEPTIONIST_CONTROLLER___LOGIN__STRING_STRING = BOOKING_CONTROLLER_OPERATION_COUNT + 8;
+
+	/**
 	 * The operation id for the '<em>Receptionist Controller</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int RECEPTIONIST_CONTROLLER___RECEPTIONIST_CONTROLLER__RECEIPTEXPERT_EXPENSEEXPERT_ROOMEXPERT_BOOKINGEXPERT_PROMOTIONEXPERT_USEREXPERT = BOOKING_CONTROLLER_OPERATION_COUNT + 8;
+	int RECEPTIONIST_CONTROLLER___RECEPTIONIST_CONTROLLER__RECEIPTEXPERT_EXPENSEEXPERT_ROOMEXPERT_BOOKINGEXPERT_PROMOTIONEXPERT_USEREXPERT = BOOKING_CONTROLLER_OPERATION_COUNT + 9;
 
 	/**
 	 * The number of operations of the '<em>Receptionist Controller</em>' class.
@@ -2757,7 +2775,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RECEPTIONIST_CONTROLLER_OPERATION_COUNT = BOOKING_CONTROLLER_OPERATION_COUNT + 9;
+	int RECEPTIONIST_CONTROLLER_OPERATION_COUNT = BOOKING_CONTROLLER_OPERATION_COUNT + 10;
 
 	/**
 	 * The meta object id for the '{@link model.impl.MSAccessDBImpl <em>MS Access DB</em>}' class.
@@ -3590,6 +3608,16 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 */
 	EOperation getReceptionistInterface__CheckOut__Booking();
+
+	/**
+	 * Returns the meta object for the '{@link model.ReceptionistInterface#login(java.lang.String, java.lang.String) <em>Login</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Login</em>' operation.
+	 * @see model.ReceptionistInterface#login(java.lang.String, java.lang.String)
+	 * @generated
+	 */
+	EOperation getReceptionistInterface__Login__String_String();
 
 	/**
 	 * Returns the meta object for class '{@link model.Booking <em>Booking</em>}'.
@@ -5520,6 +5548,14 @@ public interface ModelPackage extends EPackage {
 		 * @generated
 		 */
 		EOperation RECEPTIONIST_INTERFACE___CHECK_OUT__BOOKING = eINSTANCE.getReceptionistInterface__CheckOut__Booking();
+
+		/**
+		 * The meta object literal for the '<em><b>Login</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation RECEPTIONIST_INTERFACE___LOGIN__STRING_STRING = eINSTANCE.getReceptionistInterface__Login__String_String();
 
 		/**
 		 * The meta object literal for the '{@link model.impl.BookingImpl <em>Booking</em>}' class.
