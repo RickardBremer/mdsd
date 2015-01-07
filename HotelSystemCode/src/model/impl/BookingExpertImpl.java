@@ -218,7 +218,7 @@ public class BookingExpertImpl extends MinimalEObjectImpl.Container implements B
 		// Rickard
 		// Ensure that you remove @generated or mark it @generated NOT
 		
-		boolean value = database.send("INSERT INTO tblBookings ('DateFrom', 'DateTo', 'CustomerMail', 'ClientRequests', 'CheckedIn') VALUES("
+		boolean value = database.send("INSERT INTO tblBookings (DateFrom, DateTo, CustomerMail, ClientRequests, CheckedIn) VALUES("
 				+ booking.getFromDate().getTime()
 				+ ","
 				+ booking.getToDate().getTime()
@@ -231,6 +231,7 @@ public class BookingExpertImpl extends MinimalEObjectImpl.Container implements B
 				+ ");");
 		
 		String[] ID = null;
+		System.out.println("Debugg\n");
 		if(value){
 			ID = database.query("SELECT BookingID FROM tblBookings WHERE DateFrom = " + booking.getFromDate().getTime() + " AND DateTo = "
 		    + booking.getToDate().getTime() + " AND CustomerEmail = " + booking.getCustomer().getEmail() + 
@@ -387,7 +388,7 @@ public class BookingExpertImpl extends MinimalEObjectImpl.Container implements B
 		// Ensure that you remove @generated or mark it @generated NOT
 		
 		this.database=database;
-		throw new UnsupportedOperationException();
+	//	throw new UnsupportedOperationException();
 	}
 
 	/**
