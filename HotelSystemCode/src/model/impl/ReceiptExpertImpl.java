@@ -106,6 +106,7 @@ public class ReceiptExpertImpl extends MinimalEObjectImpl.Container implements R
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
+	//Stefania
 	public Receipt getReceipt(int ID) {
 		ExpenseExpert eExpert = new ExpenseExpertImpl(); 
 		eExpert.ExpenseExpert(database);
@@ -132,6 +133,7 @@ public class ReceiptExpertImpl extends MinimalEObjectImpl.Container implements R
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
+	//Stefania
 	public EList<Receipt> getAllReceipt() {
 		EList<String> receipt = database.query("SELECT * FROM tblReceipts");
 		if(receipt != null){
@@ -158,6 +160,7 @@ public class ReceiptExpertImpl extends MinimalEObjectImpl.Container implements R
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
+	//Stefania
 	public Receipt combine(EList<Receipt> receiptList) {
 		// id, Date date, EList<Expense> expenses
 		Receipt r = new ReceiptImpl();
@@ -182,6 +185,7 @@ public class ReceiptExpertImpl extends MinimalEObjectImpl.Container implements R
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
+	//Stefania
 	public Receipt addReceipt(Receipt receipt) {
 		Receipt r = receipt;
 		
@@ -199,6 +203,7 @@ public class ReceiptExpertImpl extends MinimalEObjectImpl.Container implements R
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
+	//Stefania
 	public boolean removeReceipt(Receipt receipt) {
 		return database.send("DELETE * FROM tblReceipts WHERE ReceiptID = " 
 				+ receipt.getId());
@@ -209,6 +214,7 @@ public class ReceiptExpertImpl extends MinimalEObjectImpl.Container implements R
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
+	//Stefania
 	public boolean updateReceipt(Receipt receipt) {
 		return database.send("UPDATE tblReceipts WHERE ReceiptID = " + receipt.getId() + 
 				"SET ReceiptDescription = " + receipt.getExpenses() + "TotalCost = " +
@@ -220,6 +226,7 @@ public class ReceiptExpertImpl extends MinimalEObjectImpl.Container implements R
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
+	//Stefania
 	public void ReceiptExpert(DatabaseInterface database) {
 		this.database = database; 
 	}

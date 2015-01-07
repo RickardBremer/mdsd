@@ -204,6 +204,7 @@ public class ReceiptImpl extends MinimalEObjectImpl.Container implements Receipt
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
+	//Stefania
 	public boolean addExpense(Expense expense) {
 		//double total = 0;
 		ExpenseExpert e = new ExpenseExpertImpl();
@@ -225,6 +226,7 @@ public class ReceiptImpl extends MinimalEObjectImpl.Container implements Receipt
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
+	//Stefania
 	public boolean removeExpense(Expense expense) {
 		boolean removed = false;
 		if (expense != null){
@@ -246,6 +248,7 @@ public class ReceiptImpl extends MinimalEObjectImpl.Container implements Receipt
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
+	//Stefania
 	public EList<Expense> getAllExpenses() {
 		if(expenses.isEmpty()){
 			ExpenseExpert e = new ExpenseExpertImpl();
@@ -259,6 +262,7 @@ public class ReceiptImpl extends MinimalEObjectImpl.Container implements Receipt
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
+	//Stefania
 	public void Receipt(int id, Date date, EList<Expense> expenses) {
 		this.id = id;
 		this.date = date;
