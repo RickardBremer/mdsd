@@ -407,11 +407,20 @@ public class BookingExpertImpl extends MinimalEObjectImpl.Container implements B
 		Date convertDateFrom; 
 		Date convertDateTo; 
 		Calendar cal = Calendar.getInstance();
+		System.out.println("SELECT tblBookings.BookingID,tblBookings.CustomerMail, tblBookings.ClientRequests, tblBookings.PromotionCode,  tblCalendar.DateFrom, tblCalendar.DateTo  FROM tblBookings"
+			    + " INNER JOIN tblCalendar ON tblBookings.BookingID=tblCalendar.BookingID INNER JOIN tblCustomers ON tblBookings.CustomerMail = tblCustomers.EMail "
+			    + "WHERE "
+			    + "tblCalendar.DateTo<" + sdf.format(dateTo) 
+//			    + " AND tblCalendar.DateFrom>" + sdf.format(dateFrom) 
+			    + " AND "
+			    + "tblCustomers.LastName='" + surname + "';");
 		responseResult = database.query("SELECT tblBookings.BookingID,tblBookings.CustomerMail, tblBookings.ClientRequests, tblBookings.PromotionCode,  tblCalendar.DateFrom, tblCalendar.DateTo  FROM tblBookings"
 			    + " INNER JOIN tblCalendar ON tblBookings.BookingID=tblCalendar.BookingID INNER JOIN tblCustomers ON tblBookings.CustomerMail = tblCustomers.EMail "
 			    + "WHERE "
-//			    + "tblCalendar.DateTo <" + sdf.format(dateTo) + " AND tblCalendar.DateFrom >" + sdf.format(dateFrom) + " AND "
-			    		+ "tblCustomers.LastName='" + surname + "';");
+			    + "tblCalendar.DateTo<=" + sdf.format(dateTo)  
+			    +" AND tblCalendar.DateFrom>=" + sdf.format(dateFrom) 
+			    + " AND "
+			    + "tblCustomers.LastName='" + surname + "';");
 	
 		for(String booking: responseResult) {
 			

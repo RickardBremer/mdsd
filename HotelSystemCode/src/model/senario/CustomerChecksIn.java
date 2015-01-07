@@ -3,6 +3,7 @@ package model.senario;
 import java.awt.image.RescaleOp;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.GregorianCalendar;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -54,17 +55,19 @@ public class CustomerChecksIn {
 		
 		//Receptionist Login
 		//Get booking, searches for all bookings made today, under the surname "Greenman"
-		//Calendar morning = Calendar.getInstance();
-		//Calendar night = Calendar.getInstance();
-		Date morning = new Date();
-		Date night = new Date();
-		morning.setHours(0);
-		night.setHours(24);
+		Calendar frDate = Calendar.getInstance();
+		
+		Calendar myCalendar = new GregorianCalendar(2015, 1, 20);
+		Date toDate = myCalendar.getTime();
+//		Date morning = new Date();
+//		Date night = new Date();
+//		morning.setHours(0);
+//		night.setHours(24);
 		
 //		morning.set(Calendar.HOUR_OF_DAY, 0);
 //		night.set(Calendar.HOUR_OF_DAY, 24);
 		
-		Booking booking = receptionistController.viewAllBookings("Greenman", morning, night).get(0);
+		Booking booking = receptionistController.viewAllBookings("Greenman", frDate.getTime(), toDate).get(0);
 		EList<Room> bookedrooms = new BasicEList<Room>();
 		EList<Resident> resList = new BasicEList<Resident>();
 		Resident resOne = receptionistController.createResident("Magne" , "Herne", "8918286545");
