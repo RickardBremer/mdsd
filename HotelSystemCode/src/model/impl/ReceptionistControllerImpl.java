@@ -116,7 +116,7 @@ public class ReceptionistControllerImpl extends BookingControllerImpl implements
 	public Resident createResident(String firstName, String surname, String passportNumber) {
 		// Done - Creates a new resident object
 		Resident r = new ResidentImpl();
-		r.Resident(firstName, surname, passportNumber);
+		r.Resident(passportNumber,firstName, surname);
 		return r;
 	}
 

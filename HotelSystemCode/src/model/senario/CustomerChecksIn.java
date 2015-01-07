@@ -91,13 +91,16 @@ public class CustomerChecksIn {
 			for (int i = 0; i<entry.getValue();i++) {
 				System.out.println(entry.getValue());
 				bookedrooms.add(room.get(i));
-				booking.getRoom().add(bookedrooms.get(i));
+
 				//Fill rooms with residents
-				for (int j = 0; j < bookedrooms.get(i).getBeds();j++) {
-					bookedrooms.get(i).getResidents().add(resList.get(i));
-				}
 			}
 			}
+		for (Room r : bookedrooms) {
+			 for (int i = 0; i < r.getBeds();i++) {
+				r.getResidents().add(resList.get(i));
+			 }
+			 booking.getRoom().add(r);
+		}
 			
 		
 		

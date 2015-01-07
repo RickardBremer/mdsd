@@ -465,7 +465,7 @@ public class BookingExpertImpl extends MinimalEObjectImpl.Container implements B
 			database.send("UPDATE tblRooms SET Status = 'occupied' WHERE roomnumber=" + rooms.get(i).getNumber() );
 //				Add all residents required for booking.
 				
-			for(int j = 0; j < rooms.get(i).getResidents().size(); i++) {
+			for(int j = 0; j < rooms.get(i).getResidents().size(); j++) {
 //						Add new people to the database
 				
 //					String resident = database.query("SELECT ResidentID FROM tblStaysResident WHERE StayId=" + Stay + ";").get(0);
