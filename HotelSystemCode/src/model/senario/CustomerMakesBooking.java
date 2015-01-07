@@ -84,7 +84,7 @@ public class CustomerMakesBooking {
 	bookingController.BookingController(roomExpert, bookingExpert, promotionExpert, expenseExpert, receiptExpert);
 	Receipt r = mf.createReceipt();
 	
-	customer = bookingController.createCustomer("Hulken", "Greenman", "nlarsson1@gmail.com", "Hisingen", "2100 0000 0000 0000", "000", 12, 17);
+	customer = bookingController.createCustomer("Hulken", "Greenman", "nlarsson0@gmail.com", "Hisingen", "2100 0000 0000 0000", "000", 12, 17);
 	boolean success = bookingController.createBooking(fDate.getTime(), tDate.getTime(), "Extra peanuts", customer, promotion, r, roomTypes);
 	
 	System.out.println(success); 
