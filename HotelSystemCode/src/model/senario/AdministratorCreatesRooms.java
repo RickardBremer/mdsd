@@ -39,6 +39,7 @@ public class AdministratorCreatesRooms {
 			if (cashAdmin.getBalance("2100000000000000", "000", 12, 17, "Hulken", "Greenman") < 1000) {
 				cashAdmin.makeDeposit("2100000000000000", "000", 12, 17, "Hulken", "Greenman", 120000);
 			}
+			System.out.println("Hulken has: " + cashAdmin.getBalance("2100000000000000", "000", 12, 17, "Hulken", "Greenman") + "kr\n");
 		} catch (SOAPException e) {
 			System.out.println("Cash setup failed!");
 		}
