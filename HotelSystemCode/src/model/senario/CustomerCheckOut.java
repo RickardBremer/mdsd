@@ -1,6 +1,8 @@
 package model.senario;
 
+import java.util.Calendar;
 import java.util.Date;
+import java.util.GregorianCalendar;
 
 import org.eclipse.emf.common.util.EList;
 
@@ -27,14 +29,6 @@ public class CustomerCheckOut {
 
 	public static void main(String[] args) {
 		
-		// Run previous scenarios
-		AdministratorCreatesRooms acr = new AdministratorCreatesRooms();
-		acr.main(args);
-		CustomerMakesBooking cmb = new CustomerMakesBooking(); 
-		cmb.main(args);
-		CustomerChecksIn chi = new CustomerChecksIn();
-		chi.main(args);
-		
 		// Create ModelFactory and DatabaseInterface
 		ModelFactory mf = ModelFactoryImpl.init();
 		DatabaseInterface db = mf.createMSAccessDB();
@@ -57,10 +51,14 @@ public class CustomerCheckOut {
 		
 		ReceptionistController rc = mf.createReceptionistController();
 		rc.BookingController(roomExpert, bookingExpert, promotionExpert, expenseExpert, receiptExpert);
-			
-		Booking booking = rc.viewAllBookings("Greenman", new Date(), new Date()).get(0);
 		
-		if(!booking.isCheckedIn()){
+		Calendar frDate = Calendar.getInstance();
+		Calendar myCalendar = new GregorianCalendar(2015, 1, 20);
+		Date toDate = myCalendar.getTime();
+		
+		Booking booking = rc.viewAllBookings("Greenman", frDate.getTime(), toDate).get(0);
+		
+		if(booking.isCheckedIn()){
 			if(rc.checkOut(booking)){
 				System.out.println("The booking of " +booking.getCustomer().getFirstName() +" "+booking.getCustomer().getSurname()+ " was checked out");
 			}else{
