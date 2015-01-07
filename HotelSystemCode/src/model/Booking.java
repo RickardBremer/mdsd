@@ -4,6 +4,8 @@ package model;
 
 import java.util.Date;
 
+// Hello there
+
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EObject;
