@@ -277,9 +277,9 @@ public interface Booking extends EObject {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model fromDateRequired="true" fromDateOrdered="false" toDateRequired="true" toDateOrdered="false" wishesDataType="org.eclipse.uml2.types.String" wishesRequired="true" wishesOrdered="false" customerRequired="true" customerOrdered="false" roomTypesDataType="org.eclipse.uml2.types.String" roomTypesMany="true" roomTypesOrdered="false" promotionCodeDataType="org.eclipse.uml2.types.String" promotionCodeRequired="true" promotionCodeOrdered="false" idRequired="true" idOrdered="false" roomsMany="true" roomsOrdered="false"
+	 * @model fromDateRequired="true" fromDateOrdered="false" toDateRequired="true" toDateOrdered="false" wishesDataType="org.eclipse.uml2.types.String" wishesRequired="true" wishesOrdered="false" customerRequired="true" customerOrdered="false" roomTypesDataType="org.eclipse.uml2.types.String" roomTypesMany="true" roomTypesOrdered="false" promotionCodeDataType="org.eclipse.uml2.types.String" promotionCodeRequired="true" promotionCodeOrdered="false" idRequired="true" idOrdered="false" roomsMany="true" roomsOrdered="false" receiptRequired="true" receiptOrdered="false"
 	 * @generated
 	 */
-	void Booking(Date fromDate, Date toDate, String wishes, Customer customer, EList<String> roomTypes, String promotionCode, int id, EList<Room> rooms);
+	void Booking(Date fromDate, Date toDate, String wishes, Customer customer, EList<String> roomTypes, String promotionCode, int id, EList<Room> rooms, Receipt receipt);
 
 } // Booking

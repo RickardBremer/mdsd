@@ -450,6 +450,7 @@
           <lowerValue xmi:type="uml:LiteralInteger" xmi:id="__rsEYJWhEeSvmq6oBh6iww"/>
           <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="__rvHsJWhEeSvmq6oBh6iww" value="*"/>
         </ownedParameter>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_z9gVMJaBEeSvmq6oBh6iww" name="receipt" type="_6dx-kIB4EeSIi9xXvYIBqQ"/>
       </ownedOperation>
     </packagedElement>
     <packagedElement xmi:type="uml:Class" xmi:id="_6dx-kIB4EeSIi9xXvYIBqQ" name="Receipt">

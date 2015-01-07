@@ -83,12 +83,12 @@ public class AdministratorCreatesRooms {
 		
 		// Create the room expenses
 		Expense singleRoomExpense = mf.createExpense();
-		singleRoomExpense.Expense(-1, "Single", new Date(), "Single Room", 200, true, -1);
+		singleRoomExpense.Expense(-1, "single", new Date(), "Single Room", 200, true, -1);
 		singleRoomExpense = adminController.createExpense(singleRoomExpense);
 		singleRoomExpense.setFixed(false);
 		
 		Expense doubleRoomExpense = mf.createExpense();
-		doubleRoomExpense.Expense(-1, "Double", new Date(), "Double Room", 350, true, -1);
+		doubleRoomExpense.Expense(-1, "double", new Date(), "Double Room", 350, true, -1);
 		doubleRoomExpense = adminController.createExpense(doubleRoomExpense);
 		doubleRoomExpense.setFixed(false);
 		
@@ -128,8 +128,21 @@ public class AdministratorCreatesRooms {
 		}
 		displayDatabaseResult(roomsAsStrings);
 		System.out.println();
-		//show expenses in the database
-		displayDatabaseResult(db.query("SELECT * FROM tblExpenses"));
+		
+		//show expenses, these are just the ones that are fixed
+		EList<Expense> listOfExpenses = adminController.viewExpenses();
+		EList<String> ExpensesAsStrings = new BasicEList<String>();
+		System.out.println("Number of Expenses: " + listOfExpenses.size());
+		for (Expense Expense : listOfExpenses) {
+			ExpensesAsStrings.add(
+					Expense.getId() + ";"
+					+ Expense.getName() + ";"
+					+ Expense.getDescription() + ";"
+					+ Expense.getPrice() + ";"
+					+ Expense.isFixed() + ";"
+					+ Expense.getDate());
+		}
+		displayDatabaseResult(ExpensesAsStrings);
 		System.out.println();
 		
 		//Create a promotion. Removes the promotion if it already exists

@@ -1096,7 +1096,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getBooking__Booking__Date_Date_String_Customer_EList_String_int_EList() {
+	public EOperation getBooking__Booking__Date_Date_String_Customer_EList_String_int_EList_Receipt() {
 		return bookingEClass.getEOperations().get(0);
 	}
 
@@ -2244,7 +2244,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		createEAttribute(bookingEClass, BOOKING__ID);
 		createEReference(bookingEClass, BOOKING__RECEIPT);
 		createEReference(bookingEClass, BOOKING__ROOM);
-		createEOperation(bookingEClass, BOOKING___BOOKING__DATE_DATE_STRING_CUSTOMER_ELIST_STRING_INT_ELIST);
+		createEOperation(bookingEClass, BOOKING___BOOKING__DATE_DATE_STRING_CUSTOMER_ELIST_STRING_INT_ELIST_RECEIPT);
 
 		adminInterfaceEClass = createEClass(ADMIN_INTERFACE);
 		createEOperation(adminInterfaceEClass, ADMIN_INTERFACE___LOGIN__STRING_STRING);
@@ -2603,7 +2603,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		initEReference(getBooking_Receipt(), this.getReceipt(), null, "receipt", null, 1, 1, Booking.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEReference(getBooking_Room(), this.getRoom(), null, "room", null, 0, -1, Booking.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
-		op = initEOperation(getBooking__Booking__Date_Date_String_Customer_EList_String_int_EList(), null, "Booking", 1, 1, IS_UNIQUE, !IS_ORDERED);
+		op = initEOperation(getBooking__Booking__Date_Date_String_Customer_EList_String_int_EList_Receipt(), null, "Booking", 1, 1, IS_UNIQUE, !IS_ORDERED);
 		addEParameter(op, ecorePackage.getEDate(), "fromDate", 1, 1, IS_UNIQUE, !IS_ORDERED);
 		addEParameter(op, ecorePackage.getEDate(), "toDate", 1, 1, IS_UNIQUE, !IS_ORDERED);
 		addEParameter(op, theTypesPackage.getString(), "wishes", 1, 1, IS_UNIQUE, !IS_ORDERED);
@@ -2612,6 +2612,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		addEParameter(op, theTypesPackage.getString(), "promotionCode", 1, 1, IS_UNIQUE, !IS_ORDERED);
 		addEParameter(op, ecorePackage.getEInt(), "id", 1, 1, IS_UNIQUE, !IS_ORDERED);
 		addEParameter(op, this.getRoom(), "rooms", 0, -1, IS_UNIQUE, !IS_ORDERED);
+		addEParameter(op, this.getReceipt(), "receipt", 1, 1, IS_UNIQUE, !IS_ORDERED);
 
 		initEClass(adminInterfaceEClass, AdminInterface.class, "AdminInterface", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 

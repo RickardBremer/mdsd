@@ -203,6 +203,7 @@
       <eParameters name="promotionCode" ordered="false" lowerBound="1" eType="ecore:EDataType types.ecore#//String"/>
       <eParameters name="id" ordered="false" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
       <eParameters name="rooms" ordered="false" upperBound="-1" eType="#//Room"/>
+      <eParameters name="receipt" ordered="false" lowerBound="1" eType="#//Receipt"/>
     </eOperations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="customer" ordered="false"
         lowerBound="1" eType="#//Customer"/>

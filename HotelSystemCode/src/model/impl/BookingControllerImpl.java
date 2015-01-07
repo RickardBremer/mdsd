@@ -407,7 +407,7 @@ public class BookingControllerImpl extends MinimalEObjectImpl.Container implemen
 			return false;
 		}
 		Booking booking = new BookingImpl();
-		booking.Booking(fromDate, toDate, wishes, customer, roomTypes, promotion, -1, new BasicEList<Room>());
+		booking.Booking(fromDate, toDate, wishes, customer, roomTypes, promotion, -1, new BasicEList<Room>(), new ReceiptImpl());
 		booking = bookingExpert.addBooking(booking);
 		Receipt rec = booking.getReceipt();
 		//TODO: Get expenses for all rooms, get promotions
