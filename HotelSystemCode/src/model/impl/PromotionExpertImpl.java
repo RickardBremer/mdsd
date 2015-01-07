@@ -166,7 +166,7 @@ PromotionExpert {
 	 */
 
 	public boolean removePromotion(String promotionCode) {
-		return database.send("DELETE FROM tblPromotions WHERE code=" + promotionCode);
+		return database.send("DELETE FROM tblPromotions WHERE Code='" + promotionCode + "'");
 	}
 
 	/**
@@ -176,7 +176,7 @@ PromotionExpert {
 	 */
 
 	public boolean updatePromotion(Promotion promotion) {
-		SimpleDateFormat std = new SimpleDateFormat("#MM/DD/YYYY#");
+		SimpleDateFormat std = new SimpleDateFormat("#MM/dd/yyyy#");
 		return database.send("Update tblPromotion SET Code = "
 				+ promotion.getCode() + "," + "Description = "
 				+ promotion.getDescription() + "," + "Percentage = "
@@ -203,7 +203,7 @@ PromotionExpert {
 	 * @generated NOT
 	 */
 	public Promotion addPromotion(Promotion promotion) {
-		SimpleDateFormat std = new SimpleDateFormat("#MM/DD/YYYY#");
+		SimpleDateFormat std = new SimpleDateFormat("#MM/dd/yyyy#");
 		boolean result = database.send("INSERT INTO tblPromotions VALUES('"
 				+ promotion.getCode() +"', '"
 				+ promotion.getDescription() + "', "
@@ -211,7 +211,7 @@ PromotionExpert {
 				+ promotion.getRoomType() + "', "
 				+ std.format(promotion.getValidFrom()) + ", "
 				+ std.format(promotion.getValidTo()) + ", "
-				+ promotion.getExpirationDate().getTime());
+				+ std.format(promotion.getExpirationDate()) + ")");
 		if (result) {
 			return promotion;
 		}

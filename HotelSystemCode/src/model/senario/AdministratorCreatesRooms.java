@@ -42,11 +42,13 @@ public class AdministratorCreatesRooms {
 		User admin = mf.createUser();
 		String adminPassword = "doctor";
 		admin.User("John", "Zoidberg", adminPassword, false, true, -1);
+		adminController.removeUser(admin);
 		admin = adminController.createUser(admin);
 		//Create a receptionist
 		User receptionist = mf.createUser();
 		String receptionistPassword = "iamgod";
 		receptionist.User("Morgan", "Freeman", receptionistPassword, true, false, -1);
+		adminController.removeUser(receptionist);
 		receptionist = adminController.createUser(receptionist);
 		
 		// Create the room expenses
@@ -82,7 +84,7 @@ public class AdministratorCreatesRooms {
 			roomExpert.addRoom(room);
 		}
 		
-		System.out.println("Total unused rooms in database: " + roomExpert.getUnoccupiedRooms().size());
+		displayDatabaseResult(db.query("SELECT * FROM tblRooms"));
 		
 		//Create a promotion. Removes the promotion if it already exists
 		Promotion promotion = mf.createPromotion();
@@ -98,7 +100,7 @@ public class AdministratorCreatesRooms {
 		promotionExpert.addPromotion(promotion);
 	}
 	
-	private void displayDatabaseResult(EList<String> input) {
+	private static void displayDatabaseResult(EList<String> input) {
 		for (String rowFull : input) {
 			String[] row = rowFull.split(";", -1);
 			for (int i = 0; i < row.length; i++) {
