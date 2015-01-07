@@ -161,15 +161,15 @@ public class RoomExpertImpl extends MinimalEObjectImpl.Container implements Room
 		EList<Room> availableTypes = new BasicEList<Room>();
 		HashMap<String, Integer> bookedTypes = new HashMap<String, Integer>();
 		HashMap<String, Integer> totalTypes = new HashMap<String, Integer>();
-		SimpleDateFormat dateFormat = new SimpleDateFormat("#dd/MM/yyyy#");
+		SimpleDateFormat dateFormat = new SimpleDateFormat("#MM/dd/yyyy#");
 		//long fromMillis = from.getTime(); //TODO remove this when all is working
 		//long toMillis = to.getTime();
 		
 		// Connect to database and get all calendar bookings regarding the desired dates
 		EList<String> queryResult = database.query("SELECT RoomType, COUNT(RoomType) FROM tblCalendar WHERE "
-				+ "(FromDate < " + dateFormat.format(from) + " AND ToDate < " + dateFormat.format(from) + ") OR "
-				+ "(FromDate > " + dateFormat.format(from) + " AND ToDate > " + dateFormat.format(to) + ") OR "
-				+ "(FromDate < " + dateFormat.format(to) + " AND ToDate > " + dateFormat.format(to) + ") "
+				+ "(DateFrom < " + dateFormat.format(from) + " AND DateTo < " + dateFormat.format(from) + ") OR "
+				+ "(DateFrom > " + dateFormat.format(from) + " AND DateTo > " + dateFormat.format(to) + ") OR "
+				+ "(DateFrom < " + dateFormat.format(to) + " AND DateTo > " + dateFormat.format(to) + ") "
 				+ "GROUP BY RoomType");
 		if (queryResult != null) {
 			for (String rowFull : queryResult) {
@@ -190,13 +190,13 @@ public class RoomExpertImpl extends MinimalEObjectImpl.Container implements Room
 			int numBooked = (bookedTypes.get(type) != null) ? bookedTypes.get(type) : 0;
 			int numAvailable = totalTypes.get(type) - numBooked;
 			if (numAvailable >= numberOfRooms) {
-				EList<String> queryResult2 = database.query("SELECT RoomNumber, RoomDescription, RoomType, ExpenseID, Beds, Status FROM tblRooms WHERE RoonType=" + type + " LIMIT 0,1");
+				EList<String> queryResult2 = database.query("SELECT RoomNumber, RoomDescription, RoomType, ExpenseID, Beds, Status FROM tblRooms WHERE RoomType='" + type + "' LIMIT 0,1");
 				if (queryResult2 != null) {
 					String[] roomSpec = queryResult2.get(0).split(";", -1);
 					Room room = new RoomImpl();
 					ExpenseExpert ee = new ExpenseExpertImpl();
 					ee.ExpenseExpert(database);
-					Expense price = ee.getExpense(Integer.parseInt(roomSpec[7]));
+					Expense price = ee.getExpense(Integer.parseInt(roomSpec[3]));
 					room.Room(Integer.parseInt(roomSpec[0]), roomSpec[1], roomSpec[2], price, Integer.parseInt(roomSpec[4]), roomSpec[5], new ReceiptImpl());
 					availableTypes.add(room);
 				}
