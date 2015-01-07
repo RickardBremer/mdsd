@@ -1,6 +1,10 @@
 package model.senario;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Date;
+import java.util.GregorianCalendar;
 
 import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
@@ -51,8 +55,6 @@ public class CustomerMakesBooking {
 	// create roomTypes
 	EList<String> roomTypes = new BasicEList<String>(); 
 	
-	roomTypes.add("Single");
-	roomTypes.add("Double");
 	
 	// promotionCode
 	String promotion = "";
@@ -67,27 +69,47 @@ public class CustomerMakesBooking {
 	Booking booking = mf.createBooking();
 	
 	Calendar fDate = Calendar.getInstance();
-	Calendar tDate = Calendar.getInstance();
+//  Calendar tDate = Calendar.getInstance();
+	
+	Calendar myCalendar = new GregorianCalendar(2015, 20, 1);
+	Date tDate = myCalendar.getTime();
 	
 //	BookingExpert bookingExpert = mf.createBookingExpert();
 //	bookingExpert.BookingExpert(db);
-	
 //	System.out.println(tDate.getTime());
-	
 //	booking.Booking(fDate.getTime(), tDate.getTime(), "Extra peanuts", customer, roomTypes, promotion, id, rooms);
-	
 //	booking = bookingExpert.addBooking(booking);
-	
 //	System.out.println("Booking succeded, booking id: " + booking.getId());
 	
 	BookingController bookingController = mf.createBookingController();
 	bookingController.BookingController(roomExpert, bookingExpert, promotionExpert, expenseExpert, receiptExpert);
 	Receipt r = mf.createReceipt();
 	
-	customer = bookingController.createCustomer("Hulken", "Greenman", "nlarsson0@gmail.com", "Hisingen", "2100 0000 0000 0000", "000", 12, 17);
-	boolean success = bookingController.createBooking(fDate.getTime(), tDate.getTime(), "Extra peanuts", customer, promotion, r, roomTypes);
+	rooms = bookingController.searchRooms(fDate.getTime(), tDate, 1, 1);
+	for(int i = 0; i < rooms.size(); i++){
+		System.out.println(rooms.get(i).getType());
+		if(rooms.get(i).getType().matches("single")){
+			roomTypes.add(rooms.get(i).getType());
+			System.out.println(roomTypes.get(i));
+			i = rooms.size();
+		}
+	}
+	
+//	rooms = roomExpert.getAllRooms();
+	System.out.println("rooms : " + rooms.size());
+	for(int i = 0; i < rooms.size(); i++){
+		System.out.println(rooms.get(i).getStatus());
+	}
+	
+	customer = bookingController.createCustomer("Hulken", "Greenman", "nlarsson1@gmail.com", "Hisingen", "2100 0000 0000 0000", "000", 12, 17);
+	boolean success = bookingController.createBooking(fDate.getTime(), tDate, "Extra peanuts", customer, promotion, r, roomTypes);
+	
+//	for(int i = 0; i < roomTypes.size(); i++){
+//		System.out.println(roomTypes.get(i));
+//	}
 	
 	System.out.println(success); 
+	
 	}
 	
 }

@@ -225,9 +225,7 @@ public class ReceiptExpertImpl extends MinimalEObjectImpl.Container implements R
 	public boolean updateReceipt(Receipt receipt) {
 		SimpleDateFormat dateFormat = new SimpleDateFormat("#MM/dd/yyyy#");
 		
-		System.out.println(" hej hej " + receipt.getExpenses());
-		
-		return database.send("UPDATE tblReceipts SET ReceiptDescription = '" + receipt.getExpenses() + "' , TotalCost = " +
+		return database.send("UPDATE tblReceipts SET TotalCost = " +
 				receipt.getTotalCost() + ", ReceiptDate =" + dateFormat.format(receipt.getDate()) + " WHERE ReceiptID = " + receipt.getId() +";");	
 	}
 

@@ -102,8 +102,9 @@ PromotionExpert {
 	 * @generated NOT
 	 */
 	public Promotion getPromotion(String promotionCode) {
-		EList<String> list = database.query("Select * from tblPromotions where Code = " + promotionCode + ";");
-		if (list != null) {
+		EList<String> list = database.query("Select * from tblPromotions where Code = '" + promotionCode + "';");
+		
+		if (list != null && list.size() > 0) {
 			String[] promoCode = list.get(0).split(";", -1);
 			Promotion promot = new PromotionImpl();
 			Calendar cal = Calendar.getInstance();
