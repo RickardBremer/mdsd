@@ -1,9 +1,10 @@
 package model.senario;
 
-import java.text.SimpleDateFormat;
 import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Date;
+
+import javax.xml.soap.SOAPException;
 
 import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
@@ -15,14 +16,36 @@ import model.ExpenseExpert;
 import model.ModelFactory;
 import model.Promotion;
 import model.PromotionExpert;
+import model.Receipt;
+import model.ReceiptExpert;
 import model.Room;
 import model.RoomExpert;
 import model.User;
 import model.UserExpert;
 import model.impl.ModelFactoryImpl;
+import se.chalmers.cse.mdsd1415.banking.administratorRequires.AdministratorRequires;
+import se.chalmers.cse.mdsd1415.banking.customerRequires.CustomerRequires;
 
 public class AdministratorCreatesRooms {
 	public static void main(String[] args) {
+		//Administrate creditcard
+		AdministratorRequires cashAdmin;
+		CustomerRequires cashCustomer;
+		try {
+			cashAdmin = AdministratorRequires.instance();
+			cashCustomer = CustomerRequires.instance();
+			
+			if (!cashCustomer.isCreditCardValid("2100000000000000", "000", 12, 17, "Hulken", "Greenman")) {
+				cashAdmin.addCreditCard("2100000000000000", "000", 12, 17, "Hulken", "Greenman");
+			}
+			if (cashAdmin.getBalance("2100000000000000", "000", 12, 17, "Hulken", "Greenman") < 1000) {
+				cashAdmin.makeDeposit("2100000000000000", "000", 12, 17, "Hulken", "Greenman", 120000);
+			}
+		} catch (SOAPException e) {
+			System.out.println("Cash setup failed!");
+		}
+		
+		//Create necessary components
 		ModelFactory mf = ModelFactoryImpl.init();
 		DatabaseInterface db = mf.createMSAccessDB();
 		
@@ -97,7 +120,7 @@ public class AdministratorCreatesRooms {
 		int floor = 1;
 		for (int i = 0; i < amountSingleRooms; i++) {
 			Room room = mf.createRoom();
-			room.Room(Integer.parseInt("" + floor + "" + i), "Nice single bed room", singleRoomExpense.getName(), singleRoomExpense, 1, "unouccupied", mf.createReceipt());
+			room.Room(Integer.parseInt("" + floor + "" + i), "Nice single bed room", singleRoomExpense.getName(), singleRoomExpense, 1, "unoccupied", mf.createReceipt());
 			roomExpert.addRoom(room);
 			roomExpert.removeRoom(room);
 			roomExpert.addRoom(room);
@@ -107,7 +130,7 @@ public class AdministratorCreatesRooms {
 		floor = 2;
 		for (int i = 0; i < amountDoubleRooms; i++) {
 			Room room = mf.createRoom();
-			room.Room(Integer.parseInt("" + floor + "" + i), "HUGE room with a double bed", doubleRoomExpense.getName(), doubleRoomExpense, 2, "unouccupied", mf.createReceipt());
+			room.Room(Integer.parseInt("" + floor + "" + i), "HUGE room with a double bed", doubleRoomExpense.getName(), doubleRoomExpense, 2, "unoccupied", mf.createReceipt());
 			roomExpert.addRoom(room);
 			roomExpert.removeRoom(room);
 			roomExpert.addRoom(room);
@@ -154,13 +177,28 @@ public class AdministratorCreatesRooms {
 		Date vaildTo = cal.getTime();
 		cal.set(2015, 01, 31);
 		Date expirationDate = cal.getTime();
-		promotion.Promotion("VinterSales", "10 percent off on single rooms", 10, vaildFrom, vaildTo, "Single", expirationDate);
-		promotionExpert.removePromotion(promotion.getCode());
+		promotion.Promotion("VinterSales", "10 percent off on single rooms", 10, vaildFrom, vaildTo, "single", expirationDate);
+		promotionExpert.addPromotion(promotion);
+		
+		//Create a second promotion that should be removed
+		promotion = mf.createPromotion();
+		promotion.Promotion("SummerSales", "THIS SHOULD NOT EXIST", 90, vaildFrom, vaildTo, "double", expirationDate);
 		promotionExpert.addPromotion(promotion);
 		
 		//show all promotions
 		EList<Promotion> listOfPromotions = adminController.viewPromotions();
 		EList<String> PromotionsAsStrings = new BasicEList<String>();
+		
+		//here we remove the second promotion, and get the new list of promotions
+		adminController.removePromotion(listOfPromotions.get(0));
+		listOfPromotions = adminController.viewPromotions();
+		
+		//update the one existing promotion
+		promotion = listOfPromotions.get(0);
+		promotion.setDescription(promotion.getDescription() + " UPDATED");
+		adminController.updatePromotion(promotion);
+		listOfPromotions = adminController.viewPromotions();
+		
 		System.out.println("Number of Promotions: " + listOfPromotions.size());
 		for (Promotion Promotion : listOfPromotions) {
 			PromotionsAsStrings.add(
