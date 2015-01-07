@@ -216,7 +216,7 @@ public class ExpenseExpertImpl extends MinimalEObjectImpl.Container implements
 	 * @generated NOT
 	 */
 	public boolean removeExpense(int ID) {
-		return database.send("DELETTE FROM tblExpenses WHERE ExpenseID=" + ID
+		return database.send("DELETE FROM tblExpenses WHERE ExpenseID=" + ID
 				+ ";");
 	}
 
