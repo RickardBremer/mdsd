@@ -134,7 +134,7 @@ PromotionExpert {
 	 */
 	public EList<Promotion> getAllPromotions() {
 		EList<Promotion> newProInfo = new BasicEList<Promotion>();
-		EList<String> promotionInfo = database.query("Select * from tblPromotion;");//get all the information from database
+		EList<String> promotionInfo = database.query("Select * from tblPromotions");//get all the information from database
 		for(String pr : promotionInfo) {
 			String[] promoCode = pr.split(";", -1);
 			Promotion p = new PromotionImpl();

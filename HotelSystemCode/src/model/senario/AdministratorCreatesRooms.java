@@ -145,8 +145,21 @@ public class AdministratorCreatesRooms {
 		promotionExpert.removePromotion(promotion.getCode());
 		promotionExpert.addPromotion(promotion);
 		
-		//show all promotions in the database
-		displayDatabaseResult(db.query("SELECT * FROM tblPromotions"));
+		//show all promotions
+		EList<Promotion> listOfPromotions = adminController.viewPromotions();
+		EList<String> PromotionsAsStrings = new BasicEList<String>();
+		System.out.println("Number of Promotions: " + listOfPromotions.size());
+		for (Promotion Promotion : listOfPromotions) {
+			PromotionsAsStrings.add(
+					Promotion.getCode() + ";"
+					+ Promotion.getDescription() + ";"
+					+ Promotion.getPercentage() + ";"
+					+ Promotion.getRoomType() + ";"
+					+ Promotion.getValidFrom() + ";"
+					+ Promotion.getValidTo() + ";"
+					+ Promotion.getExpirationDate());
+		}
+		displayDatabaseResult(PromotionsAsStrings);
 		System.out.println();
 	}
 	
