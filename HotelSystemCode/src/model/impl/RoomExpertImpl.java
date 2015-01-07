@@ -125,9 +125,9 @@ public class RoomExpertImpl extends MinimalEObjectImpl.Container implements Room
 				Expense price = ee.getExpense(Integer.parseInt(row[3]));
 				ReceiptExpert re = new ReceiptExpertImpl();
 				re.ReceiptExpert(database);
-				Receipt receipt = re.getReceipt(Integer.parseInt(receiptID));
-				if (receipt == null) {
-					receipt = new ReceiptImpl();
+				Receipt receipt = new ReceiptImpl();
+				if (receiptID.length() > 0) {
+					receipt = re.getReceipt(Integer.parseInt(receiptID));
 				}
 				room.Room(Integer.parseInt(row[0]), row[1], row[2], price, Integer.parseInt(row[4]), row[5], receipt);
 				//Get the residents if there is someone occupying the room at the moment

@@ -123,7 +123,7 @@ public class UserExpertImpl extends MinimalEObjectImpl.Container implements User
 	//Helen
 	public EList<User> getAllUsers() {
 		
-		EList<String> userResult = database.query("SELECT * FROM tblUser;");// selects all users from the user table
+		EList<String> userResult = database.query("SELECT * FROM tblUsers");// selects all users from the user table
 		EList<User> myUser = new BasicEList<User>(); // create a basic list(since we cannot use ArrayList)
 		
 		if(userResult != null){
@@ -131,7 +131,7 @@ public class UserExpertImpl extends MinimalEObjectImpl.Container implements User
 		 String[] MyArray = e.split(";", -1);
 	
 				User u = new UserImpl();
-				u.User(MyArray[0],MyArray[1],MyArray[2],Boolean.parseBoolean(MyArray[3]), Boolean.parseBoolean(MyArray[4]),  Integer.parseInt(MyArray[5]));
+				u.User(MyArray[1],MyArray[2],MyArray[3], Boolean.parseBoolean(MyArray[4]),  Boolean.parseBoolean(MyArray[5]), Integer.parseInt(MyArray[0]));
 			myUser.add(u);
 			}
 		}
@@ -197,7 +197,7 @@ public class UserExpertImpl extends MinimalEObjectImpl.Container implements User
 	 */
 	//Helen
 	public boolean login(String name, String password) {
-		return database.query("SELECT * FROM tblUsers WHERE FirstName ='" + name + "' AND Password ='" + password +"'") != null;	
+		return database.query("SELECT * FROM tblUsers WHERE FirstName ='" + name + "' AND Password ='" + password +"'").size() > 0;	
 
 	}
 
