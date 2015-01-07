@@ -501,6 +501,7 @@
         <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="model.ecore#//BookingController/BookingController/roomExpert"/>
         <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="model.ecore#//BookingController/BookingController/bookingExpert"/>
         <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="model.ecore#//BookingController/BookingController/promotionExpert"/>
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="model.ecore#//BookingController/BookingController/expenseExpert"/>
       </genOperations>
     </genClasses>
     <genClasses xsi:type="genmodel:GenClass" ecoreClass="model.ecore#//AdminController">

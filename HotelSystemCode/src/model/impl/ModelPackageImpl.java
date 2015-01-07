@@ -2005,7 +2005,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getBookingController__BookingController__RoomExpert_BookingExpert_PromotionExpert() {
+	public EOperation getBookingController__BookingController__RoomExpert_BookingExpert_PromotionExpert_ExpenseExpert() {
 		return bookingControllerEClass.getEOperations().get(0);
 	}
 
@@ -2366,7 +2366,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		createEReference(bookingControllerEClass, BOOKING_CONTROLLER__DATABASE_INTERFACE);
 		createEReference(bookingControllerEClass, BOOKING_CONTROLLER__EXPENSE_EXPERT);
 		createEReference(bookingControllerEClass, BOOKING_CONTROLLER__RECEIPT_EXPERT);
-		createEOperation(bookingControllerEClass, BOOKING_CONTROLLER___BOOKING_CONTROLLER__ROOMEXPERT_BOOKINGEXPERT_PROMOTIONEXPERT);
+		createEOperation(bookingControllerEClass, BOOKING_CONTROLLER___BOOKING_CONTROLLER__ROOMEXPERT_BOOKINGEXPERT_PROMOTIONEXPERT_EXPENSEEXPERT);
 
 		adminControllerEClass = createEClass(ADMIN_CONTROLLER);
 		createEReference(adminControllerEClass, ADMIN_CONTROLLER__USER_EXPERT);
@@ -2888,10 +2888,11 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		initEReference(getBookingController_ExpenseExpert(), this.getExpenseExpert(), null, "expenseExpert", null, 1, 1, BookingController.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEReference(getBookingController_ReceiptExpert(), this.getReceiptExpert(), null, "receiptExpert", null, 1, 1, BookingController.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
-		op = initEOperation(getBookingController__BookingController__RoomExpert_BookingExpert_PromotionExpert(), null, "BookingController", 1, 1, IS_UNIQUE, !IS_ORDERED);
+		op = initEOperation(getBookingController__BookingController__RoomExpert_BookingExpert_PromotionExpert_ExpenseExpert(), null, "BookingController", 1, 1, IS_UNIQUE, !IS_ORDERED);
 		addEParameter(op, this.getRoomExpert(), "roomExpert", 1, 1, IS_UNIQUE, !IS_ORDERED);
 		addEParameter(op, this.getBookingExpert(), "bookingExpert", 1, 1, IS_UNIQUE, !IS_ORDERED);
 		addEParameter(op, this.getPromotionExpert(), "promotionExpert", 1, 1, IS_UNIQUE, !IS_ORDERED);
+		addEParameter(op, this.getExpenseExpert(), "expenseExpert", 1, 1, IS_UNIQUE, !IS_ORDERED);
 
 		initEClass(adminControllerEClass, AdminController.class, "AdminController", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getAdminController_UserExpert(), this.getUserExpert(), null, "userExpert", null, 1, 1, AdminController.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
