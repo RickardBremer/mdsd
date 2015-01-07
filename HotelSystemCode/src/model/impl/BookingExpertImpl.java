@@ -304,8 +304,8 @@ public class BookingExpertImpl extends MinimalEObjectImpl.Container implements B
 	public boolean removeBooking(Booking booking) {
 		// Rickard
 		// Ensure that you remove @generated or mark it @generated NOT
+		boolean removeTblCalender = database.send("DELETE FROM tblCalendar WHERE BookingID=" + booking.getId() + ";" );
 		boolean removeTblBookings = database.send("DELETE FROM tblBookings Where BookingID=" + booking.getId() + ";");
-		boolean removeTblCalender = database.send("DELETE FROM tblCalender WHERE BookingID=" + booking.getId() + ";" );
 		if(removeTblBookings && removeTblCalender){
 			return true;
 		}
