@@ -161,7 +161,7 @@ public class RoomExpertImpl extends MinimalEObjectImpl.Container implements Room
 		EList<Room> availableTypes = new BasicEList<Room>();
 		HashMap<String, Integer> bookedTypes = new HashMap<String, Integer>();
 		HashMap<String, Integer> totalTypes = new HashMap<String, Integer>();
-		SimpleDateFormat dateFormat = new SimpleDateFormat("#DD/MM/yyyy#");
+		SimpleDateFormat dateFormat = new SimpleDateFormat("#dd/MM/yyyy#");
 		//long fromMillis = from.getTime(); //TODO remove this when all is working
 		//long toMillis = to.getTime();
 		

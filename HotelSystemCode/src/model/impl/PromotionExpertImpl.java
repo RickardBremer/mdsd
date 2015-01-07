@@ -176,7 +176,7 @@ PromotionExpert {
 	 */
 
 	public boolean updatePromotion(Promotion promotion) {
-		SimpleDateFormat std = new SimpleDateFormat("#MM/DD/yyyy#");
+		SimpleDateFormat std = new SimpleDateFormat("#MM/dd/yyyy#");
 		return database.send("Update tblPromotion SET Code = "
 				+ promotion.getCode() + "," + "Description = "
 				+ promotion.getDescription() + "," + "Percentage = "
