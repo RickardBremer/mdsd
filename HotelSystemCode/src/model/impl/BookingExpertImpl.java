@@ -241,7 +241,6 @@ public class BookingExpertImpl extends MinimalEObjectImpl.Container implements B
 				+ booking.getCustomer().getExpiringYear()
 				+ ");");
 		
-		
 		boolean value = database.send("INSERT INTO tblBookings (CustomerMail, ClientRequests, PromotionCode) VALUES('"
 				+ booking.getCustomer().getEmail()
 				+ "','"
@@ -250,17 +249,12 @@ public class BookingExpertImpl extends MinimalEObjectImpl.Container implements B
 				+ booking.getPromotion()
 				+ "');");
 
-		
 		if(value){
-			System.out.println("SELECT BookingID FROM tblBookings WHERE CustomerMail = '" + booking.getCustomer().getEmail() + "' AND ClientRequests = '"
-		    + booking.getWishes() + "' AND PromotionCode = '" + booking.getPromotion() + "' ORDER BY BookingID DESC"
-		    + ";");
 			
 			String ID = database.query("SELECT BookingID FROM tblBookings WHERE CustomerMail = '" + booking.getCustomer().getEmail() + "' AND ClientRequests = '"
 		    + booking.getWishes() + "' AND PromotionCode = '" + booking.getPromotion() + "' ORDER BY BookingID DESC"
 		    + ";").get(0);
-		
-		
+			
 		int BookingID = Integer.valueOf(ID);
 		booking.setId(BookingID);
 		
@@ -275,14 +269,16 @@ public class BookingExpertImpl extends MinimalEObjectImpl.Container implements B
 				+ ","
 				+ booking.getId()
 				+ ");");
-		}
+	}
 		
 		if(value1)
 			System.out.println("True\n");
+	 
 		return booking;
 		}
 		
 		return null;
+		
 		//throw new UnsupportedOperationException();
 	}
 
