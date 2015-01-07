@@ -195,7 +195,6 @@ public class ExpenseExpertImpl extends MinimalEObjectImpl.Container implements
 				+ receiptValue
 				+")";
 		boolean check = database.send(sql);
-		System.out.println(sql);
 
 		if (check) {
 			String[] response = database
@@ -216,7 +215,7 @@ public class ExpenseExpertImpl extends MinimalEObjectImpl.Container implements
 	 * @generated NOT
 	 */
 	public boolean removeExpense(int ID) {
-		return database.send("DELETTE FROM tblExpenses WHERE ExpenseID=" + ID
+		return database.send("DELETE FROM tblExpenses WHERE ExpenseID=" + ID
 				+ ";");
 	}
 
