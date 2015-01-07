@@ -103,6 +103,7 @@ public class UserExpertImpl extends MinimalEObjectImpl.Container implements User
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
+	//Helen
 	public User getUser(int ID) {
 		String myResult = database.query("SELECT FROM user WHERE ID = "+ ID).get(0);
 		String[] MyArray = myResult.split(";", -1);
@@ -119,6 +120,7 @@ public class UserExpertImpl extends MinimalEObjectImpl.Container implements User
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
+	//Helen
 	public EList<User> getAllUsers() {
 		
 		EList<String> userResult = database.query("SELECT * FROM tblUser;");// selects all users from the user table
@@ -142,6 +144,7 @@ public class UserExpertImpl extends MinimalEObjectImpl.Container implements User
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
+	//Helen
 	public User addUser(User user) {
 		database.send("INSERT INTO tblUsers (FirstName, LastName, Password, Receptionist, Administrator) VALUES('"+ user.getFirstName() + "','" + user.getSurname()
 				+ "','"
@@ -171,6 +174,7 @@ public class UserExpertImpl extends MinimalEObjectImpl.Container implements User
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
+	//Helen
 	public boolean removeUser(int ID) {
 		return database.send("DELETE FROM tblUsers WHERE ID = " + ID);
 	}
@@ -178,8 +182,9 @@ public class UserExpertImpl extends MinimalEObjectImpl.Container implements User
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
+	//Helen
 	public boolean updateUser(User user) {
 		return database.send("Update tblUsers SET FirstName = " + user.getFirstName() + ", LastName = " + user.getSurname() + ", Password = " + 
 				user.getPassword() +", Receptionist = "+ user.isReceptionist() + ", Adiministrator = "+ user.isAdministrator());
@@ -190,6 +195,7 @@ public class UserExpertImpl extends MinimalEObjectImpl.Container implements User
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
+	//Helen
 	public boolean login(String name, String password) {
 		return database.query("SELECT FROM tblUsers WHERE name =" + name + " && password =" + password) != null;	
 

@@ -302,6 +302,7 @@ public class UserImpl extends MinimalEObjectImpl.Container implements User {
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
+	//Helen
 	public void User(String firstName, String surname, String password, boolean receptionist, boolean administrator, int id) {
 		this.firstName = firstName;
 		this.surname = surname;
