@@ -221,7 +221,7 @@ public class BookingExpertImpl extends MinimalEObjectImpl.Container implements B
 	public Booking addBooking(Booking booking) {
 		// Rickard
 		// Ensure that you remove @generated or mark it @generated NOT
-		SimpleDateFormat dateFormat = new SimpleDateFormat("#MM/DD/YYYY#");
+		SimpleDateFormat dateFormat = new SimpleDateFormat("#MM/DD/yyyy#");
 	
 		boolean customer = database.send("INSERT INTO tblCustomers (FirstName, LastName, EMail, Address, CCNumber, CCV, ExpiringMonth, ExpiringYear) VALUES('"
 				+ booking.getCustomer().getFirstName()
@@ -252,9 +252,15 @@ public class BookingExpertImpl extends MinimalEObjectImpl.Container implements B
 
 		
 		if(value){
-			System.out.println("SELECT BookingID FROM tblBookings WHERE CustomerMail = '" + booking.getCustomer().getEmail() + "' AND ClientRequests = '"
-		    + booking.getWishes() + "' AND PromotionCode = '" + booking.getPromotion() + "' ORDER BY BookingID DESC"
-		    + ";");
+			System.out.println("INSERT INTO tblCalendar (RoomType, DateFrom, DateTo, BookingID) VALUES('"
+				+ booking.getRoomTypes().get(0)
+				+ "',"
+				+ dateFormat.format(booking.getFromDate().getTime())
+				+ ","
+				+ dateFormat.format(booking.getToDate().getTime())
+				+ ","
+				+ booking.getId()
+				+ ");");
 			
 			String ID = database.query("SELECT BookingID FROM tblBookings WHERE CustomerMail = '" + booking.getCustomer().getEmail() + "' AND ClientRequests = '"
 		    + booking.getWishes() + "' AND PromotionCode = '" + booking.getPromotion() + "' ORDER BY BookingID DESC"
@@ -266,15 +272,13 @@ public class BookingExpertImpl extends MinimalEObjectImpl.Container implements B
 		
 		boolean value1 = false;
 		for(int i = 0; i < booking.getRoomTypes().size(); i++){
-		value1 = database.send("INSERT INTO tblCalendar (RoomType, DateFrom, DateTo, CustomerMail, BookingID) VALUES("
+		value1 = database.send("INSERT INTO tblCalendar (RoomType, DateFrom, DateTo, BookingID) VALUES ('"
 				+ booking.getRoomTypes().get(i)
-				+ ","
+				+ "',"
 				+ dateFormat.format(booking.getFromDate().getTime())
 				+ ","
 				+ dateFormat.format(booking.getToDate().getTime())
-				+ ",'"
-				+ booking.getCustomer().getEmail() 
-				+ "',"
+				+ ","
 				+ booking.getId()
 				+ ");");
 		}
