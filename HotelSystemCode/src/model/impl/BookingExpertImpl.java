@@ -2,7 +2,9 @@
  */
 package model.impl;
 
+import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
+import java.sql.SQLException;
 import java.util.Calendar;
 import java.util.Date;
 
@@ -218,31 +220,69 @@ public class BookingExpertImpl extends MinimalEObjectImpl.Container implements B
 		// Rickard
 		// Ensure that you remove @generated or mark it @generated NOT
 		
-		boolean value = database.send("INSERT INTO tblBookings (DateFrom, DateTo, CustomerMail, ClientRequests, CheckedIn) VALUES("
+	
+		boolean customer = database.send("INSERT INTO tblCustomers (FirstName, LastName, EMail, Address, CCNumber, CCV, ExpiringMonth, ExpiringYear) VALUES('"
+				+ booking.getCustomer().getFirstName()
+				+ "','"
+				+ booking.getCustomer().getSurname()
+				+ "','"
+				+ booking.getCustomer().getEmail()
+				+ "','"
+				+ booking.getCustomer().getAdress()
+				+ "','"
+				+ booking.getCustomer().getCcNumber()
+				+ "','"
+				+ booking.getCustomer().getCcv()
+				+ "',"
+				+ booking.getCustomer().getExpiringMonth()
+				+ ","
+				+ booking.getCustomer().getExpiringYear()
+				+ ");");
+		
+		
+		boolean value = database.send("INSERT INTO tblBookings (CustomerMail, ClientRequests, PromotionCode) VALUES('"
+				+ booking.getCustomer().getEmail()
+				+ "','"
+				+ booking.getWishes()
+				+ "','"
+				+ booking.getPromotion()
+				+ "');");
+
+		
+		if(value){
+			System.out.println("SELECT BookingID FROM tblBookings WHERE CustomerMail = '" + booking.getCustomer().getEmail() + "' AND ClientRequests = '"
+		    + booking.getWishes() + "' AND PromotionCode = '" + booking.getPromotion() + "' ORDER BY BookingID DESC"
+		    + ";");
+			
+			String ID = database.query("SELECT BookingID FROM tblBookings WHERE CustomerMail = '" + booking.getCustomer().getEmail() + "' AND ClientRequests = '"
+		    + booking.getWishes() + "' AND PromotionCode = '" + booking.getPromotion() + "' ORDER BY BookingID DESC"
+		    + ";").get(0);
+		
+		
+		int BookingID = Integer.valueOf(ID);
+		booking.setId(BookingID);
+		
+		boolean value1 = false;
+		for(int i = 0; i < booking.getRoomTypes().size(); i++){
+		value1 = database.send("INSERT INTO tblCalendar (RoomType, DateFrom, DateTo, CustomerMail, BookingID) VALUES("
+				+ booking.getRoomTypes().get(i)
+				+ ","
 				+ booking.getFromDate().getTime()
 				+ ","
 				+ booking.getToDate().getTime()
 				+ ",'"
 				+ booking.getCustomer().getEmail() 
-				+ "','"
-				+ booking.getWishes()
 				+ "',"
-				+ booking.isCheckedIn()
+				+ booking.getId()
 				+ ");");
-		
-		String[] ID = null;
-		System.out.println("Debugg\n");
-		if(value){
-			ID = database.query("SELECT BookingID FROM tblBookings WHERE DateFrom = " + booking.getFromDate().getTime() + " AND DateTo = "
-		    + booking.getToDate().getTime() + " AND CustomerEmail = " + booking.getCustomer().getEmail() + 
-		    " AND ClientRequests = " + booking.getWishes() + ";").get(0).split(";",-1);
 		}
 		
-		int BookingID = Integer.valueOf(ID[0]);
-		
-		booking.setId(BookingID);
-		
+		if(value1)
+			System.out.println("True\n");
 		return booking;
+		}
+		
+		return null;
 		//throw new UnsupportedOperationException();
 	}
 

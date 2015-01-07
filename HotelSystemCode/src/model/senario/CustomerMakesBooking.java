@@ -21,13 +21,13 @@ public class CustomerMakesBooking {
 	
 	// create a customer
 	Customer customer = mf.createCustomer();
-	customer.Customer("Hulken", "Greenman", "nlarsson0@gmail.com ", "Hisingen", "0000 0000 0000 0000", "000", 12, 17);
+	customer.Customer("Hulken", "Greenman", "nlarsson24@gmail.com", "Hisingen", "2100 0000 0000 0000", "000", 12, 17);
 	
 	// create roomTypes
 	EList<String> roomTypes = new BasicEList<String>(); 
 	
 	// promotionCode
-	String promotionCode = null;
+	String promotionCode = "";
 	
 	// id
 	int id = 0;
