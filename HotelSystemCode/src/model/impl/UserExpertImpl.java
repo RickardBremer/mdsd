@@ -176,7 +176,7 @@ public class UserExpertImpl extends MinimalEObjectImpl.Container implements User
 	 */
 	//Helen
 	public boolean removeUser(int ID) {
-		return database.send("DELETE FROM tblUsers WHERE ID = " + ID);
+		return database.send("DELETE FROM tblUsers WHERE UserID = " + ID);
 	}
 
 	/**
@@ -197,7 +197,7 @@ public class UserExpertImpl extends MinimalEObjectImpl.Container implements User
 	 */
 	//Helen
 	public boolean login(String name, String password) {
-		return database.query("SELECT FROM tblUsers WHERE name =" + name + " && password =" + password) != null;	
+		return database.query("SELECT * FROM tblUsers WHERE FirstName ='" + name + "' AND Password ='" + password +"'") != null;	
 
 	}
 
