@@ -209,7 +209,7 @@ public class BookingExpertImpl extends MinimalEObjectImpl.Container implements B
 				ReceiptExpert r = new ReceiptExpertImpl();
 				r.ReceiptExpert(database);
 				
-				searchBooking.Booking(convertDateFrom, convertDateTo, newList[2], newCustomer, roomType, newList[3], Integer.valueOf(newList[0]), rooms, r);
+				searchBooking.Booking(convertDateFrom, convertDateTo, newList[2], newCustomer, roomType, newList[3], Integer.valueOf(newList[0]), rooms, r.getReceipt(0));
 				returnedBookingList.add(searchBooking);
 				
 			}
@@ -418,7 +418,7 @@ public class BookingExpertImpl extends MinimalEObjectImpl.Container implements B
 			ReceiptExpert r = new ReceiptExpertImpl();
 			r.ReceiptExpert(database);
 			
-			searchBooking.Booking(convertDateFrom, convertDateTo, newList[2], newCustomer, roomType, newList[3], Integer.valueOf(newList[0]), rooms, r);
+			searchBooking.Booking(convertDateFrom, convertDateTo, newList[2], newCustomer, roomType, newList[3], Integer.valueOf(newList[0]), rooms, r.getReceipt(0));
 			returnedBookingList.add(searchBooking);
 			
 		}
