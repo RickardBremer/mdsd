@@ -186,8 +186,8 @@ public class UserExpertImpl extends MinimalEObjectImpl.Container implements User
 	 */
 	//Helen
 	public boolean updateUser(User user) {
-		return database.send("Update tblUsers SET FirstName = " + user.getFirstName() + ", LastName = " + user.getSurname() + ", Password = " + 
-				user.getPassword() +", Receptionist = "+ user.isReceptionist() + ", Adiministrator = "+ user.isAdministrator());
+		return database.send("Update tblUsers SET FirstName = '" + user.getFirstName() + "', LastName = '" + user.getSurname() + "', Password = '" + 
+				user.getPassword() +"', Receptionist = "+ user.isReceptionist() + ", Administrator = "+ user.isAdministrator() + " WHERE UserID = " +  user.getId());
 	}
 
 	/**

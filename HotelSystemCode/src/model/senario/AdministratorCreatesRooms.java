@@ -16,8 +16,6 @@ import model.ExpenseExpert;
 import model.ModelFactory;
 import model.Promotion;
 import model.PromotionExpert;
-import model.Receipt;
-import model.ReceiptExpert;
 import model.Room;
 import model.RoomExpert;
 import model.User;
@@ -78,13 +76,22 @@ public class AdministratorCreatesRooms {
 		//Create a receptionist
 		User receptionist = mf.createUser();
 		String receptionistPassword = "iamgod";
-		receptionist.User("Morgan", "Freeman", receptionistPassword, true, false, -1);
+		receptionist.User("Morgan", "Freeman", receptionistPassword, true, true, -1);
 		receptionist = adminController.createUser(receptionist);
 		
 		//show users in the database
-		//displayDatabaseResult(db.query("SELECT * FROM tblUsers"));
 		EList<User> listOfUsers = adminController.viewUsers();
 		EList<String> usersAsStrings = new BasicEList<String>();
+		
+		//remove the last added user
+		receptionist = listOfUsers.get(1);
+		adminController.removeUser(receptionist);
+		//add it again to have two users
+		receptionist = adminController.createUser(receptionist);
+		//change so the latest user is only receptionist
+		receptionist.setAdministrator(false);
+		listOfUsers = adminController.viewUsers();
+		
 		System.out.println("Number of users: " + listOfUsers.size());
 		for (User user : listOfUsers) {
 			usersAsStrings.add(
