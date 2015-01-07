@@ -4,6 +4,7 @@
 package model.impl;
 
 import java.lang.reflect.InvocationTargetException;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
 import model.DatabaseInterface;
@@ -125,7 +126,7 @@ public class ExpenseExpertImpl extends MinimalEObjectImpl.Container implements
 	 */
 	public EList<Expense> getAllExpense() {
 		EList<String> strExpenses = database
-				.query("SELECT 'ExpenseID', 'ExpenseName', 'ExpenseDate', 'ExpenseDescription', 'Price', 'IsFixed', ReceiptID FROM tblExpenses WHERE IsFixed=true;");
+				.query("SELECT ExpenseID, ExpenseName, ExpenseDate, ExpenseDescription, Price, IsFixed, ReceiptID FROM tblExpenses WHERE IsFixed=true;");
 		EList<Expense> expenses = new BasicEList<Expense>();
 		Calendar cal = Calendar.getInstance();
 		if (strExpenses != null) {
@@ -174,7 +175,7 @@ public class ExpenseExpertImpl extends MinimalEObjectImpl.Container implements
 	 * @generated NOT
 	 */
 	public Expense addExpense(Expense expense) {
-		
+		SimpleDateFormat sdf = new SimpleDateFormat("#DD/MM/YYYY#");
 		String receiptID = "";
 		String receiptValue = "";
 		if (expense.getReceiptId() != -1){
@@ -185,7 +186,7 @@ public class ExpenseExpertImpl extends MinimalEObjectImpl.Container implements
 		String sql = "INSERT INTO tblExpenses (ExpenseName, ExpenseDate, ExpenseDescription, Price, IsFixed" + receiptID + ") VALUES('"
 				+ expense.getName()
 				+ "', "
-				+ expense.getDate().getTime()
+				+ sdf.format(expense.getDate())
 				+ ", '"
 				+ expense.getDescription()
 				+ "', "
@@ -226,11 +227,12 @@ public class ExpenseExpertImpl extends MinimalEObjectImpl.Container implements
 	 */
 
 	public boolean updateExpense(Expense expense) {
+		SimpleDateFormat sdf = new SimpleDateFormat("#DD/MM/YYYY#"); 
 		return database.send("UPDATE tblExpenses SET Price="
 				+ expense.getPrice() + ", ExpenseName='"
 				+ expense.getName() + "', ExpenseDescription='"
 				+ expense.getDescription() + "', ExpenseDate="
-				+ expense.getDate().getTime() + ", IsFixed="
+				+ sdf.format(expense.getDate()) + ", IsFixed="
 				+ expense.isFixed() + "ReceiptID="
 				+ expense.getReceiptId() +
 				"' WHERE ID =" + expense.getId() + ";");
