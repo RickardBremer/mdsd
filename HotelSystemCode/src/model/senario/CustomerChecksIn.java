@@ -56,7 +56,6 @@ public class CustomerChecksIn {
 		//Receptionist Login
 		//Get booking, searches for all bookings made today, under the surname "Greenman"
 		Calendar frDate = Calendar.getInstance();
-		
 		Calendar myCalendar = new GregorianCalendar(2015, 1, 20);
 		Date toDate = myCalendar.getTime();
 //		Date morning = new Date();
@@ -66,8 +65,14 @@ public class CustomerChecksIn {
 		
 //		morning.set(Calendar.HOUR_OF_DAY, 0);
 //		night.set(Calendar.HOUR_OF_DAY, 24);
-		
-		Booking booking = receptionistController.viewAllBookings("Greenman", frDate.getTime(), toDate).get(0);
+		Booking booking = null;
+		boolean bookingExists = true;
+		try {
+		booking = receptionistController.viewAllBookings("Greenman", frDate.getTime(), toDate).get(0);
+		} catch (Exception ne) {
+			bookingExists = false;
+		}
+		if (bookingExists) {
 		EList<Room> bookedrooms = new BasicEList<Room>();
 		EList<Resident> resList = new BasicEList<Resident>();
 		Resident resOne = receptionistController.createResident("Magne" , "Herne", "8918286545");
@@ -113,5 +118,9 @@ public class CustomerChecksIn {
 		//Check in booking
 		System.out.println("Room size " +bookedrooms.size());
 		System.out.println(receptionistController.checkIn(booking, bookedrooms));
+		}
+		else {
+			System.out.println("No booking existed");
+		}
 	}
 }
