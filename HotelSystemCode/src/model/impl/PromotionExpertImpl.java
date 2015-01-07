@@ -17,6 +17,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 
@@ -160,14 +161,15 @@ PromotionExpert {
 	 */
 
 	public boolean updatePromotion(Promotion promotion) {
+		SimpleDateFormat std = new SimpleDateFormat("#MM/DD/YYYY#");
 		return database.send("Update tblPromotion SET Code = "
 				+ promotion.getCode() + "," + "Description = "
 				+ promotion.getDescription() + "," + "Percentage = "
 				+ promotion.getPercentage() + "," + "validFrom = "
-				+ promotion.getValidFrom() + "," + "validTo = "
-				+ promotion.getValidTo() + ";" + "roomType = "
+				+ std.format(promotion.getValidFrom()) + "," + "validTo = "
+				+ std.format(promotion.getValidTo()) + ";" + "roomType = "
 				+ promotion.getRoomType() + ";" + "expirationDate = "
-				+ promotion.getExpirationDate() + ";");
+				+ std.format(promotion.getExpirationDate()) + ";");
 	}
 
 	/**

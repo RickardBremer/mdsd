@@ -3,8 +3,10 @@
 package model.impl;
 
 import java.lang.reflect.InvocationTargetException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
+
 import model.DatabaseInterface;
 import model.Expense;
 import model.ExpenseExpert;
@@ -14,6 +16,7 @@ import model.ReceiptExpert;
 import model.Resident;
 import model.Room;
 import model.RoomExpert;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
@@ -158,14 +161,15 @@ public class RoomExpertImpl extends MinimalEObjectImpl.Container implements Room
 		EList<Room> availableTypes = new BasicEList<Room>();
 		HashMap<String, Integer> bookedTypes = new HashMap<String, Integer>();
 		HashMap<String, Integer> totalTypes = new HashMap<String, Integer>();
-		long fromMillis = from.getTime();
-		long toMillis = to.getTime();
+		SimpleDateFormat dateFormat = new SimpleDateFormat("#DD/MM/YYYY#");
+		//long fromMillis = from.getTime(); //TODO remove this when all is working
+		//long toMillis = to.getTime();
 		
 		// Connect to database and get all calendar bookings regarding the desired dates
 		EList<String> queryResult = database.query("SELECT RoomType, COUNT(RoomType) FROM tblCalendar WHERE "
-				+ "(FromDate < " + fromMillis + " AND ToDate < " + fromMillis + ") OR "
-				+ "(FromDate > " + fromMillis + " AND ToDate > " + toMillis + ") OR "
-				+ "(FromDate < " + toMillis + " AND ToDate > " + to + ") "
+				+ "(FromDate < " + dateFormat.format(from) + " AND ToDate < " + dateFormat.format(from) + ") OR "
+				+ "(FromDate > " + dateFormat.format(from) + " AND ToDate > " + dateFormat.format(to) + ") OR "
+				+ "(FromDate < " + dateFormat.format(to) + " AND ToDate > " + dateFormat.format(to) + ") "
 				+ "GROUP BY RoomType");
 		if (queryResult != null) {
 			for (String rowFull : queryResult) {

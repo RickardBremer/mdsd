@@ -5,6 +5,7 @@ package model.impl;
 import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
 import java.sql.SQLException;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 
@@ -166,9 +167,10 @@ public class BookingExpertImpl extends MinimalEObjectImpl.Container implements B
 		Calendar cal = Calendar.getInstance();
 		Date convertDateTo;
 		Date convertDateFrom;
+		SimpleDateFormat dateFormat = new SimpleDateFormat("#MM/DD/YYYY#");
 		
 		responseResult = database.query("SELECT 'tblBookings.BookingID','tblBookings.CustomerMail', 'tblBookings.ClientRequest', 'tblBookings.PromotionCode',  'tblCalendar.DateFrom', 'tblCalendar.DateTo'  FROM tblBookings LEFT JOIN tblCalendar"
-				+ "WHERE tblCalendar.DateTo <" + dateTo + "AND tblCalendar.DateFrom >" + dateFrom + ";");
+				+ "WHERE tblCalendar.DateTo <" + dateFormat.format(dateTo) + "AND tblCalendar.DateFrom >" + dateFormat.format(dateFrom) + ";");
 			
 			for(String booking: responseResult) {
 				
@@ -313,6 +315,7 @@ public class BookingExpertImpl extends MinimalEObjectImpl.Container implements B
 	public boolean updateBooking(Booking booking) {
 		// Rickard
 		// Ensure that you remove @generated or mark it @generated NOT
+		SimpleDateFormat dateFormat = new SimpleDateFormat("#MM/DD/YYYY#");
 		String Mail[] = database.query("SELECT CustomerMail FROM tblBookings WHERE BookingID =" + booking.getId() + ";").get(0).split(";",-1);
 		
 		
@@ -331,8 +334,8 @@ public class BookingExpertImpl extends MinimalEObjectImpl.Container implements B
 		boolean updateTblCalender = false;
 		
 		for(int i = 0; i < CalenderID.length; i++){
-			updateTblCalender = database.send("UPDATE tblCalender SET RoomType=" + booking.getRoomTypes().get(i) + " DateFrom=" + booking.getFromDate() 
-			+ "DateTo=" + booking.getToDate() + "WHERE CalenderID=" + CalenderID[i] + ";" );
+			updateTblCalender = database.send("UPDATE tblCalender SET RoomType=" + booking.getRoomTypes().get(i) + " DateFrom=" + dateFormat.format(booking.getFromDate()) 
+			+ "DateTo=" + dateFormat.format(booking.getToDate()) + "WHERE CalenderID=" + CalenderID[i] + ";" );
 			if(!updateTblCalender){
 				i = CalenderID.length;
 			}
