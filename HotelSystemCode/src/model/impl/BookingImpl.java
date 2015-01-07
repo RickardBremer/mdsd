@@ -450,12 +450,21 @@ public class BookingImpl extends MinimalEObjectImpl.Container implements Booking
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public void Booking(Date fromDate, Date toDate, String wishes, Customer customer, EList<String> roomTypes, String promotionCode, int id, EList<Room> rooms, Receipt receipt) {
-		// TODO: implement this method
+		// Rickard
 		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		// throw new UnsupportedOperationException();
+		this.fromDate = fromDate;
+		this.toDate = toDate;
+		this.wishes = wishes;
+		this.customer = customer;
+		this.roomTypes = roomTypes;
+		this.promotion = promotionCode;
+		this.id = id;
+		this.room = rooms;
+		this.receipt = receipt;
 	}
 
 	/**

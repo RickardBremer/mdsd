@@ -402,14 +402,17 @@ public class BookingControllerImpl extends MinimalEObjectImpl.Container implemen
 	 * @generated NOT
 	 */
 	public boolean createBooking(Date fromDate, Date toDate, String wishes, Customer customer, String promotion, Receipt receipt, EList<String> roomTypes) {
-		Payment pay = new PaymentImpl();
-		if (!pay.isCreditCardValid(customer)) {
-			return false;
-		}
+	//	Payment pay = new PaymentImpl();
+	//	if (!pay.isCreditCardValid(customer)) {
+	//		return false;
+	//	}
 		Booking booking = new BookingImpl();
-		booking.Booking(fromDate, toDate, wishes, customer, roomTypes, promotion, -1, new BasicEList<Room>(), new ReceiptImpl());
+		booking.Booking(fromDate, toDate, wishes, customer, roomTypes, promotion, 0, new BasicEList<Room>(), receipt);
 		booking = bookingExpert.addBooking(booking);
 		Receipt rec = booking.getReceipt();
+		if(rec == null){
+			System.out.println("Test");
+		}
 		//TODO: Get expenses for all rooms, get promotions
 		EList<Expense> fixed = expenseExpert.getAllExpense();
 		for (Expense temp : fixed) {
@@ -438,10 +441,10 @@ public class BookingControllerImpl extends MinimalEObjectImpl.Container implemen
 		rec.addExpense(ex);
 		receiptExpert.updateReceipt(rec);
 		
-		if (!pay.makePayment(customer, -fee)) {
-			bookingExpert.removeBooking(booking);
-			return false;
-		};
+		//if (!pay.makePayment(customer, -fee)) {
+		//	bookingExpert.removeBooking(booking);
+		//	return false;
+		//};
 		EmailSender email = new EmailSenderImpl();
 		email.send(booking);
 		return true;
