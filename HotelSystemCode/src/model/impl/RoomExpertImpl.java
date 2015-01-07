@@ -165,8 +165,18 @@ public class RoomExpertImpl extends MinimalEObjectImpl.Container implements Room
 		//long fromMillis = from.getTime(); //TODO remove this when all is working
 		//long toMillis = to.getTime();
 		
+		// Get the room types and the amount of them
+		EList<String> queryResult = database.query("SELECT RoomType, COUNT(RoomType) FROM tblRooms WHERE Beds >= " + numberOfGuests + " GROUP BY RoomType");
+		if (queryResult != null) {
+			for (String rowFull : queryResult) {
+				String[] row = rowFull.split(";", -1);
+				totalTypes.put(row[0], Integer.parseInt(row[1]));
+				bookedTypes.put(row[0], 0);//remember all the types for when we decide how many rooms are booked
+			}
+		}
+				
 		// Connect to database and get all calendar bookings regarding the desired dates
-		EList<String> queryResult = database.query("SELECT RoomType, COUNT(RoomType) FROM tblCalendar WHERE "
+		queryResult = database.query("SELECT RoomType, COUNT(RoomType) FROM tblCalendar WHERE "
 				+ "(DateFrom < " + dateFormat.format(from) + " AND DateTo < " + dateFormat.format(from) + ") OR "
 				+ "(DateFrom > " + dateFormat.format(from) + " AND DateTo > " + dateFormat.format(to) + ") OR "
 				+ "(DateFrom < " + dateFormat.format(to) + " AND DateTo > " + dateFormat.format(to) + ") "
@@ -177,17 +187,9 @@ public class RoomExpertImpl extends MinimalEObjectImpl.Container implements Room
 				bookedTypes.put(row[0], Integer.parseInt(row[1]));
 			}
 		}
-		// Get the room types and the amount of them
-		queryResult = database.query("SELECT RoomType, COUNT(RoomType) FROM tblRooms WHERE Beds >= " + numberOfGuests + " GROUP BY RoomType");
-		if (queryResult != null) {
-			for (String rowFull : queryResult) {
-				String[] row = rowFull.split(";", -1);
-				totalTypes.put(row[0], Integer.parseInt(row[1]));
-			}
-		}
 		
 		for (String type : totalTypes.keySet()) {
-			int numBooked = (bookedTypes.get(type) != null) ? bookedTypes.get(type) : 0;
+			int numBooked = bookedTypes.get(type);
 			int numAvailable = totalTypes.get(type) - numBooked;
 			if (numAvailable >= numberOfRooms) {
 				EList<String> queryResult2 = database.query("SELECT RoomNumber, RoomDescription, RoomType, ExpenseID, Beds, Status FROM tblRooms WHERE RoomType='" + type + "' LIMIT 0,1");
