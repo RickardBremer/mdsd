@@ -184,9 +184,9 @@ public interface BookingController extends CustomerInterface {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model roomExpertRequired="true" roomExpertOrdered="false" bookingExpertRequired="true" bookingExpertOrdered="false" promotionExpertRequired="true" promotionExpertOrdered="false"
+	 * @model roomExpertRequired="true" roomExpertOrdered="false" bookingExpertRequired="true" bookingExpertOrdered="false" promotionExpertRequired="true" promotionExpertOrdered="false" expenseExpertRequired="true" expenseExpertOrdered="false"
 	 * @generated
 	 */
-	void BookingController(RoomExpert roomExpert, BookingExpert bookingExpert, PromotionExpert promotionExpert);
+	void BookingController(RoomExpert roomExpert, BookingExpert bookingExpert, PromotionExpert promotionExpert, ExpenseExpert expenseExpert);
 
 } // BookingController

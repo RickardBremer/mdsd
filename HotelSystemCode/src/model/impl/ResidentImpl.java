@@ -180,9 +180,9 @@ public class ResidentImpl extends MinimalEObjectImpl.Container implements Reside
 	 * @generated
 	 */
 	public void Resident(String id, String firstName, String surname) {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		this.id = id;
+		this.firstName = firstName;
+		this.surname = surname;
 	}
 
 	/**

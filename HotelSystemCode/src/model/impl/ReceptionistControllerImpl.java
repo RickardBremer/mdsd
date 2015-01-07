@@ -17,6 +17,7 @@ import model.ReceptionistInterface;
 import model.Resident;
 import model.Room;
 import model.RoomExpert;
+import model.User;
 import model.UserExpert;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -116,7 +117,7 @@ public class ReceptionistControllerImpl extends BookingControllerImpl implements
 		// Done - Creates a new resident object
 		Resident r = new ResidentImpl();
 		r.Resident(firstName, surname, passportNumber);
-		throw new UnsupportedOperationException();
+		return r;
 	}
 
 	/**
@@ -168,12 +169,17 @@ public class ReceptionistControllerImpl extends BookingControllerImpl implements
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public EList<Room> viewUnOccupiedRooms(String roomType) {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		EList<Room> roomlist = room.getUnoccupiedRooms();
+		EList<Room> resultlist = new BasicEList<Room>();
+		for (Room r : roomlist) {
+			if (r.getType().matches(roomType)) {
+				resultlist.add(r);
+			}
+		}
+		return resultlist;
 	}
 
 	/**
@@ -209,12 +215,18 @@ public class ReceptionistControllerImpl extends BookingControllerImpl implements
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public boolean login(String name, String password) {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		boolean isReceptionist = false;
+		EList<User> userList = userExpert.getAllUsers();
+		for (User u : userList) {
+			if(u.getFirstName().equals(name) && u.getPassword().equals(password) && u.isReceptionist()) {
+				isReceptionist = true;
+			}
+		}
+		isReceptionist = userExpert.login(name, password);
+		return isReceptionist;
 	}
 
 	/**
