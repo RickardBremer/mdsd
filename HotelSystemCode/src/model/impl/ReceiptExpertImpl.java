@@ -113,7 +113,7 @@ public class ReceiptExpertImpl extends MinimalEObjectImpl.Container implements R
 	public Receipt getReceipt(int ID) {
 		ExpenseExpert eExpert = new ExpenseExpertImpl(); 
 		eExpert.ExpenseExpert(database);
-		EList<String> result =  database.query("SELECT * FROM tlbReceipts WHERE ReceiptID = " + ID);
+		EList<String> result =  database.query("SELECT * FROM tblReceipts WHERE ReceiptID = " + ID);
 		if(result != null){
 			EList<Expense> expenses = eExpert.getAllExpense(ID); 
 			Calendar date = Calendar.getInstance();
