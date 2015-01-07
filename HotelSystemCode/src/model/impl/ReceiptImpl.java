@@ -279,6 +279,11 @@ public class ReceiptImpl extends MinimalEObjectImpl.Container implements Receipt
 		this.id = id;
 		this.date = date;
 		this.expenses = expenses;
+		//calculate total cost
+		totalCost = 0.0;
+		for (Expense e : expenses) {
+			totalCost += e.getPrice();
+		}
 	}
 
 	/**
