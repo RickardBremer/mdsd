@@ -1061,6 +1061,7 @@
         <ownedParameter xmi:type="uml:Parameter" xmi:id="_bagFYIqMEeSCo51zhpbIKg" name="bookingExpert" type="_JKAicIB5EeSIi9xXvYIBqQ"/>
         <ownedParameter xmi:type="uml:Parameter" xmi:id="_dOHYEIqMEeSCo51zhpbIKg" name="promotionExpert" type="_Um74wIB5EeSIi9xXvYIBqQ"/>
         <ownedParameter xmi:type="uml:Parameter" xmi:id="_wZzhwJZ9EeSvmq6oBh6iww" name="expenseExpert" type="_RVmD0IB5EeSIi9xXvYIBqQ"/>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_VXTiwJaTEeSvmq6oBh6iww" name="receiptExpert" type="_LKi20IB5EeSIi9xXvYIBqQ"/>
       </ownedOperation>
     </packagedElement>
     <packagedElement xmi:type="uml:Class" xmi:id="_MM4ysIB7EeSIi9xXvYIBqQ" name="AdminController">

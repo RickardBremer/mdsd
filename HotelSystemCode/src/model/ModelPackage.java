@@ -2287,7 +2287,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BOOKING_CONTROLLER___BOOKING_CONTROLLER__ROOMEXPERT_BOOKINGEXPERT_PROMOTIONEXPERT_EXPENSEEXPERT = CUSTOMER_INTERFACE_OPERATION_COUNT + 0;
+	int BOOKING_CONTROLLER___BOOKING_CONTROLLER__ROOMEXPERT_BOOKINGEXPERT_PROMOTIONEXPERT_EXPENSEEXPERT_RECEIPTEXPERT = CUSTOMER_INTERFACE_OPERATION_COUNT + 0;
 
 	/**
 	 * The number of operations of the '<em>Booking Controller</em>' class.
@@ -2676,7 +2676,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RECEPTIONIST_CONTROLLER___BOOKING_CONTROLLER__ROOMEXPERT_BOOKINGEXPERT_PROMOTIONEXPERT_EXPENSEEXPERT = BOOKING_CONTROLLER___BOOKING_CONTROLLER__ROOMEXPERT_BOOKINGEXPERT_PROMOTIONEXPERT_EXPENSEEXPERT;
+	int RECEPTIONIST_CONTROLLER___BOOKING_CONTROLLER__ROOMEXPERT_BOOKINGEXPERT_PROMOTIONEXPERT_EXPENSEEXPERT_RECEIPTEXPERT = BOOKING_CONTROLLER___BOOKING_CONTROLLER__ROOMEXPERT_BOOKINGEXPERT_PROMOTIONEXPERT_EXPENSEEXPERT_RECEIPTEXPERT;
 
 	/**
 	 * The operation id for the '<em>Create Resident</em>' operation.
@@ -4769,14 +4769,14 @@ public interface ModelPackage extends EPackage {
 	EReference getBookingController_ReceiptExpert();
 
 	/**
-	 * Returns the meta object for the '{@link model.BookingController#BookingController(model.RoomExpert, model.BookingExpert, model.PromotionExpert, model.ExpenseExpert) <em>Booking Controller</em>}' operation.
+	 * Returns the meta object for the '{@link model.BookingController#BookingController(model.RoomExpert, model.BookingExpert, model.PromotionExpert, model.ExpenseExpert, model.ReceiptExpert) <em>Booking Controller</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Booking Controller</em>' operation.
-	 * @see model.BookingController#BookingController(model.RoomExpert, model.BookingExpert, model.PromotionExpert, model.ExpenseExpert)
+	 * @see model.BookingController#BookingController(model.RoomExpert, model.BookingExpert, model.PromotionExpert, model.ExpenseExpert, model.ReceiptExpert)
 	 * @generated
 	 */
-	EOperation getBookingController__BookingController__RoomExpert_BookingExpert_PromotionExpert_ExpenseExpert();
+	EOperation getBookingController__BookingController__RoomExpert_BookingExpert_PromotionExpert_ExpenseExpert_ReceiptExpert();
 
 	/**
 	 * Returns the meta object for class '{@link model.AdminController <em>Admin Controller</em>}'.
@@ -6485,7 +6485,7 @@ public interface ModelPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation BOOKING_CONTROLLER___BOOKING_CONTROLLER__ROOMEXPERT_BOOKINGEXPERT_PROMOTIONEXPERT_EXPENSEEXPERT = eINSTANCE.getBookingController__BookingController__RoomExpert_BookingExpert_PromotionExpert_ExpenseExpert();
+		EOperation BOOKING_CONTROLLER___BOOKING_CONTROLLER__ROOMEXPERT_BOOKINGEXPERT_PROMOTIONEXPERT_EXPENSEEXPERT_RECEIPTEXPERT = eINSTANCE.getBookingController__BookingController__RoomExpert_BookingExpert_PromotionExpert_ExpenseExpert_ReceiptExpert();
 
 		/**
 		 * The meta object literal for the '{@link model.impl.AdminControllerImpl <em>Admin Controller</em>}' class.

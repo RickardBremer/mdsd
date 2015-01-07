@@ -453,13 +453,14 @@ public class BookingControllerImpl extends MinimalEObjectImpl.Container implemen
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated NOT
+	 * @generated
 	 */
-	public void BookingController(RoomExpert roomExpert, BookingExpert bookingExpert, PromotionExpert promotionExpert, ExpenseExpert expenseExpert) {
+	public void BookingController(RoomExpert roomExpert, BookingExpert bookingExpert, PromotionExpert promotionExpert, ExpenseExpert expenseExpert, ReceiptExpert receiptExpert) {
 		this.room = roomExpert;
 		this.bookingExpert = bookingExpert;
 		this.promotionExpert = promotionExpert;
 		this.expenseExpert = expenseExpert;
+		this.receiptExpert = receiptExpert;
 	}
 
 	/**
@@ -595,8 +596,8 @@ public class BookingControllerImpl extends MinimalEObjectImpl.Container implemen
 				return validateCard((Customer)arguments.get(0));
 			case ModelPackage.BOOKING_CONTROLLER___CREATE_BOOKING__DATE_DATE_STRING_CUSTOMER_STRING_RECEIPT_ELIST:
 				return createBooking((Date)arguments.get(0), (Date)arguments.get(1), (String)arguments.get(2), (Customer)arguments.get(3), (String)arguments.get(4), (Receipt)arguments.get(5), (EList<String>)arguments.get(6));
-			case ModelPackage.BOOKING_CONTROLLER___BOOKING_CONTROLLER__ROOMEXPERT_BOOKINGEXPERT_PROMOTIONEXPERT_EXPENSEEXPERT:
-				BookingController((RoomExpert)arguments.get(0), (BookingExpert)arguments.get(1), (PromotionExpert)arguments.get(2), (ExpenseExpert)arguments.get(3));
+			case ModelPackage.BOOKING_CONTROLLER___BOOKING_CONTROLLER__ROOMEXPERT_BOOKINGEXPERT_PROMOTIONEXPERT_EXPENSEEXPERT_RECEIPTEXPERT:
+				BookingController((RoomExpert)arguments.get(0), (BookingExpert)arguments.get(1), (PromotionExpert)arguments.get(2), (ExpenseExpert)arguments.get(3), (ReceiptExpert)arguments.get(4));
 				return null;
 		}
 		return super.eInvoke(operationID, arguments);

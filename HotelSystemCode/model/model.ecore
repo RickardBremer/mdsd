@@ -508,6 +508,7 @@
       <eParameters name="bookingExpert" ordered="false" lowerBound="1" eType="#//BookingExpert"/>
       <eParameters name="promotionExpert" ordered="false" lowerBound="1" eType="#//PromotionExpert"/>
       <eParameters name="expenseExpert" ordered="false" lowerBound="1" eType="#//ExpenseExpert"/>
+      <eParameters name="receiptExpert" ordered="false" lowerBound="1" eType="#//ReceiptExpert"/>
     </eOperations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="room" ordered="false" lowerBound="1"
         eType="#//RoomExpert"/>
