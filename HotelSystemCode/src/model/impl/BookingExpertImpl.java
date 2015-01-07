@@ -257,12 +257,17 @@ public class BookingExpertImpl extends MinimalEObjectImpl.Container implements B
 
 		if(value){
 			
-			String ID = database.query("SELECT BookingID FROM tblBookings WHERE CustomerMail = '" + booking.getCustomer().getEmail() + "' AND ClientRequests = '"
+			String[] ID = database.query("SELECT BookingID,ReceiptID FROM tblBookings WHERE CustomerMail = '" + booking.getCustomer().getEmail() + "' AND ClientRequests = '"
 		    + booking.getWishes() + "' AND PromotionCode = '" + booking.getPromotion() + "' ORDER BY BookingID DESC"
-		    + ";").get(0);
+		    + ";").get(0).split(";",-1);
+			ReceiptExpert re = new ReceiptExpertImpl();
+			re.ReceiptExpert(database);
+			System.out.println("Length " +ID[1]);
+			booking.setReceipt(re.getReceipt(Integer.valueOf(ID[1])));
 			
-		int BookingID = Integer.valueOf(ID);
+		int BookingID = Integer.valueOf(ID[0]);
 		booking.setId(BookingID);
+		
 		
 		boolean value1 = false;
 		for(int i = 0; i < booking.getRoomTypes().size(); i++){
@@ -452,7 +457,8 @@ public class BookingExpertImpl extends MinimalEObjectImpl.Container implements B
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
 		EList <String> newResident;
-		
+		System.out.println("BookingExpert Checkin \n");
+		System.out.println("Room size " +rooms.size());
 		for(int i = 0; i < rooms.size(); i++) {
 			database.send("INSERT INTO tblStays(RoomId, BookingID)  VALUES ("+rooms.get(i).getNumber() + "," + booking.getId() + ");");
 			String Stay = database.query("SELECT 'StayId' FROM tblStays WHERE BookingID=" +booking.getId() +" ORDER BY StayId DESC").get(0);
