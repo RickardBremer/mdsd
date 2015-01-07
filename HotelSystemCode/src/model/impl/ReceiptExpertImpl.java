@@ -224,9 +224,11 @@ public class ReceiptExpertImpl extends MinimalEObjectImpl.Container implements R
 	//Stefania
 	public boolean updateReceipt(Receipt receipt) {
 		SimpleDateFormat dateFormat = new SimpleDateFormat("#MM/dd/yyyy#");
-		return database.send("UPDATE tblReceipts WHERE ReceiptID = " + receipt.getId() + 
-				"SET ReceiptDescription = " + receipt.getExpenses() + "TotalCost = " +
-				receipt.getTotalCost() + "ReceiptDate" + dateFormat.format(receipt.getDate()));	
+		
+		System.out.println(" hej hej " + receipt.getExpenses());
+		
+		return database.send("UPDATE tblReceipts SET ReceiptDescription = '" + receipt.getExpenses() + "' , TotalCost = " +
+				receipt.getTotalCost() + ", ReceiptDate =" + dateFormat.format(receipt.getDate()) + " WHERE ReceiptID = " + receipt.getId() +";");	
 	}
 
 	/**
