@@ -160,8 +160,6 @@ public class BookingExpertImpl extends MinimalEObjectImpl.Container implements B
 	 */
 //	Michael
 	public EList<Booking> getAllBookings(Date dateFrom, Date dateTo) {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
 		EList <String> responseResult; 
 		EList <String> roomType;
 		EList <String> roomId;
@@ -227,8 +225,14 @@ public class BookingExpertImpl extends MinimalEObjectImpl.Container implements B
 	public Booking addBooking(Booking booking) {
 		// Rickard
 		// Ensure that you remove @generated or mark it @generated NOT
+		// TODO Implement guard against adding same customer multiple times 
 		SimpleDateFormat dateFormat = new SimpleDateFormat("#MM/dd/yyyy#");
-	
+		boolean customerExist = false;
+		EList<String> customerMail = database.query("SELECT EMail FROM tblCustomers WHERE EMail = '" + booking.getCustomer().getEmail() +"'");
+		if (customerMail.size() > 0) {
+			customerExist = true;
+		}
+		if (!customerExist) {
 		boolean customer = database.send("INSERT INTO tblCustomers (FirstName, LastName, EMail, Address, CCNumber, CCV, ExpiringMonth, ExpiringYear) VALUES('"
 				+ booking.getCustomer().getFirstName()
 				+ "','"
@@ -246,7 +250,7 @@ public class BookingExpertImpl extends MinimalEObjectImpl.Container implements B
 				+ ","
 				+ booking.getCustomer().getExpiringYear()
 				+ ");");
-		
+		}
 		boolean value = database.send("INSERT INTO tblBookings (CustomerMail, ClientRequests, PromotionCode) VALUES('"
 				+ booking.getCustomer().getEmail()
 				+ "','"
@@ -457,8 +461,11 @@ public class BookingExpertImpl extends MinimalEObjectImpl.Container implements B
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
 		EList <String> newResident;
-		System.out.println("BookingExpert Checkin \n");
-		System.out.println("Room size " +rooms.size());
+		boolean isAlreadyCheckedin = false;
+		boolean checkedIn = false;
+		boolean success = false;
+		isAlreadyCheckedin = Boolean.valueOf(database.query("SELECT CheckedIn FROM tblBookings WHERE BookingID=" +booking.getId()).get(0));
+		if (!isAlreadyCheckedin) {
 		for(int i = 0; i < rooms.size(); i++) {
 			database.send("INSERT INTO tblStays(RoomId, BookingID)  VALUES ("+rooms.get(i).getNumber() + "," + booking.getId() + ");");
 			String Stay = database.query("SELECT StayId FROM tblStays WHERE BookingID=" +booking.getId() +" ORDER BY StayId DESC").get(0);
@@ -469,7 +476,6 @@ public class BookingExpertImpl extends MinimalEObjectImpl.Container implements B
 //						Add new people to the database
 				
 //					String resident = database.query("SELECT ResidentID FROM tblStaysResident WHERE StayId=" + Stay + ";").get(0);
-					System.out.println("Testing id print \n " + "SELECT IDNumber FROM tblResidents WHERE IDNumber='" + rooms.get(i).getResidents().get(j).getId() + "';");
 					newResident= database.query("SELECT IDNumber FROM tblResidents WHERE IDNumber='" + rooms.get(i).getResidents().get(j).getId() + "';");
 					
 					if(newResident.size() < 1 ) {
@@ -481,8 +487,16 @@ public class BookingExpertImpl extends MinimalEObjectImpl.Container implements B
 					}
 			
 					}
+		}
 		
-	return	database.send("UPDATE tblBookings SET CheckedIn =true AND CheckedOut = false WHERE BookingID=" + booking.getId() + ";");
+		checkedIn = database.send("UPDATE tblBookings SET CheckedIn =true AND CheckedOut = false WHERE BookingID=" + booking.getId() + ";");
+		if(!isAlreadyCheckedin) {
+			if(checkedIn) {
+				success = true;
+			}
+		}
+		
+	return success;
 		
 //		throw new UnsupportedOperationException();
 	}
