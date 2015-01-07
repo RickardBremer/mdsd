@@ -71,7 +71,7 @@ public class CustomerMakesBooking {
 	Calendar fDate = Calendar.getInstance();
 //  Calendar tDate = Calendar.getInstance();
 	
-	Calendar myCalendar = new GregorianCalendar(2015, 20, 1);
+	Calendar myCalendar = new GregorianCalendar(2015, 1, 20);
 	Date tDate = myCalendar.getTime();
 	
 //	BookingExpert bookingExpert = mf.createBookingExpert();
@@ -101,7 +101,7 @@ public class CustomerMakesBooking {
 		System.out.println(rooms.get(i).getStatus());
 	}
 	
-	customer = bookingController.createCustomer("Hulken", "Greenman", "nlarsson1@gmail.com", "Hisingen", "2100 0000 0000 0000", "000", 12, 17);
+	customer = bookingController.createCustomer("Hulken", "Greenman", "nlarsson0@gmail.com", "Hisingen", "2100 0000 0000 0000", "000", 12, 17);
 	boolean success = bookingController.createBooking(fDate.getTime(), tDate, "Extra peanuts", customer, promotion, r, roomTypes);
 	
 //	for(int i = 0; i < roomTypes.size(); i++){
