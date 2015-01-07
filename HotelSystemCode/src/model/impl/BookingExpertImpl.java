@@ -15,6 +15,7 @@ import model.Customer;
 import model.DatabaseInterface;
 import model.Expense;
 import model.ModelPackage;
+import model.ReceiptExpert;
 import model.Room;
 import model.RoomExpert;
 
@@ -115,7 +116,7 @@ public class BookingExpertImpl extends MinimalEObjectImpl.Container implements B
 	public Booking getBooking(int ID) {
 		// Rickard
 		// Ensure that you remove @generated or mark it @generated NOT
-		String[] response = database.query("SELECT 'BookingID', 'DateFrom', 'DateTo', 'ClientRequests', 'CustomerMail', 'PromotionCode' FROM tblBookings WHERE BookingID =" + ID + ";").get(0).split(";",-1);
+		String[] response = database.query("SELECT 'BookingID', 'DateFrom', 'DateTo', 'ClientRequests', 'CustomerMail', 'PromotionCode' , 'ReceiptID' FROM tblBookings WHERE BookingID =" + ID + ";").get(0).split(";",-1);
 		String[] roomtype = database.query("SELECT 'RoomType' FROM tblCalender, tblBookings WHERE tblBookings.BookingID = tblCalender.BookingID AND tblBookings.BookingID = " + ID  + ";").get(0).split(";",-1);
 		String[] customer = database.query("SELECT 'FirstName' , 'EMail', 'LastName' , 'Address', 'CCNumber' , 'CCV' , 'ExpiringMonth' , 'ExpiringYear' FROM tblCostumer WHERE Email = " + response[4] + ";").get(0).split(";",-1);
 				
@@ -138,7 +139,10 @@ public class BookingExpertImpl extends MinimalEObjectImpl.Container implements B
 			cal.setTimeInMillis(Long.parseLong(response[1]));
 			Date e = cal.getTime();
 					
-			b.Booking( d, e, response[2], c, rooms, response[4], Integer.parseInt(response[5]), null);
+			ReceiptExpert r = new ReceiptExpertImpl();
+			r.ReceiptExpert(database);
+			
+			b.Booking( d, e, response[2], c, rooms, response[4], Integer.parseInt(response[5]), null, r.getReceipt(Integer.parseInt(response[6])));
 			
 			return b; 
 			
