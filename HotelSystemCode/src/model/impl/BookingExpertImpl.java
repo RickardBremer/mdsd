@@ -221,7 +221,7 @@ public class BookingExpertImpl extends MinimalEObjectImpl.Container implements B
 	public Booking addBooking(Booking booking) {
 		// Rickard
 		// Ensure that you remove @generated or mark it @generated NOT
-		
+		SimpleDateFormat dateFormat = new SimpleDateFormat("#MM/DD/YYYY#");
 	
 		boolean customer = database.send("INSERT INTO tblCustomers (FirstName, LastName, EMail, Address, CCNumber, CCV, ExpiringMonth, ExpiringYear) VALUES('"
 				+ booking.getCustomer().getFirstName()
@@ -269,9 +269,9 @@ public class BookingExpertImpl extends MinimalEObjectImpl.Container implements B
 		value1 = database.send("INSERT INTO tblCalendar (RoomType, DateFrom, DateTo, CustomerMail, BookingID) VALUES("
 				+ booking.getRoomTypes().get(i)
 				+ ","
-				+ booking.getFromDate().getTime()
+				+ dateFormat.format(booking.getFromDate().getTime())
 				+ ","
-				+ booking.getToDate().getTime()
+				+ dateFormat.format(booking.getToDate().getTime())
 				+ ",'"
 				+ booking.getCustomer().getEmail() 
 				+ "',"
