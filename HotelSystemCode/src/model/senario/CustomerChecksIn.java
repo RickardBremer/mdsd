@@ -65,7 +65,6 @@ public class CustomerChecksIn {
 //		night.set(Calendar.HOUR_OF_DAY, 24);
 		
 		Booking booking = receptionistController.viewAllBookings("Greenman", morning, night).get(0);
-
 		EList<Room> bookedrooms = new BasicEList<Room>();
 		EList<Resident> resList = new BasicEList<Resident>();
 		Resident resOne = receptionistController.createResident("Magne" , "Herne", "8918286545");
@@ -83,8 +82,11 @@ public class CustomerChecksIn {
 			}
 		}
 		//Get available rooms 
+		boolean isfirst = true;
 		for (Map.Entry<String, Integer> entry : freq.entrySet()) {
-			EList<Room> room =receptionistController.viewUnOccupiedRooms(entry.getKey());
+			System.out.println(entry.getKey());
+			if (isfirst == false) {
+			EList<Room> room = receptionistController.viewUnOccupiedRooms(entry.getKey());
 			System.out.println(room.size());
 			for (int i = 0; i<entry.getValue();i++) {
 				System.out.println(entry.getValue());
@@ -95,8 +97,12 @@ public class CustomerChecksIn {
 					bookedrooms.get(i).getResidents().add(resList.get(i));
 				}
 			}
+			}
+			isfirst = false;
 		}
+		
 		//Check in booking
+		System.out.println("Room size " +booking.getRoomTypes().size());
 		System.out.println(receptionistController.checkIn(booking, bookedrooms));
 	}
 }

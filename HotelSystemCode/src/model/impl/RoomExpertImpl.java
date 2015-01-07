@@ -220,7 +220,7 @@ public class RoomExpertImpl extends MinimalEObjectImpl.Container implements Room
 				Room room = new RoomImpl();
 				ExpenseExpert ee = new ExpenseExpertImpl();
 				ee.ExpenseExpert(database);
-				Expense price = ee.getExpense(Integer.parseInt(roomSpec[7]));
+				Expense price = ee.getExpense(Integer.parseInt(roomSpec[3]));
 				room.Room(Integer.parseInt(roomSpec[0]), roomSpec[1], roomSpec[2], price, Integer.parseInt(roomSpec[4]), roomSpec[5], new ReceiptImpl());
 				result.add(room);
 			}
@@ -288,10 +288,12 @@ public class RoomExpertImpl extends MinimalEObjectImpl.Container implements Room
 	 */
 	public Room getRoom(int roomNumber) {
 		 Room result = null;
-		 
+		 System.out.println("SELECT RoomNumber, RoomDescription, Maintenance, RoomIsClean, RoomType, Status, Beds, ExpenseID, tblStays.ReceiptID FROM tblRooms LEFT JOIN tblStays ON "
+		 		+ "tblRooms.RoomNumber=tblStays.RoomID WHERE RoomNumber=" + roomNumber + " ORDER BY tblStays.StayID DESC LIMIT 0,1");
 		 EList<String> queryResult = database.query("SELECT RoomNumber, RoomDescription, Maintenance, RoomIsClean, RoomType, Status, Beds, ExpenseID, tblStays.ReceiptID FROM tblRooms LEFT JOIN tblStays ON "
 		 		+ "tblRooms.RoomNumber=tblStays.RoomID WHERE RoomNumber=" + roomNumber + " ORDER BY tblStays.StayID DESC LIMIT 0,1");
 		 if (queryResult != null) {
+			 System.out.println("Testing");
 			 result = new RoomImpl();
 			 String[] roomSpec = queryResult.get(0).split(";", -1);
 			 ExpenseExpert ee = new ExpenseExpertImpl();
