@@ -211,16 +211,15 @@ public class ReceptionistControllerImpl extends BookingControllerImpl implements
 			receiptList.add(r.getReceipt());
 		}
 		Receipt combinedreceipt = getReceiptExpert().combine(receiptList);
-		System.out.println(combinedreceipt.getTotalCost());
 		if(pay(booking.getCustomer(), combinedreceipt)){
 			if(bookingExpert.checkOut(booking)){
 				return true; 
 			}else{
-				System.out.println("Payment succeded but Check out failed.");
+				System.out.println("Check out of " + booking.getCustomer().getFirstName() + " " + booking.getCustomer().getSurname() + " failed, payment was performed");
 				return false; 
 			}
 		}else{
-			System.out.println("Payment failed, check out was not performed.");
+			System.out.println("Payment for " + booking.getCustomer().getFirstName() + " " + booking.getCustomer().getSurname() + " failed, check out was not performed.");
 			return false; 
 		}
 	}

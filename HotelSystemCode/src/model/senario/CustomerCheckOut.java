@@ -54,12 +54,25 @@ public class CustomerCheckOut {
 		
 		Calendar frDate = Calendar.getInstance();
 		Calendar myCalendar = new GregorianCalendar(2015, 1, 20);
-		Date toDate = myCalendar.getTime();
+		Date greenToDate = myCalendar.getTime();
+	
+		myCalendar = new GregorianCalendar(2015, 1, 25);
+		Date brownToDate = myCalendar.getTime();
+		myCalendar = new GregorianCalendar(2015, 1, 17);
+		Date brownFromDate = myCalendar.getTime();
 		
-		Booking booking = rc.viewAllBookings("Greenman", frDate.getTime(), toDate).get(0);
+		// get the already checked in booking (should succeed)
+		Booking bookingCheckedIN = rc.viewAllBookings("Greenman", frDate.getTime(), greenToDate).get(0);
 		
-		if(rc.checkOut(booking)){
-			System.out.println("The booking of " +booking.getCustomer().getFirstName() +" "+booking.getCustomer().getSurname()+ " was checked out");
+		Booking bookingNotCheckedIN = rc.viewAllBookings("Brown", brownFromDate, brownToDate).get(0);
+		
+		System.out.println("Receptionist will now try to check you out in with your provided credentials");
+		if(rc.checkOut(bookingCheckedIN)){
+			System.out.println("The booking of " +bookingCheckedIN.getCustomer().getFirstName() +" "+bookingCheckedIN.getCustomer().getSurname()+ " was checked out");
+		}
+		
+		if(rc.checkOut(bookingNotCheckedIN)){
+			System.out.println("The booking of " +bookingNotCheckedIN.getCustomer().getFirstName() +" "+bookingNotCheckedIN.getCustomer().getSurname()+ " was checked out");
 		}
 		
 	}
