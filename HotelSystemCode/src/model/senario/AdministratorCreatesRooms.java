@@ -1,3 +1,6 @@
+/*
+ * This class acts as if there was a UI between a user and the system.
+ */
 package model.senario;
 
 import java.util.Arrays;
@@ -133,6 +136,10 @@ public class AdministratorCreatesRooms {
 		Expense tripleRoomExpense = mf.createExpense();
 		tripleRoomExpense.Expense(-1, "triple", new Date(), "Triple Room", 500, true, -1);
 		tripleRoomExpense = adminController.createExpense(tripleRoomExpense);
+		
+		Expense registrationFee = mf.createExpense();
+		registrationFee.Expense(-1, "registrationfee", new Date(), "The percentage used for the registration fee", 10, true, -1);
+		registrationFee = adminController.createExpense(registrationFee);
 		
 		//Create the rooms
 		int amountSingleRooms = 4;

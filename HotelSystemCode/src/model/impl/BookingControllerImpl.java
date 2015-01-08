@@ -407,6 +407,8 @@ public class BookingControllerImpl extends MinimalEObjectImpl.Container implemen
 		if (!pay.isCreditCardValid(customer)) {
 			return false;
 		}
+		Expense registrationFee = new ExpenseImpl();
+		registrationFee.Expense(-1, "", new Date(), "", 0.0, false, -1); // In case registration fee is not set
 		Booking booking = new BookingImpl();
 		booking.Booking(fromDate, toDate, wishes, customer, roomTypes, promotion, 0, new BasicEList<Room>(), receipt);
 		booking = bookingExpert.addBooking(booking);
@@ -433,6 +435,9 @@ public class BookingControllerImpl extends MinimalEObjectImpl.Container implemen
 					bunt.put(type, bunt.get(type) + temp.getPrice());
 				}
 			}
+			if (temp.getName().equals("registrationfee")) {
+				registrationFee = temp;
+			}
 		}
 		for (String type : bunt.keySet()) {
 			bunt.put(type, bunt.get(type) * days);
@@ -453,7 +458,8 @@ public class BookingControllerImpl extends MinimalEObjectImpl.Container implemen
 			}
 		}
 		double total = rec.getTotalCost();
-		double fee = total * -0.1;
+		double registrationPercentage = Math.max(Math.min(registrationFee.getPrice() / 100, 1.0), 0);
+		double fee = total * -registrationPercentage;
 		Expense ex = new ExpenseImpl();
 		ex.Expense(-1, "Booking-fee", new Date(), "" + fee, fee, false, rec.getId());
 		ex = expenseExpert.addExpense(ex);
