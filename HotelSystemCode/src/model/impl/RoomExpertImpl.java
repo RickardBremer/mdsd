@@ -161,17 +161,16 @@ public class RoomExpertImpl extends MinimalEObjectImpl.Container implements Room
 		EList<Room> availableTypes = new BasicEList<Room>();
 		HashMap<String, Integer> bookedTypes = new HashMap<String, Integer>();
 		HashMap<String, Integer> totalTypes = new HashMap<String, Integer>();
+		HashMap<String, Integer> numBedsOfType = new HashMap<String, Integer>();
 		SimpleDateFormat dateFormat = new SimpleDateFormat("#MM/dd/yyyy#");
-		//long fromMillis = from.getTime(); //TODO remove this when all is working
-		//long toMillis = to.getTime();
 		
-		// Get the room types and the amount of them
-		EList<String> queryResult = database.query("SELECT RoomType, COUNT(RoomType) FROM tblRooms WHERE Beds >= " + numberOfGuests + " GROUP BY RoomType");
+		EList<String> queryResult = database.query("SELECT RoomType, COUNT(RoomType), SUM(Beds) FROM tblRooms GROUP BY RoomType");
 		if (queryResult != null) {
 			for (String rowFull : queryResult) {
 				String[] row = rowFull.split(";", -1);
 				totalTypes.put(row[0], Integer.parseInt(row[1]));
 				bookedTypes.put(row[0], 0);//remember all the types for when we decide how many rooms are booked
+				numBedsOfType.put(row[0], Integer.parseInt(row[2]) / totalTypes.get(row[0])); // store how many beds a type has
 			}
 		}
 				
@@ -191,7 +190,7 @@ public class RoomExpertImpl extends MinimalEObjectImpl.Container implements Room
 		for (String type : totalTypes.keySet()) {
 			int numBooked = bookedTypes.get(type);
 			int numAvailable = totalTypes.get(type) - numBooked;
-			if (numAvailable >= numberOfRooms) {
+			if (numAvailable >= numberOfRooms && (numBedsOfType.get(type) * numberOfRooms) >= numberOfGuests) {
 				EList<String> queryResult2 = database.query("SELECT RoomNumber, RoomDescription, RoomType, ExpenseID, Beds, Status FROM tblRooms WHERE RoomType='" + type + "' LIMIT 0,1");
 				if (queryResult2 != null) {
 					String[] roomSpec = queryResult2.get(0).split(";", -1);
