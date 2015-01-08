@@ -66,15 +66,18 @@ public class CustomerCheckOut {
 		
 		Booking bookingNotCheckedIN = rc.viewAllBookings("Brown", brownFromDate, brownToDate).get(0);
 		
-		System.out.println("Receptionist will now try to check you out in with your provided credentials");
+		System.out.println("Receptionist will now try to check you out in with your provided credentials\n");
 		if(rc.checkOut(bookingCheckedIN)){
-			System.out.println("The booking of " +bookingCheckedIN.getCustomer().getFirstName() +" "+bookingCheckedIN.getCustomer().getSurname()+ " was checked out");
+			//System.out.println("The booking of " +bookingCheckedIN.getCustomer().getFirstName() +" "+bookingCheckedIN.getCustomer().getSurname()+ " was checked out and payment performed");
+			System.out.println("Check out completed");
 		}
 		
 		if(rc.checkOut(bookingNotCheckedIN)){
-			System.out.println("The booking of " +bookingNotCheckedIN.getCustomer().getFirstName() +" "+bookingNotCheckedIN.getCustomer().getSurname()+ " was checked out");
+			//System.out.println("The booking of " +bookingNotCheckedIN.getCustomer().getFirstName() +" "+bookingNotCheckedIN.getCustomer().getSurname()+ " was checked out");
+			System.out.println("Check out completed");
 		}
 		
+		System.out.println("Björne Brown was never checked in");
 	}
 	
 }
