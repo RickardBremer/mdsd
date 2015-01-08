@@ -113,7 +113,7 @@ public class CustomerChecksIn {
 		System.out.println(receptionistController.checkIn(booking, bookedrooms));
 		}
 		else {
-			System.out.println("No booking existed");
+			System.out.println("No booking existed, or the data was incorrect");
 		}
 	}
 }
