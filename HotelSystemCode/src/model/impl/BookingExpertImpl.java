@@ -171,7 +171,7 @@ public class BookingExpertImpl extends MinimalEObjectImpl.Container implements B
 		Date convertDateFrom;
 		SimpleDateFormat dateFormat = new SimpleDateFormat("#MM/dd/yyyy#");
 		
-		responseResult = database.query("SELECT 'tblBookings.BookingID','tblBookings.CustomerMail', 'tblBookings.ClientRequest', 'tblBookings.PromotionCode',  'tblCalendar.DateFrom', 'tblCalendar.DateTo'  FROM tblBookings LEFT JOIN tblCalendar"
+		responseResult = database.query("SELECT tblBookings.BookingID, tblBookings.CustomerMail, tblBookings.ClientRequest, tblBookings.PromotionCode,  tblCalendar.DateFrom, tblCalendar.DateTo  FROM tblBookings LEFT JOIN tblCalendar"
 				+ "WHERE tblCalendar.DateTo<=" + dateFormat.format(dateTo) + "AND tblCalendar.DateFrom>=" + dateFormat.format(dateFrom) + ";");
 			
 			for(String booking: responseResult) {
@@ -407,7 +407,7 @@ public class BookingExpertImpl extends MinimalEObjectImpl.Container implements B
 		Date convertDateFrom; 
 		Date convertDateTo; 
 		Calendar cal = Calendar.getInstance();
-		responseResult = database.query("SELECT tblBookings.BookingID,tblBookings.CustomerMail, tblBookings.ClientRequests, tblBookings.PromotionCode,  tblCalendar.DateFrom, tblCalendar.DateTo  FROM tblBookings"
+		responseResult = database.query("SELECT tblBookings.BookingID,tblBookings.CustomerMail, tblBookings.ClientRequests, tblBookings.PromotionCode, tblCalendar.DateFrom, tblCalendar.DateTo, tblBookings.ReceiptID FROM tblBookings"
 			    + " INNER JOIN tblCalendar ON tblBookings.BookingID=tblCalendar.BookingID INNER JOIN tblCustomers ON tblBookings.CustomerMail = tblCustomers.EMail "
 			    + "WHERE "
 			    + "tblCalendar.DateTo<=" + sdf.format(dateTo)  
@@ -453,7 +453,7 @@ public class BookingExpertImpl extends MinimalEObjectImpl.Container implements B
 			ReceiptExpert r = new ReceiptExpertImpl();
 			r.ReceiptExpert(database);
 			
-			searchBooking.Booking(convertDateFrom, convertDateTo, newList[2], newCustomer, roomType, newList[3], Integer.valueOf(newList[0]), rooms, r.getReceipt(0));
+			searchBooking.Booking(convertDateFrom, convertDateTo, newList[2], newCustomer, roomType, newList[3], Integer.valueOf(newList[0]), rooms, r.getReceipt(Integer.parseInt(newList[6])));
 			returnedBookingList.add(searchBooking);
 			
 		}
@@ -534,16 +534,15 @@ public class BookingExpertImpl extends MinimalEObjectImpl.Container implements B
 	 */
 //	Michael
 	public boolean checkOut(Booking booking) {
-		System.out.println("BOOKING ID: "+ booking.getId());
-		EList<String> currentRooms = database.query("SELECT RoomID FROM tblStays WHERE BookingID=" +booking.getId() + ";");
-		
-		for(String loop: currentRooms) {
-			System.out.println("ROOMID: "+ Integer.parseInt(loop));
-			database.send("UPDATE tblRooms SET RoomIsClean=false, Status='unoccupied' WHERE RoomNumber=" + Integer.parseInt(loop) + ";" );
+		boolean isAlreadyCheckedin = Boolean.valueOf(database.query("SELECT CheckedIn FROM tblBookings WHERE BookingID=" +booking.getId()).get(0));
+		if(isAlreadyCheckedin){
+			EList<String> currentRooms = database.query("SELECT RoomID FROM tblStays WHERE BookingID=" +booking.getId() + ";");
+			for(String loop: currentRooms) {
+				database.send("UPDATE tblRooms SET RoomIsClean=false, Status='unoccupied' WHERE RoomNumber=" + Integer.parseInt(loop) + ";" );
+			}	
+			return database.send("UPDATE tblBookings SET CheckedOut=true, CheckedIn=false WHERE BookingID=" + booking.getId()+";");
 		}
-		
-		return database.send("UPDATE tblBookings SET CheckedOut=true, CheckedIn=false WHERE BookingID=" + booking.getId()+";");
-
+		return isAlreadyCheckedin; 
 	}
 
 	/**

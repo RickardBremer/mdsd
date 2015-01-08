@@ -205,16 +205,24 @@ public class ReceptionistControllerImpl extends BookingControllerImpl implements
 	 */
 	public boolean checkOut(Booking booking) {
 		// Done - Checks out a booking
-		boolean checkedout = bookingExpert.checkOut(booking);
 		EList<Receipt> receiptList = new BasicEList<Receipt>(); 
-		receiptList.add(booking.getReceipt());
+		receiptList.add(receiptExpert.getReceipt(booking.getReceipt().getId()));
 		for (Room r : booking.getRoom()) {
 			receiptList.add(r.getReceipt());
 		}
 		Receipt combinedreceipt = getReceiptExpert().combine(receiptList);
-		pay(booking.getCustomer(), combinedreceipt);
-//		receiptExpert.combine(receiptList);
-		return checkedout;
+		System.out.println(combinedreceipt.getTotalCost());
+		if(pay(booking.getCustomer(), combinedreceipt)){
+			if(bookingExpert.checkOut(booking)){
+				return true; 
+			}else{
+				System.out.println("Payment succeded but Check out failed.");
+				return false; 
+			}
+		}else{
+			System.out.println("Payment failed, check out was not performed.");
+			return false; 
+		}
 	}
 
 	/**
