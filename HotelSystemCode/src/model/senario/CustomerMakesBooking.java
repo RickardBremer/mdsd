@@ -67,25 +67,39 @@ public class CustomerMakesBooking {
 	// Create receipt.
 	Receipt r = mf.createReceipt();
 	
-	// Search for rooms and place available rooms in a list of rooms.
+	// Search for rooms by  date, nr of guests and nr of rooms
+	// and place available rooms in a list of rooms.
 	rooms = bookingController.searchRooms(fDate.getTime(), tDate, 1, 1);
-	for(int i = 0; i < rooms.size(); i++){
-		System.out.println(rooms.get(i).getType()); // Debug code
-		if(rooms.get(i).getType().matches("single")){
-			roomTypes.add(rooms.get(i).getType());
-			System.out.println(roomTypes.get(i)); // Debug code
-			i = rooms.size();
+	
+	// Guard to ensure that a booking is not made if there are no available rooms. 
+	boolean roomsAvailable = true;
+	if (rooms.size() < 1) {
+		roomsAvailable = false;
+	} 
+	
+	if(roomsAvailable) {
+		for(int i = 0; i < rooms.size(); i++){
+			System.out.println(rooms.get(i).getType()); // Debug code
+			if(rooms.get(i).getType().matches("single")){
+				roomTypes.add(rooms.get(i).getType());
+				System.out.println(roomTypes.get(i)); // Debug code
+				i = rooms.size();
+			}
 		}
+		
+		// Create a customer.
+		customer = bookingController.createCustomer("Hulken", "Greenman", "nlarsson10@gmail.com", "Hisingen", "2100000000000000", "000", 12, 17);
+		// Create a booking
+		boolean success = bookingController.createBooking(fDate.getTime(), tDate, "Extra peanuts", customer, promotion, r, roomTypes);
+		// Print if the booking was a success or not.
+		if (!success) {
+			System.out.println("The booking could not be performed, are the details correct?");
+		} else {
+			System.out.println("The booking is successful");
+		}
+	} else {
+		System.out.println("There are no rooms available");
 	}
-	
-	// Create a customer.
-	customer = bookingController.createCustomer("Hulken", "Greenman", "nlarsson10@gmail.com", "Hisingen", "2100000000000000", "000", 12, 17);
-	// Create a booking
-	boolean success = bookingController.createBooking(fDate.getTime(), tDate, "Extra peanuts", customer, promotion, r, roomTypes);
-	
-	// Print if the booking was a success or not.
-	System.out.println(success); 
-	
 	}
 	
 }
