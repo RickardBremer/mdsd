@@ -94,14 +94,10 @@ public class CustomerChecksIn {
 		//Get available rooms 
 
 		for (Map.Entry<String, Integer> entry : freq.entrySet()) {
-			System.out.println(entry.getKey());
-			 
 			EList<Room> room = receptionistController.viewUnOccupiedRooms(entry.getKey());
-			System.out.println(room.size() +" value " +entry.getValue());
 			for (int i = 0; i<entry.getValue();i++) {
-				System.out.println(entry.getValue());
 				bookedrooms.add(room.get(i));
-
+				System.out.println("Added a " +room.get(i).getType() +" room to the booking");
 				//Fill rooms with residents
 			}
 			}
@@ -109,14 +105,11 @@ public class CustomerChecksIn {
 			 for (int i = 0; i < r.getBeds();i++) {
 				r.getResidents().add(resList.get(i));
 				resList.remove(i);
+				System.out.println("Added resident " +resList.get(i).getFirstName() +" to a room in the booking");
 			 }
 			 booking.getRoom().add(r);
 		}
-			
-		
-		
 		//Check in booking
-		System.out.println("Room size " +bookedrooms.size());
 		System.out.println(receptionistController.checkIn(booking, bookedrooms));
 		}
 		else {

@@ -173,14 +173,12 @@ public class ReceptionistControllerImpl extends BookingControllerImpl implements
 	 */
 	public EList<Room> viewUnOccupiedRooms(String roomType) {
 		EList<Room> roomlist = room.getUnoccupiedRooms();
-		System.out.println("UnoccupiedRooms " + roomlist.size());
 		EList<Room> resultlist = new BasicEList<Room>();
 		for (Room r : roomlist) {
 			if (r.getType().toLowerCase().matches(roomType.toLowerCase())) {
 				resultlist.add(r);
 			}
 		}
-		System.out.println("UnoccupiedRooms " + resultlist.size());
 		return resultlist;
 	}
 
@@ -192,6 +190,11 @@ public class ReceptionistControllerImpl extends BookingControllerImpl implements
 	public boolean checkIn(Booking booking, EList<Room> rooms) {
 		// Done - uses bookingExpert to check in a booking
 		boolean checkedin = bookingExpert.checkIn(booking, rooms);
+		if (!checkedin) {
+			System.out.println("Failed to check in, maybe youre already checked in?");
+		} else {
+			System.out.println("Check in succesful");
+		}
 		return checkedin;
 	}
 
