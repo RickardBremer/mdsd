@@ -35,14 +35,31 @@ public class AdministratorCreatesRooms {
 		try {
 			cashAdmin = AdministratorRequires.instance();
 			cashCustomer = CustomerRequires.instance();
-			
+			//customer 1
 			if (!cashCustomer.isCreditCardValid("2100000000000000", "000", 12, 17, "Hulken", "Greenman")) {
 				cashAdmin.addCreditCard("2100000000000000", "000", 12, 17, "Hulken", "Greenman");
 			}
 			if (cashAdmin.getBalance("2100000000000000", "000", 12, 17, "Hulken", "Greenman") < 1000) {
 				cashAdmin.makeDeposit("2100000000000000", "000", 12, 17, "Hulken", "Greenman", 12000);
 			}
-			System.out.println("Hulken has: " + cashAdmin.getBalance("2100000000000000", "000", 12, 17, "Hulken", "Greenman") + "kr\n");
+			//Customer 2
+			if (!cashCustomer.isCreditCardValid("2100000000000001", "000", 12, 17, "Gula", "Gubben")) {
+				cashAdmin.addCreditCard("2100000000000001", "000", 12, 17, "Gula", "Gubben");
+			}
+			if (cashAdmin.getBalance("2100000000000001", "000", 12, 17, "Gula", "Gubben") < 1000) {
+				cashAdmin.makeDeposit("2100000000000001", "000", 12, 17, "Gula", "Gubben", 12000);
+			}
+			// Customer 3
+			if (!cashCustomer.isCreditCardValid("2100000000000002", "000", 12, 17, "Björne", "Brown")) {
+				cashAdmin.addCreditCard("2100000000000002", "000", 12, 17, "Björne", "Brown");
+			}
+			if (cashAdmin.getBalance("2100000000000002", "000", 12, 17, "Björne", "Brown") < 1000) {
+				cashAdmin.makeDeposit("2100000000000002", "000", 12, 17, "Björne", "Brown", 12000);
+			}
+			System.out.println("Hulken has: " + cashAdmin.getBalance("2100000000000000", "000", 12, 17, "Hulken", "Greenman") + "kr");
+			System.out.println("Gula has: " + cashAdmin.getBalance("2100000000000001", "000", 12, 17, "Gula", "Gubben") + "kr");
+			System.out.println("Björne has: " + cashAdmin.getBalance("2100000000000002", "000", 12, 17, "Björne", "Brown") + "kr");
+			System.out.println();
 		} catch (SOAPException e) {
 			System.out.println("Cash setup failed!");
 		}
