@@ -192,6 +192,9 @@
       <eParameters name="name" ordered="false" lowerBound="1" eType="ecore:EDataType types.ecore#//String"/>
       <eParameters name="password" ordered="false" lowerBound="1" eType="ecore:EDataType types.ecore#//String"/>
     </eOperations>
+    <eOperations name="removeBooking" ordered="false" lowerBound="1" eType="ecore:EDataType types.ecore#//Boolean">
+      <eParameters name="booking" ordered="false" lowerBound="1" eType="#//Booking"/>
+    </eOperations>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Booking">
     <eOperations name="Booking" ordered="false" lowerBound="1">

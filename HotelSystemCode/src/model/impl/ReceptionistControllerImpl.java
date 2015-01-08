@@ -245,6 +245,15 @@ public class ReceptionistControllerImpl extends BookingControllerImpl implements
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean removeBooking(Booking booking) {
+		return bookingExpert.removeBooking(booking);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
 	public void ReceptionistController(ReceiptExpert receiptExpert, ExpenseExpert expenseExpert, RoomExpert roomExpert, BookingExpert bookingExpert, PromotionExpert promotionExpert, UserExpert userExpert) {
@@ -331,6 +340,7 @@ public class ReceptionistControllerImpl extends BookingControllerImpl implements
 				case ModelPackage.RECEPTIONIST_INTERFACE___CHECK_IN__BOOKING_ELIST: return ModelPackage.RECEPTIONIST_CONTROLLER___CHECK_IN__BOOKING_ELIST;
 				case ModelPackage.RECEPTIONIST_INTERFACE___CHECK_OUT__BOOKING: return ModelPackage.RECEPTIONIST_CONTROLLER___CHECK_OUT__BOOKING;
 				case ModelPackage.RECEPTIONIST_INTERFACE___LOGIN__STRING_STRING: return ModelPackage.RECEPTIONIST_CONTROLLER___LOGIN__STRING_STRING;
+				case ModelPackage.RECEPTIONIST_INTERFACE___REMOVE_BOOKING__BOOKING: return ModelPackage.RECEPTIONIST_CONTROLLER___REMOVE_BOOKING__BOOKING;
 				default: return -1;
 			}
 		}
@@ -364,6 +374,8 @@ public class ReceptionistControllerImpl extends BookingControllerImpl implements
 				return checkOut((Booking)arguments.get(0));
 			case ModelPackage.RECEPTIONIST_CONTROLLER___LOGIN__STRING_STRING:
 				return login((String)arguments.get(0), (String)arguments.get(1));
+			case ModelPackage.RECEPTIONIST_CONTROLLER___REMOVE_BOOKING__BOOKING:
+				return removeBooking((Booking)arguments.get(0));
 			case ModelPackage.RECEPTIONIST_CONTROLLER___RECEPTIONIST_CONTROLLER__RECEIPTEXPERT_EXPENSEEXPERT_ROOMEXPERT_BOOKINGEXPERT_PROMOTIONEXPERT_USEREXPERT:
 				ReceptionistController((ReceiptExpert)arguments.get(0), (ExpenseExpert)arguments.get(1), (RoomExpert)arguments.get(2), (BookingExpert)arguments.get(3), (PromotionExpert)arguments.get(4), (UserExpert)arguments.get(5));
 				return null;
