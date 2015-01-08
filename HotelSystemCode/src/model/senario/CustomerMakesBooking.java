@@ -67,8 +67,11 @@ public class CustomerMakesBooking {
 	// Create receipt.
 	Receipt r = mf.createReceipt();
 	
-	// Search for rooms and place available rooms in a list of rooms.
+	// Search for rooms by  date, nr of guests and nr of rooms
+	// and place available rooms in a list of rooms.
 	rooms = bookingController.searchRooms(fDate.getTime(), tDate, 1, 1);
+	
+	// Guard to ensure that a booking is not made if there are no available rooms. 
 	boolean roomsAvailable = true;
 	if (rooms.size() < 1) {
 		roomsAvailable = false;
