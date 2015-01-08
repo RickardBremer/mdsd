@@ -900,13 +900,22 @@ public interface ModelPackage extends EPackage {
 	int RECEPTIONIST_INTERFACE___LOGIN__STRING_STRING = 8;
 
 	/**
+	 * The operation id for the '<em>Remove Booking</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RECEPTIONIST_INTERFACE___REMOVE_BOOKING__BOOKING = 9;
+
+	/**
 	 * The number of operations of the '<em>Receptionist Interface</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int RECEPTIONIST_INTERFACE_OPERATION_COUNT = 9;
+	int RECEPTIONIST_INTERFACE_OPERATION_COUNT = 10;
 
 	/**
 	 * The meta object id for the '{@link model.impl.BookingImpl <em>Booking</em>}' class.
@@ -2760,13 +2769,22 @@ public interface ModelPackage extends EPackage {
 	int RECEPTIONIST_CONTROLLER___LOGIN__STRING_STRING = BOOKING_CONTROLLER_OPERATION_COUNT + 8;
 
 	/**
+	 * The operation id for the '<em>Remove Booking</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RECEPTIONIST_CONTROLLER___REMOVE_BOOKING__BOOKING = BOOKING_CONTROLLER_OPERATION_COUNT + 9;
+
+	/**
 	 * The operation id for the '<em>Receptionist Controller</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int RECEPTIONIST_CONTROLLER___RECEPTIONIST_CONTROLLER__RECEIPTEXPERT_EXPENSEEXPERT_ROOMEXPERT_BOOKINGEXPERT_PROMOTIONEXPERT_USEREXPERT = BOOKING_CONTROLLER_OPERATION_COUNT + 9;
+	int RECEPTIONIST_CONTROLLER___RECEPTIONIST_CONTROLLER__RECEIPTEXPERT_EXPENSEEXPERT_ROOMEXPERT_BOOKINGEXPERT_PROMOTIONEXPERT_USEREXPERT = BOOKING_CONTROLLER_OPERATION_COUNT + 10;
 
 	/**
 	 * The number of operations of the '<em>Receptionist Controller</em>' class.
@@ -2775,7 +2793,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RECEPTIONIST_CONTROLLER_OPERATION_COUNT = BOOKING_CONTROLLER_OPERATION_COUNT + 10;
+	int RECEPTIONIST_CONTROLLER_OPERATION_COUNT = BOOKING_CONTROLLER_OPERATION_COUNT + 11;
 
 	/**
 	 * The meta object id for the '{@link model.impl.MSAccessDBImpl <em>MS Access DB</em>}' class.
@@ -3618,6 +3636,16 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 */
 	EOperation getReceptionistInterface__Login__String_String();
+
+	/**
+	 * Returns the meta object for the '{@link model.ReceptionistInterface#removeBooking(model.Booking) <em>Remove Booking</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Remove Booking</em>' operation.
+	 * @see model.ReceptionistInterface#removeBooking(model.Booking)
+	 * @generated
+	 */
+	EOperation getReceptionistInterface__RemoveBooking__Booking();
 
 	/**
 	 * Returns the meta object for class '{@link model.Booking <em>Booking</em>}'.
@@ -5556,6 +5584,14 @@ public interface ModelPackage extends EPackage {
 		 * @generated
 		 */
 		EOperation RECEPTIONIST_INTERFACE___LOGIN__STRING_STRING = eINSTANCE.getReceptionistInterface__Login__String_String();
+
+		/**
+		 * The meta object literal for the '<em><b>Remove Booking</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation RECEPTIONIST_INTERFACE___REMOVE_BOOKING__BOOKING = eINSTANCE.getReceptionistInterface__RemoveBooking__Booking();
 
 		/**
 		 * The meta object literal for the '{@link model.impl.BookingImpl <em>Booking</em>}' class.

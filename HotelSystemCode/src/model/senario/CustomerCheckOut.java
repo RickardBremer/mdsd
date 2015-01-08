@@ -58,14 +58,8 @@ public class CustomerCheckOut {
 		
 		Booking booking = rc.viewAllBookings("Greenman", frDate.getTime(), toDate).get(0);
 		
-		if(booking.isCheckedIn()){
-			if(rc.checkOut(booking)){
-				System.out.println("The booking of " +booking.getCustomer().getFirstName() +" "+booking.getCustomer().getSurname()+ " was checked out");
-			}else{
-				System.out.println("Checkout failed");
-			}
-		}else{
-			System.out.println("Booking was not checked in");
+		if(rc.checkOut(booking)){
+			System.out.println("The booking of " +booking.getCustomer().getFirstName() +" "+booking.getCustomer().getSurname()+ " was checked out");
 		}
 		
 	}

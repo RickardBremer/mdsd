@@ -195,6 +195,9 @@
         <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="model.ecore#//ReceptionistInterface/login/name"/>
         <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="model.ecore#//ReceptionistInterface/login/password"/>
       </genOperations>
+      <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="model.ecore#//ReceptionistInterface/removeBooking">
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="model.ecore#//ReceptionistInterface/removeBooking/booking"/>
+      </genOperations>
     </genClasses>
     <genClasses xsi:type="genmodel:GenClass" ecoreClass="model.ecore#//Booking">
       <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
