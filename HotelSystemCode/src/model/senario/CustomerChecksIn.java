@@ -27,6 +27,7 @@ import model.impl.ModelFactoryImpl;
 
 public class CustomerChecksIn {
 	public static void main(String[] args) {
+		
 		ModelFactory mf = ModelFactoryImpl.init();
 		DatabaseInterface db = mf.createMSAccessDB();
 		
@@ -58,32 +59,28 @@ public class CustomerChecksIn {
 		Calendar frDate = Calendar.getInstance();
 		Calendar myCalendar = new GregorianCalendar(2015, 1, 20);
 		Date toDate = myCalendar.getTime();
-//		Date morning = new Date();
-//		Date night = new Date();
-//		morning.setHours(0);
-//		night.setHours(24);
-		
-//		morning.set(Calendar.HOUR_OF_DAY, 0);
-//		night.set(Calendar.HOUR_OF_DAY, 24);
+
+		System.out.println("Receptionist will now try to check you in with your provided credentials");
 		Booking booking = null;
 		boolean bookingExists = true;
 		try {
-		booking = receptionistController.viewAllBookings("Greenman", frDate.getTime(), toDate).get(0);
+			System.out.println("Searching for bookings in your last name, Greenman, between the dates " +frDate.getTime() +" and "+toDate);
+			booking = receptionistController.viewAllBookings("Greenman", frDate.getTime(), toDate).get(0);
 		} catch (Exception ne) {
 			bookingExists = false;
 		}
 		if (bookingExists) {
-		EList<Room> bookedrooms = new BasicEList<Room>();
-		EList<Resident> resList = new BasicEList<Resident>();
-		Resident resOne = receptionistController.createResident("Magne" , "Herne", "8918286545");
-		Resident resTwo = receptionistController.createResident("Alex" , "Herne", "8314286545");
-		Resident resThree = receptionistController.createResident("Joel" , "Herne", "8518286545");
-		Resident resFour = receptionistController.createResident("Niklers" , "Bjirne", "8228286545");
-		resList.add(resOne);
-		resList.add(resTwo);
-		resList.add(resThree);
-		resList.add(resFour);
-		Map<String, Integer> freq = new HashMap<String, Integer>();
+			EList<Room> bookedrooms = new BasicEList<Room>();
+			EList<Resident> resList = new BasicEList<Resident>();
+			Resident resOne = receptionistController.createResident("Magne" , "Herne", "8918286545");
+			Resident resTwo = receptionistController.createResident("Alex" , "Herne", "8314286545");
+			Resident resThree = receptionistController.createResident("Joel" , "Herne", "8518286545");
+			Resident resFour = receptionistController.createResident("Niklers" , "Bjirne", "8228286545");
+			resList.add(resOne);
+			resList.add(resTwo);
+			resList.add(resThree);
+			resList.add(resFour);
+			Map<String, Integer> freq = new HashMap<String, Integer>();
 		for (String roomType : booking.getRoomTypes()) {
 			if (freq.containsKey(roomType)) {
 				freq.put(roomType, freq.get(roomType) + 1);
@@ -97,15 +94,15 @@ public class CustomerChecksIn {
 			EList<Room> room = receptionistController.viewUnOccupiedRooms(entry.getKey());
 			for (int i = 0; i<entry.getValue();i++) {
 				bookedrooms.add(room.get(i));
-				System.out.println("Added a " +room.get(i).getType() +" room to the booking");
+				System.out.println("Added a " +room.get(i).getType() +" room to the booking, this is room " +i+" of " +entry.getValue() +" of this type, \n" + "this room has the number " +room.get(i).getNumber());
 				//Fill rooms with residents
 			}
-			}
+		}
 		for (Room r : bookedrooms) {
 			 for (int i = 0; i < r.getBeds();i++) {
 				r.getResidents().add(resList.get(i));
-				resList.remove(i);
 				System.out.println("Added resident " +resList.get(i).getFirstName() +" to a room in the booking");
+				resList.remove(i);
 			 }
 			 booking.getRoom().add(r);
 		}

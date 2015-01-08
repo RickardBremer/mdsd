@@ -46,11 +46,6 @@ public class CustomerMakesBooking {
 	
 	// create a customer for booking.
 	Customer customer = mf.createCustomer();
-	
-	// create a list of roomTypes
-	EList<String> roomTypes = new BasicEList<String>(); 
-	// create a list of Rooms
-	EList<Room> rooms = new BasicEList<Room>();
 	// promotionCode
 	String promotion = "";
 	// BookingId , will not be used after booking has been created.
@@ -66,37 +61,46 @@ public class CustomerMakesBooking {
 	bookingController.BookingController(roomExpert, bookingExpert, promotionExpert, expenseExpert, receiptExpert);
 	// Create receipt.
 	Receipt r = mf.createReceipt();
-	
+	customer = bookingController.createCustomer("Hulken", "Greenman", "nlarsson10@gmail.com", "Hisingen", "2100000000000000", "000", 12, 17);
+	makeBooking(customer, fDate.getTime(),tDate,"Much Peanuts", "", 1,1,bookingController,r);
+	customer = bookingController.createCustomer("Brown", "Björne", "goran @gmail.com", "Stockolm", "2100000000000000", "000", 12, 17);
+	myCalendar = new GregorianCalendar(2015, 1, 25);
+	tDate = myCalendar.getTime();
+	myCalendar = new GregorianCalendar(2015, 1, 17);
+	Date fromDate = myCalendar.getTime();
+	makeBooking(customer, fromDate,tDate,"Absolutely no peanuts", "", 2,2,bookingController,r);
+	customer = bookingController.createCustomer("Gula", "Gubben", "gula @gmail.com", "Stockolm", "2100000000000000", "000", 12, 17);
+	myCalendar = new GregorianCalendar(2015, 1, 18);
+	tDate = myCalendar.getTime();
+	myCalendar = new GregorianCalendar(2015, 1, 13);
+	fromDate = myCalendar.getTime();
+	makeBooking(customer, fromDate,tDate,"Hide some peanuts in the room", "", 5,5,bookingController,r);
 	// Search for rooms and place available rooms in a list of rooms.
-	rooms = bookingController.searchRooms(fDate.getTime(), tDate, 1, 1);
-	boolean roomsAvailable = true;
-	if (rooms.size() < 1) {
-		roomsAvailable = false;
-	} 
 	
-	if(roomsAvailable) {
-		for(int i = 0; i < rooms.size(); i++){
-			System.out.println(rooms.get(i).getType()); // Debug code
-			if(rooms.get(i).getType().matches("single")){
-				roomTypes.add(rooms.get(i).getType());
-				System.out.println(roomTypes.get(i)); // Debug code
-				i = rooms.size();
+	}
+	
+	private static boolean makeBooking(Customer customer, Date fDate, Date tDate, String wishes,String promotion, int desiredrooms, int guest, BookingController bookingController, Receipt r) {
+		System.out.println("\nCreating a booking for, " +customer.getFirstName() +" " +customer.getSurname() + "\nwho wishes to book " +desiredrooms +" rooms for " +guest +" people" );
+		boolean success = false;
+		EList<String> roomTypes = new BasicEList<String>(); 
+		EList<Room> rooms = new BasicEList<Room>();
+		rooms = bookingController.searchRooms(fDate, tDate, guest,desiredrooms);
+		System.out.println("Rooms size " +rooms.size());
+		if(desiredrooms <= rooms.size()) {
+			for(int i = 0; i < desiredrooms; i++){
+				roomTypes.add(rooms.get(0).getType());		
 			}
-		}
-		
-		// Create a customer.
-		customer = bookingController.createCustomer("Hulken", "Greenman", "nlarsson10@gmail.com", "Hisingen", "2100000000000000", "000", 12, 17);
-		// Create a booking
-		boolean success = bookingController.createBooking(fDate.getTime(), tDate, "Extra peanuts", customer, promotion, r, roomTypes);
-		// Print if the booking was a success or not.
-		if (!success) {
-			System.out.println("The booking could not be performed, are the details correct?");
+			// Create a booking
+			 success = bookingController.createBooking(fDate, tDate, wishes, customer, promotion, r, roomTypes);
+			// Print if the booking was a success or not.
+			if (!success) {
+				System.out.println("The booking could not be performed, are the details correct?");
+			} else {
+				System.out.println("The booking is successful");
+			}
 		} else {
-			System.out.println("The booking is successful");
+			System.out.println("There are not enough rooms available");
 		}
-	} else {
-		System.out.println("There are no rooms available");
+		return success;
 	}
-	}
-	
 }
