@@ -1,5 +1,5 @@
 /**
- * Author: Alexander Ask
+ * 
  */
 package model.impl;
 
