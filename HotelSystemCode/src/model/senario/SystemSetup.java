@@ -27,7 +27,7 @@ import model.impl.ModelFactoryImpl;
 import se.chalmers.cse.mdsd1415.banking.administratorRequires.AdministratorRequires;
 import se.chalmers.cse.mdsd1415.banking.customerRequires.CustomerRequires;
 
-public class AdministratorCreatesRooms {
+public class SystemSetup {
 	public static void main(String[] args) {
 		//Administrate creditcard
 		AdministratorRequires cashAdmin;
